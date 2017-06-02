@@ -379,6 +379,11 @@ public class SectionAActivity extends AppCompatActivity {
         sB.put("mnb7name", mnb7name.getText().toString());
         sB.put("mnb7code", mnb7code.getText().toString());
 
+
+
+
+
+
         return true;
     }
 
