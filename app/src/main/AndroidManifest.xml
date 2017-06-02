@@ -45,6 +45,7 @@
         <activity
             android:name="edu.aku.hassannaqvi.sero_afghanistan.activities.SectionAActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme1"
             android:windowSoftInputMode="adjustResize" />
 
         <activity

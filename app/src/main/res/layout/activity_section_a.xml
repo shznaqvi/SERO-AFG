@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_section_a"
     android:layout_width="match_parent"
@@ -51,6 +52,22 @@
             android:inputType="text" />
 
         <TextView
+            android:id="@+id/lbl_studyid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/studyid"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/studyid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:digits="0123456789"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
             android:id="@+id/lbl_mna1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -97,6 +114,7 @@
             android:ems="10"
             android:inputType="text" />
 
+
         <TextView
             android:id="@+id/lbl_mna4"
             android:layout_width="match_parent"
@@ -104,30 +122,15 @@
             android:text="@string/mna4"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-
-        <EditText
+        <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
             android:id="@+id/mna4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text" />
-
-        <TextView
-            android:id="@+id/lbl_mna5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mna5"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-
-        <EditText
-            android:id="@+id/mna5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text" />
+            android:layout_marginTop="1dp"
+            android:focusable="false"
+            android:hint="@string/mna4"
+            android:textColor="@android:color/black"
+            app:dateFormat="dd/MM/yyyy" />
 
         <TextView
             android:id="@+id/lbl_mna5months"
@@ -410,7 +413,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="text" />
+            android:inputType="number" />
 
         <TextView
             android:id="@+id/lbl_mnb7"
@@ -458,7 +461,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="text" />
+            android:inputType="number" />
 
         <TextView
             android:id="@+id/lbl_mncheading"

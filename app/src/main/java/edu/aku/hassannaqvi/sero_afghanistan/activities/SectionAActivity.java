@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.IdRes;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -24,6 +26,10 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -32,10 +38,13 @@ import edu.aku.hassannaqvi.sero_afghanistan.contracts.FormsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.UCsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
+import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 
-public class SectionAActivity extends Activity {
+public class SectionAActivity extends AppCompatActivity {
 
     private static final String TAG = SectionAActivity.class.getSimpleName();
+
+    String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
 
     @BindView(R.id.activity_section_a)
     ScrollView activitySectionA;
@@ -47,6 +56,8 @@ public class SectionAActivity extends Activity {
     TextView lblMnaheading;
     @BindView(R.id.mnaheading)
     EditText mnaheading;
+    @BindView(R.id.studyid)
+    EditText studyid;
     @BindView(R.id.lbl_mna1)
     TextView lblMna1;
     @BindView(R.id.mna1)
@@ -62,11 +73,7 @@ public class SectionAActivity extends Activity {
     @BindView(R.id.lbl_mna4)
     TextView lblMna4;
     @BindView(R.id.mna4)
-    EditText mna4;
-    @BindView(R.id.lbl_mna5)
-    TextView lblMna5;
-    @BindView(R.id.mna5)
-    EditText mna5;
+    DatePickerInputEditText mna4;
     @BindView(R.id.lbl_mna5months)
     TextView lblMna5months;
     @BindView(R.id.mna5months)
@@ -229,12 +236,31 @@ public class SectionAActivity extends Activity {
     int rdo_mnc4;
     String var_mnc4;
 
+    String dateToday;
+    String maxDateyear;
+
+    Calendar now = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
+
+        mna4.setManager(getSupportFragmentManager());
+
+
+        dateToday = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+        maxDateyear = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_YEAR));
+        mna4.setMaxDate(dateToday);
+
+        mna4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mna4.onFocusChange(v, true);
+            }
+        });
+
     }
 
     @OnClick(R.id.btnNext)
@@ -245,22 +271,216 @@ public class SectionAActivity extends Activity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
+            if (UpdateDB()) {
+                Toast.makeText(this, "Starting Section B", Toast.LENGTH_SHORT).show();
+
+                try {
+                    SaveDraftA();
+                    SaveDraftB();
+                    SaveDraftC();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+                /*Intent secB = new Intent(this, SectionBActivity.class);
+                AppMain.chTotal = Integer.valueOf(mna13.getText().toString()) - 1; // exclude index child
+                startActivity(secB);*/
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
         }
+    }
+
+    private boolean UpdateDB() {
+
+        Long rowId;
+        DatabaseHelper db = new DatabaseHelper(this);
+
+        // 1. INSERT FORM
+        rowId = db.addForm(AppMain.fc);
+
+        AppMain.fc.setID(String.valueOf(rowId));
+
+        if (rowId != null) {
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+            AppMain.fc.setUID(
+                    (AppMain.fc.getDeviceID() + AppMain.fc.getID()));
+            Toast.makeText(this, "Current Form No: " + AppMain.fc.getUID(), Toast.LENGTH_SHORT).show();
+            // 2. UPDATE FORM UID
+            db.updateForms(AppMain.fc.getUID());
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
     }
 
     private boolean SaveDraft() throws JSONException {
 
+        Toast.makeText(this, "Validating Section A, B and C", Toast.LENGTH_SHORT).show();
+
+        AppMain.fc = new FormsContract();
+
+        AppMain.fc.setDeviceID(AppMain.deviceId);
+        AppMain.fc.setUserName(AppMain.username);
+        AppMain.fc.setHHDT(dtToday);
+        AppMain.fc.setstudyid(studyid.getText().toString());
+
+        setGPS();
+
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
+        return true;
+    }
 
+    private boolean SaveDraftA() throws JSONException {
+
+        JSONObject sA = new JSONObject();
+
+        sA.put("mna2", mna2.getText().toString());
+        sA.put("mna3", mna3.getText().toString());
+        sA.put("mna4", mna4.getText().toString());
+        sA.put("mna5days", mna5days.getText().toString());
+        sA.put("mna5months", mna5months.getText().toString());
+
+        rdo_mna6 = mna6.getCheckedRadioButtonId();
+
+        switch (rdo_mna6) {
+            case R.id.mna6_a:
+                var_mna6 = "1";
+                break;
+            case R.id.mna6_b:
+                var_mna6 = "2";
+                break;
+        }
+
+        sA.put("mna6", var_mna6);
 
         return true;
+    }
+
+    private boolean SaveDraftB() throws JSONException {
+
+        JSONObject sB = new JSONObject();
+
+        sB.put("mnb1", mnb1.getText().toString());
+        sB.put("mnb2", mnb2.getText().toString());
+        sB.put("mnb3", mnb3.getText().toString());
+        sB.put("mnb4name", mnb4name.getText().toString());
+        sB.put("mnb4address", mnb4address.getText().toString());
+        sB.put("mnb5walk", mnb5walk.getText().toString());
+        sB.put("mnb5mints", mnb5mints.getText().toString());
+        sB.put("mnb5km", mnb5km.getText().toString());
+        sB.put("mnb6name", mnb6name.getText().toString());
+        sB.put("mnb6code", mnb6code.getText().toString());
+        sB.put("mnb7name", mnb7name.getText().toString());
+        sB.put("mnb7code", mnb7code.getText().toString());
+
+        return true;
+    }
+
+    private boolean SaveDraftC() throws JSONException {
+
+        JSONObject sC = new JSONObject();
+
+        sC.put("mnc1", mnc1.getText().toString());
+
+        rdo_mnc2 = mnc2.getCheckedRadioButtonId();
+
+        switch (rdo_mnc2) {
+            case R.id.mnc2a:
+                var_mnc2 = "1";
+                break;
+            case R.id.mnc2b:
+                var_mnc2 = "2";
+                break;
+            case R.id.mnc2c:
+                var_mnc2 = "3";
+                break;
+            case R.id.mnc2d:
+                var_mnc2 = "4";
+                break;
+            case R.id.mnc2e:
+                var_mnc2 = "5";
+                break;
+            case R.id.mnc288:
+                var_mnc2 = "88";
+                break;
+        }
+
+        sC.put("mnc2", var_mnc2);
+        sC.put("mnc2x", mnc2x.getText().toString());
+        sC.put("mnc3", mnc3.getText().toString());
+        sC.put("mnc3years", mnc3years.getText().toString());
+
+
+        rdo_mnc4 = mnc4.getCheckedRadioButtonId();
+
+        switch (rdo_mnc4) {
+            case R.id.mnc4a:
+                var_mnc4 = "1";
+                break;
+            case R.id.mnc4b:
+                var_mnc4 = "2";
+                break;
+            case R.id.mnc4c:
+                var_mnc4 = "3";
+                break;
+            case R.id.mnc4d:
+                var_mnc4 = "4";
+                break;
+            case R.id.mnc4e:
+                var_mnc4 = "5";
+                break;
+            case R.id.mnc4f:
+                var_mnc4 = "6";
+                break;
+            case R.id.mnc4g:
+                var_mnc4 = "7";
+                break;
+            case R.id.mnc4h:
+                var_mnc4 = "8";
+                break;
+            case R.id.mnc488:
+                var_mnc4 = "88";
+                break;
+        }
+
+
+        sC.put("mnc4", var_mnc4);
+        sC.put("mnc4x", mnc4x.getText().toString());
+
+        return true;
+    }
+
+    public void setGPS() {
+        SharedPreferences GPSPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
+
+        // CONVERTING GPS TIMESTAMP TO DATETIME FORMAT
+        String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
+
+        AppMain.fc.setGpsLat(GPSPref.getString("Latitude", "0"));
+        AppMain.fc.setGpsLng(GPSPref.getString("Longitude", "0"));
+        AppMain.fc.setGpsAcc(GPSPref.getString("Accuracy", "0"));
+        AppMain.fc.setGpsTime(date); // Timestamp is converted to date above
+
+        Toast.makeText(this, "GPS set", Toast.LENGTH_SHORT).show();
     }
 
 
     private boolean ValidateForm() {
 
-        Toast.makeText(this, "Validating Section A, B and C", Toast.LENGTH_SHORT).show();
+        if (studyid.getText().toString().isEmpty() || studyid.getText().toString() == null) {
+            studyid.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "ERROR(empty): Study ID is required ", Toast.LENGTH_LONG).show();
+            studyid.requestFocus();
+            return false;
+        } else {
+            studyid.setError(null);
+        }
 
         if (mna1.getText().toString().isEmpty() || mna1.getText().toString() == null) {
             mna1.setError(getString(R.string.txterr));
@@ -298,14 +518,6 @@ public class SectionAActivity extends Activity {
             mna4.setError(null);
         }
 
-        if (mna5.getText().toString().isEmpty() || mna5.getText().toString() == null) {
-            mna5.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna5), Toast.LENGTH_LONG).show();
-            mna5.requestFocus();
-            return false;
-        } else {
-            mna5.setError(null);
-        }
 
         if (mna5months.getText().toString().isEmpty() || mna5months.getText().toString() == null) {
             mna5months.setError(getString(R.string.txterr));
