@@ -41,34 +41,22 @@ import edu.aku.hassannaqvi.sero_afghanistan.contracts.VillagesContract.VillageTa
  */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String SQL_CREATE_PSU = "CREATE TABLE " + singleChild.TABLE_NAME + "("
-            + singleChild._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + singleChild.COLUMN_PSU + " TEXT,"
-            + singleChild.COLUMN_LUID + " TEXT,"
-            + singleChild.COLUMN_HH + " TEXT,"
-            + singleChild.COLUMN_HH03 + " TEXT,"
-            + singleChild.COLUMN_HH07 + " TEXT,"
-            + singleChild.COLUMN_CHILD_NAME + " TEXT );";
+
     public static final String SQL_CREATE_USERS = "CREATE TABLE " + singleUser.TABLE_NAME + "("
             + singleUser._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + singleUser.ROW_USERNAME + " TEXT,"
             + singleUser.ROW_PASSWORD + " TEXT );";
+
     public static final String DATABASE_NAME = "seroafg.db";
     public static final String DB_NAME = "seroafg_copy.db";
     private static final int DATABASE_VERSION = 1;
+
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + singleForm.TABLE_NAME + "("
             + singleForm.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             singleForm.COLUMN_UID + " TEXT," +
             singleForm.COLUMN_HHDT + " TEXT," +
-            singleForm.COLUMN_TEHSIL + " TEXT," +
-            singleForm.COLUMN_HFACILITY + " TEXT," +
-            singleForm.COLUMN_LHWCODE + " TEXT," +
-            singleForm.COLUMN_HOUSEHOLD + " TEXT," +
-            singleForm.COLUMN_CHILDID + " TEXT," +
-            singleForm.COLUMN_UCCODE + " TEXT," +
-            singleForm.COLUMN_VILLAGENAME + " TEXT," +
-            singleForm.COLUMN_ISTATUS + " TEXT," +
+            singleForm.COLUMN_STUDYID + " TEXT," +
             singleForm.COLUMN_NAME_USERNAME + " TEXT," +
             singleForm.COLUMN_DEVICETAGID + " TEXT," +
             singleForm.COLUMN_SA + " TEXT," +
@@ -95,45 +83,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + " );";
     private static final String SQL_DELETE_FORMS = "DROP TABLE IF EXISTS " + singleForm.TABLE_NAME;
     private static final String SQL_DELETE_USERS = "DROP TABLE IF EXISTS " + singleUser.TABLE_NAME;
-    private static final String SQL_DELETE_PSUS = "DROP TABLE IF EXISTS " + singleChild.TABLE_NAME;
+
     public static String DB_FORM_ID;
     public static String DB_IMS_ID;
-    final String SQL_CREATE_TEHSIL_TABLE = "CREATE TABLE " + TehsilTable.TABLE_NAME + " (" +
-            TehsilTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            TehsilTable.COLUMN_TEHSIL_CODE + " TEXT, " +
-            TehsilTable.COLUMN_TEHSIL_NAME + " TEXT " +
-            ");";
-    final String SQL_CREATE_H_FACILIY_TABLE = "CREATE TABLE " + HFacilityTable.TABLE_NAME + " (" +
-            HFacilityTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            HFacilityTable.COLUMN_HFACILITY_CODE + " TEXT, " +
-            HFacilityTable.COLUMN_TEHSIL_CODE + " TEXT, " +
-            HFacilityTable.COLUMN_HFACILITY_NAME + " TEXT " +
-            ");";
-    final String SQL_CREATE_UC_TABLE = "CREATE TABLE " + UcTable.TABLE_NAME + " (" +
-            UcTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            UcTable.COLUMN_TEHSIL_CODE + " TEXT, " +
-            UcTable.COLUMN_UC_NAME + " TEXT, " +
-            UcTable.COLUMN_UC_CODE + " TEXT " +
-            ");";
-    final String SQL_CREATE_SOURCE_TABLE = "CREATE TABLE " + SourceTable.TABLE_NAME + " (" +
-            SourceTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            SourceTable.COLUMN_SOURCE_CODE + " TEXT, " +
-            SourceTable.COLUMN_SOURCE_NAME + " TEXT " +
-            ");";
-    final String SQL_CREATE_VILLAGE_TABLE = "CREATE TABLE " + VillageTable.TABLE_NAME + " (" +
-            VillageTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            VillageTable.COLUMN_VILLAGE_CODE + " TEXT, " +
-            VillageTable.COLUMN_VILLAGE_NAME + " TEXT, " +
-            VillageTable.COLUMN_UC_CODE + " TEXT " +
-            ");";
-    final String SQL_CREATE_LHW_TABLE = "CREATE TABLE " + LHWTable.TABLE_NAME + " (" +
-            LHWTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            LHWTable.COLUMN_LHW_CODE + " TEXT, " +
-            LHWTable.COLUMN_LHW_NAME + " TEXT, " +
-            LHWTable.COLUMN_AREA_TYPE + " TEXT, " +
-            LHWTable.COLUMN_STATUS + " TEXT, " +
-            LHWTable.COLUMN_HF_CODE + " TEXT " +
-            ");";
+
+
     private final String TAG = "DatabaseHelper";
     public String spDateT = new SimpleDateFormat("dd-MM-yy").format(new Date().getTime());
 
@@ -146,27 +100,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_FORMS);
         db.execSQL(SQL_CREATE_USERS);
-        db.execSQL(SQL_CREATE_PSU);
-        db.execSQL(SQL_CREATE_TEHSIL_TABLE);
-        db.execSQL(SQL_CREATE_UC_TABLE);
-        db.execSQL(SQL_CREATE_VILLAGE_TABLE);
-        db.execSQL(SQL_CREATE_H_FACILIY_TABLE);
-        db.execSQL(SQL_CREATE_LHW_TABLE);
-        db.execSQL(SQL_CREATE_SOURCE_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(SQL_DELETE_FORMS);
         db.execSQL(SQL_DELETE_USERS);
-        db.execSQL(SQL_DELETE_PSUS);
-
-        db.execSQL(TehsilTable.TABLE_NAME);
-        db.execSQL(UcTable.TABLE_NAME);
-        db.execSQL(VillageTable.TABLE_NAME);
-        db.execSQL(HFacilityTable.TABLE_NAME);
-        db.execSQL(LHWTable.TABLE_NAME);
-        db.execSQL(SourceTable.TABLE_NAME);
 
         onCreate(db);
     }
@@ -179,13 +118,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
         values.put(singleForm.COLUMN_HHDT, fc.getHhDT());
-        values.put(singleForm.COLUMN_TEHSIL, fc.getTehsil());
-        values.put(singleForm.COLUMN_HFACILITY, fc.gethFacility());
-        values.put(singleForm.COLUMN_LHWCODE, fc.getLhwCode());
-        values.put(singleForm.COLUMN_HOUSEHOLD, fc.getHouseHold());
-        values.put(singleForm.COLUMN_CHILDID, fc.getChildId());
-        values.put(singleForm.COLUMN_UCCODE, fc.getUccode());
-        values.put(singleForm.COLUMN_VILLAGENAME, fc.getVillagename());
+        values.put(singleForm.COLUMN_STUDYID, fc.getChildId());
         values.put(singleForm.COLUMN_ISTATUS, fc.getiStatus());
         values.put(singleForm.COLUMN_NAME_USERNAME, fc.getUserName());
         values.put(singleForm.COLUMN_DEVICETAGID, fc.getTagId());
@@ -266,13 +199,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleForm.COLUMN_ID,
                 singleForm.COLUMN_UID,
                 singleForm.COLUMN_HHDT,
-                singleForm.COLUMN_TEHSIL,
-                singleForm.COLUMN_HFACILITY,
-                singleForm.COLUMN_LHWCODE,
-                singleForm.COLUMN_HOUSEHOLD,
-                singleForm.COLUMN_CHILDID,
-                singleForm.COLUMN_UCCODE,
-                singleForm.COLUMN_VILLAGENAME,
                 singleForm.COLUMN_ISTATUS,
                 singleForm.COLUMN_NAME_USERNAME,
                 singleForm.COLUMN_DEVICETAGID,
@@ -339,13 +265,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleForm.COLUMN_ID,
                 singleForm.COLUMN_UID,
                 singleForm.COLUMN_HHDT,
-                singleForm.COLUMN_TEHSIL,
-                singleForm.COLUMN_HFACILITY,
-                singleForm.COLUMN_LHWCODE,
-                singleForm.COLUMN_HOUSEHOLD,
-                singleForm.COLUMN_CHILDID,
-                singleForm.COLUMN_UCCODE,
-                singleForm.COLUMN_VILLAGENAME,
                 singleForm.COLUMN_ISTATUS,
                 singleForm.COLUMN_NAME_USERNAME,
                 singleForm.COLUMN_DEVICETAGID,

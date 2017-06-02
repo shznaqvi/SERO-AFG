@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/SERO-AFG.iml" filepath="$PROJECT_DIR$/SERO-AFG.iml" />
       <module fileurl="file://$PROJECT_DIR$/SERO-Afghanistan.iml" filepath="$PROJECT_DIR$/SERO-Afghanistan.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

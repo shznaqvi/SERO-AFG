@@ -46,7 +46,7 @@
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:paddingTop">16dp</item>
         <item name="android:typeface">serif</item>
-        <item name="android:textSize">20sp</item> <!--or 16sp-->
+        <item name="android:textSize">24sp</item> <!--or 16sp-->
         <item name="android:elevation">1dp</item>
         <item name="android:paddingStart">8dp</item>
     </style>
@@ -54,7 +54,7 @@
     <!--HELPER-TEXT-->
     <style name="helperText" parent="android:Widget.Material.Light.TextView">
         <item name="android:typeface">serif</item>
-        <item name="android:textSize">16sp</item> <!--or 14sp-->
+        <item name="android:textSize">20sp</item> <!--or 14sp-->
         <item name="android:paddingTop">8dp</item>
         <item name="android:textColor">#B3ffffff</item>
         <item name="android:paddingStart">16dp</item>
@@ -68,7 +68,7 @@
         <item name="android:paddingStart">8dp</item>
         <item name="android:paddingEnd">8dp</item>
         <item name="android:typeface">serif</item>
-        <item name="android:textSize">20sp</item> <!--or 16sp-->
+        <item name="android:textSize">24sp</item> <!--or 16sp-->
         <item name="android:background">#d6d6d6</item>
 
     </style>
@@ -78,7 +78,7 @@
         <item name="android:padding">@dimen/activity_horizontal_margin</item>
         <item name="android:layout_marginTop">@dimen/activity_horizontal_margin</item>
         <item name="android:typeface">serif</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:elevation">2dp</item>
 
 
@@ -87,7 +87,7 @@
     <style name="btnRadioButton" parent="android:Widget.Material.Light.CompoundButton.RadioButton">
         <item name="android:background">#d6d6d6</item>
         <item name="android:typeface">serif</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:textColorPrimaryDisableOnly">@color/white</item>
 
     </style>
@@ -106,7 +106,7 @@
     </style>
 
     <style name="chkBox" parent="android:Widget.Material.Light.CompoundButton.CheckBox">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:typeface">serif</item>
         <item name="android:background">#d6d6d6</item>
         <item name="android:textColorPrimaryDisableOnly">@color/white</item>

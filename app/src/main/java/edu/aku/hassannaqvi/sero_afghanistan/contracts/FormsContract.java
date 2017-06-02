@@ -59,13 +59,6 @@ public class FormsContract {
         this.ID = jsonObject.getString(singleForm.COLUMN_ID);
         this.UID = jsonObject.getString(singleForm.COLUMN_UID);
         this.hhDT = jsonObject.getString(singleForm.COLUMN_HHDT);
-        this.tehsil = jsonObject.getString(singleForm.COLUMN_TEHSIL);
-        this.hFacility = jsonObject.getString(singleForm.COLUMN_HFACILITY);
-        this.lhwCode = jsonObject.getString(singleForm.COLUMN_LHWCODE);
-        this.houseHold = jsonObject.getString(singleForm.COLUMN_HOUSEHOLD);
-        this.childId = jsonObject.getString(singleForm.COLUMN_CHILDID);
-        this.uccode = jsonObject.getString(singleForm.COLUMN_UCCODE);
-        this.villagename = jsonObject.getString(singleForm.COLUMN_VILLAGENAME);
         this.iStatus = jsonObject.getString(singleForm.COLUMN_ISTATUS);
         this.userName = jsonObject.getString(singleForm.COLUMN_NAME_USERNAME);
         this.tagId = jsonObject.getString(singleForm.COLUMN_DEVICETAGID);
@@ -381,13 +374,6 @@ public class FormsContract {
         this.ID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_ID));
         this.UID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_UID));
         this.hhDT = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_HHDT));
-        this.tehsil = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_TEHSIL));
-        this.hFacility = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_HFACILITY));
-        this.lhwCode = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_LHWCODE));
-        this.houseHold = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_HOUSEHOLD));
-        this.childId = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_CHILDID));
-        this.uccode = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_UCCODE));
-        this.villagename = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_VILLAGENAME));
         this.iStatus = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_ISTATUS));
         this.userName = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_NAME_USERNAME));
         this.tagId = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_DEVICETAGID));
@@ -426,13 +412,6 @@ public class FormsContract {
         json.put(singleForm.COLUMN_ID, this.ID == null ? JSONObject.NULL : this.ID);
         json.put(singleForm.COLUMN_UID, this.UID == null ? JSONObject.NULL : this.UID);
         json.put(singleForm.COLUMN_HHDT, this.hhDT == null ? JSONObject.NULL : this.hhDT);
-        json.put(singleForm.COLUMN_TEHSIL, this.tehsil == null ? JSONObject.NULL : this.tehsil);
-        json.put(singleForm.COLUMN_HFACILITY, this.hFacility == null ? JSONObject.NULL : this.hFacility);
-        json.put(singleForm.COLUMN_LHWCODE, this.lhwCode == null ? JSONObject.NULL : this.lhwCode);
-        json.put(singleForm.COLUMN_HOUSEHOLD, this.houseHold == null ? JSONObject.NULL : this.houseHold);
-        json.put(singleForm.COLUMN_CHILDID, this.childId == null ? JSONObject.NULL : this.childId);
-        json.put(singleForm.COLUMN_UCCODE, this.uccode == null ? JSONObject.NULL : this.uccode);
-        json.put(singleForm.COLUMN_VILLAGENAME, this.villagename == null ? JSONObject.NULL : this.villagename);
         json.put(singleForm.COLUMN_ISTATUS, this.iStatus == null ? JSONObject.NULL : this.iStatus);
         json.put(singleForm.COLUMN_NAME_USERNAME, this.userName == null ? JSONObject.NULL : this.userName);
         json.put(singleForm.COLUMN_DEVICETAGID, this.tagId == null ? JSONObject.NULL : this.tagId);
@@ -494,13 +473,7 @@ public class FormsContract {
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "uid";
         public static final String COLUMN_HHDT = "hhdt";
-        public static final String COLUMN_TEHSIL = "tehsil";
-        public static final String COLUMN_HFACILITY = "hfacility";
-        public static final String COLUMN_LHWCODE = "lhwcode";
-        public static final String COLUMN_HOUSEHOLD = "household";
-        public static final String COLUMN_CHILDID = "childid";
-        public static final String COLUMN_UCCODE = "uccode";
-        public static final String COLUMN_VILLAGENAME = "villagename";
+        public static final String COLUMN_STUDYID = "childid";
         public static final String COLUMN_ISTATUS = "istatus";
         public static final String COLUMN_NAME_USERNAME = "username";
         public static final String COLUMN_DEVICETAGID = "tagId";
@@ -528,5 +501,3 @@ public class FormsContract {
 
     }
 }
-
-
