@@ -28,28 +28,12 @@
             android:text="@string/mainhead"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <EditText
-            android:id="@+id/mainhead"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text" />
-
         <TextView
             android:id="@+id/lbl_mnaheading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/mnaheading"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <EditText
-            android:id="@+id/mnaheading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text" />
 
         <TextView
             android:id="@+id/lbl_studyid"
@@ -79,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
             android:ems="10"
             android:inputType="text" />
 
@@ -95,6 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
             android:ems="10"
             android:inputType="text" />
 
@@ -111,9 +97,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
             android:ems="10"
             android:inputType="text" />
-
 
         <TextView
             android:id="@+id/lbl_mna4"
@@ -145,8 +131,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="0123456789"
             android:ems="10"
-            android:inputType="text" />
+            android:inputType="number" />
 
         <TextView
             android:id="@+id/lbl_mna5days"
@@ -161,8 +148,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="0123456789"
             android:ems="10"
-            android:inputType="text" />
+            android:inputType="number" />
 
         <TextView
             android:id="@+id/lbl_mna6"
@@ -198,15 +186,6 @@
             android:text="@string/mnbheading"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-
-        <EditText
-            android:id="@+id/mnbheading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text" />
-
         <TextView
             android:id="@+id/lbl_mnb1"
             android:layout_width="match_parent"
@@ -220,6 +199,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
             android:ems="10"
             android:inputType="text" />
 
@@ -236,6 +216,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
             android:ems="10"
             android:inputType="text" />
 
@@ -252,6 +233,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
             android:ems="10"
             android:inputType="text" />
 
@@ -262,14 +244,6 @@
             android:text="@string/mnb4"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-
-        <EditText
-            android:id="@+id/mnb4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text" />
 
         <TextView
             android:id="@+id/lbl_mnb4name"
@@ -284,6 +258,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
             android:ems="10"
             android:inputType="text" />
 
@@ -300,6 +275,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
             android:ems="10"
             android:inputType="text" />
 
@@ -309,15 +285,6 @@
             android:layout_height="wrap_content"
             android:text="@string/mnb5"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
-
-        <EditText
-            android:id="@+id/mnb5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text" />
 
         <TextView
             android:id="@+id/lbl_mnb5walk"
@@ -332,8 +299,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="0123456789"
             android:ems="10"
-            android:inputType="text" />
+            android:inputType="numberDecimal" />
 
         <TextView
             android:id="@+id/lbl_mnb5mints"
@@ -348,8 +316,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="0123456789"
             android:ems="10"
-            android:inputType="text" />
+            android:inputType="numberDecimal" />
 
         <TextView
             android:id="@+id/lbl_mnb5km"
@@ -364,8 +333,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="0123456789"
             android:ems="10"
-            android:inputType="text" />
+            android:inputType="numberDecimal" />
 
         <TextView
             android:id="@+id/lbl_mnb6"
@@ -374,15 +344,6 @@
             android:text="@string/mnb6"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-
-        <EditText
-            android:id="@+id/mnb6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text" />
-
         <TextView
             android:id="@+id/lbl_mnb6name"
             android:layout_width="match_parent"
@@ -390,12 +351,12 @@
             android:text="@string/mnb6name"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-
         <EditText
             android:id="@+id/mnb6name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
             android:ems="10"
             android:inputType="text" />
 
@@ -412,6 +373,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="0123456789"
             android:ems="10"
             android:inputType="number" />
 
@@ -421,15 +383,6 @@
             android:layout_height="wrap_content"
             android:text="@string/mnb7"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
-
-        <EditText
-            android:id="@+id/mnb7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text" />
 
         <TextView
             android:id="@+id/lbl_mnb7name"
@@ -444,6 +397,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
             android:ems="10"
             android:inputType="text" />
 
@@ -467,17 +421,9 @@
             android:id="@+id/lbl_mncheading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:digits="0123456789"
             android:text="@string/mncheading"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
-
-        <EditText
-            android:id="@+id/mncheading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text" />
 
         <TextView
             android:id="@+id/lbl_mnc1"
@@ -492,6 +438,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
             android:ems="10"
             android:inputType="text" />
 
@@ -501,7 +448,6 @@
             android:layout_height="wrap_content"
             android:text="@string/mnc2"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
 
         <RadioGroup
             android:id="@+id/mnc2"
@@ -566,6 +512,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
                 android:ems="10"
                 android:inputType="text" />
 
@@ -584,8 +531,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="0123456789"
             android:ems="10"
-            android:inputType="text" />
+            android:inputType="number" />
 
         <TextView
             android:id="@+id/lbl_mnc3years"
@@ -600,8 +548,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="0123456789"
             android:ems="10"
-            android:inputType="text" />
+            android:inputType="number" />
 
         <TextView
             android:id="@+id/lbl_mnc4"
@@ -609,7 +558,6 @@
             android:layout_height="wrap_content"
             android:text="@string/mnc4"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
 
         <RadioGroup
             android:id="@+id/mnc4"
@@ -691,6 +639,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
                 android:ems="10"
                 android:inputType="text" />
 

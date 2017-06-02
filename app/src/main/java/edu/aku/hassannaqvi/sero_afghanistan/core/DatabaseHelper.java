@@ -66,13 +66,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             singleForm.COLUMN_SE + " TEXT," +
             singleForm.COLUMN_SF + " TEXT," +
             singleForm.COLUMN_SG + " TEXT," +
-            singleForm.COLUMN_SH + " TEXT," +
-            singleForm.COLUMN_SI + " TEXT," +
-            singleForm.COLUMN_SJ + " TEXT," +
-            singleForm.COLUMN_SK + " TEXT," +
-            singleForm.COLUMN_SL + " TEXT," +
-            singleForm.COLUMN_SM + " TEXT," +
-            singleForm.COLUMN_SN + " TEXT," +
             singleForm.COLUMN_GPSLAT + " TEXT," +
             singleForm.COLUMN_GPSLNG + " TEXT," +
             singleForm.COLUMN_GPSTIME + " TEXT," +
@@ -85,7 +78,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String SQL_DELETE_USERS = "DROP TABLE IF EXISTS " + singleUser.TABLE_NAME;
 
     public static String DB_FORM_ID;
-    public static String DB_IMS_ID;
 
 
     private final String TAG = "DatabaseHelper";
@@ -104,10 +96,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(SQL_DELETE_FORMS);
-        db.execSQL(SQL_DELETE_USERS);
+        //db.execSQL(SQL_DELETE_FORMS);
+        //db.execSQL(SQL_DELETE_USERS);
 
-        onCreate(db);
+        //onCreate(db);
     }
 
     public Long addForm(FormsContract fc) {
@@ -128,6 +120,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(singleForm.COLUMN_SE, fc.getsE());
         values.put(singleForm.COLUMN_SF, fc.getsF());
         values.put(singleForm.COLUMN_SG, fc.getsG());
+        values.put(singleForm.COLUMN_UID, fc.getUID());
         values.put(singleForm.COLUMN_GPSLAT, fc.getGpsLat());
         values.put(singleForm.COLUMN_GPSLNG, fc.getGpsLng());
         values.put(singleForm.COLUMN_GPSTIME, fc.getGpsTime());
@@ -163,6 +156,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selectionArgs);
         return count;
     }
+
+    public int updateSectionsABC() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(singleForm.COLUMN_SA, AppMain.fc.getsA());
+        values.put(singleForm.COLUMN_SB, AppMain.fc.getsB());
+        values.put(singleForm.COLUMN_SC, AppMain.fc.getsC());
+
+// Which row to update, based on the ID
+        String selection = singleForm._ID + " = ";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
+
+        int count = db.update(singleForm.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
 
     public void updateForms(String id) {
         SQLiteDatabase db = this.getReadableDatabase();

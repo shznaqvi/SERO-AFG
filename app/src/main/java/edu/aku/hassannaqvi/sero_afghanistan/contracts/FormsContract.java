@@ -17,13 +17,10 @@ public class FormsContract {
     private final String projectName = "SERO - AFGHANISTAN";
     private final String surveyType = "SN";
     private String HHDT = "";
-
     private String userName = "";
     private String ID = "";
     private String UID = "";
-
     private String studyid = "";
-
     private String tagId = "";
     private String sA = "";
     private String sB = "";
@@ -32,7 +29,6 @@ public class FormsContract {
     private String sE = "";
     private String sF = "";
     private String sG = "";
-
     private String gpsLat = "";
     private String gpsLng = "";
     private String gpsTime = "";

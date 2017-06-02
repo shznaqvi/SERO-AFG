@@ -2,24 +2,17 @@ package edu.aku.hassannaqvi.sero_afghanistan.activities;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.annotation.IdRes;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,7 +28,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.sero_afghanistan.R;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.FormsContract;
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.UCsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
 import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
@@ -50,12 +42,8 @@ public class SectionAActivity extends AppCompatActivity {
     ScrollView activitySectionA;
     @BindView(R.id.lbl_mainhead)
     TextView lblMainhead;
-    @BindView(R.id.mainhead)
-    EditText mainhead;
     @BindView(R.id.lbl_mnaheading)
     TextView lblMnaheading;
-    @BindView(R.id.mnaheading)
-    EditText mnaheading;
     @BindView(R.id.studyid)
     EditText studyid;
     @BindView(R.id.lbl_mna1)
@@ -92,8 +80,6 @@ public class SectionAActivity extends AppCompatActivity {
     RadioButton mna6B;
     @BindView(R.id.lbl_mnbheading)
     TextView lblMnbheading;
-    @BindView(R.id.mnbheading)
-    EditText mnbheading;
     @BindView(R.id.lbl_mnb1)
     TextView lblMnb1;
     @BindView(R.id.mnb1)
@@ -108,8 +94,6 @@ public class SectionAActivity extends AppCompatActivity {
     EditText mnb3;
     @BindView(R.id.lbl_mnb4)
     TextView lblMnb4;
-    @BindView(R.id.mnb4)
-    EditText mnb4;
     @BindView(R.id.lbl_mnb4name)
     TextView lblMnb4name;
     @BindView(R.id.mnb4name)
@@ -120,8 +104,6 @@ public class SectionAActivity extends AppCompatActivity {
     EditText mnb4address;
     @BindView(R.id.lbl_mnb5)
     TextView lblMnb5;
-    @BindView(R.id.mnb5)
-    EditText mnb5;
     @BindView(R.id.lbl_mnb5walk)
     TextView lblMnb5walk;
     @BindView(R.id.mnb5walk)
@@ -136,8 +118,6 @@ public class SectionAActivity extends AppCompatActivity {
     EditText mnb5km;
     @BindView(R.id.lbl_mnb6)
     TextView lblMnb6;
-    @BindView(R.id.mnb6)
-    EditText mnb6;
     @BindView(R.id.lbl_mnb6name)
     TextView lblMnb6name;
     @BindView(R.id.mnb6name)
@@ -148,8 +128,6 @@ public class SectionAActivity extends AppCompatActivity {
     EditText mnb6code;
     @BindView(R.id.lbl_mnb7)
     TextView lblMnb7;
-    @BindView(R.id.mnb7)
-    EditText mnb7;
     @BindView(R.id.lbl_mnb7name)
     TextView lblMnb7name;
     @BindView(R.id.mnb7name)
@@ -160,8 +138,6 @@ public class SectionAActivity extends AppCompatActivity {
     EditText mnb7code;
     @BindView(R.id.lbl_mncheading)
     TextView lblMncheading;
-    @BindView(R.id.mncheading)
-    EditText mncheading;
     @BindView(R.id.lbl_mnc1)
     TextView lblMnc1;
     @BindView(R.id.mnc1)
@@ -261,6 +237,34 @@ public class SectionAActivity extends AppCompatActivity {
             }
         });
 
+
+        mnc2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (mnc288.isChecked()) {
+                    fldGrpmnc2x.setVisibility(View.VISIBLE);
+                    mnc2x.requestFocus();
+                } else {
+                    mnc2x.setText(null);
+                    fldGrpmnc2x.setVisibility(View.GONE);
+                }
+            }
+        });
+
+
+        mnc4.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (mnc488.isChecked()) {
+                    fldGrpmnc4x.setVisibility(View.VISIBLE);
+                    mnc4x.requestFocus();
+                } else {
+                    mnc4x.setText(null);
+                    fldGrpmnc4x.setVisibility(View.GONE);
+                }
+            }
+        });
+
     }
 
     @OnClick(R.id.btnNext)
@@ -268,21 +272,15 @@ public class SectionAActivity extends AppCompatActivity {
         if (ValidateForm()) {
             try {
                 SaveDraft();
+                SaveDraftA();
+                SaveDraftB();
+                SaveDraftC();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
             if (UpdateDB()) {
                 Toast.makeText(this, "Starting Section B", Toast.LENGTH_SHORT).show();
-
-                try {
-                    SaveDraftA();
-                    SaveDraftB();
-                    SaveDraftC();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
 
                 /*Intent secB = new Intent(this, SectionBActivity.class);
                 AppMain.chTotal = Integer.valueOf(mna13.getText().toString()) - 1; // exclude index child
@@ -308,8 +306,8 @@ public class SectionAActivity extends AppCompatActivity {
             AppMain.fc.setUID(
                     (AppMain.fc.getDeviceID() + AppMain.fc.getID()));
             Toast.makeText(this, "Current Form No: " + AppMain.fc.getUID(), Toast.LENGTH_SHORT).show();
-            // 2. UPDATE FORM UID
-            db.updateForms(AppMain.fc.getUID());
+            // 2. UPDATE FORM ROWID
+            //db.updateSectionsABC();
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
@@ -359,6 +357,8 @@ public class SectionAActivity extends AppCompatActivity {
 
         sA.put("mna6", var_mna6);
 
+        AppMain.fc.setsA(String.valueOf(sA));
+
         return true;
     }
 
@@ -379,14 +379,7 @@ public class SectionAActivity extends AppCompatActivity {
         sB.put("mnb7name", mnb7name.getText().toString());
         sB.put("mnb7code", mnb7code.getText().toString());
 
-
-
-
-
-
-
-
-
+        AppMain.fc.setsB(String.valueOf(sB));
 
         return true;
     }
@@ -461,6 +454,8 @@ public class SectionAActivity extends AppCompatActivity {
 
         sC.put("mnc4", var_mnc4);
         sC.put("mnc4x", mnc4x.getText().toString());
+
+        AppMain.fc.setsC(String.valueOf(sC));
 
         return true;
     }
@@ -594,14 +589,6 @@ public class SectionAActivity extends AppCompatActivity {
             mnb3.setError(null);
         }
 
-        if (mnb4.getText().toString().isEmpty() || mnb4.getText().toString() == null) {
-            mnb4.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb4), Toast.LENGTH_LONG).show();
-            mnb4.requestFocus();
-            return false;
-        } else {
-            mnb4.setError(null);
-        }
 
         if (mnb4name.getText().toString().isEmpty() || mnb4name.getText().toString() == null) {
             mnb4name.setError(getString(R.string.txterr));
@@ -621,14 +608,6 @@ public class SectionAActivity extends AppCompatActivity {
             mnb4address.setError(null);
         }
 
-        if (mnb5.getText().toString().isEmpty() || mnb5.getText().toString() == null) {
-            mnb5.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb5), Toast.LENGTH_LONG).show();
-            mnb5.requestFocus();
-            return false;
-        } else {
-            mnb5.setError(null);
-        }
 
         if (mnb5walk.getText().toString().isEmpty() || mnb5walk.getText().toString() == null) {
             mnb5walk.setError(getString(R.string.txterr));
@@ -657,14 +636,6 @@ public class SectionAActivity extends AppCompatActivity {
             mnb5km.setError(null);
         }
 
-        if (mnb6.getText().toString().isEmpty() || mnb6.getText().toString() == null) {
-            mnb6.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb6), Toast.LENGTH_LONG).show();
-            mnb6.requestFocus();
-            return false;
-        } else {
-            mnb6.setError(null);
-        }
 
         if (mnb6name.getText().toString().isEmpty() || mnb6name.getText().toString() == null) {
             mnb6name.setError(getString(R.string.txterr));
@@ -684,14 +655,6 @@ public class SectionAActivity extends AppCompatActivity {
             mnb6code.setError(null);
         }
 
-        if (mnb7.getText().toString().isEmpty() || mnb7.getText().toString() == null) {
-            mnb7.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb7), Toast.LENGTH_LONG).show();
-            mnb7.requestFocus();
-            return false;
-        } else {
-            mnb7.setError(null);
-        }
 
         if (mnb7name.getText().toString().isEmpty() || mnb7name.getText().toString() == null) {
             mnb7name.setError(getString(R.string.txterr));
@@ -840,5 +803,4 @@ public class SectionAActivity extends AppCompatActivity {
 
         return true;
     }
-
 }
