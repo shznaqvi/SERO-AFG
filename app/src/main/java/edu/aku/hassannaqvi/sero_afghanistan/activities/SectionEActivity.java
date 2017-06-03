@@ -228,11 +228,6 @@ public class SectionEActivity extends Activity {
                 break;
         }
 
-
-
-
-
-
         sE.put("mne1", var_mne1);
         sE.put("mne2", var_mne2);
         sE.put("mne3", var_mne3);
