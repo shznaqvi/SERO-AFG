@@ -169,7 +169,6 @@ public class SectionEActivity extends Activity {
 
         JSONObject sE = new JSONObject();
 
-
         rdo_mne1 = mne1.getCheckedRadioButtonId();
 
         switch (rdo_mne1) {
@@ -228,6 +227,10 @@ public class SectionEActivity extends Activity {
                 var_mne4 = "99";
                 break;
         }
+
+
+
+
 
 
         sE.put("mne1", var_mne1);
