@@ -180,25 +180,43 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
                 android:onClick="openA"
-                android:text="Section A" />
+                android:text="Section A, B and C" />
 
-            <Button
-                android:id="@+id/openB"
+            <LinearLayout
+                android:id="@+id/fldGrpsecB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="16dp"
-                android:onClick="openB"
-                android:text="Section B" />
+                android:orientation="vertical"
+                android:visibility="gone">
 
-            <Button
-                android:id="@+id/openC"
+                <Button
+                    android:id="@+id/openB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="16dp"
+                    android:onClick="openB"
+                    android:text="Section B" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fldGrpsecC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="16dp"
-                android:onClick="openC"
-                android:text="Section C" />
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/openC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="16dp"
+                    android:onClick="openC"
+                    android:text="Section C" />
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/openD"
@@ -209,14 +227,23 @@
                 android:onClick="openD"
                 android:text="Section D" />
 
-            <Button
-                android:id="@+id/openIM"
+            <LinearLayout
+                android:id="@+id/fldGrpsecIM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="16dp"
-                android:onClick="openIM"
-                android:text="Section IM" />
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/openIM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="16dp"
+                    android:onClick="openIM"
+                    android:text="Section IM" />
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/openE"
@@ -246,14 +273,23 @@
                 android:onClick="openG"
                 android:text="Section G" />
 
-            <Button
-                android:id="@+id/openEnd"
+            <LinearLayout
+                android:id="@+id/fldGrpsecEND"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="16dp"
-                android:onClick="openEnd"
-                android:text="Section End" />
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/openEnd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="16dp"
+                    android:onClick="openEnd"
+                    android:text="Section End" />
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/openDB"

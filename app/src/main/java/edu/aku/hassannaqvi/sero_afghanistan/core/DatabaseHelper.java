@@ -109,7 +109,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(singleForm.COLUMN_HHDT, fc.getHHDT());
+        values.put(singleForm.COLUMN_HHDT, fc.getFormDate());
         values.put(singleForm.COLUMN_STUDYID, fc.getstudyid());
         values.put(singleForm.COLUMN_NAME_USERNAME, fc.getUserName());
         values.put(singleForm.COLUMN_DEVICETAGID, fc.getTagId());
@@ -167,7 +167,83 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(singleForm.COLUMN_SC, AppMain.fc.getsC());
 
 // Which row to update, based on the ID
-        String selection = singleForm._ID + " = ";
+        String selection = singleForm._ID + " = ? ";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
+
+        int count = db.update(singleForm.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+
+    public int updateSectionsD() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(singleForm.COLUMN_SD, AppMain.fc.getsD());
+
+// Which row to update, based on the ID
+        String selection = singleForm._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
+
+        int count = db.update(singleForm.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+
+    public int updateSectionsE() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(singleForm.COLUMN_SE, AppMain.fc.getsE());
+
+// Which row to update, based on the ID
+        String selection = singleForm._ID + " = ? ";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
+
+        int count = db.update(singleForm.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+
+    public int updateSectionsF() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(singleForm.COLUMN_SF, AppMain.fc.getsF());
+
+// Which row to update, based on the ID
+        String selection = singleForm._ID + " = ? ";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
+
+        int count = db.update(singleForm.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+
+    public int updateSectionsG() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(singleForm.COLUMN_SG, AppMain.fc.getsG());
+
+// Which row to update, based on the ID
+        String selection = singleForm._ID + " = ?";
         String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
 
         int count = db.update(singleForm.TABLE_NAME,
@@ -215,13 +291,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleForm.COLUMN_SE,
                 singleForm.COLUMN_SF,
                 singleForm.COLUMN_SG,
-                singleForm.COLUMN_SH,
-                singleForm.COLUMN_SI,
-                singleForm.COLUMN_SJ,
-                singleForm.COLUMN_SK,
-                singleForm.COLUMN_SL,
-                singleForm.COLUMN_SM,
-                singleForm.COLUMN_SN,
                 singleForm.COLUMN_GPSLAT,
                 singleForm.COLUMN_GPSLNG,
                 singleForm.COLUMN_GPSTIME,
@@ -281,13 +350,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleForm.COLUMN_SE,
                 singleForm.COLUMN_SF,
                 singleForm.COLUMN_SG,
-                singleForm.COLUMN_SH,
-                singleForm.COLUMN_SI,
-                singleForm.COLUMN_SJ,
-                singleForm.COLUMN_SK,
-                singleForm.COLUMN_SL,
-                singleForm.COLUMN_SM,
-                singleForm.COLUMN_SN,
                 singleForm.COLUMN_GPSLAT,
                 singleForm.COLUMN_GPSLNG,
                 singleForm.COLUMN_GPSTIME,

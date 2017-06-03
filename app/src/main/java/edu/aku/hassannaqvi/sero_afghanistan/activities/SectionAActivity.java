@@ -1,7 +1,7 @@
 package edu.aku.hassannaqvi.sero_afghanistan.activities;
 
-import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -280,11 +280,11 @@ public class SectionAActivity extends AppCompatActivity {
             }
 
             if (UpdateDB()) {
-                Toast.makeText(this, "Starting Section B", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Starting Section D", Toast.LENGTH_SHORT).show();
 
-                /*Intent secB = new Intent(this, SectionBActivity.class);
-                AppMain.chTotal = Integer.valueOf(mna13.getText().toString()) - 1; // exclude index child
-                startActivity(secB);*/
+                Intent secD = new Intent(this, SectionDActivity.class);
+                //AppMain.chTotal = Integer.valueOf(mna13.getText().toString()) - 1; // exclude index child
+                startActivity(secD);
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
@@ -307,7 +307,7 @@ public class SectionAActivity extends AppCompatActivity {
                     (AppMain.fc.getDeviceID() + AppMain.fc.getID()));
             Toast.makeText(this, "Current Form No: " + AppMain.fc.getUID(), Toast.LENGTH_SHORT).show();
             // 2. UPDATE FORM ROWID
-            //db.updateSectionsABC();
+            db.updateSectionsABC();
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
@@ -324,7 +324,7 @@ public class SectionAActivity extends AppCompatActivity {
 
         AppMain.fc.setDeviceID(AppMain.deviceId);
         AppMain.fc.setUserName(AppMain.username);
-        AppMain.fc.setHHDT(dtToday);
+        AppMain.fc.setFormDate(dtToday);
         AppMain.fc.setstudyid(studyid.getText().toString());
 
         setGPS();

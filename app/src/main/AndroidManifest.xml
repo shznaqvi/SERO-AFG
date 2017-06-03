@@ -51,8 +51,19 @@
             android:name=".activities.EndingActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".activities.SectionAActivity$SectionBActivity" />
-        <activity android:name=".activities.SectionBActivity"></activity>
+        <activity
+            android:name=".activities.SectionDActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.SectionEActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.SectionFActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".activities.SectionGActivity"></activity>
     </application>
 
 </manifest>

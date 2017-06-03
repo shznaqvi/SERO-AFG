@@ -138,7 +138,7 @@ public class MainActivity extends Activity {
     /*public void openC(View v) {
         Intent iC = new Intent(this, SectionCActivity.class);
         startActivity(iC);
-    }
+    }*/
 
     public void openD(View v) {
         Intent iD = new Intent(this, SectionDActivity.class);
@@ -146,13 +146,13 @@ public class MainActivity extends Activity {
     }
 
     public void openE(View v) {
-        Intent iD = new Intent(this, SectionEActivity.class);
-        startActivity(iD);
-*/    //}
+        Intent iE = new Intent(this, SectionEActivity.class);
+        startActivity(iE);
+    }
 
     public void openF(View v) {
-       /* Intent iD = new Intent(this, SectionFActivity.class);
-        startActivity(iD);*/
+        Intent iF = new Intent(this, SectionFActivity.class);
+        startActivity(iF);
     }
 
    /* public void openIM(View v) {
@@ -161,8 +161,8 @@ public class MainActivity extends Activity {
     }*/
 
     public void openG(View v) {
-       /* Intent iG = new Intent(this, SectionGActivity.class);
-        startActivity(iG);*/
+        Intent iG = new Intent(this, SectionGActivity.class);
+        startActivity(iG);
     }
 
     public void openEnd(View v) {

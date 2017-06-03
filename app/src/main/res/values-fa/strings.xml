@@ -4,6 +4,8 @@
     <string name="no"> نه </string>
     <string name="dnk"> نپوهیږم </string>
     <string name="others"> نور مشخص کری </string>
+    <string name="card"> د کارت له مخی نه </string>
+    <string name="recall"> د مور د حافظی له مخی نه </string>
 
     <string name="studyid">د  پیږندنی شمیره</string>
     <string name="mainhead"> دافغانستان د ګوزن سیروپریولانس سروی </string>
@@ -63,7 +65,7 @@
     <string name="mndsub"> ورځنی واکسینونه </string>
     <string name="mnd1"> ایا کله ماشوم په کلینیک کی واکسین شوی ده ؟ </string>
     <string name="mnd2"> آیا ماشوم د واکسین کارت چه واکسینونه د ماشوم ثبت شوی وی لری ؟ </string>
-    <string name="mnd3"> که چیرته هو " آیا تاسوسره اوس موجود شته کولی شم هغه وگورم" </string>
+    <string name="mnd3"> که چیرته هو آیا تاسوسره اوس موجود شته کولی شم هغه وگورم </string>
     <string name="mnd3a"> موجو د او ویښوده </string>
     <string name="mnd3b"> موجود ولی نه یی ښوده </string>
     <string name="mnd4"> که نه ایا (ماشوم نوم) کله د واکسین کارت یی درلوده ؟ </string>
@@ -123,6 +125,7 @@
     <string name="mne5g"> ګانګی یا خوا ګرزی </string>
     <string name="mne5h"> دنس درد </string>
     <string name="mne5i"> د تش متیاز کولو په وخت ژرا کول </string>
+    <string name="mne5k"> یو د پورتنی مشکلاتوڅخه نه وه </string>
     <string name="mnfheading"> اقتصادی او تولنیز وضعیت </string>
     <string name="mnf1"> په کومه ژبه کورنی کی اکثره خبری کوی؟ </string>
     <string name="mnf1a"> پشتو </string>
@@ -150,6 +153,7 @@
     <string name="mng2"> مهربانی وکری د بریالیتوپ په صورت کی اخستل شوی وینی مقدار ذکر کری </string>
     <string name="mng2a"> د تول وینی مقدار </string>
     <string name="mng2b"> د سیرم مقدار </string>
+    <string name="mngscan">  Scan Sticker </string>
 
     <string name="mnadd"> د ماشوم د تیلفئون نمبر </string>
 

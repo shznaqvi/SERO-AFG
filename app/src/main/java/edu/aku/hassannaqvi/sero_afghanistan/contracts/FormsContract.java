@@ -16,10 +16,12 @@ public class FormsContract {
 
     private final String projectName = "SERO - AFGHANISTAN";
     private final String surveyType = "SN";
-    private String HHDT = "";
+    private String formDate = "";
     private String userName = "";
+    private String appVer = "";
     private String ID = "";
     private String UID = "";
+    private String istatus = "";
     private String studyid = "";
     private String tagId = "";
     private String sA = "";
@@ -48,6 +50,8 @@ public class FormsContract {
         this.tagId = jsonObject.getString(singleForm.COLUMN_DEVICETAGID);
 
         this.studyid = jsonObject.getString(singleForm.COLUMN_STUDYID);
+        this.appVer = jsonObject.getString(singleForm.COLUMN_APPVER);
+        this.istatus = jsonObject.getString(singleForm.COLUMN_ISTATUS);
 
         this.sA = jsonObject.getString(singleForm.COLUMN_SA);
         this.sB = jsonObject.getString(singleForm.COLUMN_SB);
@@ -82,6 +86,16 @@ public class FormsContract {
         return tagId;
     }
 
+
+    public void setIstatus(String Istatus) {
+        this.istatus = Istatus;
+    }
+
+    public String getIstatus() {
+        return istatus;
+    }
+
+
     public void setstudyid(String studyid) {
         this.studyid = studyid;
     }
@@ -90,12 +104,21 @@ public class FormsContract {
         return studyid;
     }
 
-    public String getHHDT() {
-        return HHDT;
+
+    public void setAppVer(String appVer) {
+        this.appVer = appVer;
     }
 
-    public void setHHDT(String HHDT) {
-        this.HHDT = HHDT;
+    public String getAppVer() {
+        return appVer;
+    }
+
+    public String getFormDate() {
+        return formDate;
+    }
+
+    public void setFormDate(String formDate) {
+        this.formDate = formDate;
     }
 
     public String getUserName() {
@@ -244,6 +267,10 @@ public class FormsContract {
         this.tagId = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_DEVICETAGID));
         this.studyid = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_STUDYID));
 
+
+        this.appVer = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_APPVER));
+        this.istatus = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_ISTATUS));
+
         this.sA = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SA));
         this.sB = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SB));
         this.sC = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SC));
@@ -278,6 +305,8 @@ public class FormsContract {
         json.put(singleForm.COLUMN_DEVICETAGID, this.tagId == null ? JSONObject.NULL : this.tagId);
 
         json.put(singleForm.COLUMN_STUDYID, this.studyid == null ? JSONObject.NULL : this.studyid);
+        json.put(singleForm.COLUMN_APPVER, this.appVer == null ? JSONObject.NULL : this.appVer);
+        json.put(singleForm.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
 
 
         json.put(singleForm.COLUMN_SA, this.sA == null ? JSONObject.NULL : this.sA);
@@ -331,10 +360,11 @@ public class FormsContract {
         public static final String COLUMN_SURVEY_TYPE = "surveytype";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "uid";
-        public static final String COLUMN_HHDT = "hhdt";
+        public static final String COLUMN_HHDT = "formDate";
         public static final String COLUMN_ISTATUS = "istatus";
         public static final String COLUMN_NAME_USERNAME = "username";
         public static final String COLUMN_DEVICETAGID = "tagId";
+        public static final String COLUMN_APPVER = "appver";
 
         public static final String COLUMN_STUDYID = "studyid";
 
@@ -345,13 +375,7 @@ public class FormsContract {
         public static final String COLUMN_SE = "se";
         public static final String COLUMN_SF = "sf";
         public static final String COLUMN_SG = "sg";
-        public static final String COLUMN_SH = "sh";
-        public static final String COLUMN_SI = "si";
-        public static final String COLUMN_SJ = "sj";
-        public static final String COLUMN_SK = "sk";
-        public static final String COLUMN_SL = "sl";
-        public static final String COLUMN_SM = "sm";
-        public static final String COLUMN_SN = "sn";
+
         public static final String COLUMN_GPSLAT = "gpslat";
         public static final String COLUMN_GPSLNG = "gpslng";
         public static final String COLUMN_GPSTIME = "gpstime";

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_section_a"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    tools:context="edu.aku.hassannaqvi.sero_afghanistan.activities.SectionGActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorPrimaryDark" />
+
+        <TextView
+            android:id="@+id/lbl_mngheading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mngheading"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/lbl_mng1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mng1"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+        <RadioGroup
+            android:id="@+id/mng1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/mng1a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mng1a" />
+
+            <RadioButton
+                android:id="@+id/mng1b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mng1b" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/fldGrpmng1c"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/lbl_mng1c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mng1c"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/mng1c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
+                android:ems="10"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lbl_mng2a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mng2a"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/mng2a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:digits="0123456789"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/lbl_mng2b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mng2b"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/mng2b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:digits="0123456789"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/mngsticker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mngsticker"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <LinearLayout
+            android:id="@+id/fldGrpbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="32dp"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/btnScan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:text="@string/mngscan"
+                android:textColor="@android:color/holo_green_light"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:text="@string/nextSection"
+                android:textColor="@android:color/holo_green_light"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
