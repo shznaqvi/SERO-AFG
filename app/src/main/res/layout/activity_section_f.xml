@@ -145,12 +145,6 @@
                 android:text="@string/mnf2c" />
 
             <RadioButton
-                android:id="@+id/mnf2d"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/mnf2d" />
-
-            <RadioButton
                 android:id="@+id/mnf288"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

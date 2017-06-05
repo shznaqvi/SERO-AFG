@@ -64,8 +64,8 @@ public class SectionFActivity extends Activity {
     RadioButton mnf2a;
     @BindView(R.id.mnf2b)
     RadioButton mnf2b;
-    @BindView(R.id.mnf2c)
-    RadioButton mnf2c;
+    @BindView(R.id.mnf288)
+    RadioButton mnf288;
 
     @BindView(R.id.mnf2x)
     EditText mnf2x;
@@ -122,7 +122,7 @@ public class SectionFActivity extends Activity {
         mnf2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
-                if (mnf2c.isChecked()) {
+                if (mnf288.isChecked()) {
                     fldGrpmnf2x.setVisibility(View.VISIBLE);
                     mnf2x.requestFocus();
                 } else {
@@ -222,10 +222,7 @@ public class SectionFActivity extends Activity {
             case R.id.mnf2b:
                 var_mnf2 = "2";
                 break;
-            case R.id.mnf2c:
-                var_mnf2 = "3";
-                break;
-            case R.id.mnf2d:
+            case R.id.mnf288:
                 var_mnf2 = "88";
                 break;
         }
@@ -309,10 +306,7 @@ public class SectionFActivity extends Activity {
             case R.id.mnf2b:
                 var_mnf2 = "2";
                 break;
-            case R.id.mnf2c:
-                var_mnf2 = "3";
-                break;
-            case R.id.mnf2d:
+            case R.id.mnf288:
                 var_mnf2 = "88";
                 break;
         }

@@ -32,6 +32,7 @@
             android:id="@+id/lbl_mnaheading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="@string/mnaheading"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -183,6 +184,7 @@
             android:id="@+id/lbl_mnbheading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="@string/mnbheading"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -422,6 +424,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="0123456789"
+            android:gravity="center"
             android:text="@string/mncheading"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -488,7 +491,7 @@
                 android:id="@+id/mnc288"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/mnc288" />
+                android:text="@string/others" />
 
         </RadioGroup>
 
@@ -503,7 +506,7 @@
                 android:id="@+id/lbl_mnc2x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/mnc2x"
+                android:text="@string/others"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
@@ -524,16 +527,6 @@
             android:layout_height="wrap_content"
             android:text="@string/mnc3"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
-
-        <EditText
-            android:id="@+id/mnc3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:digits="0123456789"
-            android:ems="10"
-            android:inputType="number" />
 
         <TextView
             android:id="@+id/lbl_mnc3years"
@@ -616,7 +609,7 @@
                 android:id="@+id/mnc488"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/mnc488" />
+                android:text="@string/others" />
 
         </RadioGroup>
 
@@ -631,7 +624,7 @@
                 android:id="@+id/lbl_mnc4x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/mnc4x"
+                android:text="@string/others"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText

@@ -7,6 +7,7 @@
     <string name="card"> د کارت له مخی نه </string>
     <string name="recall"> د مور د حافظی له مخی نه </string>
 
+
     <string name="studyid">د  پیږندنی شمیره</string>
     <string name="mainhead"> دافغانستان د ګوزن سیروپریولانس سروی </string>
     <string name="mnaheading"> الف- دانتخاب شوی ماشوم تفصیلی معلومات </string>
@@ -154,6 +155,8 @@
     <string name="mng2a"> د تول وینی مقدار </string>
     <string name="mng2b"> د سیرم مقدار </string>
     <string name="mngscan">  Scan Sticker </string>
+    <string name="endForm">  End Form </string>
+    <string name="mngsticker"> Sticker </string>
 
     <string name="mnadd"> د ماشوم د تیلفئون نمبر </string>
 

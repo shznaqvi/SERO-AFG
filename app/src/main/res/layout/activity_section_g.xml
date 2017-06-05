@@ -24,6 +24,7 @@
             android:id="@+id/lbl_mngheading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="@string/mngheading"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -31,6 +32,7 @@
             android:id="@+id/lbl_mng1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="@string/mng1"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -142,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
-                android:text="@string/nextSection"
+                android:text="@string/endForm"
                 android:textColor="@android:color/holo_green_light"
                 android:textSize="24sp" />
 

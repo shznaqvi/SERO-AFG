@@ -166,8 +166,6 @@ public class SectionAActivity extends AppCompatActivity {
     EditText mnc2x;
     @BindView(R.id.lbl_mnc3)
     TextView lblMnc3;
-    @BindView(R.id.mnc3)
-    EditText mnc3;
     @BindView(R.id.lbl_mnc3years)
     TextView lblMnc3years;
     @BindView(R.id.mnc3years)
@@ -415,7 +413,6 @@ public class SectionAActivity extends AppCompatActivity {
 
         sC.put("mnc2", var_mnc2);
         sC.put("mnc2x", mnc2x.getText().toString());
-        sC.put("mnc3", mnc3.getText().toString());
         sC.put("mnc3years", mnc3years.getText().toString());
 
 
@@ -728,15 +725,6 @@ public class SectionAActivity extends AppCompatActivity {
             }
         }
 
-
-        if (mnc3.getText().toString().isEmpty() || mnc3.getText().toString() == null) {
-            mnc3.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnc3), Toast.LENGTH_LONG).show();
-            mnc3.requestFocus();
-            return false;
-        } else {
-            mnc3.setError(null);
-        }
 
         if (mnc3years.getText().toString().isEmpty() || mnc3years.getText().toString() == null) {
             mnc3years.setError(getString(R.string.txterr));
