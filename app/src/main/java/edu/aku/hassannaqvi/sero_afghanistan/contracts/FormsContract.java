@@ -8,6 +8,8 @@ import org.json.JSONObject;
 
 import java.util.Iterator;
 
+import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
+
 /**
  * Created by hassan.naqvi on 10/25/2016.
  */
@@ -18,7 +20,7 @@ public class FormsContract {
     private final String surveyType = "SN";
     private String formDate = "";
     private String userName = "";
-    private String appVer = "";
+    private String appVer = AppMain.versionName + "." + AppMain.versionCode;
     private String ID = "";
     private String UID = "";
     private String istatus = "";
@@ -45,6 +47,7 @@ public class FormsContract {
     public FormsContract sync(JSONObject jsonObject) throws JSONException {
         this.ID = jsonObject.getString(singleForm.COLUMN_ID);
         this.UID = jsonObject.getString(singleForm.COLUMN_UID);
+        this.formDate = jsonObject.getString(singleForm.COLUMN_HHDT);
 
         this.userName = jsonObject.getString(singleForm.COLUMN_NAME_USERNAME);
         this.tagId = jsonObject.getString(singleForm.COLUMN_DEVICETAGID);
@@ -262,6 +265,7 @@ public class FormsContract {
     public FormsContract hydrate(Cursor cursor) {
         this.ID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_ID));
         this.UID = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_UID));
+        this.formDate = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_HHDT));
 
         this.userName = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_NAME_USERNAME));
         this.tagId = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_DEVICETAGID));
@@ -299,6 +303,8 @@ public class FormsContract {
         json.put(singleForm.COLUMN_SURVEY_TYPE, this.surveyType == null ? JSONObject.NULL : this.surveyType);
         json.put(singleForm.COLUMN_ID, this.ID == null ? JSONObject.NULL : this.ID);
         json.put(singleForm.COLUMN_UID, this.UID == null ? JSONObject.NULL : this.UID);
+
+        json.put(singleForm.COLUMN_HHDT, this.formDate == null ? JSONObject.NULL : this.formDate);
 
 
         json.put(singleForm.COLUMN_NAME_USERNAME, this.userName == null ? JSONObject.NULL : this.userName);

@@ -114,6 +114,9 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
                 }
                 br.close();
 
+                Log.d(TAG, "downloadUrl: " + sb.toString());
+
+
                 System.out.println("" + sb.toString());
                 return sb.toString();
             } else {
@@ -150,13 +153,13 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
                 if (jsonObject.getString("status").equals("1") && jsonObject.getString("error").equals("0")) {
                     db.updateForms(jsonObject.getString("id"));
                     sSynced++;
-                }else {
-                    sSyncedError+=jsonObject.getString("message").toString()+ "\n";
+                } else {
+                    sSyncedError += jsonObject.getString("message").toString() + "\n";
                 }
             }
-            Toast.makeText(mContext, sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors: "+sSyncedError, Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError, Toast.LENGTH_SHORT).show();
 
-            pd.setMessage(sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors: "+sSyncedError);
+            pd.setMessage(sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError);
             pd.setTitle("Done uploading Forms data");
             pd.show();
         } catch (JSONException e) {

@@ -59,6 +59,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             singleForm.COLUMN_STUDYID + " TEXT," +
             singleForm.COLUMN_NAME_USERNAME + " TEXT," +
             singleForm.COLUMN_DEVICETAGID + " TEXT," +
+            singleForm.COLUMN_ISTATUS + " TEXT," +
+            singleForm.COLUMN_APPVER + " TEXT," +
             singleForm.COLUMN_SA + " TEXT," +
             singleForm.COLUMN_SB + " TEXT," +
             singleForm.COLUMN_SC + " TEXT," +
@@ -343,6 +345,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleForm.COLUMN_ISTATUS,
                 singleForm.COLUMN_NAME_USERNAME,
                 singleForm.COLUMN_DEVICETAGID,
+                singleForm.COLUMN_APPVER,
+                singleForm.COLUMN_STUDYID,
                 singleForm.COLUMN_SA,
                 singleForm.COLUMN_SB,
                 singleForm.COLUMN_SC,
