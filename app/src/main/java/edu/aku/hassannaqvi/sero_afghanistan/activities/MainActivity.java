@@ -79,12 +79,43 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
+
+        sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
+        editor = sharedPref.edit();
+
+        builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Tag Name");
+
+        final EditText input = new EditText(MainActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                m_Text = input.getText().toString();
+                if (!m_Text.equals("")) {
+                    editor.putString("tagName", m_Text);
+                    editor.commit();
+                }
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        if (sharedPref.getString("tagName",null) == "" || sharedPref.getString("tagName",null) == null){
+            builder.show();
+        }
+
     }
 
     public void openForm(View v) {
-       /* if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null) {
-            Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
-            startActivity(oF);
+        if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null) {
+            startActivity(new Intent(MainActivity.this, SectionAActivity.class));
         } else {
 
             builder = new AlertDialog.Builder(MainActivity.this);
@@ -102,12 +133,7 @@ public class MainActivity extends Activity {
                         editor.putString("tagName", m_Text);
                         editor.commit();
 
-                        if (mN01.getSelectedItem() != null) {
-                            Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
-                            startActivity(oF);
-                        } else {
-                            Toast.makeText(MainActivity.this, "First Download Data", Toast.LENGTH_SHORT).show();
-                        }
+                        startActivity(new Intent(MainActivity.this, SectionAActivity.class));
                     }
                 }
             });
@@ -119,10 +145,8 @@ public class MainActivity extends Activity {
             });
 
             builder.show();
-        }*/
+        }
 
-        Intent oF = new Intent(MainActivity.this, SectionAActivity.class);
-        startActivity(oF);
     }
 
     public void openA(View v) {
