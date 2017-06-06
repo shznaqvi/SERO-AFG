@@ -567,7 +567,7 @@
                 android:id="@+id/mnc4b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/mnc4a" />
+                android:text="@string/mnc4b" />
 
             <RadioButton
                 android:id="@+id/mnc4c"
