@@ -113,6 +113,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(singleForm.COLUMN_HHDT, fc.getFormDate());
         values.put(singleForm.COLUMN_STUDYID, fc.getstudyid());
+        values.put(singleForm.COLUMN_APPVER, fc.getAppVer());
         values.put(singleForm.COLUMN_NAME_USERNAME, fc.getUserName());
         values.put(singleForm.COLUMN_DEVICETAGID, fc.getTagId());
         values.put(singleForm.COLUMN_SA, fc.getsA());
