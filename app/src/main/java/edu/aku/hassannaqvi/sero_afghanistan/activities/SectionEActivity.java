@@ -111,6 +111,111 @@ public class SectionEActivity extends Activity {
                 }
             }
         });
+
+
+        mne5a.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (mne5a.isChecked()) {
+                    mne599.setChecked(false);
+                }
+            }
+        });
+
+        mne5b.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (mne5b.isChecked()) {
+                    mne599.setChecked(false);
+                }
+            }
+        });
+
+        mne5c.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (mne5c.isChecked()) {
+                    mne599.setChecked(false);
+                }
+            }
+        });
+
+
+        mne5d.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (mne5d.isChecked()) {
+                    mne599.setChecked(false);
+                }
+            }
+        });
+
+        mne5e.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (mne5e.isChecked()) {
+                    mne599.setChecked(false);
+                }
+            }
+        });
+
+
+        mne5f.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (mne5f.isChecked()) {
+                    mne599.setChecked(false);
+                }
+            }
+        });
+
+        mne5g.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (mne5g.isChecked()) {
+                    mne599.setChecked(false);
+                }
+            }
+        });
+
+        mne5h.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (mne5h.isChecked()) {
+                    mne599.setChecked(false);
+                }
+            }
+        });
+
+        mne5i.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (mne5i.isChecked()) {
+                    mne599.setChecked(false);
+                }
+            }
+        });
+
+
+        mne599.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
+                if (mne599.isChecked()) {
+
+                    mne5a.setChecked(false);
+                    mne5b.setChecked(false);
+                    mne5c.setChecked(false);
+                    mne5d.setChecked(false);
+                    mne5e.setChecked(false);
+                    mne5f.setChecked(false);
+                    mne5g.setChecked(false);
+                    mne5h.setChecked(false);
+                    mne5i.setChecked(false);
+                    mne588.setChecked(false);
+                }
+            }
+        });
     }
 
     @OnClick(R.id.btnNext)

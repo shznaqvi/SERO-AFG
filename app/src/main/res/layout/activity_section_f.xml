@@ -178,6 +178,13 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/lbl_mnf3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mnf3"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
             android:id="@+id/lbl_mnf3years"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

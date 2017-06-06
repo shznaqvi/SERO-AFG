@@ -618,6 +618,14 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/lbl_mndsub1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/mnd6sub"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
             android:id="@+id/lbl_mnd6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -684,6 +692,14 @@
         </RadioGroup>
 
         <TextView
+            android:id="@+id/lbl_mnd8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/mnd8"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
             android:id="@+id/lbl_mnd8a"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -733,6 +749,14 @@
                 android:text="@string/dnk" />
 
         </RadioGroup>
+
+        <TextView
+            android:id="@+id/lbl_mnd10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/mnd10"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:id="@+id/lbl_mnd10years"
