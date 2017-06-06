@@ -164,6 +164,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
+        values.put(singleForm.COLUMN_UID, AppMain.fc.getUID());
         values.put(singleForm.COLUMN_SA, AppMain.fc.getsA());
         values.put(singleForm.COLUMN_SB, AppMain.fc.getsB());
         values.put(singleForm.COLUMN_SC, AppMain.fc.getsC());

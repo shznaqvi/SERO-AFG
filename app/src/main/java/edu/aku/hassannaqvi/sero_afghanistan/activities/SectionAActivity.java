@@ -318,8 +318,11 @@ public class SectionAActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Validating Section A, B and C", Toast.LENGTH_SHORT).show();
 
+        SharedPreferences sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
+
         AppMain.fc = new FormsContract();
 
+        AppMain.fc.setTagId(sharedPref.getString("tagName",null));
         AppMain.fc.setDeviceID(AppMain.deviceId);
         AppMain.fc.setUserName(AppMain.username);
         AppMain.fc.setFormDate(dtToday);

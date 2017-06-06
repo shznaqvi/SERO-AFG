@@ -89,6 +89,9 @@ public class FormsContract {
         return tagId;
     }
 
+    public void setTagId(String tagId) {
+        this.tagId = tagId;
+    }
 
     public void setIstatus(String Istatus) {
         this.istatus = Istatus;
