@@ -82,44 +82,53 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/lbl_mng2a"
+        <LinearLayout
+            android:id="@+id/fldGrpmng2a"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mng2a"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:orientation="vertical"
+            android:visibility="gone">
 
-        <EditText
-            android:id="@+id/mng2a"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:digits="0123456789"
-            android:ems="10"
-            android:inputType="number" />
+            <TextView
+                android:id="@+id/lbl_mng2a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mng2a"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <TextView
-            android:id="@+id/lbl_mng2b"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mng2b"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            <EditText
+                android:id="@+id/mng2a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:digits="0123456789"
+                android:ems="10"
+                android:inputType="number" />
 
-        <EditText
-            android:id="@+id/mng2b"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:digits="0123456789"
-            android:ems="10"
-            android:inputType="number" />
+            <TextView
+                android:id="@+id/lbl_mng2b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mng2b"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <TextView
-            android:id="@+id/mngsticker"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mngsticker"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            <EditText
+                android:id="@+id/mng2b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:digits="0123456789"
+                android:ems="10"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/mngsticker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mngsticker"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/fldGrpbtn"

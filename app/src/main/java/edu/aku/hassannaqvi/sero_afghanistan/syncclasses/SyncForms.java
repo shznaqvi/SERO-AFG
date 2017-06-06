@@ -135,7 +135,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
                 if (connection != null)
                     connection.disconnect();
             }
-        }else {
+        } else {
             return "No new records to sync";
         }
         return line;
@@ -152,17 +152,18 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
             json = new JSONArray(result);
             DatabaseHelper db = new DatabaseHelper(mContext);
             for (int i = 0; i < json.length(); i++) {
+
                 JSONObject jsonObject = new JSONObject(json.getString(i));
                 if (jsonObject.getString("status").equals("1") && jsonObject.getString("error").equals("0")) {
                     db.updateForms(jsonObject.getString("id"));
                     sSynced++;
-                }else {
-                    sSyncedError+=jsonObject.getString("message").toString()+ "\n";
+                } else {
+                    sSyncedError += jsonObject.getString("message").toString() + "\n";
                 }
             }
-            Toast.makeText(mContext, sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors: "+sSyncedError, Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError, Toast.LENGTH_SHORT).show();
 
-            pd.setMessage(sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors: "+sSyncedError);
+            pd.setMessage(sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError);
             pd.setTitle("Done uploading Forms data");
             pd.show();
         } catch (JSONException e) {

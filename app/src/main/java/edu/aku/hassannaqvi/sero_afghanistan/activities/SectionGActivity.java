@@ -48,6 +48,9 @@ public class SectionGActivity extends Activity {
     @BindView(R.id.fldGrpmng1c)
     LinearLayout fldGrpmng1c;
 
+    @BindView(R.id.fldGrpmng2a)
+    LinearLayout fldGrpmng2a;
+
     int rdo_mng1;
     String var_mng1;
 
@@ -62,11 +65,23 @@ public class SectionGActivity extends Activity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
                 if (mng1a.isChecked()) {
-                    fldGrpmng1c.setVisibility(View.VISIBLE);
-                    mng1c.requestFocus();
-                } else {
+
+                    fldGrpmng2a.setVisibility(View.VISIBLE);
+
+                    mng2a.requestFocus();
                     mng1c.setText(null);
+
                     fldGrpmng1c.setVisibility(View.GONE);
+                } else {
+
+                    fldGrpmng1c.setVisibility(View.VISIBLE);
+                    fldGrpmng2a.setVisibility(View.GONE);
+
+                    mng2a.setText(null);
+                    mng2b.setText(null);
+                    mngsticker.setText(null);
+
+                    mng1c.requestFocus();
                 }
             }
         });
@@ -131,7 +146,7 @@ public class SectionGActivity extends Activity {
         if (rdo_mng1 == -1) {
             mng1a.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mng1), Toast.LENGTH_LONG).show();
-            mng1a.requestFocus();
+            mng1.requestFocus();
             return false;
         } else {
             mng1a.setError(null);
@@ -146,33 +161,48 @@ public class SectionGActivity extends Activity {
                 break;
         }
 
-        if (mng1c.getText().toString().isEmpty() || mng1c.getText().toString() == null) {
-            mng1c.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mng1c), Toast.LENGTH_LONG).show();
-            mng1c.requestFocus();
-            return false;
+        if (var_mng1 == "2") {
+
+            if (mng1c.getText().toString().isEmpty() || mng1c.getText().toString() == null) {
+                mng1c.setError(getString(R.string.txterr));
+                Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mng1c), Toast.LENGTH_LONG).show();
+                mng1c.requestFocus();
+                return false;
+            } else {
+                mng1c.setError(null);
+            }
+
         } else {
-            mng1c.setError(null);
-        }
+
+            if (mng2a.getText().toString().isEmpty() || mng2a.getText().toString() == null) {
+                mng2a.setError(getString(R.string.txterr));
+                Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mng2), Toast.LENGTH_LONG).show();
+                mng2a.requestFocus();
+                return false;
+            } else {
+                mng2a.setError(null);
+            }
 
 
-        if (mng2a.getText().toString().isEmpty() || mng2a.getText().toString() == null) {
-            mng2a.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mng2), Toast.LENGTH_LONG).show();
-            mng2a.requestFocus();
-            return false;
-        } else {
-            mng2a.setError(null);
-        }
+            if (mng2b.getText().toString().isEmpty() || mng2b.getText().toString() == null) {
+                mng2b.setError(getString(R.string.txterr));
+                Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mng2), Toast.LENGTH_LONG).show();
+                mng2b.requestFocus();
+                return false;
+            } else {
+                mng2b.setError(null);
+            }
 
 
-        if (mng2b.getText().toString().isEmpty() || mng2b.getText().toString() == null) {
-            mng2b.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mng2), Toast.LENGTH_LONG).show();
-            mng2b.requestFocus();
-            return false;
-        } else {
-            mng2b.setError(null);
+            if (mngsticker.getText().toString().equals("Sticker")) {
+                mngsticker.setError(getString(R.string.txterr));
+                Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mng2), Toast.LENGTH_LONG).show();
+                mngsticker.requestFocus();
+                return false;
+            } else {
+                mngsticker.setError(null);
+            }
+
         }
 
 
@@ -199,7 +229,13 @@ public class SectionGActivity extends Activity {
         sG.put("mng1", var_mng1);
         sG.put("mng2a", mng2a.getText().toString());
         sG.put("mng2b", mng2b.getText().toString());
-        sG.put("mngsticker", mngsticker.getText().toString());
+
+        if (mng2b.getText().toString().equals("Sticker") || mng2b.getText().toString() == "Sticker") {
+            sG.put("mngsticker", "");
+        } else {
+            sG.put("mngsticker", mngsticker.getText().toString());
+        }
+
 
         AppMain.fc.setsG(String.valueOf(sG));
 
