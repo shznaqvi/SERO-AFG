@@ -83,7 +83,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     private final String TAG = "DatabaseHelper";
-    public String spDateT = new SimpleDateFormat("dd-MM-yy").format(new Date().getTime());
+    public String spDateT = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -404,7 +404,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor c = null;
         String[] columns = {
                 singleForm._ID,
-                singleForm.COLUMN_ISTATUS
+                singleForm.COLUMN_ISTATUS,
+                singleForm.COLUMN_STUDYID,
+                singleForm.COLUMN_SYNCED
         };
 
         String whereClause = singleForm.COLUMN_HHDT + " LIKE ?";

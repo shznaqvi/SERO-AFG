@@ -118,7 +118,7 @@ public class MainActivity extends Activity {
         Collection<FormsContract> todaysForms = db.getTodayForms();
 
         rSumText += "TODAY'S RECORDS SUMMARY\r\n";
-        rSumText += "=======================";
+        rSumText += "=======================\r\n";
         rSumText += "\r\n\r\n";
         rSumText += "Total Forms Today: " + todaysForms.size();
         rSumText += "\r\n";
@@ -141,7 +141,7 @@ public class MainActivity extends Activity {
                     break;
             }
 
-            rSumText += fc.getstudyid() + " " + fc.getIstatus() + " " + iStatus;
+            rSumText += fc.getstudyid() + " " + (fc.getSynced().equals("1") ? "\t\tSynced" : "\t\tNot Synced") + " " + iStatus;
             rSumText += "\r\n";
 
         }
