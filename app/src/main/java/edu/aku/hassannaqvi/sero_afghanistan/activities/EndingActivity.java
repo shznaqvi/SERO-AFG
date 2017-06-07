@@ -97,23 +97,25 @@ public class EndingActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
-        switch (iStatus.getCheckedRadioButtonId()) {
-            case R.id.mna7a:
-                AppMain.fc.setIstatus("1");
-                break;
-            case R.id.mna7b:
-                AppMain.fc.setIstatus("2");
-                break;
-            case R.id.mna7c:
-                AppMain.fc.setIstatus("3");
-                break;
-            case R.id.mna7d:
-                AppMain.fc.setIstatus("4");
-                break;
-            default:
-                AppMain.fc.setIstatus("default");
-                break;
-        }
+//        switch (iStatus.getCheckedRadioButtonId()) {
+//            case R.id.mna7a:
+//                AppMain.fc.setIstatus("1");
+//                break;
+//            case R.id.mna7b:
+//                AppMain.fc.setIstatus("2");
+//                break;
+//            case R.id.mna7c:
+//                AppMain.fc.setIstatus("3");
+//                break;
+//            case R.id.mna7d:
+//                AppMain.fc.setIstatus("4");
+//                break;
+//            default:
+//                AppMain.fc.setIstatus("default");
+//                break;
+
+        AppMain.fc.setIstatus(mna7a.isChecked() ? "1" : mna7b.isChecked() ? "2" : mna7c.isChecked() ? "3" : mna7d.isChecked() ? "4" : "0");
+//        }
 
     }
 
