@@ -338,7 +338,7 @@ public class SectionDActivity extends Activity {
     }
 
     @OnClick(R.id.btnNext)
-    public void SaveData() {
+    void SaveData() {
         if (ValidateForm()) {
             try {
                 SaveDraft();
@@ -355,6 +355,14 @@ public class SectionDActivity extends Activity {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+
+    @OnClick(R.id.btn_End)
+    void endInterview() {
+        Intent endSec = new Intent(this, EndingActivity.class);
+        endSec.putExtra("complete", false);
+        startActivity(endSec);
     }
 
 
@@ -376,11 +384,17 @@ public class SectionDActivity extends Activity {
         //Toast.makeText(this, "Current Form No: " + AppMain.fc.getUID(), Toast.LENGTH_SHORT).show();
 
         // 2. UPDATE FORM ROWID
-        db.updateSectionsD();
+        int updcount = db.updateSectionsD();
 
-        Log.d(TAG, "UpdateDB: " + AppMain.fc.getID());
+        if (updcount == 1) {
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
 
-        return true;
+
 
         /*} else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();

@@ -64,13 +64,14 @@
                 android:layout_marginBottom="1dp"
                 android:text="@string/mna7d" />
         </RadioGroup>
+
         <Button
-            android:id="@+id/btnEnd"
+            android:id="@+id/btn_End"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
             android:onClick="endForm"
             android:text="@string/endForm"
-            android:textColor="#000" />
+            android:textColor="@android:color/holo_green_light" />
     </LinearLayout>
 </ScrollView>

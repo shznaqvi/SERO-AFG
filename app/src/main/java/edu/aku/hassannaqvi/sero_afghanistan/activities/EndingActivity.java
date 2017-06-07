@@ -59,7 +59,7 @@ public class EndingActivity extends Activity {
 
     }
 
-    @OnClick(R.id.btnEnd)
+    @OnClick(R.id.btn_End)
     void onBtnEndClick() {
         Toast.makeText(this, "Processing Closing Section", Toast.LENGTH_SHORT).show();
         if (formValidation()) {

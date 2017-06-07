@@ -559,6 +559,6 @@
     <string name="mnadd"> Contact address or phone number of the child </string>
     <string name="mngscan"> Scan Sticker </string>
     <string name="mngsticker"> Sticker </string>
-    <string name="endForm">End Form</string>
+    <string name="endinterview">End Interview</string>
 
 </resources>
