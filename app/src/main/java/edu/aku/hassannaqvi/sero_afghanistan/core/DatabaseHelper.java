@@ -399,25 +399,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public Collection<FormsContract> getTodayForms() {
-
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
                 singleForm._ID,
-                singleForm.COLUMN_ISTATUS,
                 singleForm.COLUMN_STUDYID,
-                singleForm.COLUMN_SYNCED
-        };
+                singleForm.COLUMN_HHDT,
+                singleForm.COLUMN_ISTATUS,
+                singleForm.COLUMN_SYNCED,
 
-        String whereClause = singleForm.COLUMN_HHDT + " LIKE ?";
-        String[] whereArgs = {spDateT.substring(0, 8)};
+        };
+        String whereClause = singleForm.COLUMN_HHDT + " Like ? ";
+        String[] whereArgs = new String[]{"%" + spDateT.substring(0, 8).trim() + "%"};
         String groupBy = null;
         String having = null;
 
         String orderBy =
-                singleForm._ID + " ASC";
+                singleForm.COLUMN_ID + " ASC";
 
-        Collection<FormsContract> formList = new ArrayList<FormsContract>();
+        Collection<FormsContract> allFC = new ArrayList<>();
         try {
             c = db.query(
                     singleForm.TABLE_NAME,  // The table to query
@@ -430,7 +430,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 FormsContract fc = new FormsContract();
-                formList.add(fc.hydrate(c));
+                fc.setID(c.getString(c.getColumnIndex(singleForm.COLUMN_ID)));
+                fc.setstudyid(c.getString(c.getColumnIndex(singleForm.COLUMN_STUDYID)));
+                fc.setFormDate(c.getString(c.getColumnIndex(singleForm.COLUMN_HHDT)));
+                fc.setIstatus(c.getString(c.getColumnIndex(singleForm.COLUMN_ISTATUS)));
+                fc.setSynced(c.getString(c.getColumnIndex(singleForm.COLUMN_SYNCED)));
+                allFC.add(fc);
             }
         } finally {
             if (c != null) {
@@ -440,10 +445,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.close();
             }
         }
-
-
-        // return contact list
-        return formList;
+        return allFC;
     }
 
 

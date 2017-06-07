@@ -116,45 +116,63 @@ public class MainActivity extends Activity {
 
         DatabaseHelper db = new DatabaseHelper(this);
         Collection<FormsContract> todaysForms = db.getTodayForms();
+        Collection<FormsContract> unsyncedForms = db.getUnsyncedForms();
 
         rSumText += "TODAY'S RECORDS SUMMARY\r\n";
+
         rSumText += "=======================\r\n";
-        rSumText += "\r\n\r\n";
-        rSumText += "Total Forms Today: " + todaysForms.size();
         rSumText += "\r\n";
-        rSumText += "    Forms List: \r\n";
-        String iStatus = "";
-        for (FormsContract fc : todaysForms) {
+        rSumText += "Total Forms Today: " + todaysForms.size() + "\r\n";
+        rSumText += "\r\n";
+        if (todaysForms.size() > 0) {
+            rSumText += "\tFORMS' LIST: \r\n";
+            String iStatus;
+            rSumText += "--------------------------------------------------\r\n";
+            rSumText += "[ DSS_ID ] \t[Form Status] \t[Sync Status]----------\r\n";
+            rSumText += "--------------------------------------------------\r\n";
 
-            switch (fc.getIstatus()) {
-                case "1":
-                    iStatus = "Complete";
-                    break;
-                case "2":
-                    iStatus = "House Locked";
-                    break;
-                case "3":
-                    iStatus = "Refused";
-                    break;
-                case "4":
-                    iStatus = "Refused";
-                    break;
+            for (FormsContract fc : todaysForms) {
+
+                switch (fc.getIstatus()) {
+                    case "1":
+                        iStatus = "\tComplete";
+                        break;
+                    case "2":
+                        iStatus = "\tIncomplete";
+                        break;
+                    case "3":
+                        iStatus = "\tRefused";
+                        break;
+                    case "4":
+                        iStatus = "\tRefused";
+                        break;
+                    default:
+                        iStatus = "\t";
+                }
+
+                rSumText += fc.getstudyid();
+
+                rSumText += " " + iStatus + " ";
+
+                rSumText += (fc.getSynced() == null ? "\t\tNot Synced" : "\t\tSynced");
+                rSumText += "\r\n";
+                rSumText += "--------------------------------------------------\r\n";
             }
-
-            rSumText += fc.getstudyid() + " " + (fc.getSynced().equals("1") ? "\t\tSynced" : "\t\tNot Synced") + " " + iStatus;
-            rSumText += "\r\n";
-
         }
 
-        rSumText += "--------------------------------------------------\r\n";
+
         if (AppMain.admin) {
             adminsec.setVisibility(View.VISIBLE);
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
-            rSumText += "Last Update: " + syncPref.getString("LastUpdate", "Never Updated");
+            rSumText += "Last Data Download: \t" + syncPref.getString("LastDownSyncServer", "Never Updated");
             rSumText += "\r\n";
-            rSumText += "Last Synced(DB): " + syncPref.getString("LastSyncDB", "Never Synced");
+            rSumText += "Last Data Upload: \t" + syncPref.getString("LastUpSyncServer", "Never Synced");
+            rSumText += "\r\n";
+            rSumText += "\r\n";
+            rSumText += "Unsynced Forms: \t" + unsyncedForms.size();
             rSumText += "\r\n";
         }
+        Log.d(TAG, "onCreate: " + rSumText);
         recordSummary.setText(rSumText);
 
     }
