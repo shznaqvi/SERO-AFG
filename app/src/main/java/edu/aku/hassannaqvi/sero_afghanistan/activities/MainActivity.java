@@ -154,7 +154,7 @@ public class MainActivity extends Activity {
 
                 rSumText += " " + iStatus + " ";
 
-                rSumText += (fc.getSynced() == null ? "\t\tNot Synced" : "\t\tSynced");
+                rSumText += (fc.getSynced().equals("") ? "\t\tNot Synced" : "\t\tSynced");
                 rSumText += "\r\n";
                 rSumText += "--------------------------------------------------\r\n";
             }

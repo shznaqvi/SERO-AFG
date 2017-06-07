@@ -42,20 +42,20 @@ public class EndingActivity extends Activity {
         setContentView(R.layout.activity_ending);
         ButterKnife.bind(this);
 
-        mna7a.setEnabled(getIntent().getBooleanExtra("complete", false));
+//        mna7a.setEnabled(getIntent().getBooleanExtra("complete", true));
 
-//        Boolean check = getIntent().getBooleanExtra("complete",false);
-//        if (check) {
-//            mna7a.setEnabled(true);
-//            mna7b.setEnabled(false);
-//            mna7c.setEnabled(false);
-//            mna7d.setEnabled(false);
-//        } else {
-//            mna7a.setEnabled(false);
-//            mna7a.setEnabled(true);
-//            mna7c.setEnabled(true);
-//            mna7d.setEnabled(true);
-//        }
+        Boolean check = getIntent().getBooleanExtra("complete", true);
+        if (check) {
+            mna7a.setEnabled(true);
+            mna7b.setEnabled(false);
+            mna7c.setEnabled(false);
+            mna7d.setEnabled(false);
+        } else {
+            mna7a.setEnabled(false);
+            mna7b.setEnabled(true);
+            mna7c.setEnabled(true);
+            mna7d.setEnabled(true);
+        }
 
     }
 
