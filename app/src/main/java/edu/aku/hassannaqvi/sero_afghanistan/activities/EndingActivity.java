@@ -50,6 +50,9 @@ public class EndingActivity extends Activity {
             mna7b.setEnabled(false);
             mna7c.setEnabled(false);
             mna7d.setEnabled(false);
+
+
+
         } else {
             mna7a.setEnabled(false);
             mna7a.setEnabled(true);
