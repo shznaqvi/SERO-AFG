@@ -25,11 +25,11 @@
             android:textStyle="bold"
             tools:typeface="serif" />
 
-        <!--<TextView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/iStatus" />
+            android:text="@string/mna7" />
 
         <RadioGroup
             android:id="@+id/iStatus"
@@ -64,7 +64,6 @@
                 android:layout_marginBottom="1dp"
                 android:text="@string/mna7d" />
         </RadioGroup>
--->
         <Button
             android:id="@+id/btnEnd"
             android:layout_width="match_parent"

@@ -3,6 +3,9 @@ package edu.aku.hassannaqvi.sero_afghanistan.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
@@ -12,6 +15,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.sero_afghanistan.R;
+import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
+import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
 
 public class EndingActivity extends Activity {
 
@@ -20,7 +25,7 @@ public class EndingActivity extends Activity {
     @BindView(R.id.activity_section_a)
     ScrollView activitySectionA;
 
-    /*@BindView(R.id.iStatus)
+    @BindView(R.id.iStatus)
     RadioGroup iStatus;
     @BindView(R.id.mna7a)
     RadioButton mna7a;
@@ -30,7 +35,7 @@ public class EndingActivity extends Activity {
     RadioButton mna7c;
     @BindView(R.id.mna7d)
     RadioButton mna7d;
-*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +43,19 @@ public class EndingActivity extends Activity {
         ButterKnife.bind(this);
 
         //mna7a.setEnabled(getIntent().getBooleanExtra("complete", true));
+
+        Boolean check = getIntent().getExtras().getBoolean("complete");
+        if (check) {
+            mna7a.setEnabled(true);
+            mna7b.setEnabled(false);
+            mna7c.setEnabled(false);
+            mna7d.setEnabled(false);
+        } else {
+            mna7a.setEnabled(false);
+            mna7a.setEnabled(true);
+            mna7c.setEnabled(true);
+            mna7d.setEnabled(true);
+        }
 
     }
 
@@ -50,20 +68,20 @@ public class EndingActivity extends Activity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            //if (UpdateDB()) {
-            finish();
-            Toast.makeText(this, "Closing Form!", Toast.LENGTH_SHORT).show();
-            Intent endSec = new Intent(this, MainActivity.class);
-            //AppMain.mnb1 = "TEST";
-            startActivity(endSec);
-        } else {
-            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            if (UpdateDB()) {
+                finish();
+                Toast.makeText(this, "Closing Form!", Toast.LENGTH_SHORT).show();
+                Intent endSec = new Intent(this, MainActivity.class);
+                //AppMain.mnb1 = "TEST";
+                startActivity(endSec);
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
         }
-        //}
     }
 
     private boolean UpdateDB() {
-        /*DatabaseHelper db = new DatabaseHelper(this);
+        DatabaseHelper db = new DatabaseHelper(this);
 
         int updcount = db.updateEnd();
 
@@ -71,45 +89,45 @@ public class EndingActivity extends Activity {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
             return true;
         } else {
-            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();*/
-        return false;
-        //}
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
-        /*switch (mna7.getCheckedRadioButtonId()) {
+        switch (iStatus.getCheckedRadioButtonId()) {
             case R.id.mna7a:
-                AppMain.fc.setiStatus("1");
+                AppMain.fc.setIstatus("1");
                 break;
             case R.id.mna7b:
-                AppMain.fc.setiStatus("2");
+                AppMain.fc.setIstatus("2");
                 break;
             case R.id.mna7c:
-                AppMain.fc.setiStatus("3");
+                AppMain.fc.setIstatus("3");
                 break;
             case R.id.mna7d:
-                AppMain.fc.setiStatus("4");
+                AppMain.fc.setIstatus("4");
                 break;
             default:
-                AppMain.fc.setiStatus("default");
+                AppMain.fc.setIstatus("default");
                 break;
-        }*/
+        }
 
     }
 
     private boolean formValidation() {
         Toast.makeText(this, "Validating Closing Section", Toast.LENGTH_SHORT).show();
 
-        /*if (mna7.getCheckedRadioButtonId() == -1) {
+        if (iStatus.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(not selected): " + getResources().getResourceTypeName(R.string.mna7), Toast.LENGTH_LONG).show();
             mna7d.setError("This data is Required!");
             Log.i(TAG, "mnd9: This data is Required!");
             return false;
         } else {
             mna7d.setError(null);
-        }*/
+        }
         return true;
     }
 }

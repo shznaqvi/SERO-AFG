@@ -403,7 +403,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                singleForm._ID
+                singleForm._ID,
+                singleForm.COLUMN_ISTATUS
         };
 
         String whereClause = singleForm.COLUMN_HHDT + " LIKE ?";
@@ -565,7 +566,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // New value for one column
         ContentValues values = new ContentValues();
-//        values.put(singleForm.COLUMN_MNA7, AppMain.fc.getiStatus());
+        values.put(singleForm.COLUMN_ISTATUS, AppMain.fc.getIstatus());
 
 
         // Which row to update, based on the ID

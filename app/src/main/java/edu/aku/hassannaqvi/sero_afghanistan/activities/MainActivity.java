@@ -33,6 +33,7 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import edu.aku.hassannaqvi.sero_afghanistan.R;
+import edu.aku.hassannaqvi.sero_afghanistan.contracts.FormsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.HFacilitiesContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.LHWsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.TehsilsContract;
@@ -110,6 +111,51 @@ public class MainActivity extends Activity {
         if (sharedPref.getString("tagName",null) == "" || sharedPref.getString("tagName",null) == null){
             builder.show();
         }
+
+//        View Record Summary
+
+        DatabaseHelper db = new DatabaseHelper(this);
+        Collection<FormsContract> todaysForms = db.getTodayForms();
+
+        rSumText += "TODAY'S RECORDS SUMMARY\r\n";
+        rSumText += "=======================";
+        rSumText += "\r\n\r\n";
+        rSumText += "Total Forms Today: " + todaysForms.size();
+        rSumText += "\r\n";
+        rSumText += "    Forms List: \r\n";
+        String iStatus = "";
+        for (FormsContract fc : todaysForms) {
+
+            switch (fc.getIstatus()) {
+                case "1":
+                    iStatus = "Complete";
+                    break;
+                case "2":
+                    iStatus = "House Locked";
+                    break;
+                case "3":
+                    iStatus = "Refused";
+                    break;
+                case "4":
+                    iStatus = "Refused";
+                    break;
+            }
+
+            rSumText += fc.getstudyid() + " " + fc.getIstatus() + " " + iStatus;
+            rSumText += "\r\n";
+
+        }
+
+        rSumText += "--------------------------------------------------\r\n";
+        if (AppMain.admin) {
+            adminsec.setVisibility(View.VISIBLE);
+            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
+            rSumText += "Last Update: " + syncPref.getString("LastUpdate", "Never Updated");
+            rSumText += "\r\n";
+            rSumText += "Last Synced(DB): " + syncPref.getString("LastSyncDB", "Never Synced");
+            rSumText += "\r\n";
+        }
+        recordSummary.setText(rSumText);
 
     }
 

@@ -100,7 +100,8 @@ public class SectionGActivity extends Activity {
             if (UpdateDB()) {
                 Toast.makeText(this, "Starting Main", Toast.LENGTH_SHORT).show();
 
-                Intent main = new Intent(this, MainActivity.class);
+                Intent main = new Intent(this, EndingActivity.class);
+                main.putExtra("complete", true);
                 startActivity(main);
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
