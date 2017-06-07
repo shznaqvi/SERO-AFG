@@ -183,7 +183,7 @@ public class SectionAActivity extends AppCompatActivity {
     @BindView(R.id.mnc4d)
     RadioButton mnc4d;
     @BindView(R.id.mnc4e)
-    RadioButton mnc4E;
+    RadioButton mnc4e;
     @BindView(R.id.mnc4f)
     RadioButton mnc4f;
     @BindView(R.id.mnc4g)
@@ -430,7 +430,15 @@ public class SectionAActivity extends AppCompatActivity {
                 break;
         }
 
-        sC.put("mnc2", var_mnc2);
+        sC.put("mnc2", mnc2a.isChecked() ? "1"
+                : mnc2b.isChecked() ? "2"
+                : mnc2c.isChecked() ? "3"
+                : mnc2d.isChecked() ? "4"
+                : mnc2e.isChecked() ? "5"
+                : mnc288.isChecked() ? "88"
+                : "0"
+        );
+
         sC.put("mnc2x", mnc2x.getText().toString());
         sC.put("mnc3years", mnc3years.getText().toString());
 
@@ -468,7 +476,16 @@ public class SectionAActivity extends AppCompatActivity {
         }
 
 
-        sC.put("mnc4", var_mnc4);
+        sC.put("mnc4", mnc4a.isChecked() ? "1" : mnc4b.isChecked() ? "2"
+                : mnc4c.isChecked() ? "3"
+                : mnc4d.isChecked() ? "4"
+                : mnc4e.isChecked() ? "5"
+                : mnc4f.isChecked() ? "6"
+                : mnc4g.isChecked() ? "7"
+                : mnc4h.isChecked() ? "8"
+                : mnc488.isChecked() ? "88" : "0");
+
+
         sC.put("mnc4x", mnc4x.getText().toString());
 
         AppMain.fc.setsC(String.valueOf(sC));

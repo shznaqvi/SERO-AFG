@@ -241,7 +241,7 @@ public class SectionGActivity extends Activity {
                 break;
         }
 
-        sG.put("mng1", var_mng1);
+        sG.put("mng1", mng1a.isChecked() ? "1" : mng1b.isChecked() ? "2" : "0");
         sG.put("mng2a", mng2a.getText().toString());
         sG.put("mng2b", mng2b.getText().toString());
 

@@ -64,6 +64,8 @@ public class SectionFActivity extends Activity {
     RadioButton mnf2a;
     @BindView(R.id.mnf2b)
     RadioButton mnf2b;
+    @BindView(R.id.mnf2c)
+    RadioButton mnf2c;
     @BindView(R.id.mnf288)
     RadioButton mnf288;
 
@@ -80,6 +82,7 @@ public class SectionFActivity extends Activity {
     RadioButton mnf4a;
     @BindView(R.id.mnf4b)
     RadioButton mnf4b;
+
     @BindView(R.id.mnf5)
     EditText mnf5;
 
@@ -237,13 +240,21 @@ public class SectionFActivity extends Activity {
             case R.id.mnf2b:
                 var_mnf2 = "2";
                 break;
+            case R.id.mnf2c:
+                var_mnf2 = "3";
+                break;
             case R.id.mnf288:
                 var_mnf2 = "88";
                 break;
         }
 
 
-        sF.put("mnf2", var_mnf2);
+        sF.put("mnf2", mnf2a.isChecked() ? "1"
+                : mnf2b.isChecked() ? "2"
+                : mnf2c.isChecked() ? "3"
+                : mnf288.isChecked() ? "88"
+                : "0");
+
         sF.put("mnf3years", mnf3years.getText().toString());
         sF.put("mnf3months", mnf3months.getText().toString());
 
@@ -258,7 +269,7 @@ public class SectionFActivity extends Activity {
                 break;
         }
 
-        sF.put("mnf4", var_mnf4);
+        sF.put("mnf4", mnf4a.isChecked() ? "1" : mnf4b.isChecked() ? "1" : "0");
         sF.put("mnf5", mnf5.getText().toString());
 
         AppMain.fc.setsF(String.valueOf(sF));
@@ -320,6 +331,9 @@ public class SectionFActivity extends Activity {
                 break;
             case R.id.mnf2b:
                 var_mnf2 = "2";
+                break;
+            case R.id.mnf2c:
+                var_mnf2 = "3";
                 break;
             case R.id.mnf288:
                 var_mnf2 = "88";

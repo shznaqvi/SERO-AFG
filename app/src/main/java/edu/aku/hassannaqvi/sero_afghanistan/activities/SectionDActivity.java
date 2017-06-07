@@ -34,24 +34,33 @@ public class SectionDActivity extends Activity {
     RadioButton mnd1a;
     @BindView(R.id.mnd1b)
     RadioButton mnd1b;
+    @BindView(R.id.mnd1c)
+    RadioButton mnd1c;
+
     @BindView(R.id.mnd2)
     RadioGroup mnd2;
     @BindView(R.id.mnd2a)
     RadioButton mnd2a;
     @BindView(R.id.mnd2b)
     RadioButton mnd2b;
+    @BindView(R.id.mnd2c)
+    RadioButton mnd2c;
+
     @BindView(R.id.mnd3)
     RadioGroup mnd3;
     @BindView(R.id.mnd3a)
     RadioButton mnd3a;
     @BindView(R.id.mnd3b)
     RadioButton mnd3b;
+
     @BindView(R.id.mnd4)
     RadioGroup mnd4;
     @BindView(R.id.mnd4a)
     RadioButton mnd4a;
     @BindView(R.id.mnd4b)
     RadioButton mnd4b;
+    @BindView(R.id.mnd4c)
+    RadioButton mnd4c;
 
     @BindView(R.id.bcg)
     RadioGroup bcg;
@@ -143,12 +152,18 @@ public class SectionDActivity extends Activity {
     RadioButton mnd6a;
     @BindView(R.id.mnd6b)
     RadioButton mnd6b;
+    @BindView(R.id.mnd6c)
+    RadioButton mnd6c;
+
     @BindView(R.id.mnd7)
     RadioGroup mnd7;
     @BindView(R.id.mnd7a)
     RadioButton mnd7a;
     @BindView(R.id.mnd7b)
     RadioButton mnd7b;
+    @BindView(R.id.mnd7c)
+    RadioButton mnd7c;
+
     @BindView(R.id.mnd8)
     EditText mnd8;
     @BindView(R.id.mnd9)
@@ -157,6 +172,10 @@ public class SectionDActivity extends Activity {
     RadioButton mnd9a;
     @BindView(R.id.mnd9b)
     RadioButton mnd9b;
+    @BindView(R.id.mnd9c)
+    RadioButton mnd9c;
+
+
     @BindView(R.id.mnd10years)
     EditText mnd10years;
     @BindView(R.id.mnd10months)
@@ -412,34 +431,34 @@ public class SectionDActivity extends Activity {
 
         getCheckedRadioButtonID();
 
-        sD.put("mnd1", var_mnd1);
-        sD.put("mnd2", var_mnd2);
-        sD.put("mnd3", var_mnd3);
-        sD.put("mnd4", var_mnd4);
-        sD.put("bcg", var_bcg);
-        sD.put("opv0", var_opv0);
-        sD.put("penta1", var_penta1);
-        sD.put("pcv1", var_pcv1);
-        sD.put("opv1", var_opv1);
-        sD.put("penta2", var_penta2);
-        sD.put("pcv2", var_pcv2);
-        sD.put("opv2", var_opv2);
-        sD.put("penta3", var_penta3);
-        sD.put("pcv3", var_pcv3);
-        sD.put("opv3", var_opv3);
-        sD.put("ipv", var_ipv);
-        sD.put("measles1", var_measles1);
-        sD.put("measles2", var_measles2);
-        sD.put("mnd6", var_mnd6);
-        sD.put("mnd7", var_mnd7);
+        sD.put("mnd1", mnd1a.isChecked() ? "1" : mnd1b.isChecked() ? "2" : mnd1c.isChecked() ? "99" : "0");
+        sD.put("mnd2", mnd2a.isChecked() ? "1" : mnd2b.isChecked() ? "2" : mnd2b.isChecked() ? "99" : "0");
+        sD.put("mnd3", mnd3a.isChecked() ? "1" : mnd3b.isChecked() ? "2" : mnd3b.isChecked() ? "99" : "0");
+        sD.put("mnd4", mnd4a.isChecked() ? "1" : mnd4b.isChecked() ? "2" : mnd4b.isChecked() ? "99" : "0");
+        sD.put("bcg", bcga.isChecked() ? "1" : bcgb.isChecked() ? "2" : "0");
+        sD.put("opv0", opv0a.isChecked() ? "1" : opv0b.isChecked() ? "2" : "0");
+        sD.put("penta1", penta1a.isChecked() ? "1" : penta1b.isChecked() ? "2" : "0");
+        sD.put("pcv1", pcv1a.isChecked() ? "1" : pcv1b.isChecked() ? "2" : "0");
+        sD.put("opv1", opv1a.isChecked() ? "1" : opv1b.isChecked() ? "2" : "0");
+        sD.put("penta2", penta2a.isChecked() ? "1" : penta2b.isChecked() ? "2" : "0");
+        sD.put("pcv2", pcv2a.isChecked() ? "1" : pcv2b.isChecked() ? "2" : "0");
+        sD.put("opv2", opv2a.isChecked() ? "1" : opv2b.isChecked() ? "2" : "0");
+        sD.put("penta3", penta3a.isChecked() ? "1" : penta3b.isChecked() ? "2" : "0");
+        sD.put("pcv3", pcv3a.isChecked() ? "1" : pcv3b.isChecked() ? "2" : "0");
+        sD.put("opv3", opv3a.isChecked() ? "1" : opv3a.isChecked() ? "2" : "0");
+        sD.put("ipv", ipva.isChecked() ? "1" : ipva.isChecked() ? "2" : "0");
+        sD.put("measles1", measles1a.isChecked() ? "1" : measles1a.isChecked() ? "2" : "0");
+        sD.put("measles2", measles2a.isChecked() ? "1" : measles2b.isChecked() ? "2" : "0");
+        sD.put("mnd6", mnd6a.isChecked() ? "1" : mnd6b.isChecked() ? "2" : mnd6c.isChecked() ? "99" : "0");
+        sD.put("mnd7", mnd7a.isChecked() ? "1" : mnd7b.isChecked() ? "2" : mnd7c.isChecked() ? "99" : "0");
         sD.put("mnd8", mnd8.getText().toString());
-        sD.put("mnd9", var_mnd9);
+        sD.put("mnd9", mnd9a.isChecked() ? "1" : mnd9b.isChecked() ? "2" : mnd9c.isChecked() ? "99" : "0");
         sD.put("mnd10years", mnd10years.getText().toString());
         sD.put("mnd10months", mnd10months.getText().toString());
-        sD.put("mnd11", var_mnd11);
+        sD.put("mnd11", mnd11a.isChecked() ? "1" : mnd11b.isChecked() ? "2" : mnd11c.isChecked() ? "3" : mnd11d.isChecked() ? "4" : mnd1188.isChecked() ? "88" : "0");
         sD.put("mnd11x", mnd11x.getText().toString());
-        sD.put("mnd12", var_mnd12);
-        sD.put("mnd13", var_mnd13);
+        sD.put("mnd12", mnd12a.isChecked() ? "1" : mnd12b.isChecked() ? "2" : "0");
+        sD.put("mnd13", mnd13a.isChecked() ? "1" : mnd13b.isChecked() ? "2" : mnd13c.isChecked() ? "3" : mnd13d.isChecked() ? "99" : "0");
 
         AppMain.fc.setsD(String.valueOf(sD));
 

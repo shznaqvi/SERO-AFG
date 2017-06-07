@@ -32,24 +32,40 @@ public class SectionEActivity extends Activity {
     RadioButton mne1a;
     @BindView(R.id.mne1b)
     RadioButton mne1b;
+    @BindView(R.id.mne1c)
+    RadioButton mne1c;
+
+
     @BindView(R.id.mne2)
     RadioGroup mne2;
     @BindView(R.id.mne2a)
     RadioButton mne2a;
     @BindView(R.id.mne2b)
     RadioButton mne2b;
+    @BindView(R.id.mne2c)
+    RadioButton mne2c;
+
+
     @BindView(R.id.mne3)
     RadioGroup mne3;
     @BindView(R.id.mne3a)
     RadioButton mne3a;
     @BindView(R.id.mne3b)
     RadioButton mne3b;
+    @BindView(R.id.mne3c)
+    RadioButton mne3c;
+
+
     @BindView(R.id.mne4)
     RadioGroup mne4;
     @BindView(R.id.mne4a)
     RadioButton mne4a;
     @BindView(R.id.mne4b)
     RadioButton mne4b;
+    @BindView(R.id.mne4c)
+    RadioButton mne4c;
+
+
     @BindView(R.id.mne5a)
     CheckBox mne5a;
     @BindView(R.id.mne5b)
@@ -349,10 +365,10 @@ public class SectionEActivity extends Activity {
                 break;
         }
 
-        sE.put("mne1", var_mne1);
-        sE.put("mne2", var_mne2);
-        sE.put("mne3", var_mne3);
-        sE.put("mne4", var_mne4);
+        sE.put("mne1", mne1a.isChecked() ? "1" : mne1b.isChecked() ? "2" : mne1c.isChecked() ? "99" : "0");
+        sE.put("mne2", mne2a.isChecked() ? "1" : mne2b.isChecked() ? "2" : mne2c.isChecked() ? "99" : "0");
+        sE.put("mne3", mne3a.isChecked() ? "1" : mne3b.isChecked() ? "2" : mne3c.isChecked() ? "99" : "0");
+        sE.put("mne4", mne4a.isChecked() ? "1" : mne4b.isChecked() ? "2" : mne4c.isChecked() ? "99" : "0");
 
 
         sE.put("mne5a", mne5a.isChecked() ? "1" : "0");
@@ -364,8 +380,8 @@ public class SectionEActivity extends Activity {
         sE.put("mne5g", mne5g.isChecked() ? "7" : "0");
         sE.put("mne5h", mne5h.isChecked() ? "8" : "0");
         sE.put("mne5i", mne5i.isChecked() ? "9" : "0");
-        sE.put("mne588", mne588.isChecked() ? "10" : "0");
-        sE.put("mne599", mne599.isChecked() ? "11" : "0");
+        sE.put("mne588", mne588.isChecked() ? "88" : "0");
+        sE.put("mne599", mne599.isChecked() ? "99" : "0");
 
         sE.put("mne5x", mne5x.getText().toString());
 
