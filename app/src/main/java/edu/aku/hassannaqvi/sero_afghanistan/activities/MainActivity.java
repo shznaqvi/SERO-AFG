@@ -81,7 +81,7 @@ public class MainActivity extends Activity {
 
         ButterKnife.bind(this);
 
-        sharedPref = getSharedPreferences("tagName",MODE_PRIVATE);
+        sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
         editor = sharedPref.edit();
 
         builder = new AlertDialog.Builder(MainActivity.this);
@@ -108,7 +108,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        if (sharedPref.getString("tagName",null) == "" || sharedPref.getString("tagName",null) == null){
+        if (sharedPref.getString("tagName", null) == "" || sharedPref.getString("tagName", null) == null) {
             builder.show();
         }
 
@@ -133,21 +133,26 @@ public class MainActivity extends Activity {
 
             for (FormsContract fc : todaysForms) {
 
-                switch (fc.getIstatus()) {
-                    case "1":
-                        iStatus = "\tComplete";
-                        break;
-                    case "2":
-                        iStatus = "\tIncomplete";
-                        break;
-                    case "3":
-                        iStatus = "\tRefused";
-                        break;
-                    case "4":
-                        iStatus = "\tRefused";
-                        break;
-                    default:
-                        iStatus = "\t";
+                if (fc.getIstatus() != null) {
+
+                    switch (fc.getIstatus()) {
+                        case "1":
+                            iStatus = "\tComplete";
+                            break;
+                        case "2":
+                            iStatus = "\tIncomplete";
+                            break;
+                        case "3":
+                            iStatus = "\tRefused";
+                            break;
+                        case "4":
+                            iStatus = "\tRefused";
+                            break;
+                        default:
+                            iStatus = "\t";
+                    }
+                } else {
+                    iStatus = "\tN/A";
                 }
 
                 rSumText += fc.getstudyid();
@@ -157,6 +162,7 @@ public class MainActivity extends Activity {
                 rSumText += (fc.getSynced().equals("") ? "\t\tNot Synced" : "\t\tSynced");
                 rSumText += "\r\n";
                 rSumText += "--------------------------------------------------\r\n";
+
             }
         }
 
