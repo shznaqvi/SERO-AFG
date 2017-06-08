@@ -379,7 +379,7 @@ public class SectionFActivity extends Activity {
         if (rdo_mnf4 == -1) {
             mnf4a.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnf4), Toast.LENGTH_LONG).show();
-            mnf4.requestFocus();
+            mnf4a.requestFocus();
             return false;
         } else {
             mnf4a.setError(null);

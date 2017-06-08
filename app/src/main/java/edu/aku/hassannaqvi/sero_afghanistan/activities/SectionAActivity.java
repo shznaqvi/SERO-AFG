@@ -721,7 +721,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (rdo_mnc2 == -1) {
             mnc2a.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnc2), Toast.LENGTH_LONG).show();
-            mnc2.requestFocus();
+            mnc2a.requestFocus();
             return false;
         } else {
             mnc2a.setError(null);
@@ -776,7 +776,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (rdo_mnc4 == -1) {
             mnc4a.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnc4), Toast.LENGTH_LONG).show();
-            mnc4.requestFocus();
+            mnc4a.requestFocus();
             return false;
         } else {
             mnc4a.setError(null);

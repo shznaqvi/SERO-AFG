@@ -400,7 +400,7 @@ public class SectionEActivity extends Activity {
         if (rdo_mne1 == -1) {
             mne1a.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mne1), Toast.LENGTH_LONG).show();
-            mne1.requestFocus();
+            mne1a.requestFocus();
             return false;
         } else {
             mne1a.setError(null);
@@ -424,7 +424,7 @@ public class SectionEActivity extends Activity {
         if (rdo_mne2 == -1) {
             mne2a.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mne2), Toast.LENGTH_LONG).show();
-            mne2.requestFocus();
+            mne2a.requestFocus();
             return false;
         } else {
             mne2a.setError(null);
@@ -448,7 +448,7 @@ public class SectionEActivity extends Activity {
         if (rdo_mne3 == -1) {
             mne3a.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mne3), Toast.LENGTH_LONG).show();
-            mne3.requestFocus();
+            mne3a.requestFocus();
             return false;
         } else {
             mne3a.setError(null);
@@ -472,7 +472,7 @@ public class SectionEActivity extends Activity {
         if (rdo_mne4 == -1) {
             mne4a.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mne4), Toast.LENGTH_LONG).show();
-            mne4.requestFocus();
+            mne4a.requestFocus();
             return false;
         } else {
             mne4a.setError(null);

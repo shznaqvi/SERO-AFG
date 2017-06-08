@@ -161,7 +161,7 @@ public class SectionGActivity extends Activity {
         if (rdo_mng1 == -1) {
             mng1a.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mng1), Toast.LENGTH_LONG).show();
-            mng1.requestFocus();
+            mng1a.requestFocus();
             return false;
         } else {
             mng1a.setError(null);
