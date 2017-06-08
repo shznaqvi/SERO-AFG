@@ -267,24 +267,34 @@ public class SectionAActivity extends AppCompatActivity {
 
     @OnClick(R.id.btnNext)
     void SaveData() {
+
+        DatabaseHelper db = new DatabaseHelper(this);
+
         if (ValidateForm()) {
-            try {
-                SaveDraft();
-                SaveDraftA();
-                SaveDraftB();
-                SaveDraftC();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
 
-            if (UpdateDB()) {
-                Toast.makeText(this, "Starting Section D", Toast.LENGTH_SHORT).show();
+            if (!db.IsStudyid_Exists(studyid.getText().toString())) {
 
-                Intent secD = new Intent(this, SectionDActivity.class);
-                //AppMain.chTotal = Integer.valueOf(mna13.getText().toString()) - 1; // exclude index child
-                startActivity(secD);
+                try {
+                    SaveDraft();
+                    SaveDraftA();
+                    SaveDraftB();
+                    SaveDraftC();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                if (UpdateDB()) {
+                    Toast.makeText(this, "Starting Section D", Toast.LENGTH_SHORT).show();
+
+                    Intent secD = new Intent(this, SectionDActivity.class);
+                    //AppMain.chTotal = Integer.valueOf(mna13.getText().toString()) - 1; // exclude index child
+                    startActivity(secD);
+                } else {
+                    Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+                }
             } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Study ID already exists ", Toast.LENGTH_SHORT).show();
+                studyid.requestFocus();
             }
         }
     }
@@ -292,9 +302,26 @@ public class SectionAActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_End)
     void endInterview() {
-        Intent endSec = new Intent(this, EndingActivity.class);
-        endSec.putExtra("complete", false);
-        startActivity(endSec);
+
+        Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
+        if (ValidateForm()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
+                Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+
+                finish();
+
+                Intent endSec = new Intent(this, EndingActivity.class);
+                endSec.putExtra("complete", false);
+                startActivity(endSec);
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private boolean UpdateDB() {
@@ -753,7 +780,7 @@ public class SectionAActivity extends AppCompatActivity {
 
             if (mnc2x.getText().toString().isEmpty() || mnc2x.getText().toString() == null) {
                 mnc2x.setError(getString(R.string.txterr));
-                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnc2x), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.others), Toast.LENGTH_LONG).show();
                 mnc2x.requestFocus();
                 return false;
             } else {
@@ -764,7 +791,7 @@ public class SectionAActivity extends AppCompatActivity {
 
         if (mnc3years.getText().toString().isEmpty() || mnc3years.getText().toString() == null) {
             mnc3years.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnc3years), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnc3), Toast.LENGTH_LONG).show();
             mnc3years.requestFocus();
             return false;
         } else {
@@ -816,7 +843,7 @@ public class SectionAActivity extends AppCompatActivity {
 
             if (mnc4x.getText().toString().isEmpty() || mnc4x.getText().toString() == null) {
                 mnc4x.setError(getString(R.string.txterr));
-                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnc4x), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.others), Toast.LENGTH_LONG).show();
                 mnc4x.requestFocus();
                 return false;
             } else {

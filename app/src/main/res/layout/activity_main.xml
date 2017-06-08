@@ -40,72 +40,80 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="gone">
 
-            <Spinner
-                android:id="@+id/MN01"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_weight="1"
-                android:background="@color/colorHeading"
-                android:popupBackground="#d6d6d6" />
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/MN01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorHeading"
+                    android:popupBackground="#d6d6d6" />
 
 
-            <TextView
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="2"
+                    android:text="Tehsil:" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="1dp"
-                android:layout_weight="2"
-                android:text="Tehsil:" />
+                android:orientation="horizontal">
 
+                <Spinner
+                    android:id="@+id/MN02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorHeading"
+                    android:popupBackground="#d6d6d6" />
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="2"
+                    android:text="Health Facilitiy:" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            </LinearLayout>
 
-            <Spinner
-                android:id="@+id/MN02"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_weight="1"
-                android:background="@color/colorHeading"
-                android:popupBackground="#d6d6d6" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="1dp"
-                android:layout_weight="2"
-                android:text="Health Facilitiy:" />
+                <Spinner
+                    android:id="@+id/MN03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorHeading"
+                    android:popupBackground="#d6d6d6" />
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="2"
+                    android:text="Name of LHW:" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Spinner
-                android:id="@+id/MN03"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_weight="1"
-                android:background="@color/colorHeading"
-                android:popupBackground="#d6d6d6" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="1dp"
-                android:layout_weight="2"
-                android:text="Name of LHW:" />
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -119,21 +127,29 @@
             android:onClick="openForm"
             android:text="Open New Form" />
 
-
-        <Button
-            android:id="@+id/getChildrens"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="16dp"
-            android:onClick="getChildrens"
-            android:text="Get Childrens" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/getChildrens"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
+                android:onClick="getChildrens"
+                android:text="Get Childrens" />
+
+        </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <EditText
                 android:id="@+id/clusterNo"
@@ -159,14 +175,22 @@
             android:onClick="syncServer"
             android:text="Upload Data" />
 
-        <Button
-            android:id="@+id/syncDevice"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="16dp"
-            android:onClick="syncDevice"
-            android:text="Download Data" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/syncDevice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
+                android:onClick="syncDevice"
+                android:text="Download Data" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/adminsec"

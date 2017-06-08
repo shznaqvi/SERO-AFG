@@ -125,7 +125,7 @@
                 android:id="@+id/mngsticker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/mngsticker"
+                android:text=""
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
@@ -166,7 +166,6 @@
                 android:text="@string/nextSection"
                 android:textColor="@android:color/holo_green_light"
                 android:textSize="24sp" />
-
 
 
         </LinearLayout>

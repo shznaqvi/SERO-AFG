@@ -452,6 +452,8 @@
     <string name="mnc2c"> Sister </string>
     <string name="mnc2d"> Brother </string>
     <string name="mnc2e"> Grandparents </string>
+    <string name="mnc2x"> Others </string>
+
     <string name="mnc3"> Age of respondent </string>
     <string name="mnc3years"> Years </string>
     <string name="mnc4"> Education level of respondent </string>

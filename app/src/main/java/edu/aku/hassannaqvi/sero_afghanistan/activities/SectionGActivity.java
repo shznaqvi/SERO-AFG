@@ -211,7 +211,7 @@ public class SectionGActivity extends Activity {
 
             if (mngsticker.getText().toString().isEmpty() || mng2b.getText().toString() == null) {
                 mngsticker.setError(getString(R.string.txterr));
-                Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mng2), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "ERROR(invalid): Please scanned sticker ", Toast.LENGTH_LONG).show();
                 mngsticker.requestFocus();
                 return false;
             } else {

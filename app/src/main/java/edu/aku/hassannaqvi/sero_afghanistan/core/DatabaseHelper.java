@@ -658,6 +658,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return false;
     }
 
+    public boolean IsStudyid_Exists(String studyid) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        boolean IsExists = false;
+
+        try {
+            String QUERY = "SELECT * FROM " + singleForm.TABLE_NAME + " WHERE "
+                    + singleForm.COLUMN_STUDYID + " = '" + studyid + "'";
+
+            Cursor cursor = db.rawQuery(QUERY, null);
+            int num = cursor.getCount();
+
+            if (num > 0) {
+
+                IsExists = true;
+            }
+
+            db.close();
+        } catch (Exception e) {
+        }
+        return IsExists;
+    }
+
     public Collection<HFacilitiesContract> getAllHFacilitiesByTehsil(String tehsil_code) {
 
         SQLiteDatabase db = this.getReadableDatabase();

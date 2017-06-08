@@ -120,6 +120,9 @@ public class SectionEActivity extends Activity {
 
                 if (mne588.isChecked()) {
                     fldGrpmne5.setVisibility(View.VISIBLE);
+
+                    mne599.setChecked(false);
+
                     mne5x.requestFocus();
                 } else {
                     mne5x.setText(null);

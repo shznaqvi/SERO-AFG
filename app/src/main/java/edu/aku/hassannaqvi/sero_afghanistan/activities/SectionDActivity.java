@@ -1288,7 +1288,7 @@ public class SectionDActivity extends Activity {
 
         if (mnd10years.getText().toString().isEmpty() || mnd10years.getText().toString() == null) {
             mnd10years.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd10years), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd10), Toast.LENGTH_LONG).show();
             mnd10years.requestFocus();
             return false;
         } else {
@@ -1297,7 +1297,7 @@ public class SectionDActivity extends Activity {
 
         if (mnd10months.getText().toString().isEmpty() || mnd10months.getText().toString() == null) {
             mnd10months.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd10months), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd10), Toast.LENGTH_LONG).show();
             mnd10months.requestFocus();
             return false;
         } else {
