@@ -432,9 +432,9 @@ public class SectionDActivity extends Activity {
         getCheckedRadioButtonID();
 
         sD.put("mnd1", mnd1a.isChecked() ? "1" : mnd1b.isChecked() ? "2" : mnd1c.isChecked() ? "99" : "0");
-        sD.put("mnd2", mnd2a.isChecked() ? "1" : mnd2b.isChecked() ? "2" : mnd2b.isChecked() ? "99" : "0");
-        sD.put("mnd3", mnd3a.isChecked() ? "1" : mnd3b.isChecked() ? "2" : mnd3b.isChecked() ? "99" : "0");
-        sD.put("mnd4", mnd4a.isChecked() ? "1" : mnd4b.isChecked() ? "2" : mnd4b.isChecked() ? "99" : "0");
+        sD.put("mnd2", mnd2a.isChecked() ? "1" : mnd2b.isChecked() ? "2" : mnd2c.isChecked() ? "99" : "0");
+        sD.put("mnd3", mnd3a.isChecked() ? "1" : mnd3b.isChecked() ? "2" : "0");
+        sD.put("mnd4", mnd4a.isChecked() ? "1" : mnd4b.isChecked() ? "2" : mnd4c.isChecked() ? "99" : "0");
         sD.put("bcg", bcga.isChecked() ? "1" : bcgb.isChecked() ? "2" : "0");
         sD.put("opv0", opv0a.isChecked() ? "1" : opv0b.isChecked() ? "2" : "0");
         sD.put("penta1", penta1a.isChecked() ? "1" : penta1b.isChecked() ? "2" : "0");
@@ -445,9 +445,9 @@ public class SectionDActivity extends Activity {
         sD.put("opv2", opv2a.isChecked() ? "1" : opv2b.isChecked() ? "2" : "0");
         sD.put("penta3", penta3a.isChecked() ? "1" : penta3b.isChecked() ? "2" : "0");
         sD.put("pcv3", pcv3a.isChecked() ? "1" : pcv3b.isChecked() ? "2" : "0");
-        sD.put("opv3", opv3a.isChecked() ? "1" : opv3a.isChecked() ? "2" : "0");
-        sD.put("ipv", ipva.isChecked() ? "1" : ipva.isChecked() ? "2" : "0");
-        sD.put("measles1", measles1a.isChecked() ? "1" : measles1a.isChecked() ? "2" : "0");
+        sD.put("opv3", opv3a.isChecked() ? "1" : opv3b.isChecked() ? "2" : "0");
+        sD.put("ipv", ipva.isChecked() ? "1" : ipvb.isChecked() ? "2" : "0");
+        sD.put("measles1", measles1a.isChecked() ? "1" : measles1b.isChecked() ? "2" : "0");
         sD.put("measles2", measles2a.isChecked() ? "1" : measles2b.isChecked() ? "2" : "0");
         sD.put("mnd6", mnd6a.isChecked() ? "1" : mnd6b.isChecked() ? "2" : mnd6c.isChecked() ? "99" : "0");
         sD.put("mnd7", mnd7a.isChecked() ? "1" : mnd7b.isChecked() ? "2" : mnd7c.isChecked() ? "99" : "0");

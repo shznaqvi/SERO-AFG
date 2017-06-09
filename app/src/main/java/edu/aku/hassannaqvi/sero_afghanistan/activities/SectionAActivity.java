@@ -399,7 +399,7 @@ public class SectionAActivity extends AppCompatActivity {
                 break;
         }
 
-        sA.put("mna6", var_mna6);
+        sA.put("mna6", mna6A.isChecked() ? "1" : mna6B.isChecked() ? "2" : "0");
 
         AppMain.fc.setsA(String.valueOf(sA));
 

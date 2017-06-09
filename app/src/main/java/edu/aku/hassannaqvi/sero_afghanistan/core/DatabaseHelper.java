@@ -45,7 +45,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String SQL_CREATE_USERS = "CREATE TABLE " + singleUser.TABLE_NAME + "("
             + singleUser._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + singleUser.ROW_USERNAME + " TEXT,"
-            + singleUser.ROW_PASSWORD + " TEXT );";
+            + singleUser.ROW_PASSWORD + " TEXT,"
+            + singleUser.ROW_USERSTATUS + " TEXT,"
+            + singleUser.ROW_ISADMIN + " TEXT);";
 
     public static final String DATABASE_NAME = "seroafg.db";
     public static final String DB_NAME = "seroafg_copy.db";
@@ -591,6 +593,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             values.put(singleUser.ROW_USERNAME, userscontract.getUserName());
             values.put(singleUser.ROW_PASSWORD, userscontract.getPassword());
+            values.put(singleUser.ROW_USERSTATUS, userscontract.getUserStatus());
+            values.put(singleUser.ROW_ISADMIN, userscontract.getIsAdmin());
+
             db.insert(singleUser.TABLE_NAME, null, values);
             db.close();
 
@@ -608,12 +613,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 JSONObject jsonObjectUser = jsonArray.getJSONObject(i);
                 String userName = jsonObjectUser.getString("username");
                 String password = jsonObjectUser.getString("password");
+                String userstatus = jsonObjectUser.getString("userstatus");
+                String isadmin = jsonObjectUser.getString("isadmin");
 
 
                 ContentValues values = new ContentValues();
 
                 values.put(singleUser.ROW_USERNAME, userName);
                 values.put(singleUser.ROW_PASSWORD, password);
+                values.put(singleUser.ROW_USERSTATUS, userstatus);
+                values.put(singleUser.ROW_ISADMIN, isadmin);
+
                 db.insert(singleUser.TABLE_NAME, null, values);
             }
             db.close();
@@ -636,6 +646,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     user.setId(cursor.getInt(0));
                     user.setUserName(cursor.getString(1));
                     user.setPassword(cursor.getString(2));
+                    user.setUserStatus(cursor.getString(3));
+                    user.setIsAdmin(cursor.getString(4));
+
                     userList.add(user);
                 }
             }
@@ -648,7 +661,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean Login(String username, String password) throws SQLException {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor mCursor = db.rawQuery("SELECT * FROM " + singleUser.TABLE_NAME + " WHERE " + singleUser.ROW_USERNAME + "=? AND " + singleUser.ROW_PASSWORD + "=?", new String[]{username, password});
+        Cursor mCursor = db.rawQuery("SELECT * FROM " + singleUser.TABLE_NAME
+                        + " WHERE " + singleUser.ROW_USERNAME + "=? AND "
+                        + singleUser.ROW_PASSWORD + "=? AND "
+                        + singleUser.ROW_USERSTATUS + "=1",
+                new String[]{username, password});
+
         if (mCursor != null) {
             if (mCursor.getCount() > 0) {
                 AppMain.username = mCursor.getColumnName(mCursor.getColumnIndex(singleUser.ROW_USERNAME));

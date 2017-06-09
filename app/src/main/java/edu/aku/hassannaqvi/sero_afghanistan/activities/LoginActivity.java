@@ -443,7 +443,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                     startActivity(iLogin);
 
                 } else {
-                    mPasswordView.setError(getString(R.string.error_incorrect_password));
+                    mPasswordView.setError(getString(R.string.error_incorrect_password) + " or may be your account is disabled");
                     mPasswordView.requestFocus();
                     Toast.makeText(LoginActivity.this, mEmail + " " + mPassword, Toast.LENGTH_SHORT).show();
                 }
