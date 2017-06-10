@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -116,7 +117,8 @@ public class SectionAActivity extends AppCompatActivity {
     TextView lblMnb5km;
     @BindView(R.id.mnb5km)
     EditText mnb5km;
-    @BindView(R.id.lbl_mnb6)
+
+    /*@BindView(R.id.lbl_mnb6)
     TextView lblMnb6;
     @BindView(R.id.lbl_mnb6name)
     TextView lblMnb6name;
@@ -125,7 +127,8 @@ public class SectionAActivity extends AppCompatActivity {
     @BindView(R.id.lbl_mnb6code)
     TextView lblMnb6code;
     @BindView(R.id.mnb6code)
-    EditText mnb6code;
+    EditText mnb6code;*/
+
     @BindView(R.id.lbl_mnb7)
     TextView lblMnb7;
     @BindView(R.id.lbl_mnb7name)
@@ -212,6 +215,7 @@ public class SectionAActivity extends AppCompatActivity {
 
     String dateToday;
     String maxDateyear;
+    String minDate;
 
     Calendar now = Calendar.getInstance();
 
@@ -225,8 +229,26 @@ public class SectionAActivity extends AppCompatActivity {
 
 
         dateToday = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
-        maxDateyear = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_YEAR));
+        minDate = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+
+        //maxDateyear = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_YEAR));
+
+
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date());
+        c.add(Calendar.MONTH, -11);
+
+        Date d = c.getTime();
+        String res = format.format(d);
+
+        Log.d(TAG, "onCreate: " + res);
+
+
+        //mna4.setMinDate(res);
         mna4.setMaxDate(dateToday);
+
 
         mna4.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -418,8 +440,10 @@ public class SectionAActivity extends AppCompatActivity {
         sB.put("mnb5walk", mnb5walk.getText().toString());
         sB.put("mnb5mints", mnb5mints.getText().toString());
         sB.put("mnb5km", mnb5km.getText().toString());
-        sB.put("mnb6name", mnb6name.getText().toString());
-        sB.put("mnb6code", mnb6code.getText().toString());
+
+        /*sB.put("mnb6name", mnb6name.getText().toString());
+        sB.put("mnb6code", mnb6code.getText().toString());*/
+
         sB.put("mnb7name", mnb7name.getText().toString());
         sB.put("mnb7code", mnb7code.getText().toString());
 
@@ -697,7 +721,7 @@ public class SectionAActivity extends AppCompatActivity {
         }
 
 
-        if (mnb6name.getText().toString().isEmpty() || mnb6name.getText().toString() == null) {
+        /*if (mnb6name.getText().toString().isEmpty() || mnb6name.getText().toString() == null) {
             mnb6name.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb6name), Toast.LENGTH_LONG).show();
             mnb6name.requestFocus();
@@ -713,7 +737,7 @@ public class SectionAActivity extends AppCompatActivity {
             return false;
         } else {
             mnb6code.setError(null);
-        }
+        }*/
 
 
         if (mnb7name.getText().toString().isEmpty() || mnb7name.getText().toString() == null) {
@@ -851,6 +875,37 @@ public class SectionAActivity extends AppCompatActivity {
             }
 
         }
+
+
+        if (Integer.parseInt(mna5months.getText().toString()) < 6 || Integer.parseInt(mna5months.getText().toString()) > 11) {
+            mna5months.setError("Months must be between 6 - 11");
+            Toast.makeText(getApplicationContext(), "ERROR(empty): Months must be between 6 - 11 ", Toast.LENGTH_LONG).show();
+            mna5months.requestFocus();
+            return false;
+        } else {
+            mna5months.setError(null);
+        }
+
+
+        if (Integer.parseInt(mna5days.getText().toString()) < 0 || Integer.parseInt(mna5days.getText().toString()) > 29) {
+            mna5days.setError("Days must be between 0 - 29");
+            Toast.makeText(getApplicationContext(), "ERROR(empty): Days must be between 0 - 29 ", Toast.LENGTH_LONG).show();
+            mna5days.requestFocus();
+            return false;
+        } else {
+            mna5days.setError(null);
+        }
+
+
+        if (Integer.parseInt(mnc3years.getText().toString()) < 14) {
+            mnc3years.setError("Respondent age cannot be less than 14 years");
+            Toast.makeText(getApplicationContext(), "ERROR(empty): Respondent age cannot be less than 14 years ", Toast.LENGTH_LONG).show();
+            mnc3years.requestFocus();
+            return false;
+        } else {
+            mnc3years.setError(null);
+        }
+
 
         return true;
     }

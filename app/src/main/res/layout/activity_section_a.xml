@@ -117,7 +117,7 @@
             android:focusable="false"
             android:hint="@string/mna4"
             android:textColor="@android:color/black"
-            app:dateFormat="dd/MM/yyyy" />
+            app:dateFormat="dd-MM-yyyy" />
 
         <TextView
             android:id="@+id/lbl_mna5months"
@@ -277,7 +277,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
+            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM 0123456789"
             android:ems="10"
             android:inputType="text" />
 
@@ -301,7 +301,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:digits="0123456789"
+            android:digits="0123456789."
             android:ems="10"
             android:inputType="numberDecimal" />
 
@@ -318,7 +318,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:digits="0123456789"
+            android:digits="0123456789."
             android:ems="10"
             android:inputType="numberDecimal" />
 
@@ -335,11 +335,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:digits="0123456789"
+            android:digits="0123456789."
             android:ems="10"
             android:inputType="numberDecimal" />
 
-        <TextView
+        <!--<TextView
             android:id="@+id/lbl_mnb6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -351,7 +351,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/mnb6name"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge" />-->
 
         <EditText
             android:id="@+id/mnb6name"

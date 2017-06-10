@@ -1395,6 +1395,26 @@ public class SectionDActivity extends Activity {
                 break;
         }
 
+
+        if (mnd10years.getText().toString() != "2016" || mnd10years.getText().toString() != "2017") {
+            mnd10years.setError("Year must be 2016 or 2017");
+            Toast.makeText(getApplicationContext(), "ERROR(invalid): Year must be 2016 or 2017 ", Toast.LENGTH_LONG).show();
+            mnd10years.requestFocus();
+            return false;
+        } else {
+            mnd10years.setError(null);
+        }
+
+
+        if (Integer.parseInt(mnd10months.getText().toString()) < 0 || Integer.parseInt(mnd10months.getText().toString()) > 12) {
+            mnd10months.setError("Month must be 1 - 12");
+            Toast.makeText(getApplicationContext(), "ERROR(invalid): Month must be 1 - 12", Toast.LENGTH_LONG).show();
+            mnd10months.requestFocus();
+            return false;
+        } else {
+            mnd10months.setError(null);
+        }
+
         return true;
     }
 }
