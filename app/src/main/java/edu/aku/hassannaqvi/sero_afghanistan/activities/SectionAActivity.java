@@ -17,6 +17,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -246,7 +247,6 @@ public class SectionAActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: " + res);
 
 
-        //mna4.setMinDate(res);
         mna4.setMaxDate(dateToday);
 
 
@@ -410,16 +410,6 @@ public class SectionAActivity extends AppCompatActivity {
         sA.put("mna5days", mna5days.getText().toString());
         sA.put("mna5months", mna5months.getText().toString());
 
-        rdo_mna6 = mna6.getCheckedRadioButtonId();
-
-        switch (rdo_mna6) {
-            case R.id.mna6_a:
-                var_mna6 = "1";
-                break;
-            case R.id.mna6_b:
-                var_mna6 = "2";
-                break;
-        }
 
         sA.put("mna6", mna6A.isChecked() ? "1" : mna6B.isChecked() ? "2" : "0");
 
@@ -458,28 +448,6 @@ public class SectionAActivity extends AppCompatActivity {
 
         sC.put("mnc1", mnc1.getText().toString());
 
-        rdo_mnc2 = mnc2.getCheckedRadioButtonId();
-
-        switch (rdo_mnc2) {
-            case R.id.mnc2a:
-                var_mnc2 = "1";
-                break;
-            case R.id.mnc2b:
-                var_mnc2 = "2";
-                break;
-            case R.id.mnc2c:
-                var_mnc2 = "3";
-                break;
-            case R.id.mnc2d:
-                var_mnc2 = "4";
-                break;
-            case R.id.mnc2e:
-                var_mnc2 = "5";
-                break;
-            case R.id.mnc288:
-                var_mnc2 = "88";
-                break;
-        }
 
         sC.put("mnc2", mnc2a.isChecked() ? "1"
                 : mnc2b.isChecked() ? "2"
@@ -492,39 +460,6 @@ public class SectionAActivity extends AppCompatActivity {
 
         sC.put("mnc2x", mnc2x.getText().toString());
         sC.put("mnc3years", mnc3years.getText().toString());
-
-
-        rdo_mnc4 = mnc4.getCheckedRadioButtonId();
-
-        switch (rdo_mnc4) {
-            case R.id.mnc4a:
-                var_mnc4 = "1";
-                break;
-            case R.id.mnc4b:
-                var_mnc4 = "2";
-                break;
-            case R.id.mnc4c:
-                var_mnc4 = "3";
-                break;
-            case R.id.mnc4d:
-                var_mnc4 = "4";
-                break;
-            case R.id.mnc4e:
-                var_mnc4 = "5";
-                break;
-            case R.id.mnc4f:
-                var_mnc4 = "6";
-                break;
-            case R.id.mnc4g:
-                var_mnc4 = "7";
-                break;
-            case R.id.mnc4h:
-                var_mnc4 = "8";
-                break;
-            case R.id.mnc488:
-                var_mnc4 = "88";
-                break;
-        }
 
 
         sC.put("mnc4", mnc4a.isChecked() ? "1" : mnc4b.isChecked() ? "2"
@@ -560,6 +495,8 @@ public class SectionAActivity extends AppCompatActivity {
 
 
     private boolean ValidateForm() {
+
+        int count = 0, count1 = 0, count2 = 0;
 
         if (studyid.getText().toString().isEmpty() || studyid.getText().toString() == null) {
             studyid.setError(getString(R.string.txterr));
@@ -904,6 +841,80 @@ public class SectionAActivity extends AppCompatActivity {
             return false;
         } else {
             mnc3years.setError(null);
+        }
+
+
+        if (mnc4e.isChecked() && Integer.parseInt(mnc3years.getText().toString()) < 16) {
+            mnc3years.setError("Age must be 16 years or greater if the education level is Graduation");
+            Toast.makeText(getApplicationContext(), "ERROR(empty): Age must be 16 years if the education level is Graduation ", Toast.LENGTH_LONG).show();
+            mnc3years.requestFocus();
+            return false;
+        } else {
+            mnc3years.setError(null);
+        }
+
+
+        if (mnc4f.isChecked() && Integer.parseInt(mnc3years.getText().toString()) < 19) {
+            mnc3years.setError("Age must be 19 years or greater if the education level is Masters");
+            Toast.makeText(getApplicationContext(), "ERROR(empty): Age must be 19 years if the education level is Masters ", Toast.LENGTH_LONG).show();
+            mnc3years.requestFocus();
+            return false;
+        } else {
+            mnc3years.setError(null);
+        }
+
+
+        String str2 = mnb5walk.getText().toString();
+        for (int i = 0; i < str2.length(); i++) {
+            if (mnb5walk.getText().toString().charAt(i) == '.') {
+                count2++;
+            }
+        }
+
+
+        if (count2 >= 2) {
+            mnb5walk.setError("You cannot use two decimal points in distance by walk");
+            Toast.makeText(getApplicationContext(), "ERROR(empty): You cannot use two decimal points in distance by walk ", Toast.LENGTH_LONG).show();
+            mnb5walk.requestFocus();
+            return false;
+        } else {
+            mnb5walk.setError(null);
+        }
+
+
+        String str1 = mnb5mints.getText().toString();
+        for (int i = 0; i < str1.length(); i++) {
+            if (mnb5mints.getText().toString().charAt(i) == '.') {
+                count1++;
+            }
+        }
+
+
+        if (count1 >= 2) {
+            mnb5mints.setError("You cannot use two decimal points in distance in mints");
+            Toast.makeText(getApplicationContext(), "ERROR(empty): You cannot use two decimal points in distance in mints ", Toast.LENGTH_LONG).show();
+            mnb5mints.requestFocus();
+            return false;
+        } else {
+            mnb5mints.setError(null);
+        }
+
+
+        String str = mnb5km.getText().toString();
+        for (int i = 0; i < str.length(); i++) {
+            if (mnb5km.getText().toString().charAt(i) == '.') {
+                count++;
+            }
+        }
+
+
+        if (count >= 2) {
+            mnb5km.setError("You cannot use two decimal points in km");
+            Toast.makeText(getApplicationContext(), "ERROR(empty): You cannot use two decimal points in km ", Toast.LENGTH_LONG).show();
+            mnb5km.requestFocus();
+            return false;
+        } else {
+            mnb5km.setError(null);
         }
 
 
