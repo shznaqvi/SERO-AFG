@@ -31,5 +31,4 @@ dependencies {
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
     compile 'com.journeyapps:zxing-android-embedded:3.4.0'
-    compile 'com.mohamadamin:persianmaterialdatetimepicker:1.2.1'
 }
