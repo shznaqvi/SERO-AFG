@@ -27,6 +27,10 @@ public class ProvinceContract {
         this.ROW_PROVINCE = cursor.getString(cursor.getColumnIndex(ProvinceEntry.ROW_PROVINCE));
 
         return this;
+
+
+
+
     }
 
 
