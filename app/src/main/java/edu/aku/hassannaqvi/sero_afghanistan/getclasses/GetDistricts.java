@@ -17,8 +17,8 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import edu.aku.hassannaqvi.sero_afghanistan.R;
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.TehsilsContract;
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.TehsilsContract.TehsilTable;
+import edu.aku.hassannaqvi.sero_afghanistan.contracts.UCsContract;
+import edu.aku.hassannaqvi.sero_afghanistan.contracts.DistrictContract.DistrictEntry;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
 
@@ -26,14 +26,14 @@ import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
  * Created by javed.khan on 1/2/2017.
  */
 
-public class GetTehsil extends AsyncTask<String, String, String> {
+public class GetDistricts extends AsyncTask<String, String, String> {
 
-    private final String TAG = "GetTehsil()";
+    private final String TAG = "GetDistricts()";
     HttpURLConnection urlConnection;
     private Context mContext;
     private ProgressDialog pd;
 
-    public GetTehsil(Context context) {
+    public GetDistricts(Context context) {
         mContext = context;
     }
 
@@ -42,7 +42,7 @@ public class GetTehsil extends AsyncTask<String, String, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         pd = new ProgressDialog(mContext, R.style.AlertDialogStyle);
-        pd.setTitle("Getting Tehsil");
+        pd.setTitle("Getting Districts");
         pd.setMessage("Preparing...");
         pd.show();
     }
@@ -53,8 +53,7 @@ public class GetTehsil extends AsyncTask<String, String, String> {
         StringBuilder result = new StringBuilder();
 
         try {
-            URL url = new URL(AppMain.PROJECT_URI + TehsilTable.URI);
-
+            URL url = new URL(AppMain.PROJECT_URI + DistrictEntry.URI);
             urlConnection = (HttpURLConnection) url.openConnection();
             if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 //pd.show();
@@ -65,7 +64,7 @@ public class GetTehsil extends AsyncTask<String, String, String> {
 
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    Log.i(TAG, "Tehsil In: " + line);
+                    Log.i(TAG, "Districts In: " + line);
                     result.append(line);
                 }
             } else {
@@ -73,6 +72,7 @@ public class GetTehsil extends AsyncTask<String, String, String> {
             }
         } catch (Exception e) {
             e.printStackTrace();
+
 
         } finally {
             urlConnection.disconnect();
@@ -90,22 +90,23 @@ public class GetTehsil extends AsyncTask<String, String, String> {
             String json = result;
             //json = json.replaceAll("\\[", "").replaceAll("\\]","");
             Log.d(TAG, result);
-            ArrayList<TehsilsContract> tehsilArrayList;
+            ArrayList<UCsContract> districtArrayList;
             DatabaseHelper db = new DatabaseHelper(mContext);
             try {
+                districtArrayList = new ArrayList<UCsContract>();
                 //JSONObject jsonObject = new JSONObject(json);
                 JSONArray jsonArray = new JSONArray(json);
-                db.syncTehsil(jsonArray);
+                db.syncDistricts(jsonArray);
 
-                pd.setMessage("Received: " + jsonArray.length() + " Tehsil");
-                pd.setTitle("Done... Synced Tehsil");
+                pd.setMessage("Received: " + jsonArray.length() + " Districts");
+                pd.setTitle("Done... Synced Districts");
 
             } catch (JSONException e) {
                 e.printStackTrace();
-                pd.setMessage("Received: 0 Tehsil");
-                pd.setTitle("Error... Syncing Tehsil");
+                pd.setMessage("Received: 0 Districts");
+                pd.setTitle("Error... Syncing Districts");
             }
-            db.getAllTehsil();
+            db.getAllDistricts();
             pd.show();
         }
     }

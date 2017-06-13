@@ -204,9 +204,8 @@
                     android:id="@+id/fldGrpBcgM"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_weight="50"
-                    >
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -214,10 +213,9 @@
                         android:layout_marginTop="5dp"
                         android:background="#efefef"
                         android:gravity="center"
-                        android:textStyle="bold"
                         android:text="@string/recall"
                         android:textColor="@color/colorPrimaryDark"
-                        />
+                        android:textStyle="bold" />
 
                     <RadioGroup
                         android:id="@+id/bcgM"
@@ -253,8 +251,8 @@
                     android:id="@+id/fldGrpBcgC"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="50">
+                    android:layout_weight="50"
+                    android:orientation="vertical">
 
                     <TextView
 
@@ -309,8 +307,8 @@
                     android:id="@+id/fldGrpOpv0M"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="50">
+                    android:layout_weight="50"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -355,9 +353,9 @@
                     android:id="@+id/fldGrpopv0C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="50"
                     android:orientation="vertical"
-                    android:visibility="visible"
-                    android:layout_weight="50">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -422,8 +420,8 @@
                     android:id="@+id/fldGrpPenta1M"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="50">
+                    android:layout_weight="50"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -468,9 +466,9 @@
                     android:id="@+id/fldGrpPenta1C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="50"
                     android:orientation="vertical"
-                    android:visibility="visible"
-                    android:layout_weight="50">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -524,8 +522,8 @@
                     android:id="@+id/fldGrppcv1M"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="50">
+                    android:layout_weight="50"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -570,9 +568,9 @@
                     android:id="@+id/fldGrppcv1C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="50"
                     android:orientation="vertical"
-                    android:visibility="visible"
-                    android:layout_weight="50">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -620,15 +618,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:weightSum="100"
-                >
+                android:weightSum="100">
 
                 <LinearLayout
                     android:id="@+id/fldGrpopv1M"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="50">
+                    android:layout_weight="50"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -673,9 +670,9 @@
                     android:id="@+id/fldGrpopv1C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="50"
                     android:orientation="vertical"
-                    android:visibility="visible"
-                    android:layout_weight="50">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -740,8 +737,8 @@
                     android:id="@+id/fldGrppenta2M"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="50">
+                    android:layout_weight="50"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -786,9 +783,9 @@
                     android:id="@+id/fldGrppenta2C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="50"
                     android:orientation="vertical"
-                    android:visibility="visible"
-                    android:layout_weight="50">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -842,8 +839,8 @@
                     android:id="@+id/fldGrppcv2M"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="50">
+                    android:layout_weight="50"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -888,9 +885,9 @@
                     android:id="@+id/fldGrppcv2C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="50"
                     android:orientation="vertical"
-                    android:visibility="visible"
-                    android:layout_weight="50">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -944,8 +941,8 @@
                     android:id="@+id/fldGrpopv2M"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="50">
+                    android:layout_weight="50"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -990,9 +987,9 @@
                     android:id="@+id/fldGrpopv2C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="50"
                     android:orientation="vertical"
-                    android:visibility="visible"
-                    android:layout_weight="50">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1057,8 +1054,8 @@
                     android:id="@+id/fldGrpPenta3M"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="50">
+                    android:layout_weight="50"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1103,9 +1100,9 @@
                     android:id="@+id/fldGrpenta3C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="50"
                     android:orientation="vertical"
-                    android:visibility="visible"
-                    android:layout_weight="50">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1159,8 +1156,8 @@
                     android:id="@+id/fldGrppcv3M"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="50">
+                    android:layout_weight="50"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1205,9 +1202,9 @@
                     android:id="@+id/fldGrppcv3C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="50"
                     android:orientation="vertical"
-                    android:visibility="visible"
-                    android:layout_weight="50">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1261,8 +1258,8 @@
                     android:id="@+id/fldGrpopv3M"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="50">
+                    android:layout_weight="50"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1307,9 +1304,9 @@
                     android:id="@+id/fldGrpopv3C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="50"
                     android:orientation="vertical"
-                    android:visibility="visible"
-                    android:layout_weight="50">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1363,8 +1360,8 @@
                     android:id="@+id/fldGrpipvM"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="50">
+                    android:layout_weight="50"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1409,9 +1406,9 @@
                     android:id="@+id/fldGrpipvC"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="50"
                     android:orientation="vertical"
-                    android:visibility="visible"
-                    android:layout_weight="50">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1477,8 +1474,8 @@
                     android:id="@+id/fldGrpMeasles1M"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="50">
+                    android:layout_weight="50"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1523,9 +1520,9 @@
                     android:id="@+id/fldGrpmeasles1C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="50"
                     android:orientation="vertical"
-                    android:visibility="visible"
-                    android:layout_weight="50">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1557,11 +1554,11 @@
                             android:text="@string/no" />
 
                     </RadioGroup>
-                    
+
+
+                </LinearLayout>
 
             </LinearLayout>
-
-        </LinearLayout>
 
 
             <TextView
@@ -1592,8 +1589,8 @@
                     android:id="@+id/fldGrpMeasles2M"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="50">
+                    android:layout_weight="50"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1638,9 +1635,9 @@
                     android:id="@+id/fldGrpmeasles2C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="50"
                     android:orientation="vertical"
-                    android:visibility="visible"
-                    android:layout_weight="50">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1677,8 +1674,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-
-
 
 
         </LinearLayout>
@@ -1840,7 +1835,7 @@
             android:digits="0123456789"
             android:ems="10"
             android:inputType="number"
-            android:maxLength="2" />
+            android:maxLength="4" />
 
         <TextView
             android:id="@+id/lbl_mnd10months"

@@ -74,8 +74,10 @@ public class SectionFActivity extends Activity {
 
     @BindView(R.id.mnf3years)
     EditText mnf3years;
+
     @BindView(R.id.mnf3months)
     EditText mnf3months;
+
     @BindView(R.id.mnf4)
     RadioGroup mnf4;
     @BindView(R.id.mnf4a)
@@ -406,6 +408,16 @@ public class SectionFActivity extends Activity {
                 mnf5.setError(null);
             }
 
+        }
+
+
+        if (mnf3years.getText().toString() == "0" && mnf3months.getText().toString() == "0") {
+            mnf3years.setError("Year and month both cannot be 0");
+            Toast.makeText(getApplicationContext(), "ERROR(empty): Year and month both cannot be 0 ", Toast.LENGTH_LONG).show();
+            mnf3years.requestFocus();
+            return false;
+        } else {
+            mnf3years.setError(null);
         }
 
 

@@ -36,16 +36,17 @@ import edu.aku.hassannaqvi.sero_afghanistan.R;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.FormsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.HFacilitiesContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.LHWsContract;
+import edu.aku.hassannaqvi.sero_afghanistan.contracts.ProvinceContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.TehsilsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
+import edu.aku.hassannaqvi.sero_afghanistan.getclasses.GetDistricts;
 import edu.aku.hassannaqvi.sero_afghanistan.getclasses.GetHFacilities;
 import edu.aku.hassannaqvi.sero_afghanistan.getclasses.GetLHWs;
-import edu.aku.hassannaqvi.sero_afghanistan.getclasses.GetTehsil;
+import edu.aku.hassannaqvi.sero_afghanistan.getclasses.GetProvince;
 import edu.aku.hassannaqvi.sero_afghanistan.getclasses.GetUCs;
 import edu.aku.hassannaqvi.sero_afghanistan.getclasses.GetUsers;
-import edu.aku.hassannaqvi.sero_afghanistan.getclasses.GetVillages;
 import edu.aku.hassannaqvi.sero_afghanistan.syncclasses.SyncForms;
 
 public class MainActivity extends Activity {
@@ -65,7 +66,7 @@ public class MainActivity extends Activity {
     Spinner mN02;
     @BindView(R.id.MN03)
     Spinner mN03;
-    Map<String, String> tehsils, lhws;
+    Map<String, String> provinces, dist;
     DatabaseHelper db;
     List<String> hfCodes;
     SharedPreferences sharedPref;
@@ -275,6 +276,7 @@ public class MainActivity extends Activity {
         startActivity(cluster_list);
 
     }*/
+
     public void syncServer(View view) {
 
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
@@ -329,29 +331,30 @@ public class MainActivity extends Activity {
 
                 @Override
                 public void run() {
+
                     GetUsers us = new GetUsers(mContext);
                     Toast.makeText(mContext, "Syncing Users", Toast.LENGTH_SHORT).show();
                     us.execute();
 
-                    GetTehsil gt = new GetTehsil(mContext);
-                    Toast.makeText(mContext, "Syncing Tehsils", Toast.LENGTH_SHORT).show();
+                    GetProvince gt = new GetProvince(mContext);
+                    Toast.makeText(mContext, "Syncing Provinces", Toast.LENGTH_SHORT).show();
                     gt.execute();
 
-                    GetVillages gv = new GetVillages(mContext);
-                    Toast.makeText(mContext, "Syncing Villages", Toast.LENGTH_SHORT).show();
+                    GetDistricts gv = new GetDistricts(mContext);
+                    Toast.makeText(mContext, "Syncing Districts", Toast.LENGTH_SHORT).show();
                     gv.execute();
 
-                    GetUCs gu = new GetUCs(mContext);
+                    /*GetUCs gu = new GetUCs(mContext);
                     Toast.makeText(mContext, "Syncing Ucs", Toast.LENGTH_SHORT).show();
-                    gu.execute();
+                    gu.execute();*/
 
-                    GetHFacilities gh = new GetHFacilities(mContext);
+                    /*GetHFacilities gh = new GetHFacilities(mContext);
                     Toast.makeText(mContext, "Syncing Health Facilities", Toast.LENGTH_SHORT).show();
                     gh.execute();
-
-                    GetLHWs gp = new GetLHWs(mContext);
+*/
+                    /*GetLHWs gp = new GetLHWs(mContext);
                     Toast.makeText(mContext, "Syncing LHWs", Toast.LENGTH_SHORT).show();
-                    gp.execute();
+                    gp.execute();*/
 
                     SharedPreferences syncPref = getSharedPreferences("SyncInfo(DOWN)", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = syncPref.edit();
@@ -364,117 +367,6 @@ public class MainActivity extends Activity {
 
 
             return null;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            new Handler().postDelayed(new Runnable() {
-
-                @Override
-                public void run() {
-
-                    //        Sync Spinners
-
-                    AppMain.fc = null;
-
-                    // Spinner Drop down elements
-                    tehsils = new HashMap<>();
-                    final List<String> Tname = new ArrayList<>();
-                    Collection<TehsilsContract> Tc = db.getAllTehsil();
-                    Log.d(TAG, "onCreate: " + Tc.size());
-                    for (TehsilsContract hf : Tc) {
-                        tehsils.put(hf.getTehsil_name(), hf.getTehsil_code());
-                        Tname.add(hf.getTehsil_name());
-                    }
-
-                    mN01.setAdapter(new ArrayAdapter<>(mContext, android.R.layout.simple_spinner_dropdown_item, Tname));
-
-                    mN01.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            // Spinner Drop down elements
-                            List<String> hfNames = new ArrayList<>();
-
-                            hfCodes = new ArrayList<>();
-
-                            AppMain.tehsilCode = tehsils.get(Tname.get(position));
-
-                            Collection<HFacilitiesContract> hfc = db.getAllHFacilitiesByTehsil(AppMain.tehsilCode);
-                            Log.d(TAG, "onCreate: " + hfc.size());
-                            for (HFacilitiesContract hf : hfc) {
-                                hfNames.add(hf.gethFacilityName());
-                                hfCodes.add(hf.gethFacilityCode());
-                            }
-
-                            // attaching data adapter to spinner
-                            mN02.setAdapter(new ArrayAdapter<>(getBaseContext(),
-                                    android.R.layout.simple_spinner_dropdown_item, hfNames));
-
-                        }
-
-                        @Override
-                        public void onNothingSelected(AdapterView<?> parent) {
-
-                        }
-                    });
-
-                    mN02.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            AppMain.hfCode = hfCodes.get(position);
-
-                            lhwName = new ArrayList<String>();
-                            lhws = new HashMap<String, String>();
-                            Collection<LHWsContract> lhwc = db.getAllLhwsByHf(hfCodes.get(position));
-                            for (LHWsContract lhw : lhwc) {
-                                lhws.put("" + (lhw.getLHWName() + " (" + lhw.getLHWCode() + ")"), lhw.getLHWCode());
-                                lhwName.add(lhw.getLHWName() + " (" + lhw.getLHWCode() + ")");
-                            }
-                            ArrayAdapter<String> psuAdapter = new ArrayAdapter<String>(MainActivity.this,
-                                    android.R.layout.simple_spinner_item, lhwName);
-
-                            psuAdapter
-                                    .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                            mN03.setAdapter(psuAdapter);
-
-                        }
-
-                        @Override
-                        public void onNothingSelected(AdapterView<?> parent) {
-
-                        }
-                    });
-
-                    mN03.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            AppMain.lhwCode = lhws.get(lhwName.get(position));
-                /*Collection<LHWsContract> lhwc = db.getAllLhwsByHf(AppMain.hh01txt);
-                for (LHWsContract l : lhwc) {
-                    Log.d(TAG, "onItemSelected: " + l.getLHWCode() + " -" + AppMain.hh02txt);
-
-                    if (l.getLHWCode().equals(AppMain.hh02txt)) {
-                        Log.d(TAG, "onItemSelected: " + l.getLHWName());
-                        String[] psuNameS = l.getLHWName().toString().split("\\|");
-                        districtN.setText(psuNameS[0]);
-                        Log.d(TAG, "onItemSelected: " + psuNameS[0]);
-                        ucN.setText(psuNameS[1]);
-                        Log.d(TAG, "onItemSelected: " + psuNameS[1]);
-                        psuN.setText(psuNameS[2]);
-                        Log.d(TAG, "onItemSelected: " + psuNameS[2]);
-
-                    }
-                }*/
-                        }
-
-                        @Override
-                        public void onNothingSelected(AdapterView<?> parent) {
-
-                        }
-                    });
-
-                }
-            }, 1200);
         }
     }
 }

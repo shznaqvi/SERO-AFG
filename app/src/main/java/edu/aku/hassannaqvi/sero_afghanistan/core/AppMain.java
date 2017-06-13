@@ -25,7 +25,11 @@ import edu.aku.hassannaqvi.sero_afghanistan.contracts.FormsContract;
 public class AppMain extends Application {
 
     //public static final String _IP = "192.168.1.10"; // Test NODE server
-    public static final String _IP = "43.245.131.159"; // Test PHP server
+
+    //public static final String _IP = "43.245.131.159"; // Test PHP server
+    public static final String _IP = "F49461.aku.edu"; // Test PHP server
+
+
     public static final Integer _PORT = 8080; // Port - with colon (:)
     public static final String PROJECT_URI = "http://" + AppMain._IP + ":" + AppMain._PORT + "/seroafgh/api";
 
@@ -47,6 +51,10 @@ public class AppMain extends Application {
     public static final long MILLISECONDS_IN_YEAR = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_YEAR;
     private static final long DAYS_IN_6_MONTHS = 179;
     public static final long MILLISECONDS_IN_6_MONTHS = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_6_MONTHS;
+
+    private static final long DAYS_IN_11_MONTHS = 334;
+    public static final long MILLISECONDS_IN_11_MONTHS = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_11_MONTHS;
+
     public static String deviceId;
 
     public static Boolean admin = false;

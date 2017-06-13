@@ -21,6 +21,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
+import edu.aku.hassannaqvi.sero_afghanistan.R;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.UsersContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.UsersContract.singleUser;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
@@ -43,11 +44,11 @@ public class GetUsers extends AsyncTask<String, String, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        pd = new ProgressDialog(mContext);
+
+        pd = new ProgressDialog(mContext, R.style.AlertDialogStyle);
         pd.setTitle("Syncing Users");
         pd.setMessage("Getting connected to server...");
         pd.show();
-
     }
 
     @Override
@@ -86,10 +87,12 @@ public class GetUsers extends AsyncTask<String, String, String> {
 
         //Do something with the JSON string
 
-        String json = result;
-        //json = json.replaceAll("\\[", "").replaceAll("\\]","");
-        Log.d(TAG, result);
-        if (json.length() > 0) {
+        if (result != "URL not found") {
+
+            String json = result;
+            //json = json.replaceAll("\\[", "").replaceAll("\\]","");
+            Log.d(TAG, result);
+
             ArrayList<UsersContract> userArrayList;
             DatabaseHelper db = new DatabaseHelper(mContext);
             try {
@@ -97,14 +100,15 @@ public class GetUsers extends AsyncTask<String, String, String> {
                 //JSONObject jsonObject = new JSONObject(json);
                 JSONArray jsonArray = new JSONArray(json);
                 db.syncUser(jsonArray);
-                pd.setMessage("Received: " + jsonArray.length());
-                pd.show();
+
+                pd.setMessage("Received: " + jsonArray.length() + " Users");
+                pd.setTitle("Done... Synced Users");
             } catch (JSONException e) {
                 e.printStackTrace();
+                pd.setMessage("Received: 0 Users");
+                pd.setTitle("Error... Syncing Users");
             }
             db.getAllUsers();
-        } else {
-            pd.setMessage("Received: " + json.length() + "");
             pd.show();
         }
     }

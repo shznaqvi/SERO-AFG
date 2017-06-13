@@ -189,6 +189,39 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
+            android:id="@+id/lbl_mnb3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mnb3"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Spinner
+            android:id="@+id/mnb3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="text" />
+
+
+        <TextView
+            android:id="@+id/lbl_mnb2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mnb2"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+        <Spinner
+            android:id="@+id/mnb2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="text" />
+
+
+        <TextView
             android:id="@+id/lbl_mnb1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -205,39 +238,6 @@
             android:ems="10"
             android:inputType="text" />
 
-        <TextView
-            android:id="@+id/lbl_mnb2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mnb2"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-
-        <EditText
-            android:id="@+id/mnb2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
-            android:ems="10"
-            android:inputType="text" />
-
-        <TextView
-            android:id="@+id/lbl_mnb3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mnb3"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-
-        <EditText
-            android:id="@+id/mnb3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
-            android:ems="10"
-            android:inputType="text" />
 
         <TextView
             android:id="@+id/lbl_mnb4"

@@ -17,8 +17,8 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import edu.aku.hassannaqvi.sero_afghanistan.R;
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.UCsContract;
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.VillagesContract.VillageTable;
+import edu.aku.hassannaqvi.sero_afghanistan.contracts.ProvinceContract;
+import edu.aku.hassannaqvi.sero_afghanistan.contracts.ProvinceContract.ProvinceEntry;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
 
@@ -26,14 +26,14 @@ import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
  * Created by javed.khan on 1/2/2017.
  */
 
-public class GetVillages extends AsyncTask<String, String, String> {
+public class GetProvince extends AsyncTask<String, String, String> {
 
-    private final String TAG = "GetVillages()";
+    private final String TAG = "GetProvince()";
     HttpURLConnection urlConnection;
     private Context mContext;
     private ProgressDialog pd;
 
-    public GetVillages(Context context) {
+    public GetProvince(Context context) {
         mContext = context;
     }
 
@@ -42,7 +42,7 @@ public class GetVillages extends AsyncTask<String, String, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         pd = new ProgressDialog(mContext, R.style.AlertDialogStyle);
-        pd.setTitle("Getting Villages");
+        pd.setTitle("Getting Provinces");
         pd.setMessage("Preparing...");
         pd.show();
     }
@@ -53,7 +53,8 @@ public class GetVillages extends AsyncTask<String, String, String> {
         StringBuilder result = new StringBuilder();
 
         try {
-            URL url = new URL(AppMain.PROJECT_URI + VillageTable.URI);
+            URL url = new URL(AppMain.PROJECT_URI + ProvinceEntry.URI);
+
             urlConnection = (HttpURLConnection) url.openConnection();
             if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 //pd.show();
@@ -64,7 +65,7 @@ public class GetVillages extends AsyncTask<String, String, String> {
 
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    Log.i(TAG, "Villages In: " + line);
+                    Log.i(TAG, "Provinces In: " + line);
                     result.append(line);
                 }
             } else {
@@ -72,7 +73,6 @@ public class GetVillages extends AsyncTask<String, String, String> {
             }
         } catch (Exception e) {
             e.printStackTrace();
-
 
         } finally {
             urlConnection.disconnect();
@@ -90,23 +90,22 @@ public class GetVillages extends AsyncTask<String, String, String> {
             String json = result;
             //json = json.replaceAll("\\[", "").replaceAll("\\]","");
             Log.d(TAG, result);
-            ArrayList<UCsContract> districtArrayList;
+            ArrayList<ProvinceContract> provinceArrayList;
             DatabaseHelper db = new DatabaseHelper(mContext);
             try {
-                districtArrayList = new ArrayList<UCsContract>();
                 //JSONObject jsonObject = new JSONObject(json);
                 JSONArray jsonArray = new JSONArray(json);
-                db.syncVillages(jsonArray);
+                db.syncProvince(jsonArray);
 
-                pd.setMessage("Received: " + jsonArray.length() + " Villages");
-                pd.setTitle("Done... Synced Villages");
+                pd.setMessage("Received: " + jsonArray.length() + " Provinces");
+                pd.setTitle("Done... Synced Provinces");
 
             } catch (JSONException e) {
                 e.printStackTrace();
-                pd.setMessage("Received: 0 Villages");
-                pd.setTitle("Error... Syncing Villages");
+                pd.setMessage("Received: 0 Provinces");
+                pd.setTitle("Error... Syncing Provinces");
             }
-            db.getAllVillage();
+            db.getAllProvinces();
             pd.show();
         }
     }

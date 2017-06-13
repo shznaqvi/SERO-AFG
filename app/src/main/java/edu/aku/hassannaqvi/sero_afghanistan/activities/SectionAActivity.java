@@ -9,11 +9,14 @@ import android.support.annotation.IdRes;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,14 +25,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.sero_afghanistan.R;
+import edu.aku.hassannaqvi.sero_afghanistan.contracts.DistrictContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.FormsContract;
+import edu.aku.hassannaqvi.sero_afghanistan.contracts.ProvinceContract;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
 import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
@@ -89,11 +99,11 @@ public class SectionAActivity extends AppCompatActivity {
     @BindView(R.id.lbl_mnb2)
     TextView lblMnb2;
     @BindView(R.id.mnb2)
-    EditText mnb2;
+    Spinner mnb2;
     @BindView(R.id.lbl_mnb3)
     TextView lblMnb3;
     @BindView(R.id.mnb3)
-    EditText mnb3;
+    Spinner mnb3;
     @BindView(R.id.lbl_mnb4)
     TextView lblMnb4;
     @BindView(R.id.lbl_mnb4name)
@@ -215,10 +225,13 @@ public class SectionAActivity extends AppCompatActivity {
     String var_mnc4;
 
     String dateToday;
-    String maxDateyear;
     String minDate;
 
     Calendar now = Calendar.getInstance();
+
+    List<String> dist, prov;
+
+    Map<String, String> prov_map, dist_map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -230,24 +243,65 @@ public class SectionAActivity extends AppCompatActivity {
 
 
         dateToday = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
-        minDate = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
-
-        //maxDateyear = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_YEAR));
+        minDate = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_11_MONTHS));
 
 
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-
-        Calendar c = Calendar.getInstance();
-        c.setTime(new Date());
-        c.add(Calendar.MONTH, -11);
-
-        Date d = c.getTime();
-        String res = format.format(d);
-
-        Log.d(TAG, "onCreate: " + res);
-
-
+        mna4.setMinDate(minDate);
         mna4.setMaxDate(dateToday);
+
+        prov = new ArrayList<>();
+        dist = new ArrayList<>();
+
+        prov_map = new HashMap<String, String>();
+        dist_map = new HashMap<String, String>();
+
+        final DatabaseHelper db = new DatabaseHelper(this);
+
+        Collection<ProvinceContract> arr_province = new ArrayList<>();
+        arr_province = db.getAllProvinces();
+
+        for (ProvinceContract m : arr_province) {
+            prov.add(m.getProvince());
+            prov_map.put(m.getProvince(), m.getProvCode());
+        }
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(SectionAActivity.this,
+                android.R.layout.simple_spinner_item, prov);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mnb3.setAdapter(adapter);
+
+
+        mnb3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
+                // TODO Auto-generated method stub
+
+                dist.clear();
+
+                String item = mnb3.getSelectedItem().toString();
+                //var.setClusterName(item);
+
+                Collection<DistrictContract> arr_districts = new ArrayList<>();
+                arr_districts = db.getAllDistrictsByProvince(prov_map.get(item));
+
+
+                for (DistrictContract dst : arr_districts) {
+                    dist.add(dst.getDistNme());
+                    dist_map.put(dst.getDistNme(), dst.getDistCode());
+                }
+
+
+                ArrayAdapter<String> adapter1 = new ArrayAdapter<>(SectionAActivity.this,
+                        android.R.layout.simple_spinner_item, dist);
+                adapter1.setDropDownViewResource(android.R.layout.simple_list_item_1);
+                mnb2.setAdapter(adapter1);
+
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+            }
+        });
 
 
         mna4.setOnClickListener(new View.OnClickListener() {
@@ -423,8 +477,8 @@ public class SectionAActivity extends AppCompatActivity {
         JSONObject sB = new JSONObject();
 
         sB.put("mnb1", mnb1.getText().toString());
-        sB.put("mnb2", mnb2.getText().toString());
-        sB.put("mnb3", mnb3.getText().toString());
+        sB.put("mnb2", mnb2.getSelectedItem().toString());
+        sB.put("mnb3", mnb3.getSelectedItem().toString());
         sB.put("mnb4name", mnb4name.getText().toString());
         sB.put("mnb4address", mnb4address.getText().toString());
         sB.put("mnb5walk", mnb5walk.getText().toString());
@@ -592,22 +646,16 @@ public class SectionAActivity extends AppCompatActivity {
             mnb1.setError(null);
         }
 
-        if (mnb2.getText().toString().isEmpty() || mnb2.getText().toString() == null) {
-            mnb2.setError(getString(R.string.txterr));
+        if (mnb2.getSelectedItem().toString().isEmpty() || mnb2.getSelectedItem().toString() == null) {
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb2), Toast.LENGTH_LONG).show();
             mnb2.requestFocus();
             return false;
-        } else {
-            mnb2.setError(null);
         }
 
-        if (mnb3.getText().toString().isEmpty() || mnb3.getText().toString() == null) {
-            mnb3.setError(getString(R.string.txterr));
+        if (mnb3.getSelectedItem().toString().isEmpty() || mnb3.getSelectedItem().toString() == null) {
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb3), Toast.LENGTH_LONG).show();
             mnb3.requestFocus();
             return false;
-        } else {
-            mnb3.setError(null);
         }
 
 
