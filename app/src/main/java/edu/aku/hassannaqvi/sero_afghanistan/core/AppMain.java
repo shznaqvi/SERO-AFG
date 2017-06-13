@@ -55,6 +55,9 @@ public class AppMain extends Application {
     private static final long DAYS_IN_11_MONTHS = 334;
     public static final long MILLISECONDS_IN_11_MONTHS = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_11_MONTHS;
 
+    private static final long DAYS_IN_48_MONTHS = 1460;
+    public static final long MILLISECONDS_IN_48_MONTHS = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_48_MONTHS;
+
     public static String deviceId;
 
     public static Boolean admin = false;

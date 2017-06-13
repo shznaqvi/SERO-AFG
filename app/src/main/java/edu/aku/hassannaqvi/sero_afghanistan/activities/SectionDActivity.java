@@ -62,118 +62,230 @@ public class SectionDActivity extends Activity {
     @BindView(R.id.mnd4c)
     RadioButton mnd4c;
 
-    @BindView(R.id.fldGrpBcgM) LinearLayout fldGrpBcgM;
-    @BindView(R.id.bcgM) RadioGroup bcgM;
-    @BindView(R.id.bcgM01) RadioButton bcgM01;
-    @BindView(R.id.bcgM02) RadioButton bcgM02;
-    @BindView(R.id.fldGrpBcgC) LinearLayout fldGrpBcgC;
-    @BindView(R.id.bcgC) RadioGroup bcgC;
-    @BindView(R.id.bcgC01) RadioButton bcgC01;
-    @BindView(R.id.bcgC02) RadioButton bcgC02;
-    @BindView(R.id.fldGrpOpv0M) LinearLayout fldGrpOpv0M;
-    @BindView(R.id.opv0M) RadioGroup opv0M;
-    @BindView(R.id.opv0M01) RadioButton opv0M01;
-    @BindView(R.id.opv0M02) RadioButton opv0M02;
-    @BindView(R.id.fldGrpopv0C) LinearLayout fldGrpopv0C;
-    @BindView(R.id.opv0C) RadioGroup opv0C;
-    @BindView(R.id.opv0C01) RadioButton opv0C01;
-    @BindView(R.id.opv0C02) RadioButton opv0C02;
-    @BindView(R.id.fldGrpPenta1M) LinearLayout fldGrpPenta1M;
-    @BindView(R.id.penta1M) RadioGroup penta1M;
-    @BindView(R.id.penta1M01) RadioButton penta1M01;
-    @BindView(R.id.Penta1M02) RadioButton penta1M02;
-    @BindView(R.id.fldGrpPenta1C) LinearLayout fldGrpPenta1C;
-    @BindView(R.id.penta1C) RadioGroup penta1C;
-    @BindView(R.id.penta1C01) RadioButton penta1C01;
-    @BindView(R.id.penta1C02) RadioButton penta1C02;
-    @BindView(R.id.fldGrppcv1M) LinearLayout fldGrppcv1M;
-    @BindView(R.id.pcv1M) RadioGroup pcv1M;
-    @BindView(R.id.pcv1M01) RadioButton pcv1M01;
-    @BindView(R.id.pcv1M02) RadioButton pcv1M02;
-    @BindView(R.id.fldGrppcv1C) LinearLayout fldGrppcv1C;
-    @BindView(R.id.pcv1C) RadioGroup pcv1C;
-    @BindView(R.id.pcv1C01) RadioButton pcv1C01;
-    @BindView(R.id.pcv1C02) RadioButton pcv1C02;
-    @BindView(R.id.fldGrpopv1M) LinearLayout fldGrpopv1M;
-    @BindView(R.id.opv1M) RadioGroup opv1M;
-    @BindView(R.id.opv1M01) RadioButton opv1M01;
-    @BindView(R.id.opv1M02) RadioButton opv1M02;
-    @BindView(R.id.fldGrpopv1C) LinearLayout fldGrpopv1C;
-    @BindView(R.id.opv1C) RadioGroup opv1C;
-    @BindView(R.id.opv1C01) RadioButton opv1C01;
-    @BindView(R.id.opv1C02) RadioButton opv1C02;
-    @BindView(R.id.fldGrppenta2M) LinearLayout fldGrppenta2M;
-    @BindView(R.id.penta2M) RadioGroup penta2M;
-    @BindView(R.id.penta2M01) RadioButton penta2M01;
-    @BindView(R.id.penta2M02) RadioButton penta2M02;
-    @BindView(R.id.fldGrppenta2C) LinearLayout fldGrppenta2C;
-    @BindView(R.id.penta2C) RadioGroup penta2C;
-    @BindView(R.id.penta2C01) RadioButton penta2C01;
-    @BindView(R.id.penta2C02) RadioButton penta2C02;
-    @BindView(R.id.fldGrppcv2M) LinearLayout fldGrppcv2M;
-    @BindView(R.id.pcv2M) RadioGroup pcv2M;
-    @BindView(R.id.pcv2M01) RadioButton pcv2M01;
-    @BindView(R.id.pcv2M02) RadioButton pcv2M02;
-    @BindView(R.id.fldGrppcv2C) LinearLayout fldGrppcv2C;
-    @BindView(R.id.pcv2C) RadioGroup pcv2C;
-    @BindView(R.id.pcv2C01) RadioButton pcv2C01;
-    @BindView(R.id.pcv2C02) RadioButton pcv2C02;
-    @BindView(R.id.fldGrpopv2M) LinearLayout fldGrpopv2M;
-    @BindView(R.id.opv2M) RadioGroup opv2M;
-    @BindView(R.id.opv2M01) RadioButton opv2M01;
-    @BindView(R.id.opv2M02) RadioButton opv2M02;
-    @BindView(R.id.fldGrpopv2C) LinearLayout fldGrpopv2C;
-    @BindView(R.id.opv2C) RadioGroup opv2C;
-    @BindView(R.id.opv2C01) RadioButton opv2C01;
-    @BindView(R.id.opv2C02) RadioButton opv2C02;
-    @BindView(R.id.fldGrpPenta3M) LinearLayout fldGrpPenta3M;
-    @BindView(R.id.penta3M) RadioGroup penta3M;
-    @BindView(R.id.penta3M01) RadioButton penta3M01;
-    @BindView(R.id.penta3M02) RadioButton penta3M02;
-    @BindView(R.id.fldGrpenta3C) LinearLayout fldGrpenta3C;
-    @BindView(R.id.penta3C) RadioGroup penta3C;
-    @BindView(R.id.penta3C01) RadioButton penta3C01;
-    @BindView(R.id.penta3C02) RadioButton penta3C02;
-    @BindView(R.id.fldGrppcv3M) LinearLayout fldGrppcv3M;
-    @BindView(R.id.pcv3M) RadioGroup pcv3M;
-    @BindView(R.id.pcv3M01) RadioButton pcv3M01;
-    @BindView(R.id.pcv3M02) RadioButton pcv3M02;
-    @BindView(R.id.fldGrppcv3C) LinearLayout fldGrppcv3C;
-    @BindView(R.id.pcv3C) RadioGroup pcv3C;
-    @BindView(R.id.pcv3C01) RadioButton pcv3C01;
-    @BindView(R.id.pcv3C02) RadioButton pcv3C02;
-    @BindView(R.id.fldGrpopv3M) LinearLayout fldGrpopv3M;
-    @BindView(R.id.opv3M) RadioGroup opv3M;
-    @BindView(R.id.opv3M01) RadioButton opv3M01;
-    @BindView(R.id.opv3M02) RadioButton opv3M02;
-    @BindView(R.id.fldGrpopv3C) LinearLayout fldGrpopv3C;
-    @BindView(R.id.opv3C) RadioGroup opv3C;
-    @BindView(R.id.opv3C01) RadioButton opv3C01;
-    @BindView(R.id.opv3C02) RadioButton opv3C02;
-    @BindView(R.id.fldGrpipvM) LinearLayout fldGrpipvM;
-    @BindView(R.id.ipvM) RadioGroup ipvM;
-    @BindView(R.id.ipvM01) RadioButton ipvM01;
-    @BindView(R.id.ipvM02) RadioButton ipvM02;
-    @BindView(R.id.fldGrpipvC) LinearLayout fldGrpipvC;
-    @BindView(R.id.ipvC) RadioGroup ipvC;
-    @BindView(R.id.ipvC01) RadioButton ipvC01;
-    @BindView(R.id.ipvC02) RadioButton ipvC02;
-    @BindView(R.id.fldGrpMeasles1M) LinearLayout fldGrpMeasles1M;
-    @BindView(R.id.measles1M) RadioGroup measles1M;
-    @BindView(R.id.measles1M01) RadioButton measles1M01;
-    @BindView(R.id.measles1M02) RadioButton measles1M02;
-    @BindView(R.id.fldGrpmeasles1C) LinearLayout fldGrpmeasles1C;
-    @BindView(R.id.measles1C) RadioGroup measles1C;
-    @BindView(R.id.measles1C01) RadioButton measles1C01;
-    @BindView(R.id.measles1C02) RadioButton measles1C02;
-    @BindView(R.id.fldGrpMeasles2M) LinearLayout fldGrpMeasles2M;
-    @BindView(R.id.measles2M) RadioGroup measles2M;
-    @BindView(R.id.measles2M01) RadioButton measles2M01;
-    @BindView(R.id.measles2M02) RadioButton measles2M02;
-    @BindView(R.id.fldGrpmeasles2C) LinearLayout fldGrpmeasles2C;
-    @BindView(R.id.measles2C) RadioGroup measles2C;
-    @BindView(R.id.measles2C01) RadioButton measles2C01;
-    @BindView(R.id.measles2C02) RadioButton measles2C02;
+    @BindView(R.id.fldGrpBcgM)
+    LinearLayout fldGrpBcgM;
+    @BindView(R.id.bcgM)
+    RadioGroup bcgM;
+    @BindView(R.id.bcgM01)
+    RadioButton bcgM01;
+    @BindView(R.id.bcgM02)
+    RadioButton bcgM02;
+    @BindView(R.id.fldGrpBcgC)
+    LinearLayout fldGrpBcgC;
+    @BindView(R.id.bcgC)
+    RadioGroup bcgC;
+    @BindView(R.id.bcgC01)
+    RadioButton bcgC01;
+    @BindView(R.id.bcgC02)
+    RadioButton bcgC02;
+    @BindView(R.id.fldGrpOpv0M)
+    LinearLayout fldGrpOpv0M;
+    @BindView(R.id.opv0M)
+    RadioGroup opv0M;
+    @BindView(R.id.opv0M01)
+    RadioButton opv0M01;
+    @BindView(R.id.opv0M02)
+    RadioButton opv0M02;
+    @BindView(R.id.fldGrpopv0C)
+    LinearLayout fldGrpopv0C;
+    @BindView(R.id.opv0C)
+    RadioGroup opv0C;
+    @BindView(R.id.opv0C01)
+    RadioButton opv0C01;
+    @BindView(R.id.opv0C02)
+    RadioButton opv0C02;
+    @BindView(R.id.fldGrpPenta1M)
+    LinearLayout fldGrpPenta1M;
+    @BindView(R.id.penta1M)
+    RadioGroup penta1M;
+    @BindView(R.id.penta1M01)
+    RadioButton penta1M01;
+    @BindView(R.id.Penta1M02)
+    RadioButton penta1M02;
+    @BindView(R.id.fldGrpPenta1C)
+    LinearLayout fldGrpPenta1C;
+    @BindView(R.id.penta1C)
+    RadioGroup penta1C;
+    @BindView(R.id.penta1C01)
+    RadioButton penta1C01;
+    @BindView(R.id.penta1C02)
+    RadioButton penta1C02;
+    @BindView(R.id.fldGrppcv1M)
+    LinearLayout fldGrppcv1M;
+    @BindView(R.id.pcv1M)
+    RadioGroup pcv1M;
+    @BindView(R.id.pcv1M01)
+    RadioButton pcv1M01;
+    @BindView(R.id.pcv1M02)
+    RadioButton pcv1M02;
+    @BindView(R.id.fldGrppcv1C)
+    LinearLayout fldGrppcv1C;
+    @BindView(R.id.pcv1C)
+    RadioGroup pcv1C;
+    @BindView(R.id.pcv1C01)
+    RadioButton pcv1C01;
+    @BindView(R.id.pcv1C02)
+    RadioButton pcv1C02;
+    @BindView(R.id.fldGrpopv1M)
+    LinearLayout fldGrpopv1M;
+    @BindView(R.id.opv1M)
+    RadioGroup opv1M;
+    @BindView(R.id.opv1M01)
+    RadioButton opv1M01;
+    @BindView(R.id.opv1M02)
+    RadioButton opv1M02;
+    @BindView(R.id.fldGrpopv1C)
+    LinearLayout fldGrpopv1C;
+    @BindView(R.id.opv1C)
+    RadioGroup opv1C;
+    @BindView(R.id.opv1C01)
+    RadioButton opv1C01;
+    @BindView(R.id.opv1C02)
+    RadioButton opv1C02;
+    @BindView(R.id.fldGrppenta2M)
+    LinearLayout fldGrppenta2M;
+    @BindView(R.id.penta2M)
+    RadioGroup penta2M;
+    @BindView(R.id.penta2M01)
+    RadioButton penta2M01;
+    @BindView(R.id.penta2M02)
+    RadioButton penta2M02;
+    @BindView(R.id.fldGrppenta2C)
+    LinearLayout fldGrppenta2C;
+    @BindView(R.id.penta2C)
+    RadioGroup penta2C;
+    @BindView(R.id.penta2C01)
+    RadioButton penta2C01;
+    @BindView(R.id.penta2C02)
+    RadioButton penta2C02;
+    @BindView(R.id.fldGrppcv2M)
+    LinearLayout fldGrppcv2M;
+    @BindView(R.id.pcv2M)
+    RadioGroup pcv2M;
+    @BindView(R.id.pcv2M01)
+    RadioButton pcv2M01;
+    @BindView(R.id.pcv2M02)
+    RadioButton pcv2M02;
+    @BindView(R.id.fldGrppcv2C)
+    LinearLayout fldGrppcv2C;
+    @BindView(R.id.pcv2C)
+    RadioGroup pcv2C;
+    @BindView(R.id.pcv2C01)
+    RadioButton pcv2C01;
+    @BindView(R.id.pcv2C02)
+    RadioButton pcv2C02;
+    @BindView(R.id.fldGrpopv2M)
+    LinearLayout fldGrpopv2M;
+    @BindView(R.id.opv2M)
+    RadioGroup opv2M;
+    @BindView(R.id.opv2M01)
+    RadioButton opv2M01;
+    @BindView(R.id.opv2M02)
+    RadioButton opv2M02;
+    @BindView(R.id.fldGrpopv2C)
+    LinearLayout fldGrpopv2C;
+    @BindView(R.id.opv2C)
+    RadioGroup opv2C;
+    @BindView(R.id.opv2C01)
+    RadioButton opv2C01;
+    @BindView(R.id.opv2C02)
+    RadioButton opv2C02;
+    @BindView(R.id.fldGrpPenta3M)
+    LinearLayout fldGrpPenta3M;
+    @BindView(R.id.penta3M)
+    RadioGroup penta3M;
+    @BindView(R.id.penta3M01)
+    RadioButton penta3M01;
+    @BindView(R.id.penta3M02)
+    RadioButton penta3M02;
+    @BindView(R.id.fldGrpenta3C)
+    LinearLayout fldGrpenta3C;
+    @BindView(R.id.penta3C)
+    RadioGroup penta3C;
+    @BindView(R.id.penta3C01)
+    RadioButton penta3C01;
+    @BindView(R.id.penta3C02)
+    RadioButton penta3C02;
+    @BindView(R.id.fldGrppcv3M)
+    LinearLayout fldGrppcv3M;
+    @BindView(R.id.pcv3M)
+    RadioGroup pcv3M;
+    @BindView(R.id.pcv3M01)
+    RadioButton pcv3M01;
+    @BindView(R.id.pcv3M02)
+    RadioButton pcv3M02;
+    @BindView(R.id.fldGrppcv3C)
+    LinearLayout fldGrppcv3C;
+    @BindView(R.id.pcv3C)
+    RadioGroup pcv3C;
+    @BindView(R.id.pcv3C01)
+    RadioButton pcv3C01;
+    @BindView(R.id.pcv3C02)
+    RadioButton pcv3C02;
+    @BindView(R.id.fldGrpopv3M)
+    LinearLayout fldGrpopv3M;
+    @BindView(R.id.opv3M)
+    RadioGroup opv3M;
+    @BindView(R.id.opv3M01)
+    RadioButton opv3M01;
+    @BindView(R.id.opv3M02)
+    RadioButton opv3M02;
+    @BindView(R.id.fldGrpopv3C)
+    LinearLayout fldGrpopv3C;
+    @BindView(R.id.opv3C)
+    RadioGroup opv3C;
+    @BindView(R.id.opv3C01)
+    RadioButton opv3C01;
+    @BindView(R.id.opv3C02)
+    RadioButton opv3C02;
+    @BindView(R.id.fldGrpipvM)
+    LinearLayout fldGrpipvM;
+    @BindView(R.id.ipvM)
+    RadioGroup ipvM;
+    @BindView(R.id.ipvM01)
+    RadioButton ipvM01;
+    @BindView(R.id.ipvM02)
+    RadioButton ipvM02;
+    @BindView(R.id.fldGrpipvC)
+    LinearLayout fldGrpipvC;
+    @BindView(R.id.ipvC)
+    RadioGroup ipvC;
+    @BindView(R.id.ipvC01)
+    RadioButton ipvC01;
+    @BindView(R.id.ipvC02)
+    RadioButton ipvC02;
+    @BindView(R.id.fldGrpMeasles1M)
+    LinearLayout fldGrpMeasles1M;
+    @BindView(R.id.measles1M)
+    RadioGroup measles1M;
+    @BindView(R.id.measles1M01)
+    RadioButton measles1M01;
+    @BindView(R.id.measles1M02)
+    RadioButton measles1M02;
+    @BindView(R.id.fldGrpmeasles1C)
+    LinearLayout fldGrpmeasles1C;
+    @BindView(R.id.measles1C)
+    RadioGroup measles1C;
+    @BindView(R.id.measles1C01)
+    RadioButton measles1C01;
+    @BindView(R.id.measles1C02)
+    RadioButton measles1C02;
+    @BindView(R.id.fldGrpMeasles2M)
+    LinearLayout fldGrpMeasles2M;
+    @BindView(R.id.measles2M)
+    RadioGroup measles2M;
+    @BindView(R.id.measles2M01)
+    RadioButton measles2M01;
+    @BindView(R.id.measles2M02)
+    RadioButton measles2M02;
+    @BindView(R.id.fldGrpmeasles2C)
+    LinearLayout fldGrpmeasles2C;
+    @BindView(R.id.measles2C)
+    RadioGroup measles2C;
+    @BindView(R.id.measles2C01)
+    RadioButton measles2C01;
+    @BindView(R.id.measles2C02)
+    RadioButton measles2C02;
 
 
     @BindView(R.id.mnd6)
@@ -332,7 +444,7 @@ public class SectionDActivity extends Activity {
         setContentView(R.layout.activity_section_d);
         ButterKnife.bind(this);
 
-        mnd2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        /*mnd2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 if (mnd2a.isChecked()) {
@@ -343,13 +455,15 @@ public class SectionDActivity extends Activity {
                     fldGrpmnd3.setVisibility(View.GONE);
                 }
             }
-        });
+        });*/
 
         mnd2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                if(mnd2a.isChecked())
-                {
+                if (mnd2a.isChecked()) {
+
+                    fldGrpmnd3.setVisibility(View.VISIBLE);
+
                     fldGrpBcgC.setVisibility(View.VISIBLE);
                     fldGrpBcgM.setVisibility(View.VISIBLE);
                     fldGrpopv0C.setVisibility(View.VISIBLE);
@@ -378,7 +492,14 @@ public class SectionDActivity extends Activity {
                     fldGrpMeasles1M.setVisibility(View.VISIBLE);
                     fldGrpmeasles2C.setVisibility(View.VISIBLE);
                     fldGrpMeasles2M.setVisibility(View.VISIBLE);
-                }else{
+
+                    mnd3a.requestFocus();
+
+                } else {
+
+                    mnd3.clearCheck();
+                    fldGrpmnd3.setVisibility(View.GONE);
+
                     fldGrpBcgC.setVisibility(View.GONE);
                     fldGrpBcgM.setVisibility(View.VISIBLE);
                     bcgC.clearCheck();
@@ -424,6 +545,7 @@ public class SectionDActivity extends Activity {
                 }
             }
         });
+
         mnd11.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
@@ -636,8 +758,6 @@ public class SectionDActivity extends Activity {
         }
 
 
-
-
         rdo_mnd6 = mnd6.getCheckedRadioButtonId();
 
 
@@ -840,8 +960,7 @@ public class SectionDActivity extends Activity {
         }
 
 
-        if(mnd3a.isChecked())
-        {
+        if (mnd3a.isChecked()) {
             //============ BCG / Card Present ==========
             if (bcgC.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.bcg), Toast.LENGTH_SHORT).show();
@@ -1318,7 +1437,7 @@ public class SectionDActivity extends Activity {
         }
 
 
-        if (mnd10years.getText().toString() != "2016" || mnd10years.getText().toString() != "2017") {
+        if (!mnd10years.getText().toString().equals("2016") && !mnd10years.getText().toString().equals("2017")) {
             mnd10years.setError("Year must be 2016 or 2017");
             Toast.makeText(getApplicationContext(), "ERROR(invalid): Year must be 2016 or 2017 ", Toast.LENGTH_LONG).show();
             mnd10years.requestFocus();

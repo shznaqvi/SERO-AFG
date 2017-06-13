@@ -78,6 +78,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + singleForm.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             singleForm.COLUMN_UID + " TEXT," +
             singleForm.COLUMN_HHDT + " TEXT," +
+            singleForm.COLUMN_STUDYCODE + " TEXT," +
             singleForm.COLUMN_STUDYID + " TEXT," +
             singleForm.COLUMN_NAME_USERNAME + " TEXT," +
             singleForm.COLUMN_DEVICETAGID + " TEXT," +
@@ -136,6 +137,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
         values.put(singleForm.COLUMN_HHDT, fc.getFormDate());
+        values.put(singleForm.COLUMN_STUDYCODE, fc.getstudycode());
         values.put(singleForm.COLUMN_STUDYID, fc.getstudyid());
         values.put(singleForm.COLUMN_APPVER, fc.getAppVer());
         values.put(singleForm.COLUMN_NAME_USERNAME, fc.getUserName());
@@ -372,6 +374,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleForm.COLUMN_NAME_USERNAME,
                 singleForm.COLUMN_DEVICETAGID,
                 singleForm.COLUMN_APPVER,
+                singleForm.COLUMN_STUDYCODE,
                 singleForm.COLUMN_STUDYID,
                 singleForm.COLUMN_SA,
                 singleForm.COLUMN_SB,

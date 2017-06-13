@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
@@ -58,6 +60,10 @@ public class SectionAActivity extends AppCompatActivity {
     TextView lblMnaheading;
     @BindView(R.id.studyid)
     EditText studyid;
+
+    @BindView(R.id.studycode)
+    EditText studycode;
+
     @BindView(R.id.lbl_mna1)
     TextView lblMna1;
     @BindView(R.id.mna1)
@@ -241,12 +247,37 @@ public class SectionAActivity extends AppCompatActivity {
 
         mna4.setManager(getSupportFragmentManager());
 
-
         dateToday = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
-        minDate = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_11_MONTHS));
 
 
-        mna4.setMinDate(minDate);
+        studycode.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                if (!studycode.getText().toString().isEmpty() && studycode.getText().toString() != null) {
+
+                    if (studycode.getText().toString().equals("1")) {
+                        minDate = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_11_MONTHS));
+                        mna4.setMinDate(minDate);
+                    } else {
+                        minDate = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_48_MONTHS));
+                        mna4.setMinDate(minDate);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+
         mna4.setMaxDate(dateToday);
 
         prov = new ArrayList<>();
@@ -338,6 +369,7 @@ public class SectionAActivity extends AppCompatActivity {
                 }
             }
         });
+
 
     }
 
@@ -445,6 +477,7 @@ public class SectionAActivity extends AppCompatActivity {
         AppMain.fc.setDeviceID(AppMain.deviceId);
         AppMain.fc.setUserName(AppMain.username);
         AppMain.fc.setFormDate(dtToday);
+        AppMain.fc.setstudycode(studycode.getText().toString());
         AppMain.fc.setstudyid(studyid.getText().toString());
 
         setGPS();
@@ -551,6 +584,15 @@ public class SectionAActivity extends AppCompatActivity {
     private boolean ValidateForm() {
 
         int count = 0, count1 = 0, count2 = 0;
+
+        if (studycode.getText().toString().isEmpty() || studycode.getText().toString() == null) {
+            studycode.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "ERROR(empty): Study code is required ", Toast.LENGTH_LONG).show();
+            studycode.requestFocus();
+            return false;
+        } else {
+            studycode.setError(null);
+        }
 
         if (studyid.getText().toString().isEmpty() || studyid.getText().toString() == null) {
             studyid.setError(getString(R.string.txterr));
@@ -963,6 +1005,16 @@ public class SectionAActivity extends AppCompatActivity {
             return false;
         } else {
             mnb5km.setError(null);
+        }
+
+
+        if (!studycode.getText().toString().equals("1") && !studycode.getText().toString().equals("2")) {
+            studycode.setError("Study Code must be 1 - 2 ");
+            Toast.makeText(getApplicationContext(), "ERROR(empty): Study Code must be 1 - 2 ", Toast.LENGTH_LONG).show();
+            studycode.requestFocus();
+            return false;
+        } else {
+            studycode.setError(null);
         }
 
 
