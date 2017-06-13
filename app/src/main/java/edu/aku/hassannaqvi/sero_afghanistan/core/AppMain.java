@@ -26,8 +26,8 @@ public class AppMain extends Application {
 
     //public static final String _IP = "192.168.1.10"; // Test NODE server
 
-    //public static final String _IP = "43.245.131.159"; // Test PHP server
-    public static final String _IP = "F49461.aku.edu"; // Test PHP server
+    public static final String _IP = "43.245.131.159"; // Test PHP server
+    //public static final String _IP = "F49461.aku.edu"; // Test PHP server
 
 
     public static final Integer _PORT = 8080; // Port - with colon (:)
