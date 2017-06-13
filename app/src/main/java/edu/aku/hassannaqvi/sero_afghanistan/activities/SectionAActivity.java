@@ -512,6 +512,8 @@ public class SectionAActivity extends AppCompatActivity {
         sB.put("mnb1", mnb1.getText().toString());
         sB.put("mnb2", mnb2.getSelectedItem().toString());
         sB.put("mnb3", mnb3.getSelectedItem().toString());
+
+
         sB.put("mnb4name", mnb4name.getText().toString());
         sB.put("mnb4address", mnb4address.getText().toString());
         sB.put("mnb5walk", mnb5walk.getText().toString());
@@ -678,6 +680,12 @@ public class SectionAActivity extends AppCompatActivity {
                 break;
         }
 
+        if (mnb3.getSelectedItem().toString().equals("...")) {
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb3), Toast.LENGTH_LONG).show();
+            mnb3.requestFocus();
+            return false;
+        }
+
 
         if (mnb1.getText().toString().isEmpty() || mnb1.getText().toString() == null) {
             mnb1.setError(getString(R.string.txterr));
@@ -691,12 +699,6 @@ public class SectionAActivity extends AppCompatActivity {
         if (mnb2.getSelectedItem().toString().isEmpty() || mnb2.getSelectedItem().toString() == null) {
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb2), Toast.LENGTH_LONG).show();
             mnb2.requestFocus();
-            return false;
-        }
-
-        if (mnb3.getSelectedItem().toString().isEmpty() || mnb3.getSelectedItem().toString() == null) {
-            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb3), Toast.LENGTH_LONG).show();
-            mnb3.requestFocus();
             return false;
         }
 
