@@ -126,10 +126,10 @@ public class SectionAActivity extends AppCompatActivity {
     TextView lblMnb5walk;
     @BindView(R.id.mnb5walk)
     EditText mnb5walk;
-    @BindView(R.id.lbl_mnb5mints)
-    TextView lblMnb5mints;
-    @BindView(R.id.mnb5mints)
-    EditText mnb5mints;
+//    @BindView(R.id.lbl_mnb5mints)
+//    TextView lblMnb5mints;
+//    @BindView(R.id.mnb5mints)
+//    EditText mnb5mints;
     @BindView(R.id.lbl_mnb5km)
     TextView lblMnb5km;
     @BindView(R.id.mnb5km)
@@ -291,6 +291,9 @@ public class SectionAActivity extends AppCompatActivity {
         Collection<ProvinceContract> arr_province = new ArrayList<>();
         arr_province = db.getAllProvinces();
 
+        prov.add("...");
+        prov_map.put("...","...");
+
         for (ProvinceContract m : arr_province) {
             prov.add(m.getProvince());
             prov_map.put(m.getProvince(), m.getProvCode());
@@ -315,6 +318,8 @@ public class SectionAActivity extends AppCompatActivity {
                 Collection<DistrictContract> arr_districts = new ArrayList<>();
                 arr_districts = db.getAllDistrictsByProvince(prov_map.get(item));
 
+                dist.add("...");
+                dist_map.put("...","...");
 
                 for (DistrictContract dst : arr_districts) {
                     dist.add(dst.getDistNme());
@@ -517,7 +522,7 @@ public class SectionAActivity extends AppCompatActivity {
         sB.put("mnb4name", mnb4name.getText().toString());
         sB.put("mnb4address", mnb4address.getText().toString());
         sB.put("mnb5walk", mnb5walk.getText().toString());
-        sB.put("mnb5mints", mnb5mints.getText().toString());
+//        sB.put("mnb5mints", mnb5mints.getText().toString());
         sB.put("mnb5km", mnb5km.getText().toString());
 
         /*sB.put("mnb6name", mnb6name.getText().toString());
@@ -590,6 +595,15 @@ public class SectionAActivity extends AppCompatActivity {
         if (studycode.getText().toString().isEmpty() || studycode.getText().toString() == null) {
             studycode.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): Study code is required ", Toast.LENGTH_LONG).show();
+            studycode.requestFocus();
+            return false;
+        } else {
+            studycode.setError(null);
+        }
+
+        if (!studycode.getText().toString().equals("1") && !studycode.getText().toString().equals("2")) {
+            studycode.setError("Study Code must be 1 - 2 ");
+            Toast.makeText(getApplicationContext(), "ERROR(empty): Study Code must be 1 - 2 ", Toast.LENGTH_LONG).show();
             studycode.requestFocus();
             return false;
         } else {
@@ -671,21 +685,34 @@ public class SectionAActivity extends AppCompatActivity {
             mna6A.setError(null);
         }
 
-        switch (rdo_mna6) {
-            case R.id.mna6_a:
-                var_mna6 = "1";
-                break;
-            case R.id.mna6_b:
-                var_mna6 = "2";
-                break;
-        }
+//        switch (rdo_mna6) {
+//            case R.id.mna6_a:
+//                var_mna6 = "1";
+//                break;
+//            case R.id.mna6_b:
+//                var_mna6 = "2";
+//                break;
+//        }
 
-        if (mnb3.getSelectedItem().toString().equals("...")) {
-            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb3), Toast.LENGTH_LONG).show();
-            mnb3.requestFocus();
+        if (mnb3.getSelectedItem() == "...") {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mnb3), Toast.LENGTH_SHORT).show();
+            ((TextView) mnb3.getSelectedView()).setError("This Data is Required");
+
+            Log.i(TAG, "mnb3: This Data is Required!");
             return false;
+        } else {
+            ((TextView) mnb3.getSelectedView()).setError(null);
         }
 
+        if (mnb2.getSelectedItem() == "...") {
+            Toast.makeText(this, "ERROR(Empty)" + getString(R.string.mnb2), Toast.LENGTH_SHORT).show();
+            ((TextView) mnb2.getSelectedView()).setError("This Data is Required");
+
+            Log.i(TAG, "mnb2: This Data is Required!");
+            return false;
+        } else {
+            ((TextView) mnb2.getSelectedView()).setError(null);
+        }
 
         if (mnb1.getText().toString().isEmpty() || mnb1.getText().toString() == null) {
             mnb1.setError(getString(R.string.txterr));
@@ -696,11 +723,11 @@ public class SectionAActivity extends AppCompatActivity {
             mnb1.setError(null);
         }
 
-        if (mnb2.getSelectedItem().toString().isEmpty() || mnb2.getSelectedItem().toString() == null) {
-            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb2), Toast.LENGTH_LONG).show();
-            mnb2.requestFocus();
-            return false;
-        }
+//        if (mnb2.getSelectedItem().toString().isEmpty() || mnb2.getSelectedItem().toString() == null) {
+//            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb2), Toast.LENGTH_LONG).show();
+//            mnb2.requestFocus();
+//            return false;
+//        }
 
 
         if (mnb4name.getText().toString().isEmpty() || mnb4name.getText().toString() == null) {
@@ -722,7 +749,7 @@ public class SectionAActivity extends AppCompatActivity {
         }
 
 
-        if (mnb5walk.getText().toString().isEmpty() || mnb5walk.getText().toString() == null) {
+        if (mnb5walk.getText().toString().isEmpty()) {
             mnb5walk.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb5walk), Toast.LENGTH_LONG).show();
             mnb5walk.requestFocus();
@@ -731,14 +758,14 @@ public class SectionAActivity extends AppCompatActivity {
             mnb5walk.setError(null);
         }
 
-        if (mnb5mints.getText().toString().isEmpty() || mnb5mints.getText().toString() == null) {
-            mnb5mints.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb5mints), Toast.LENGTH_LONG).show();
-            mnb5mints.requestFocus();
-            return false;
-        } else {
-            mnb5mints.setError(null);
-        }
+//        if (mnb5mints.getText().toString().isEmpty() || mnb5mints.getText().toString() == null) {
+//            mnb5mints.setError(getString(R.string.txterr));
+//            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb5mints), Toast.LENGTH_LONG).show();
+//            mnb5mints.requestFocus();
+//            return false;
+//        } else {
+//            mnb5mints.setError(null);
+//        }
 
         if (mnb5km.getText().toString().isEmpty() || mnb5km.getText().toString() == null) {
             mnb5km.setError(getString(R.string.txterr));
@@ -807,29 +834,29 @@ public class SectionAActivity extends AppCompatActivity {
             mnc2a.setError(null);
         }
 
-        switch (rdo_mnc2) {
-            case R.id.mnc2a:
-                var_mnc2 = "1";
-                break;
-            case R.id.mnc2b:
-                var_mnc2 = "2";
-                break;
-            case R.id.mnc2c:
-                var_mnc2 = "3";
-                break;
-            case R.id.mnc2d:
-                var_mnc2 = "4";
-                break;
-            case R.id.mnc2e:
-                var_mnc2 = "5";
-                break;
-            case R.id.mnc288:
-                var_mnc2 = "88";
-                break;
-        }
+//        switch (rdo_mnc2) {
+//            case R.id.mnc2a:
+//                var_mnc2 = "1";
+//                break;
+//            case R.id.mnc2b:
+//                var_mnc2 = "2";
+//                break;
+//            case R.id.mnc2c:
+//                var_mnc2 = "3";
+//                break;
+//            case R.id.mnc2d:
+//                var_mnc2 = "4";
+//                break;
+//            case R.id.mnc2e:
+//                var_mnc2 = "5";
+//                break;
+//            case R.id.mnc288:
+//                var_mnc2 = "88";
+//                break;
+//        }
 
 
-        if (var_mnc2 == "88") {
+        if (mnc288.isChecked()) {
 
             if (mnc2x.getText().toString().isEmpty() || mnc2x.getText().toString() == null) {
                 mnc2x.setError(getString(R.string.txterr));
@@ -862,37 +889,37 @@ public class SectionAActivity extends AppCompatActivity {
             mnc4a.setError(null);
         }
 
-        switch (rdo_mnc4) {
-            case R.id.mnc4a:
-                var_mnc4 = "1";
-                break;
-            case R.id.mnc4b:
-                var_mnc4 = "2";
-                break;
-            case R.id.mnc4c:
-                var_mnc4 = "3";
-                break;
-            case R.id.mnc4d:
-                var_mnc4 = "4";
-                break;
-            case R.id.mnc4e:
-                var_mnc4 = "5";
-                break;
-            case R.id.mnc4f:
-                var_mnc4 = "6";
-                break;
-            case R.id.mnc4g:
-                var_mnc4 = "7";
-                break;
-            case R.id.mnc4h:
-                var_mnc4 = "8";
-                break;
-            case R.id.mnc488:
-                var_mnc4 = "88";
-                break;
-        }
+//        switch (rdo_mnc4) {
+//            case R.id.mnc4a:
+//                var_mnc4 = "1";
+//                break;
+//            case R.id.mnc4b:
+//                var_mnc4 = "2";
+//                break;
+//            case R.id.mnc4c:
+//                var_mnc4 = "3";
+//                break;
+//            case R.id.mnc4d:
+//                var_mnc4 = "4";
+//                break;
+//            case R.id.mnc4e:
+//                var_mnc4 = "5";
+//                break;
+//            case R.id.mnc4f:
+//                var_mnc4 = "6";
+//                break;
+//            case R.id.mnc4g:
+//                var_mnc4 = "7";
+//                break;
+//            case R.id.mnc4h:
+//                var_mnc4 = "8";
+//                break;
+//            case R.id.mnc488:
+//                var_mnc4 = "88";
+//                break;
+//        }
 
-        if (var_mnc4 == "88") {
+        if (mnc488.isChecked()) {
 
             if (mnc4x.getText().toString().isEmpty() || mnc4x.getText().toString() == null) {
                 mnc4x.setError(getString(R.string.txterr));
@@ -906,9 +933,12 @@ public class SectionAActivity extends AppCompatActivity {
         }
 
 
-        if (Integer.parseInt(mna5months.getText().toString()) < 6 || Integer.parseInt(mna5months.getText().toString()) > 11) {
+        if (studycode.getText().toString().equals("1")?
+                (Integer.parseInt(mna5months.getText().toString()) < 6 || Integer.parseInt(mna5months.getText().toString()) > 11) :
+                (Integer.parseInt(mna5months.getText().toString()) < 36 || Integer.parseInt(mna5months.getText().toString()) > 48)) {
             mna5months.setError("Months must be between 6 - 11");
-            Toast.makeText(getApplicationContext(), "ERROR(empty): Months must be between 6 - 11 ", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(empty): Months must be between "+(
+                    studycode.getText().toString().equals("1")? "6 - 11" : "36 - 48") , Toast.LENGTH_LONG).show();
             mna5months.requestFocus();
             return false;
         } else {
@@ -974,22 +1004,22 @@ public class SectionAActivity extends AppCompatActivity {
         }
 
 
-        String str1 = mnb5mints.getText().toString();
-        for (int i = 0; i < str1.length(); i++) {
-            if (mnb5mints.getText().toString().charAt(i) == '.') {
-                count1++;
-            }
-        }
-
-
-        if (count1 >= 2) {
-            mnb5mints.setError("You cannot use two decimal points in distance in mints");
-            Toast.makeText(getApplicationContext(), "ERROR(empty): You cannot use two decimal points in distance in mints ", Toast.LENGTH_LONG).show();
-            mnb5mints.requestFocus();
-            return false;
-        } else {
-            mnb5mints.setError(null);
-        }
+//        String str1 = mnb5mints.getText().toString();
+//        for (int i = 0; i < str1.length(); i++) {
+//            if (mnb5mints.getText().toString().charAt(i) == '.') {
+//                count1++;
+//            }
+//        }
+//
+//
+//        if (count1 >= 2) {
+//            mnb5mints.setError("You cannot use two decimal points in distance in mints");
+//            Toast.makeText(getApplicationContext(), "ERROR(empty): You cannot use two decimal points in distance in mints ", Toast.LENGTH_LONG).show();
+//            mnb5mints.requestFocus();
+//            return false;
+//        } else {
+//            mnb5mints.setError(null);
+//        }
 
 
         String str = mnb5km.getText().toString();
@@ -1007,16 +1037,6 @@ public class SectionAActivity extends AppCompatActivity {
             return false;
         } else {
             mnb5km.setError(null);
-        }
-
-
-        if (!studycode.getText().toString().equals("1") && !studycode.getText().toString().equals("2")) {
-            studycode.setError("Study Code must be 1 - 2 ");
-            Toast.makeText(getApplicationContext(), "ERROR(empty): Study Code must be 1 - 2 ", Toast.LENGTH_LONG).show();
-            studycode.requestFocus();
-            return false;
-        } else {
-            studycode.setError(null);
         }
 
 

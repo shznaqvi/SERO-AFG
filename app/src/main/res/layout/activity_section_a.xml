@@ -323,22 +323,22 @@
             android:ems="10"
             android:inputType="numberDecimal" />
 
-        <TextView
-            android:id="@+id/lbl_mnb5mints"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mnb5mints"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+        <!--<TextView-->
+            <!--android:id="@+id/lbl_mnb5mints"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/mnb5mints"-->
+            <!--android:textAppearance="?android:attr/textAppearanceLarge" />-->
 
 
-        <EditText
-            android:id="@+id/mnb5mints"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:digits="0123456789."
-            android:ems="10"
-            android:inputType="numberDecimal" />
+        <!--<EditText-->
+            <!--android:id="@+id/mnb5mints"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:digits="0123456789."-->
+            <!--android:ems="10"-->
+            <!--android:inputType="numberDecimal" />-->
 
         <TextView
             android:id="@+id/lbl_mnb5km"

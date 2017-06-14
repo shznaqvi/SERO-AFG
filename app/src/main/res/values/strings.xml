@@ -436,7 +436,7 @@
     <string name="mnb4name"> Name </string>
     <string name="mnb4address"> Address </string>
     <string name="mnb5"> Distance to nearest health facility from you home </string>
-    <string name="mnb5walk"> By walk </string>
+    <string name="mnb5walk"> By walk (in mints) </string>
     <string name="mnb5mints"> in mints </string>
     <string name="mnb5km"> KM </string>
     <string name="mnb6"> Name of the Interviewer </string>

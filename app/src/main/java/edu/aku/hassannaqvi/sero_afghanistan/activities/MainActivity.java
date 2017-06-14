@@ -115,6 +115,14 @@ public class MainActivity extends Activity {
 
 //        View Record Summary
 
+        recordSummary();
+
+    }
+
+    public void recordSummary(){
+
+        rSumText = "";
+
         DatabaseHelper db = new DatabaseHelper(this);
         Collection<FormsContract> todaysForms = db.getTodayForms();
         Collection<FormsContract> unsyncedForms = db.getUnsyncedForms();
@@ -181,7 +189,6 @@ public class MainActivity extends Activity {
         }
         Log.d(TAG, "onCreate: " + rSumText);
         recordSummary.setText(rSumText);
-
     }
 
     public void openForm(View v) {
@@ -294,6 +301,8 @@ public class MainActivity extends Activity {
             editor.putString("LastSyncServer", dtToday);
 
             editor.apply();
+
+            recordSummary();
 
         } else {
             Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();

@@ -327,23 +327,23 @@ public class SectionFActivity extends Activity {
             mnf2a.setError(null);
         }
 
-        switch (rdo_mnf2) {
-            case R.id.mnf2a:
-                var_mnf2 = "1";
-                break;
-            case R.id.mnf2b:
-                var_mnf2 = "2";
-                break;
-            case R.id.mnf2c:
-                var_mnf2 = "3";
-                break;
-            case R.id.mnf288:
-                var_mnf2 = "88";
-                break;
-        }
+//        switch (rdo_mnf2) {
+//            case R.id.mnf2a:
+//                var_mnf2 = "1";
+//                break;
+//            case R.id.mnf2b:
+//                var_mnf2 = "2";
+//                break;
+//            case R.id.mnf2c:
+//                var_mnf2 = "3";
+//                break;
+//            case R.id.mnf288:
+//                var_mnf2 = "88";
+//                break;
+//        }
 
 
-        if (var_mnf2 == "88") {
+        if (mnf288.isChecked()) {
 
             if (mnf2x.getText().toString().isEmpty() || mnf2x.getText().toString() == null) {
 
@@ -376,6 +376,15 @@ public class SectionFActivity extends Activity {
             mnf3months.setError(null);
         }
 
+        if (Integer.parseInt(mnf3months.getText().toString()) > 11) {
+            mnf3months.setError("Range 0 - 11");
+            Toast.makeText(getApplicationContext(), "Invalid(data): " + getString(R.string.mnf3), Toast.LENGTH_LONG).show();
+            mnf3months.requestFocus();
+            return false;
+        } else {
+            mnf3months.setError(null);
+        }
+
         rdo_mnf4 = mnf4.getCheckedRadioButtonId();
 
         if (rdo_mnf4 == -1) {
@@ -387,17 +396,17 @@ public class SectionFActivity extends Activity {
             mnf4a.setError(null);
         }
 
-        switch (rdo_mnf4) {
-            case R.id.mnf4a:
-                var_mnf4 = "1";
-                break;
-            case R.id.mnf4b:
-                var_mnf4 = "2";
-                break;
-        }
+//        switch (rdo_mnf4) {
+//            case R.id.mnf4a:
+//                var_mnf4 = "1";
+//                break;
+//            case R.id.mnf4b:
+//                var_mnf4 = "2";
+//                break;
+//        }
 
 
-        if (var_mnf4 == "1") {
+        if (mnf4b.isChecked()) {
 
             if (mnf5.getText().toString().isEmpty() || mnf5.getText().toString() == null) {
                 mnf5.setError(getString(R.string.txterr));

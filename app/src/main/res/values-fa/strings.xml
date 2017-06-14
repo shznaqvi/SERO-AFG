@@ -29,7 +29,7 @@
     <string name="mnb4name"> نوم </string>
     <string name="mnb4address"> پته </string>
     <string name="mnb5"> دماشوم د کور فاصله د نږدی صحی مرکز سره </string>
-    <string name="mnb5walk"> په قدمونو </string>
+    <string name="mnb5walk"> په قدمونو(په دقیقو) </string>
     <string name="mnb5mints"> په دقیقو </string>
     <string name="mnb5km"> په کیلو مترسره </string>
     <string name="mnb6"> د مصاحبه کونکی نوم </string>
