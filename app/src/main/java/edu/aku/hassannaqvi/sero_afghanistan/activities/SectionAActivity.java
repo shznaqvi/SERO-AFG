@@ -217,9 +217,8 @@ public class SectionAActivity extends AppCompatActivity {
 
 
         dateToday = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
-        var_dov = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
 
-        dov.setMaxDate(var_dov);
+        dov.setMaxDate(dateToday);
 
 
         studycode.addTextChangedListener(new TextWatcher() {
@@ -251,7 +250,6 @@ public class SectionAActivity extends AppCompatActivity {
 
 
         mna4.setMaxDate(dateToday);
-        dov.setMaxDate("15-06-2017");
 
         prov = new ArrayList<>();
         dist = new ArrayList<>();
@@ -499,6 +497,7 @@ public class SectionAActivity extends AppCompatActivity {
         sA.put("mna2", mna2.getText().toString());
         sA.put("mna3", mna3.getText().toString());
         sA.put("mna4", mna4.getText().toString());
+        sA.put("dov", dov.getText().toString());
         sA.put("mna5days", mna5days.getText().toString());
         sA.put("mna5months", mna5months.getText().toString());
 
