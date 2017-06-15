@@ -16,6 +16,9 @@ public class HFacilitiesContract implements BaseColumns {
     String hFacilityName;
     String tehsilCode;
 
+    public HFacilitiesContract() {
+    }
+
     public HFacilitiesContract sync(JSONObject jsonObject) throws JSONException {
         this.hFacilityCode = jsonObject.getString(HFacilityTable.COLUMN_HFACILITY_CODE);
         this.hFacilityName = jsonObject.getString(HFacilityTable.COLUMN_HFACILITY_NAME);

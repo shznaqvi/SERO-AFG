@@ -3,9 +3,9 @@ package edu.aku.hassannaqvi.sero_afghanistan.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
@@ -21,7 +21,6 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -263,12 +262,12 @@ public class SectionAActivity extends AppCompatActivity {
 
                     if (studycode.getText().toString().equals("1")) {
                         minDate = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_11_MONTHS));
-                        mna4.setMinDate(minDate);
                     } else {
                         minDate = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_48_MONTHS));
-                        mna4.setMinDate(minDate);
                     }
                 }
+
+                mna4.setMinDate(minDate);
             }
 
             @Override
@@ -604,7 +603,7 @@ public class SectionAActivity extends AppCompatActivity {
 
         if (!studycode.getText().toString().equals("1") && !studycode.getText().toString().equals("2")) {
             studycode.setError("Study Code must be 1 - 2 ");
-            Toast.makeText(getApplicationContext(), "ERROR(empty): Study Code must be 1 - 2 ", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(Invalid): Study Code must be 1 - 2 ", Toast.LENGTH_LONG).show();
             studycode.requestFocus();
             return false;
         } else {
