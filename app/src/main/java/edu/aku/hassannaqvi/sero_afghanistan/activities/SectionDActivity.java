@@ -898,7 +898,8 @@ public class SectionDActivity extends Activity {
 
         if (rdo_mnd1 == -1) {
             mnd1a.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd1), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd1), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnd1a: This Data is Required!");
             mnd1a.requestFocus();
             return false;
         } else {
@@ -922,7 +923,8 @@ public class SectionDActivity extends Activity {
 
         if (rdo_mnd2 == -1) {
             mnd2a.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd2), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd2), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnd2a: This Data is Required!");
             mnd2a.requestFocus();
             return false;
         } else {
@@ -948,7 +950,8 @@ public class SectionDActivity extends Activity {
 
             if (rdo_mnd3 == -1) {
                 mnd3a.setError(getString(R.string.rdoerr));
-                Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd3), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd3), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mnd3a: This Data is Required!");
                 mnd3a.requestFocus();
                 return false;
             } else {
@@ -1114,7 +1117,8 @@ public class SectionDActivity extends Activity {
 
             if (rdo_mnd4 == -1) {
                 mnd4a.setError(getString(R.string.rdoerr));
-                Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd4), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd4), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mnd4a: This Data is Required!");
                 mnd4a.requestFocus();
                 return false;
             } else {
@@ -1280,7 +1284,8 @@ public class SectionDActivity extends Activity {
 
         if (rdo_mnd6 == -1) {
             mnd6a.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd6), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd6), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnd6a: This Data is Required!");
             mnd6a.requestFocus();
             return false;
         } else {
@@ -1304,7 +1309,8 @@ public class SectionDActivity extends Activity {
 
         if (rdo_mnd7 == -1) {
             mnd7a.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd7), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd7), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnd7a: This Data is Required!");
             mnd7a.requestFocus();
             return false;
         } else {
@@ -1326,7 +1332,8 @@ public class SectionDActivity extends Activity {
 
         if (mnd8.getText().toString().isEmpty() || mnd8.getText().toString() == null) {
             mnd8.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnd8: This Data is Required!");
             mnd8.requestFocus();
             return false;
         } else {
@@ -1337,7 +1344,8 @@ public class SectionDActivity extends Activity {
 
         if (rdo_mnd9 == -1) {
             mnd9a.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd9), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd9), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnd9a: This Data is Required!");
             mnd9a.requestFocus();
             return false;
         } else {
@@ -1360,7 +1368,8 @@ public class SectionDActivity extends Activity {
 
             if (mnd10years.getText().toString().isEmpty() || mnd10years.getText().toString() == null) {
                 mnd10years.setError(getString(R.string.txterr));
-                Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd10), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd10), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mnd10years: This Data is Required!");
                 mnd10years.requestFocus();
                 return false;
             } else {
@@ -1371,6 +1380,7 @@ public class SectionDActivity extends Activity {
             if (!mnd10years.getText().toString().equals("2016") && !mnd10years.getText().toString().equals("2017")) {
                 mnd10years.setError("Year must be 2016 or 2017");
                 Toast.makeText(getApplicationContext(), "ERROR(invalid): Year must be 2016 or 2017 ", Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mnd10years: This Data is Invalid!");
                 mnd10years.requestFocus();
                 return false;
             } else {
@@ -1380,7 +1390,8 @@ public class SectionDActivity extends Activity {
 
             if (mnd10months.getText().toString().isEmpty() || mnd10months.getText().toString() == null) {
                 mnd10months.setError(getString(R.string.txterr));
-                Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd10), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd10), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mnd10months: This Data is Required!");
                 mnd10months.requestFocus();
                 return false;
             } else {
@@ -1391,6 +1402,7 @@ public class SectionDActivity extends Activity {
             if (Integer.parseInt(mnd10months.getText().toString()) < 0 || Integer.parseInt(mnd10months.getText().toString()) > 12) {
                 mnd10months.setError("Month must be 1 - 12");
                 Toast.makeText(getApplicationContext(), "ERROR(invalid): Month must be 1 - 12", Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mnd10months: This Data is Invalid!");
                 mnd10months.requestFocus();
                 return false;
             } else {
@@ -1402,7 +1414,8 @@ public class SectionDActivity extends Activity {
 
             if (rdo_mnd11 == -1) {
                 mnd11a.setError(getString(R.string.rdoerr));
-                Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd11), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd11), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mnd11a: This Data is Required!");
                 mnd11a.requestFocus();
                 return false;
             } else {
@@ -1432,7 +1445,8 @@ public class SectionDActivity extends Activity {
 
                 if (mnd11x.getText().toString().isEmpty() || mnd11x.getText().toString() == null) {
                     mnd11x.setError(getString(R.string.txterr));
-                    Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.others), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.others), Toast.LENGTH_LONG).show();
+                    Log.i(TAG, "mnd11x: This Data is Required!");
                     mnd11x.requestFocus();
                     return false;
                 } else {
@@ -1448,7 +1462,8 @@ public class SectionDActivity extends Activity {
 
         if (rdo_mnd12 == -1) {
             mnd12a.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd12), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd12), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnd12a: This Data is Required!");
             mnd12a.requestFocus();
             return false;
         } else {
@@ -1469,7 +1484,8 @@ public class SectionDActivity extends Activity {
 
         if (rdo_mnd13 == -1) {
             mnd13a.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd13), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd13), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnd13a: This Data is Required!");
             mnd13a.requestFocus();
             return false;
         } else {

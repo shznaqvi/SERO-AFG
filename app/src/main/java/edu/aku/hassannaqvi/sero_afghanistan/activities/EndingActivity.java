@@ -125,7 +125,7 @@ public class EndingActivity extends Activity {
         if (iStatus.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(not selected): " + getResources().getResourceTypeName(R.string.mna7), Toast.LENGTH_LONG).show();
             mna7d.setError("This data is Required!");
-            Log.i(TAG, "mnd9: This data is Required!");
+            Log.i(TAG, "mna7d: This data is Required!");
             return false;
         } else {
             mna7d.setError(null);

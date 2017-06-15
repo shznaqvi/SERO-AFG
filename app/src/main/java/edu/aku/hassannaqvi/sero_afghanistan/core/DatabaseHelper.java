@@ -391,8 +391,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleForm.COLUMN_SYNCED,
                 singleForm.COLUMN_SYNCED_DATE
         };
-        String whereClause = singleForm.COLUMN_SYNCED + " is null OR " + singleForm.COLUMN_SYNCED + " = ''";
-//        String whereClause = null;
+//        String whereClause = singleForm.COLUMN_SYNCED + " is null OR " + singleForm.COLUMN_SYNCED + " = ''";
+        String whereClause = null;
         String[] whereArgs = null;
         String groupBy = null;
         String having = null;

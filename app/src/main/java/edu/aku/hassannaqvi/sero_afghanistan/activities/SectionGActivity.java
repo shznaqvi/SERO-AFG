@@ -160,7 +160,8 @@ public class SectionGActivity extends Activity {
 
         if (rdo_mng1 == -1) {
             mng1a.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mng1), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mng1), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mng1a: This Data is Required!");
             mng1a.requestFocus();
             return false;
         } else {
@@ -180,7 +181,8 @@ public class SectionGActivity extends Activity {
 
             if (mng1c.getText().toString().isEmpty() || mng1c.getText().toString() == null) {
                 mng1c.setError(getString(R.string.txterr));
-                Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mng1c), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mng1c), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mng1c: This Data is Required!");
                 mng1c.requestFocus();
                 return false;
             } else {
@@ -191,7 +193,8 @@ public class SectionGActivity extends Activity {
 
             if (mng2a.getText().toString().isEmpty() || mng2a.getText().toString() == null) {
                 mng2a.setError(getString(R.string.txterr));
-                Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mng2), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mng2), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mng2a: This Data is Required!");
                 mng2a.requestFocus();
                 return false;
             } else {
@@ -201,7 +204,8 @@ public class SectionGActivity extends Activity {
 
             if (mng2b.getText().toString().isEmpty() || mng2b.getText().toString() == null) {
                 mng2b.setError(getString(R.string.txterr));
-                Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mng2), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mng2), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mng2b: This Data is Required!");
                 mng2b.requestFocus();
                 return false;
             } else {
@@ -211,7 +215,8 @@ public class SectionGActivity extends Activity {
 
             if (mngsticker.getText().toString().isEmpty() || mng2b.getText().toString() == null) {
                 mngsticker.setError(getString(R.string.txterr));
-                Toast.makeText(getApplicationContext(), "ERROR(invalid): Please scanned sticker ", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "ERROR(empty): Please scanned sticker ", Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mngsticker: This Data is Required!");
                 mngsticker.requestFocus();
                 return false;
             } else {
