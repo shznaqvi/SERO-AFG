@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_section_a"
     android:layout_width="match_parent"
@@ -26,16 +25,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/mngheading"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mngheading" />
 
         <TextView
             android:id="@+id/lbl_mng1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/mng1"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mng1" />
 
 
         <RadioGroup
@@ -45,13 +42,13 @@
 
             <RadioButton
                 android:id="@+id/mng1a"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mng1a" />
 
             <RadioButton
                 android:id="@+id/mng1b"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mng1b" />
 
@@ -68,8 +65,7 @@
                 android:id="@+id/lbl_mng1c"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/mng1c"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:text="@string/mng1c" />
 
             <EditText
                 android:id="@+id/mng1c"
@@ -93,8 +89,7 @@
                 android:id="@+id/lbl_mng2a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/mng2a"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:text="@string/mng2a" />
 
             <EditText
                 android:id="@+id/mng2a"
@@ -109,8 +104,7 @@
                 android:id="@+id/lbl_mng2b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/mng2b"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:text="@string/mng2b" />
 
             <EditText
                 android:id="@+id/mng2b"
@@ -125,13 +119,12 @@
                 android:id="@+id/mngsticker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:text="" />
 
 
             <Button
                 android:id="@+id/btnScan"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:text="@string/mngscan"

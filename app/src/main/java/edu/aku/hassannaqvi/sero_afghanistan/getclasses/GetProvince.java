@@ -16,7 +16,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-import edu.aku.hassannaqvi.sero_afghanistan.R;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.ProvinceContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.ProvinceContract.ProvinceEntry;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
@@ -41,7 +40,7 @@ public class GetProvince extends AsyncTask<String, String, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        pd = new ProgressDialog(mContext, R.style.AlertDialogStyle);
+        pd = new ProgressDialog(mContext);
         pd.setTitle("Getting Provinces");
         pd.setMessage("Preparing...");
         pd.show();

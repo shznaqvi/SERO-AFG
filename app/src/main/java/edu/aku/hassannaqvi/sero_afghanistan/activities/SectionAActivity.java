@@ -53,116 +53,77 @@ public class SectionAActivity extends AppCompatActivity {
 
     @BindView(R.id.activity_section_a)
     ScrollView activitySectionA;
-    @BindView(R.id.lbl_mainhead)
-    TextView lblMainhead;
-    @BindView(R.id.lbl_mnaheading)
-    TextView lblMnaheading;
     @BindView(R.id.studyid)
     EditText studyid;
 
     @BindView(R.id.studycode)
     EditText studycode;
 
-    @BindView(R.id.lbl_mna1)
-    TextView lblMna1;
+
     @BindView(R.id.mna1)
     EditText mna1;
-    @BindView(R.id.lbl_mna2)
-    TextView lblMna2;
+
     @BindView(R.id.mna2)
     EditText mna2;
-    @BindView(R.id.lbl_mna3)
-    TextView lblMna3;
+
     @BindView(R.id.mna3)
     EditText mna3;
-    @BindView(R.id.lbl_mna4)
-    TextView lblMna4;
+
     @BindView(R.id.mna4)
     DatePickerInputEditText mna4;
-    @BindView(R.id.lbl_mna5months)
-    TextView lblMna5months;
+
     @BindView(R.id.mna5months)
     EditText mna5months;
-    @BindView(R.id.lbl_mna5days)
-    TextView lblMna5days;
+
     @BindView(R.id.mna5days)
     EditText mna5days;
-    @BindView(R.id.lbl_mna6)
-    TextView lblMna6;
+
     @BindView(R.id.mna6)
     RadioGroup mna6;
     @BindView(R.id.mna6_a)
     RadioButton mna6A;
     @BindView(R.id.mna6_b)
     RadioButton mna6B;
-    @BindView(R.id.lbl_mnbheading)
-    TextView lblMnbheading;
-    @BindView(R.id.lbl_mnb1)
-    TextView lblMnb1;
     @BindView(R.id.mnb1)
     EditText mnb1;
-    @BindView(R.id.lbl_mnb2)
-    TextView lblMnb2;
+
     @BindView(R.id.mnb2)
     Spinner mnb2;
-    @BindView(R.id.lbl_mnb3)
-    TextView lblMnb3;
+
     @BindView(R.id.mnb3)
     Spinner mnb3;
-    @BindView(R.id.lbl_mnb4)
-    TextView lblMnb4;
-    @BindView(R.id.lbl_mnb4name)
-    TextView lblMnb4name;
+
     @BindView(R.id.mnb4name)
     EditText mnb4name;
-    @BindView(R.id.lbl_mnb4address)
-    TextView lblMnb4address;
+
     @BindView(R.id.mnb4address)
     EditText mnb4address;
-    @BindView(R.id.lbl_mnb5)
-    TextView lblMnb5;
-    @BindView(R.id.lbl_mnb5walk)
-    TextView lblMnb5walk;
-    @BindView(R.id.mnb5walk)
-    EditText mnb5walk;
-    //    @BindView(R.id.lbl_mnb5mints)
-//    TextView lblMnb5mints;
-//    @BindView(R.id.mnb5mints)
-//    EditText mnb5mints;
-    @BindView(R.id.lbl_mnb5km)
-    TextView lblMnb5km;
+    /*@BindView(R.id.mnb5walk)
+    EditText mnb5walk;*/
+
+    @BindView(R.id.mnb5mints)
+    EditText mnb5mints;
+   
     @BindView(R.id.mnb5km)
     EditText mnb5km;
 
-    /*@BindView(R.id.lbl_mnb6)
-    TextView lblMnb6;
-    @BindView(R.id.lbl_mnb6name)
-    TextView lblMnb6name;
-    @BindView(R.id.mnb6name)
+  
+   /* @BindView(R.id.mnb6name)
     EditText mnb6name;
-    @BindView(R.id.lbl_mnb6code)
-    TextView lblMnb6code;
+  
     @BindView(R.id.mnb6code)
     EditText mnb6code;*/
 
-    @BindView(R.id.lbl_mnb7)
-    TextView lblMnb7;
-    @BindView(R.id.lbl_mnb7name)
-    TextView lblMnb7name;
+
     @BindView(R.id.mnb7name)
     EditText mnb7name;
-    @BindView(R.id.lbl_mnb7code)
-    TextView lblMnb7code;
-    @BindView(R.id.mnb7code)
-    EditText mnb7code;
-    @BindView(R.id.lbl_mncheading)
-    TextView lblMncheading;
-    @BindView(R.id.lbl_mnc1)
-    TextView lblMnc1;
+  
+    /*@BindView(R.id.mnb7code)
+    EditText mnb7code;*/
+   
     @BindView(R.id.mnc1)
     EditText mnc1;
-    @BindView(R.id.lbl_mnc2)
-    TextView lblMnc2;
+
     @BindView(R.id.mnc2)
     RadioGroup mnc2;
     @BindView(R.id.mnc2a)
@@ -179,18 +140,12 @@ public class SectionAActivity extends AppCompatActivity {
     RadioButton mnc288;
     @BindView(R.id.fldGrpmnc2x)
     LinearLayout fldGrpmnc2x;
-    @BindView(R.id.lbl_mnc2x)
-    TextView lblMnc2x;
+
     @BindView(R.id.mnc2x)
     EditText mnc2x;
-    @BindView(R.id.lbl_mnc3)
-    TextView lblMnc3;
-    @BindView(R.id.lbl_mnc3years)
-    TextView lblMnc3years;
     @BindView(R.id.mnc3years)
     EditText mnc3years;
-    @BindView(R.id.lbl_mnc4)
-    TextView lblMnc4;
+
     @BindView(R.id.mnc4)
     RadioGroup mnc4;
     @BindView(R.id.mnc4a)
@@ -213,8 +168,6 @@ public class SectionAActivity extends AppCompatActivity {
     RadioButton mnc488;
     @BindView(R.id.fldGrpmnc4x)
     LinearLayout fldGrpmnc4x;
-    @BindView(R.id.lbl_mnc4x)
-    TextView lblMnc4x;
     @BindView(R.id.mnc4x)
     EditText mnc4x;
     @BindView(R.id.fldGrpbtn)
@@ -301,7 +254,8 @@ public class SectionAActivity extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(SectionAActivity.this,
                 android.R.layout.simple_spinner_item, prov);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.
+                simple_dropdown_item_1line);
         mnb3.setAdapter(adapter);
 
 
@@ -328,7 +282,7 @@ public class SectionAActivity extends AppCompatActivity {
 
                 ArrayAdapter<String> adapter1 = new ArrayAdapter<>(SectionAActivity.this,
                         android.R.layout.simple_spinner_item, dist);
-                adapter1.setDropDownViewResource(android.R.layout.simple_list_item_1);
+                adapter1.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
                 mnb2.setAdapter(adapter1);
 
             }
@@ -521,15 +475,19 @@ public class SectionAActivity extends AppCompatActivity {
 
         sB.put("mnb4name", mnb4name.getText().toString());
         sB.put("mnb4address", mnb4address.getText().toString());
+/*
         sB.put("mnb5walk", mnb5walk.getText().toString());
-//        sB.put("mnb5mints", mnb5mints.getText().toString());
+*/
+        sB.put("mnb5mints", mnb5mints.getText().toString());
         sB.put("mnb5km", mnb5km.getText().toString());
 
         /*sB.put("mnb6name", mnb6name.getText().toString());
         sB.put("mnb6code", mnb6code.getText().toString());*/
 
         sB.put("mnb7name", mnb7name.getText().toString());
+/*
         sB.put("mnb7code", mnb7code.getText().toString());
+*/
 
         AppMain.fc.setsB(String.valueOf(sB));
 
@@ -655,7 +613,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (mna4.getText().toString().isEmpty() || mna4.getText().toString() == null) {
             mna4.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna4), Toast.LENGTH_LONG).show();
-            Log.i(TAG, "mna4: required "+getString(R.string.mna4));
+            Log.i(TAG, "mna4: required " + getString(R.string.mna4));
             mna4.requestFocus();
             return false;
         } else {
@@ -666,7 +624,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (mna5months.getText().toString().isEmpty() || mna5months.getText().toString() == null) {
             mna5months.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna5months), Toast.LENGTH_LONG).show();
-            Log.i(TAG, "mna5months: required "+getString(R.string.mna5months));
+            Log.i(TAG, "mna5months: required " + getString(R.string.mna5months));
             mna5months.requestFocus();
             return false;
         } else {
@@ -676,7 +634,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (mna5days.getText().toString().isEmpty() || mna5days.getText().toString() == null) {
             mna5days.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna5days), Toast.LENGTH_LONG).show();
-            Log.i(TAG, "mna5days: required "+getString(R.string.mna5days));
+            Log.i(TAG, "mna5days: required " + getString(R.string.mna5days));
             mna5days.requestFocus();
             return false;
         } else {
@@ -688,7 +646,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (rdo_mna6 == -1) {
             mna6A.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna6), Toast.LENGTH_LONG).show();
-            Log.i(TAG, "mna6: required "+getString(R.string.mna6));
+            Log.i(TAG, "mna6: required " + getString(R.string.mna6));
             mna6A.requestFocus();
             return false;
         } else {
@@ -762,7 +720,7 @@ public class SectionAActivity extends AppCompatActivity {
         }
 
 
-        if (mnb5walk.getText().toString().isEmpty()) {
+/*        if (mnb5walk.getText().toString().isEmpty()) {
             mnb5walk.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb5walk), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnb5walk: This Data is Required!");
@@ -770,16 +728,16 @@ public class SectionAActivity extends AppCompatActivity {
             return false;
         } else {
             mnb5walk.setError(null);
-        }
+        }*/
 
-//        if (mnb5mints.getText().toString().isEmpty() || mnb5mints.getText().toString() == null) {
-//            mnb5mints.setError(getString(R.string.txterr));
-//            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb5mints), Toast.LENGTH_LONG).show();
-//            mnb5mints.requestFocus();
-//            return false;
-//        } else {
-//            mnb5mints.setError(null);
-//        }
+        if (mnb5mints.getText().toString().isEmpty() || mnb5mints.getText().toString() == null) {
+            mnb5mints.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb5mints), Toast.LENGTH_LONG).show();
+            mnb5mints.requestFocus();
+            return false;
+        } else {
+            mnb5mints.setError(null);
+        }
 
         if (mnb5km.getText().toString().isEmpty() || mnb5km.getText().toString() == null) {
             mnb5km.setError(getString(R.string.txterr));
@@ -821,7 +779,7 @@ public class SectionAActivity extends AppCompatActivity {
             mnb7name.setError(null);
         }
 
-        if (mnb7code.getText().toString().isEmpty() || mnb7code.getText().toString() == null) {
+/*        if (mnb7code.getText().toString().isEmpty() || mnb7code.getText().toString() == null) {
             mnb7code.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb7code), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnb7code: This Data is Required!");
@@ -829,7 +787,7 @@ public class SectionAActivity extends AppCompatActivity {
             return false;
         } else {
             mnb7code.setError(null);
-        }
+        }*/
 
         if (mnc1.getText().toString().isEmpty() || mnc1.getText().toString() == null) {
             mnc1.setError(getString(R.string.txterr));
@@ -1017,7 +975,7 @@ public class SectionAActivity extends AppCompatActivity {
         }
 
 
-        String str2 = mnb5walk.getText().toString();
+        /*String str2 = mnb5walk.getText().toString();
         for (int i = 0; i < str2.length(); i++) {
             if (mnb5walk.getText().toString().charAt(i) == '.') {
                 count2++;
@@ -1033,25 +991,25 @@ public class SectionAActivity extends AppCompatActivity {
             return false;
         } else {
             mnb5walk.setError(null);
+        }*/
+
+
+        String str1 = mnb5mints.getText().toString();
+        for (int i = 0; i < str1.length(); i++) {
+            if (mnb5mints.getText().toString().charAt(i) == '.') {
+                count1++;
+            }
         }
 
 
-//        String str1 = mnb5mints.getText().toString();
-//        for (int i = 0; i < str1.length(); i++) {
-//            if (mnb5mints.getText().toString().charAt(i) == '.') {
-//                count1++;
-//            }
-//        }
-//
-//
-//        if (count1 >= 2) {
-//            mnb5mints.setError("You cannot use two decimal points in distance in mints");
-//            Toast.makeText(getApplicationContext(), "ERROR(empty): You cannot use two decimal points in distance in mints ", Toast.LENGTH_LONG).show();
-//            mnb5mints.requestFocus();
-//            return false;
-//        } else {
-//            mnb5mints.setError(null);
-//        }
+        if (count1 >= 2) {
+            mnb5mints.setError("You cannot use two decimal points in distance in mints");
+            Toast.makeText(getApplicationContext(), "ERROR(empty): You cannot use two decimal points in distance in mints ", Toast.LENGTH_LONG).show();
+            mnb5mints.requestFocus();
+            return false;
+        } else {
+            mnb5mints.setError(null);
+        }
 
 
         String str = mnb5km.getText().toString();

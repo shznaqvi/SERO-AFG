@@ -21,28 +21,22 @@
             android:background="@color/colorPrimaryDark" />
 
         <TextView
-            android:id="@+id/lbl_mainhead"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/mainhead"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mainhead" />
 
         <TextView
-            android:id="@+id/lbl_mnaheading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/mnaheading"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnaheading" />
 
 
         <TextView
-            android:id="@+id/lbl_studycode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/studycode"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/studycode" />
 
         <EditText
             android:id="@+id/studycode"
@@ -55,11 +49,9 @@
             android:maxLength="1" />
 
         <TextView
-            android:id="@+id/lbl_studyid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/studyid"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/studyid" />
 
 
         <EditText
@@ -73,11 +65,9 @@
             android:maxLength="3" />
 
         <TextView
-            android:id="@+id/lbl_mna1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mna1"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mna1" />
 
         <EditText
             android:id="@+id/mna1"
@@ -89,11 +79,9 @@
             android:inputType="textPersonName" />
 
         <TextView
-            android:id="@+id/lbl_mna2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mna2"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mna2" />
 
 
         <EditText
@@ -106,11 +94,9 @@
             android:inputType="textPersonName" />
 
         <TextView
-            android:id="@+id/lbl_mna3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mna3"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mna3" />
 
 
         <EditText
@@ -123,11 +109,9 @@
             android:inputType="textPersonName" />
 
         <TextView
-            android:id="@+id/lbl_mna4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mna4"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mna4" />
 
         <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
             android:id="@+id/mna4"
@@ -140,11 +124,9 @@
             app:dateFormat="dd-MM-yyyy" />
 
         <TextView
-            android:id="@+id/lbl_mna5months"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mna5months"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mna5months" />
 
 
         <EditText
@@ -157,11 +139,9 @@
             android:inputType="number" />
 
         <TextView
-            android:id="@+id/lbl_mna5days"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mna5days"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mna5days" />
 
 
         <EditText
@@ -174,11 +154,9 @@
             android:inputType="number" />
 
         <TextView
-            android:id="@+id/lbl_mna6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mna6"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mna6" />
 
 
         <RadioGroup
@@ -188,35 +166,34 @@
 
             <RadioButton
                 android:id="@+id/mna6_a"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/mna6a" />
 
             <RadioButton
                 android:id="@+id/mna6_b"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/mna6b" />
 
         </RadioGroup>
 
         <TextView
-            android:id="@+id/lbl_mnbheading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/mnbheading"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnbheading" />
 
         <TextView
-            android:id="@+id/lbl_mnb3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnb3"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnb3" />
 
         <Spinner
             android:id="@+id/mnb3"
+            style="@style/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -225,15 +202,14 @@
 
 
         <TextView
-            android:id="@+id/lbl_mnb2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnb2"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnb2" />
 
 
         <Spinner
             android:id="@+id/mnb2"
+            style="@style/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -242,11 +218,9 @@
 
 
         <TextView
-            android:id="@+id/lbl_mnb1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnb1"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnb1" />
 
 
         <EditText
@@ -260,11 +234,9 @@
 
 
         <TextView
-            android:id="@+id/lbl_mnb4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnb4"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnb4" />
 
         <EditText
             android:id="@+id/mnb4name"
@@ -276,11 +248,9 @@
             android:inputType="text" />
 
         <TextView
-            android:id="@+id/lbl_mnb4address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnb4address"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnb4address" />
 
 
         <EditText
@@ -293,18 +263,14 @@
             android:inputType="text" />
 
         <TextView
-            android:id="@+id/lbl_mnb5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnb5"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnb5" />
 
         <TextView
-            android:id="@+id/lbl_mnb5walk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnb5walk"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnb5walk" />
 
         <!--
                 <EditText
@@ -315,14 +281,13 @@
                     android:digits="0123456789."
                     android:maxLength="3"
                     android:ems="10"
-                    android:inputType="numberDecimal" />-->
+                    android:inputType="numberDecimal" />
 
         <TextView
-            android:id="@+id/lbl_mnb5mints"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/mnb5mints"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            />-->
 
 
         <EditText
@@ -336,11 +301,9 @@
             android:maxLength="3" />
 
         <TextView
-            android:id="@+id/lbl_mnb5km"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnb5km"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnb5km" />
 
 
         <EditText
@@ -358,14 +321,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/mnb6"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+       />
 
         <TextView
             android:id="@+id/lbl_mnb6name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/mnb6name"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+     />
 
         <EditText
             android:id="@+id/mnb6name"
@@ -381,7 +344,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/mnb6code"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+        />
 
 
         <EditText
@@ -394,18 +357,16 @@
             android:inputType="number" />-->
 
         <TextView
-            android:id="@+id/lbl_mnb7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnb7"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnb7" />
         <!--
                 <TextView
                     android:id="@+id/lbl_mnb7name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnb7name"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />-->
+                    />-->
 
 
         <EditText
@@ -422,7 +383,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/mnb7code"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+             />
 
 
         <EditText
@@ -434,20 +395,19 @@
             android:inputType="number" />-->
 
         <TextView
-            android:id="@+id/lbl_mncheading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="0123456789"
             android:gravity="center"
-            android:text="@string/mncheading"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:lineSpacingExtra="6dp"
+
+            android:lineSpacingMultiplier="2.5"
+            android:text="@string/mncheading" />
 
         <TextView
-            android:id="@+id/lbl_mnc1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnc1"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnc1" />
 
 
         <EditText
@@ -460,11 +420,9 @@
             android:inputType="text" />
 
         <TextView
-            android:id="@+id/lbl_mnc2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnc2"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnc2" />
 
         <RadioGroup
             android:id="@+id/mnc2"
@@ -473,38 +431,47 @@
 
             <RadioButton
                 android:id="@+id/mnc2a"
-                android:layout_width="wrap_content"
+
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/mnc2a" />
 
             <RadioButton
                 android:id="@+id/mnc2b"
-                android:layout_width="wrap_content"
+
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/mnc2b" />
 
             <RadioButton
                 android:id="@+id/mnc2c"
-                android:layout_width="wrap_content"
+
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/mnc2c" />
 
             <RadioButton
                 android:id="@+id/mnc2d"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/mnc2d" />
 
             <RadioButton
                 android:id="@+id/mnc2e"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/mnc2e" />
 
             <RadioButton
                 android:id="@+id/mnc288"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/others" />
 
         </RadioGroup>
@@ -517,11 +484,9 @@
             android:visibility="gone">
 
             <TextView
-                android:id="@+id/lbl_mnc2x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/others"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:text="@string/others" />
 
 
             <EditText
@@ -536,18 +501,16 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/lbl_mnc3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnc3"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnc3" />
 
         <!--    <TextView
                 android:id="@+id/lbl_mnc3years"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mnc3years"
-                android:textAppearance="?android:attr/textAppearanceLarge" />-->
+                />-->
 
 
         <EditText
@@ -557,14 +520,13 @@
             android:layout_weight="1"
             android:digits="0123456789"
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="number"
+            android:maxLength="2" />
 
         <TextView
-            android:id="@+id/lbl_mnc4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnc4"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnc4" />
 
         <RadioGroup
             android:id="@+id/mnc4"
@@ -573,56 +535,66 @@
 
             <RadioButton
                 android:id="@+id/mnc4a"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/mnc4a" />
 
             <RadioButton
                 android:id="@+id/mnc4b"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/mnc4b" />
 
             <RadioButton
                 android:id="@+id/mnc4c"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/mnc4c" />
 
             <RadioButton
                 android:id="@+id/mnc4d"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/mnc4d" />
 
             <RadioButton
                 android:id="@+id/mnc4e"
-                android:layout_width="wrap_content"
+
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/mnc4e" />
 
             <RadioButton
                 android:id="@+id/mnc4f"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/mnc4f" />
 
             <RadioButton
                 android:id="@+id/mnc4g"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/mnc4g" />
 
             <RadioButton
                 android:id="@+id/mnc4h"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/mnc4h" />
 
             <RadioButton
                 android:id="@+id/mnc488"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:text="@string/others" />
 
         </RadioGroup>
@@ -635,11 +607,9 @@
             android:visibility="gone">
 
             <TextView
-                android:id="@+id/lbl_mnc4x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/others"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:text="@string/others" />
 
             <EditText
                 android:id="@+id/mnc4x"

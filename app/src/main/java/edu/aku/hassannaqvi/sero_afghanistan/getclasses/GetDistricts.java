@@ -16,9 +16,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-import edu.aku.hassannaqvi.sero_afghanistan.R;
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.UCsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.DistrictContract.DistrictEntry;
+import edu.aku.hassannaqvi.sero_afghanistan.contracts.UCsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
 
@@ -41,7 +40,7 @@ public class GetDistricts extends AsyncTask<String, String, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        pd = new ProgressDialog(mContext, R.style.AlertDialogStyle);
+        pd = new ProgressDialog(mContext);
         pd.setTitle("Getting Districts");
         pd.setMessage("Preparing...");
         pd.show();

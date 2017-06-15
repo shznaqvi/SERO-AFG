@@ -14,7 +14,7 @@
     <ProgressBar
         android:id="@+id/login_progress"
         style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:visibility="gone" />
@@ -49,7 +49,7 @@
                 android:textSize="24sp" />
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/agakhan" />
@@ -64,8 +64,8 @@
                 android:hint="Username/Code"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:text=""
                 android:padding="4px"
+                android:text=""
                 android:textAlignment="center" />
 
             <EditText
@@ -109,7 +109,7 @@
             <Button
                 android:id="@+id/syncData"
                 style="?android:textAppearanceSmall"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="36dp"

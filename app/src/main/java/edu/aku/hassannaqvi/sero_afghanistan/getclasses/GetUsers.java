@@ -21,7 +21,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-import edu.aku.hassannaqvi.sero_afghanistan.R;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.UsersContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.UsersContract.singleUser;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
@@ -45,7 +44,7 @@ public class GetUsers extends AsyncTask<String, String, String> {
     protected void onPreExecute() {
         super.onPreExecute();
 
-        pd = new ProgressDialog(mContext, R.style.AlertDialogStyle);
+        pd = new ProgressDialog(mContext);
         pd.setTitle("Syncing Users");
         pd.setMessage("Getting connected to server...");
         pd.show();

@@ -6,9 +6,11 @@
     <string name="others"> نور مشخص کری </string>
     <string name="card"> د کارت له مخی نه </string>
     <string name="recall"> د مور د حافظی له مخی نه </string>
+    <string name="nextSection"> بل برخه </string>
+    <string name="endForm1"> پايان </string>
 
     <string name="studycode"> Study Code </string>
-    <string name="studyid">د  پیږندنی شمیره</string>
+    <string name="studyid">د پیږندنی شمیره </string>
     <string name="mainhead"> دافغانستان د ګوزن سیروپریولانس سروی </string>
     <string name="mnaheading"> الف- دانتخاب شوی ماشوم تفصیلی معلومات </string>
     <string name="mna1"> دانتخاب شوی ماشوم نوم </string>
@@ -21,6 +23,10 @@
     <string name="mna6"> د ماشوم جنسیت </string>
     <string name="mna6a"> هلک </string>
     <string name="mna6b"> انجلی </string>
+    <string name="mna7"> د مرکې احوالو </string>
+    <string name="mna7a"> بشپړه </string>
+    <string name="mna7b"> نابشپړ </string>
+    <string name="mna7c"> نه ورکوی </string>
     <string name="mnbheading"> ب- پیږندنه اود تیم معلومات </string>
     <string name="mnb1"> د کلی نوم </string>
     <string name="mnb2"> ولسوالی </string>
@@ -155,7 +161,7 @@
     <string name="mng2a"> د تول وینی مقدار </string>
     <string name="mng2b"> د سیرم مقدار </string>
     <string name="mngscan">  Scan Sticker </string>
-    <string name="endinterview">  End Form </string>
+    <string name="endinterview"> پايان </string>
     <string name="mngsticker">  </string>
 
     <string name="mnadd"> د ماشوم د تیلفئون نمبر </string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_section_a"
     android:layout_width="match_parent"
@@ -25,67 +24,65 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/mnfheading"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnfheading" />
 
         <TextView
             android:id="@+id/lbl_mnf1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnf1"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnf1" />
 
         <CheckBox
             android:id="@+id/mnf1a"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/mnf1a" />
 
         <CheckBox
             android:id="@+id/mnf1b"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/mnf1b" />
 
         <CheckBox
             android:id="@+id/mnf1c"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/mnf1c" />
 
         <CheckBox
             android:id="@+id/mnf1d"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/mnf1d" />
 
         <CheckBox
             android:id="@+id/mnf1e"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/mnf1e" />
 
         <CheckBox
             android:id="@+id/mnf1f"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/mnf1f" />
 
         <CheckBox
             android:id="@+id/mnf1g"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/mnf1g" />
 
         <CheckBox
             android:id="@+id/mnf1h"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/mnf1h" />
 
         <CheckBox
             android:id="@+id/mnf188"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/others" />
 
@@ -100,8 +97,7 @@
                 android:id="@+id/lbl_mnf1x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/others"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:text="@string/others" />
 
             <EditText
                 android:id="@+id/mnf1x"
@@ -118,8 +114,7 @@
             android:id="@+id/lbl_mnf2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnf2"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnf2" />
 
         <RadioGroup
             android:id="@+id/mnf2"
@@ -128,25 +123,25 @@
 
             <RadioButton
                 android:id="@+id/mnf2a"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mnf2a" />
 
             <RadioButton
                 android:id="@+id/mnf2b"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mnf2b" />
 
             <RadioButton
                 android:id="@+id/mnf2c"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mnf2c" />
 
             <RadioButton
                 android:id="@+id/mnf288"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/others" />
 
@@ -163,8 +158,7 @@
                 android:id="@+id/lbl_mnf2x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/others"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:text="@string/others" />
 
             <EditText
                 android:id="@+id/mnf2x"
@@ -181,15 +175,13 @@
             android:id="@+id/lbl_mnf3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnf3"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnf3" />
 
         <TextView
             android:id="@+id/lbl_mnf3years"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnf3years"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnf3years" />
 
 
         <EditText
@@ -205,8 +197,7 @@
             android:id="@+id/lbl_mnf3months"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnf3months"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnf3months" />
 
         <EditText
             android:id="@+id/mnf3months"
@@ -221,8 +212,7 @@
             android:id="@+id/lbl_mnf4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mnf4"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/mnf4" />
 
         <RadioGroup
             android:id="@+id/mnf4"
@@ -231,13 +221,13 @@
 
             <RadioButton
                 android:id="@+id/mnf4a"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/yes" />
 
             <RadioButton
                 android:id="@+id/mnf4b"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/no" />
 
@@ -254,8 +244,7 @@
                 android:id="@+id/lbl_mnf5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/mnf5"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:text="@string/mnf5" />
 
 
             <EditText

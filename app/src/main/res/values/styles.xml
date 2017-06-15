@@ -1,96 +1,133 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Material.Light">
+    <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
         <item name="android:scrollViewStyle">@style/BackgroundStyle</item>
-        <item name="android:textViewStyle">@style/lblTextView</item>
-        <item name="android:editTextStyle">@style/txtEditText</item>
-        <item name="android:buttonStyle">@style/btnButton</item>
-        <item name="android:radioButtonStyle">@style/btnRadioButton</item>
-        <item name="android:checkboxStyle">@style/chkBox</item>
-        <item name="android:layoutDirection">rtl</item>
-        <item name="android:typeface">serif</item>
-        <item name="android:dialogTheme">@style/AlertDialogStyle</item>
-
-
+        <item name="android:textViewStyle">@style/labels</item>
+        <item name="android:editTextStyle">@style/textInput</item>
+        <item name="android:buttonStyle">@style/buttons</item>
+        <item name="android:checkboxStyle">@style/checkbox</item>
+        <item name="android:radioButtonStyle">@style/radiobutton</item>
+        <item name="android:spinnerStyle">@style/spinner</item>
+        <item name="android:spinnerItemStyle">@style/spinnerItemStyle</item>
+        <item name="android:spinnerDropDownItemStyle">@style/spinnerDropDownItemStyle</item>
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="AlertDialogStyle" parent="android:Theme.Material.Light.Dialog.Alert">
-        <item name="android:textColorPrimary">@color/white</item>
-        <item name="android:background">@color/grey_dialog_box</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
-    <style name="AppTheme1" parent="Theme.AppCompat.Light">
-        <item name="android:scrollViewStyle">@style/BackgroundStyle</item>
-        <item name="android:textColor">#121212</item>
-        <item name="android:textViewStyle">@style/lblTextView</item>
-        <item name="android:editTextStyle">@style/txtEditText</item>
-        <item name="android:buttonStyle">@style/btnButton</item>
-        <item name="android:radioButtonStyle">@style/btnRadioButton</item>
-        <item name="android:checkboxStyle">@style/chkBox</item>
-        <item name="android:layoutDirection">rtl</item>
-        <item name="android:typeface">serif</item>
-
-    </style>
-
-    <style name="BackgroundStyle" parent="android:Widget.Material.Light.ScrollView">
+    <style name="BackgroundStyle" parent="android:Widget.ScrollView">
+        <item name="android:background">#efefef</item>
         <item name="android:padding">24dp</item>
     </style>
 
 
-    <!--TEXTVIEW-->
-    <style name="lblTextView" parent="android:Widget.Material.Light.TextView">
+    <style name="ActionBarTheme" parent="Widget.AppCompat.Light.ActionBar">
         <item name="android:background">@drawable/background_grad</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:paddingTop">16dp</item>
+        <item name="background">@drawable/background_grad</item>
+    </style>
+
+
+    <!-- Form Styles -->
+    <style name="labels" parent="android:Widget.Material.Light.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:drawable">@drawable/textview_background_grad</item>
+
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:typeface">serif</item>
-        <item name="android:textSize">24sp</item> <!--or 16sp-->
+        <item name="android:paddingTop">16dp</item>
         <item name="android:elevation">1dp</item>
         <item name="android:paddingStart">8dp</item>
+
+
     </style>
 
-    <!--HELPER-TEXT-->
-    <style name="helperText" parent="android:Widget.Material.Light.TextView">
+    <style name="listItems" parent="android:Widget.Material.Light.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/darker_gray</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:typeface">serif</item>
-        <item name="android:textSize">20sp</item> <!--or 14sp-->
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:textColor">#B3ffffff</item>
-        <item name="android:paddingStart">16dp</item>
-        <item name="android:paddingEnd">16dp</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
+    <style name="errors">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:background">#ffd6d6</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#ff1e1e</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:visibility">invisible</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <style name="sub">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:background">#d6d6d6</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#ef6d6d</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:visibility">invisible</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textStyle">italic</item>
 
     </style>
 
-    <!--EDITTEXT-->
-    <style name="txtEditText" parent="android:Widget.Material.Light.EditText">
+    <style name="textInput" parent="android:Widget.Material.Light.EditText">
+        <item name="android:textSize">24sp</item>
+        <item name="android:background">#d6d6d6</item>
         <item name="android:paddingBottom">8dp</item>
         <item name="android:paddingStart">8dp</item>
         <item name="android:paddingEnd">8dp</item>
-        <item name="android:typeface">serif</item>
-        <item name="android:textSize">24sp</item> <!--or 16sp-->
-        <item name="android:background">#d6d6d6</item>
+        <item name="android:textColorHint">@color/colorPrimaryAlpha</item>
 
     </style>
 
-    <style name="btnButton" parent="android:Widget.Material.Light.Button">
-        <item name="android:background">@drawable/button_bg</item>
-        <item name="android:padding">@dimen/activity_horizontal_margin</item>
-        <item name="android:layout_marginTop">@dimen/activity_horizontal_margin</item>
-        <item name="android:typeface">serif</item>
+    <style name="spinner" parent="android:Widget.Material.Light.Spinner">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">16dp</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:elevation">2dp</item>
-
-
-    </style>
-
-    <style name="btnRadioButton" parent="android:Widget.Material.Light.CompoundButton.RadioButton">
-        <item name="android:background">#d6d6d6</item>
         <item name="android:typeface">serif</item>
-        <item name="android:textSize">24sp</item>
-        <item name="android:textColorPrimaryDisableOnly">@color/white</item>
+        <item name="android:textColor">#ff0000</item>
+        <item name="android:background">#d6d6d6</item>
+        <item name="android:padding">16dp</item>
+
 
     </style>
+
+    <style name="spinnerItemStyle" parent="android:Widget.Material.Light.TextView.SpinnerItem">
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="spinnerDropDownItemStyle" parent="android:Widget.Material.Light.DropDownItem.Spinner">
+        <item name="android:padding">20dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="SpinnerItem" parent="android:Widget.Material.Light.TextView.SpinnerItem">>
+        <item name="android:textAppearance">@style/SpinnerItemText</item>
+    </style>
+
+    <style name="SpinnerItemText" parent="android:Widget.Material.Light.TextView.SpinnerItem">
+        <item name="android:textSize">24sp</item>
+        <item name="android:typeface">serif</item>
+    </style>
+
 
     <style name="radiogroup">
         <item name="android:layout_width">fill_parent</item>
@@ -105,15 +142,53 @@
 
     </style>
 
-    <style name="chkBox" parent="android:Widget.Material.Light.CompoundButton.CheckBox">
+    <style name="radiobutton" parent="android:Widget.Material.Light.CompoundButton.RadioButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawableRight">@android:drawable/btn_radio</item>
         <item name="android:textSize">24sp</item>
         <item name="android:typeface">serif</item>
         <item name="android:background">#d6d6d6</item>
-        <item name="android:textColorPrimaryDisableOnly">@color/white</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
+    <style name="buttons" parent="android:Widget.Material.Light.Button">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:radius">2dp</item>
+        <item name="android:elevation">5dp</item>
+        <item name="android:background">@drawable/background_grad</item>
+    </style>
+
+    <style name="checkbox" parent="android:Widget.Material.Light.CompoundButton.CheckBox">
+        <item name="android:layout_gravity">right</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:drawableRight">?android:attr/listChoiceIndicatorMultiple</item>
+        <item name="android:background">#d6d6d6</item>
+        <item name="android:padding">4dp</item>
+
 
     </style>
 
-    <style name="FullscreenTheme" parent="android:Theme.Material.Light">
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="FullscreenTheme" parent="AppTheme">
         <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
         <item name="android:windowActionBarOverlay">true</item>
         <item name="android:windowBackground">@null</item>
@@ -121,9 +196,101 @@
         <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
     </style>
 
-    <style name="FullscreenActionBarStyle" parent="android:Widget.Holo.ActionBar">
+    <style name="FullscreenActionBarStyle" parent="AppTheme.AppBarOverlay">
         <item name="android:background">@color/black_overlay</item>
     </style>
 
+    <style name="Theme.AppTheme.Light.DarkActionBar" parent="android:Theme.Material.Light.DarkActionBar">
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="android:colorForeground">@color/black</item>
+    </style>
 
+    <style name="AppTheme1" parent="Theme.AppCompat.Light">
+        <item name="android:scrollViewStyle">@style/BackgroundStyle</item>
+        <item name="android:textViewStyle">@style/lblTextView</item>
+        <item name="android:editTextStyle">@style/txtEditText</item>
+        <item name="android:buttonStyle">@style/btnButton</item>
+        <item name="android:radioButtonStyle">@style/btnRadioButton</item>
+        <item name="android:checkboxStyle">@style/chkBox</item>
+        <item name="android:layoutDirection">rtl</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:dialogTheme">@style/AlertDialogStyle1
+        </item>
+    </style>
+
+    <!--TEXTVIEW-->
+    <style name="lblTextView" parent="android:Widget.Material.Light.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:drawable">@drawable/textview_background_grad</item>
+        <item name="android:lineSpacingMultiplier">2.5</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:elevation">1dp</item>
+        <item name="android:paddingStart">8dp</item>
+    </style>
+
+
+    <!--EDITTEXT-->
+    <style name="txtEditText" parent="android:Widget.Material.Light.EditText">
+        <item name="android:textSize">24sp</item>
+        <item name="android:background">#d6d6d6</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:textColorHint">@color/colorPrimaryAlpha</item>
+
+    </style>
+
+    <style name="btnButton" parent="android:Widget.Material.Light.Button">
+        <item name="android:background">@drawable/button_bg</item>
+        <item name="android:padding">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginTop">@dimen/activity_horizontal_margin</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:elevation">2dp</item>
+
+
+    </style>
+
+    <style name="AlertDialogStyle1" parent="Base.Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="btnRadioButton" parent="android:Widget.Material.Light.CompoundButton.RadioButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawableRight">@android:drawable/btn_radio</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:background">#d6d6d6</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:drawableBottom">@drawable/line_seperator</item>
+
+    </style>
+
+    <style name="chkBox" parent="android:Widget.Material.Light.CompoundButton.CheckBox">
+        <item name="android:layout_gravity">right</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:drawableRight">?android:attr/listChoiceIndicatorMultiple</item>
+        <item name="android:background">#d6d6d6</item>
+        <item name="android:padding">4dp</item>
+
+    </style>
 </resources>
