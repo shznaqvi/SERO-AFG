@@ -254,7 +254,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
+            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM1234567890#()_-+:.,"
             android:ems="10"
             android:inputType="text" />
 
@@ -266,21 +266,12 @@
             android:text="@string/mnb4"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-
-        <TextView
-            android:id="@+id/lbl_mnb4name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mnb4name"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-
         <EditText
             android:id="@+id/mnb4name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
+            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM1234567890#()_-+:.,"
             android:ems="10"
             android:inputType="text" />
 
@@ -297,7 +288,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM 0123456789"
+            android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM1234567890#()_-+:.,"
             android:ems="10"
             android:inputType="text" />
 
@@ -315,32 +306,34 @@
             android:text="@string/mnb5walk"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
+        <!--
+                <EditText
+                    android:id="@+id/mnb5walk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:digits="0123456789."
+                    android:maxLength="3"
+                    android:ems="10"
+                    android:inputType="numberDecimal" />-->
+
+        <TextView
+            android:id="@+id/lbl_mnb5mints"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mnb5mints"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
 
         <EditText
-            android:id="@+id/mnb5walk"
+            android:id="@+id/mnb5mints"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:digits="0123456789."
+            android:digits="0123456789"
             android:ems="10"
-            android:inputType="numberDecimal" />
-
-        <!--<TextView-->
-            <!--android:id="@+id/lbl_mnb5mints"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/mnb5mints"-->
-            <!--android:textAppearance="?android:attr/textAppearanceLarge" />-->
-
-
-        <!--<EditText-->
-            <!--android:id="@+id/mnb5mints"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--android:digits="0123456789."-->
-            <!--android:ems="10"-->
-            <!--android:inputType="numberDecimal" />-->
+            android:inputType="numberDecimal"
+            android:maxLength="3" />
 
         <TextView
             android:id="@+id/lbl_mnb5km"
@@ -357,7 +350,8 @@
             android:layout_weight="1"
             android:digits="0123456789."
             android:ems="10"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:maxLength="5" />
 
         <!--<TextView
             android:id="@+id/lbl_mnb6"
@@ -405,13 +399,13 @@
             android:layout_height="wrap_content"
             android:text="@string/mnb7"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextView
-            android:id="@+id/lbl_mnb7name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mnb7name"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+        <!--
+                <TextView
+                    android:id="@+id/lbl_mnb7name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mnb7name"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />-->
 
 
         <EditText
@@ -423,7 +417,7 @@
             android:ems="10"
             android:inputType="text" />
 
-        <TextView
+        <!--<TextView
             android:id="@+id/lbl_mnb7code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -437,7 +431,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="number" />-->
 
         <TextView
             android:id="@+id/lbl_mncheading"
@@ -548,12 +542,12 @@
             android:text="@string/mnc3"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <TextView
-            android:id="@+id/lbl_mnc3years"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mnc3years"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+        <!--    <TextView
+                android:id="@+id/lbl_mnc3years"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mnc3years"
+                android:textAppearance="?android:attr/textAppearanceLarge" />-->
 
 
         <EditText
