@@ -945,6 +945,8 @@ public class SectionAActivity extends AppCompatActivity {
             return false;
         } else {
             mna5months.setError(null);
+
+
         }
 
 
