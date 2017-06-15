@@ -111,32 +111,86 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mna4" />
+            android:layout_marginTop="16dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/dcAge"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white" />
 
-        <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
-            android:id="@+id/mna4"
+        <RadioGroup
+            android:id="@+id/dcbdob"
+            style="@style/radiogroup"
+            android:layout_marginTop="32dp"
+            android:background="@color/colorPrimary">
+
+            <RadioButton
+                android:id="@+id/dcbdob01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcbg" />
+
+            <RadioButton
+                android:id="@+id/dcbAge02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/dcbh" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/fldGrpdcbdob"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:focusable="false"
-            android:hint="@string/mna4"
-            android:textColor="@android:color/black"
-            app:dateFormat="dd-MM-yyyy" />
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
 
-        <TextView
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mna4"
+                 />
+
+            <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
+                android:id="@+id/mna4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:focusable="false"
+                android:hint="@string/mna4"
+                android:textColor="@android:color/black"
+                app:dateFormat="dd-MM-yyyy" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fldGrpdcpAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mna5months" />
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
 
 
-        <EditText
-            android:id="@+id/mna5months"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:digits="0123456789"
-            android:ems="10"
-            android:inputType="number" />
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mna5months"
+                 />
+
+
+            <EditText
+                android:id="@+id/mna5months"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:digits="0123456789"
+                android:ems="10"
+                android:inputType="number" />
 
         <TextView
             android:layout_width="match_parent"
@@ -144,14 +198,16 @@
             android:text="@string/mna5days" />
 
 
-        <EditText
-            android:id="@+id/mna5days"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:digits="0123456789"
-            android:ems="10"
-            android:inputType="number" />
+            <EditText
+                android:id="@+id/mna5days"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:digits="0123456789"
+                android:ems="10"
+                android:inputType="number" />
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"

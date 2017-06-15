@@ -103,24 +103,24 @@ public class SectionAActivity extends AppCompatActivity {
 
     @BindView(R.id.mnb5mints)
     EditText mnb5mints;
-   
+
     @BindView(R.id.mnb5km)
     EditText mnb5km;
 
-  
+
    /* @BindView(R.id.mnb6name)
     EditText mnb6name;
-  
+
     @BindView(R.id.mnb6code)
     EditText mnb6code;*/
 
 
     @BindView(R.id.mnb7name)
     EditText mnb7name;
-  
+
     /*@BindView(R.id.mnb7code)
     EditText mnb7code;*/
-   
+
     @BindView(R.id.mnc1)
     EditText mnc1;
 
@@ -172,6 +172,17 @@ public class SectionAActivity extends AppCompatActivity {
     EditText mnc4x;
     @BindView(R.id.fldGrpbtn)
     LinearLayout fldGrpbtn;
+
+    @BindView(R.id.dcbdob)
+    RadioGroup dcbdob;
+    @BindView(R.id.dcbdob01)
+    RadioButton dcbdob01;
+    @BindView(R.id.dcbAge02)
+    RadioButton dcbAge02;
+    @BindView(R.id.fldGrpdcbdob)
+    LinearLayout fldGrpdcbdob;
+    @BindView(R.id.fldGrpdcpAge)
+    LinearLayout fldGrpdcpAge;
 
     int rdo_mna6;
     String var_mna6;
@@ -324,6 +335,23 @@ public class SectionAActivity extends AppCompatActivity {
                 } else {
                     mnc4x.setText(null);
                     fldGrpmnc4x.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        dcbdob.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (dcbdob01.isChecked()) {
+                    fldGrpdcbdob.setVisibility(View.VISIBLE);
+                    fldGrpdcpAge.setVisibility(View.GONE);
+                    mna5months.setText(null);
+                    mna5days.setText(null);
+                } else {
+                    fldGrpdcpAge.setVisibility(View.VISIBLE);
+                    fldGrpdcbdob.setVisibility(View.GONE);
+
+                    mna4.setText(null);
                 }
             }
         });
@@ -610,35 +638,72 @@ public class SectionAActivity extends AppCompatActivity {
             mna3.setError(null);
         }
 
-        if (mna4.getText().toString().isEmpty() || mna4.getText().toString() == null) {
-            mna4.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna4), Toast.LENGTH_LONG).show();
-            Log.i(TAG, "mna4: required " + getString(R.string.mna4));
-            mna4.requestFocus();
+        if (dcbdob.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbg), Toast.LENGTH_SHORT).show();
+            dcbAge02.setError("This data is Required!");    // Set Error on last radio button
+            Log.i(TAG, "dcbdob: This data is Required!");
             return false;
         } else {
-            mna4.setError(null);
+            dcbAge02.setError(null);
         }
 
-
-        if (mna5months.getText().toString().isEmpty() || mna5months.getText().toString() == null) {
-            mna5months.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna5months), Toast.LENGTH_LONG).show();
-            Log.i(TAG, "mna5months: required " + getString(R.string.mna5months));
-            mna5months.requestFocus();
-            return false;
-        } else {
-            mna5months.setError(null);
+        if (dcbdob01.isChecked()) {
+            if (mna4.getText().toString().isEmpty() || mna4.getText().toString() == null) {
+                mna4.setError(getString(R.string.txterr));
+                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna4), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mna4: required " + getString(R.string.mna4));
+                mna4.requestFocus();
+                return false;
+            } else {
+                mna4.setError(null);
+            }
         }
 
-        if (mna5days.getText().toString().isEmpty() || mna5days.getText().toString() == null) {
-            mna5days.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna5days), Toast.LENGTH_LONG).show();
-            Log.i(TAG, "mna5days: required " + getString(R.string.mna5days));
-            mna5days.requestFocus();
-            return false;
-        } else {
-            mna5days.setError(null);
+        if (dcbAge02.isChecked()) {
+            if (mna5months.getText().toString().isEmpty() || mna5months.getText().toString() == null) {
+                mna5months.setError(getString(R.string.txterr));
+                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna5months), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mna5months: required " + getString(R.string.mna5months));
+                mna5months.requestFocus();
+                return false;
+            } else {
+                mna5months.setError(null);
+            }
+
+            if (mna5days.getText().toString().isEmpty() || mna5days.getText().toString() == null) {
+                mna5days.setError(getString(R.string.txterr));
+                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna5days), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mna5days: required " + getString(R.string.mna5days));
+                mna5days.requestFocus();
+                return false;
+            } else {
+                mna5days.setError(null);
+            }
+
+            if (studycode.getText().toString().equals("1") ?
+                    (Integer.parseInt(mna5months.getText().toString()) < 6 || Integer.parseInt(mna5months.getText().toString()) > 11) :
+                    (Integer.parseInt(mna5months.getText().toString()) < 36 || Integer.parseInt(mna5months.getText().toString()) > 48)) {
+                mna5months.setError("Months must be between " + (
+                        studycode.getText().toString().equals("1") ? "6 - 11" : "36 - 48"));
+                Toast.makeText(getApplicationContext(), "ERROR(Invalid): Months must be between " + (
+                        studycode.getText().toString().equals("1") ? "6 - 11" : "36 - 48"), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mna5months: This Data is Invalid!");
+                mna5months.requestFocus();
+                return false;
+            } else {
+                mna5months.setError(null);
+            }
+
+
+            if (Integer.parseInt(mna5days.getText().toString()) < 0 || Integer.parseInt(mna5days.getText().toString()) > 29) {
+                mna5days.setError("Days must be between 0 - 29");
+                Toast.makeText(getApplicationContext(), "ERROR(Invalid): Days must be between 0 - 29 ", Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mna5days: This Data is Invalid!");
+                mna5days.requestFocus();
+                return false;
+            } else {
+                mna5days.setError(null);
+            }
         }
 
         rdo_mna6 = mna6.getCheckedRadioButtonId();
@@ -912,35 +977,6 @@ public class SectionAActivity extends AppCompatActivity {
             }
 
         }
-
-
-        if (studycode.getText().toString().equals("1") ?
-                (Integer.parseInt(mna5months.getText().toString()) < 6 || Integer.parseInt(mna5months.getText().toString()) > 11) :
-                (Integer.parseInt(mna5months.getText().toString()) < 36 || Integer.parseInt(mna5months.getText().toString()) > 48)) {
-            mna5months.setError("Months must be between " + (
-                    studycode.getText().toString().equals("1") ? "6 - 11" : "36 - 48"));
-            Toast.makeText(getApplicationContext(), "ERROR(Invalid): Months must be between " + (
-                    studycode.getText().toString().equals("1") ? "6 - 11" : "36 - 48"), Toast.LENGTH_LONG).show();
-            Log.i(TAG, "mna5months: This Data is Invalid!");
-            mna5months.requestFocus();
-            return false;
-        } else {
-            mna5months.setError(null);
-
-
-        }
-
-
-        if (Integer.parseInt(mna5days.getText().toString()) < 0 || Integer.parseInt(mna5days.getText().toString()) > 29) {
-            mna5days.setError("Days must be between 0 - 29");
-            Toast.makeText(getApplicationContext(), "ERROR(Invalid): Days must be between 0 - 29 ", Toast.LENGTH_LONG).show();
-            Log.i(TAG, "mna5days: This Data is Invalid!");
-            mna5days.requestFocus();
-            return false;
-        } else {
-            mna5days.setError(null);
-        }
-
 
         if (Integer.parseInt(mnc3years.getText().toString()) < 14) {
             mnc3years.setError("Respondent age cannot be less than 14 years");
