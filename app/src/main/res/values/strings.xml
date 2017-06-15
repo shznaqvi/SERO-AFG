@@ -421,7 +421,10 @@
     <string name="mna1"> Name of Child </string>
     <string name="mna2"> Father name </string>
     <string name="mna3"> Mother name </string>
+    <string name="dcAge"> Date of birth / Age of child </string>
+    <string name="dcbg"> Date of birth </string>
     <string name="mna4"> Date of birth of selected child </string>
+    <string name="dcbh"> Age </string>
     <string name="mna5"> Age of child </string>
     <string name="mna5months"> Months </string>
     <string name="mna5days"> Days </string>
