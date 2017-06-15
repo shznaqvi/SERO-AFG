@@ -403,14 +403,14 @@ public class SectionFActivity extends Activity {
             mnf4a.setError(null);
         }
 
-        switch (rdo_mnf4) {
+        /*switch (rdo_mnf4) {
             case R.id.mnf4a:
                 var_mnf4 = "1";
                 break;
             case R.id.mnf4b:
                 var_mnf4 = "2";
                 break;
-        }
+        }*/
 
 
         if (mnf4b.isChecked()) {

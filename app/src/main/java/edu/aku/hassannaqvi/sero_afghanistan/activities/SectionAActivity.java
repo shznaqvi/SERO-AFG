@@ -126,7 +126,7 @@ public class SectionAActivity extends AppCompatActivity {
     TextView lblMnb5walk;
     @BindView(R.id.mnb5walk)
     EditText mnb5walk;
-//    @BindView(R.id.lbl_mnb5mints)
+    //    @BindView(R.id.lbl_mnb5mints)
 //    TextView lblMnb5mints;
 //    @BindView(R.id.mnb5mints)
 //    EditText mnb5mints;
@@ -292,7 +292,7 @@ public class SectionAActivity extends AppCompatActivity {
         arr_province = db.getAllProvinces();
 
         prov.add("...");
-        prov_map.put("...","...");
+        prov_map.put("...", "...");
 
         for (ProvinceContract m : arr_province) {
             prov.add(m.getProvince());
@@ -319,7 +319,7 @@ public class SectionAActivity extends AppCompatActivity {
                 arr_districts = db.getAllDistrictsByProvince(prov_map.get(item));
 
                 dist.add("...");
-                dist_map.put("...","...");
+                dist_map.put("...", "...");
 
                 for (DistrictContract dst : arr_districts) {
                     dist.add(dst.getDistNme());
@@ -934,12 +934,13 @@ public class SectionAActivity extends AppCompatActivity {
         }
 
 
-        if (studycode.getText().toString().equals("1")?
+        if (studycode.getText().toString().equals("1") ?
                 (Integer.parseInt(mna5months.getText().toString()) < 6 || Integer.parseInt(mna5months.getText().toString()) > 11) :
                 (Integer.parseInt(mna5months.getText().toString()) < 36 || Integer.parseInt(mna5months.getText().toString()) > 48)) {
-            mna5months.setError("Months must be between 6 - 11");
-            Toast.makeText(getApplicationContext(), "ERROR(empty): Months must be between "+(
-                    studycode.getText().toString().equals("1")? "6 - 11" : "36 - 48") , Toast.LENGTH_LONG).show();
+            mna5months.setError("Months must be between " + (
+                    studycode.getText().toString().equals("1") ? "6 - 11" : "36 - 48"));
+            Toast.makeText(getApplicationContext(), "ERROR(empty): Months must be between " + (
+                    studycode.getText().toString().equals("1") ? "6 - 11" : "36 - 48"), Toast.LENGTH_LONG).show();
             mna5months.requestFocus();
             return false;
         } else {
