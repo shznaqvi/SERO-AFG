@@ -1367,6 +1367,17 @@ public class SectionDActivity extends Activity {
                 mnd10years.setError(null);
             }
 
+
+            if (!mnd10years.getText().toString().equals("2016") && !mnd10years.getText().toString().equals("2017")) {
+                mnd10years.setError("Year must be 2016 or 2017");
+                Toast.makeText(getApplicationContext(), "ERROR(invalid): Year must be 2016 or 2017 ", Toast.LENGTH_LONG).show();
+                mnd10years.requestFocus();
+                return false;
+            } else {
+                mnd10years.setError(null);
+            }
+
+
             if (mnd10months.getText().toString().isEmpty() || mnd10months.getText().toString() == null) {
                 mnd10months.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd10), Toast.LENGTH_LONG).show();
@@ -1375,6 +1386,17 @@ public class SectionDActivity extends Activity {
             } else {
                 mnd10months.setError(null);
             }
+
+
+            if (Integer.parseInt(mnd10months.getText().toString()) < 0 || Integer.parseInt(mnd10months.getText().toString()) > 12) {
+                mnd10months.setError("Month must be 1 - 12");
+                Toast.makeText(getApplicationContext(), "ERROR(invalid): Month must be 1 - 12", Toast.LENGTH_LONG).show();
+                mnd10months.requestFocus();
+                return false;
+            } else {
+                mnd10months.setError(null);
+            }
+
 
             rdo_mnd11 = mnd11.getCheckedRadioButtonId();
 
@@ -1469,25 +1491,6 @@ public class SectionDActivity extends Activity {
                 break;
         }
 
-
-        if (!mnd10years.getText().toString().equals("2016") && !mnd10years.getText().toString().equals("2017")) {
-            mnd10years.setError("Year must be 2016 or 2017");
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): Year must be 2016 or 2017 ", Toast.LENGTH_LONG).show();
-            mnd10years.requestFocus();
-            return false;
-        } else {
-            mnd10years.setError(null);
-        }
-
-
-        if (Integer.parseInt(mnd10months.getText().toString()) < 0 || Integer.parseInt(mnd10months.getText().toString()) > 12) {
-            mnd10months.setError("Month must be 1 - 12");
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): Month must be 1 - 12", Toast.LENGTH_LONG).show();
-            mnd10months.requestFocus();
-            return false;
-        } else {
-            mnd10months.setError(null);
-        }
 
         return true;
     }

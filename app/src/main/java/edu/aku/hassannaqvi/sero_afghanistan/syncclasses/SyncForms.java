@@ -161,6 +161,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
                     sSyncedError += jsonObject.getString("message").toString() + "\n";
                 }
             }
+
             Toast.makeText(mContext, sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError, Toast.LENGTH_SHORT).show();
 
             pd.setMessage(sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError);
@@ -173,8 +174,6 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
             pd.setMessage(result);
             pd.setTitle("Forms Sync Failed");
             pd.show();
-
-
         }
     }
 }
