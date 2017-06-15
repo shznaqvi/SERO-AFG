@@ -1584,7 +1584,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@string/measles1"
+                android:text="@string/measles2"
                 android:textAlignment="center" />
 
             <LinearLayout

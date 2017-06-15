@@ -413,7 +413,7 @@ public class SectionFActivity extends Activity {
         }*/
 
 
-        if (mnf4b.isChecked()) {
+        if (mnf4a.isChecked()) {
 
             if (mnf5.getText().toString().isEmpty() || mnf5.getText().toString() == null) {
                 mnf5.setError(getString(R.string.txterr));
