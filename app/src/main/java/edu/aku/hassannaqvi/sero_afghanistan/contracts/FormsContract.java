@@ -26,6 +26,7 @@ public class FormsContract {
     private String istatus = "";
     private String studyid = "";
     private String studycode = "";
+    private String dov = "";
     private String tagId = "";
     private String sA = "";
     private String sB = "";
@@ -55,6 +56,8 @@ public class FormsContract {
 
         this.studycode = jsonObject.getString(singleForm.COLUMN_STUDYCODE);
         this.studyid = jsonObject.getString(singleForm.COLUMN_STUDYID);
+        this.dov = jsonObject.getString(singleForm.COLUMN_DOV);
+
         this.appVer = jsonObject.getString(singleForm.COLUMN_APPVER);
         this.istatus = jsonObject.getString(singleForm.COLUMN_ISTATUS);
 
@@ -86,6 +89,16 @@ public class FormsContract {
     public String getSurveyType() {
         return surveyType;
     }
+
+
+    public String getdov() {
+        return dov;
+    }
+
+    public void setdov(String dov) {
+        this.dov = dov;
+    }
+
 
     public String getTagId() {
         return tagId;
@@ -285,7 +298,7 @@ public class FormsContract {
         this.tagId = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_DEVICETAGID));
         this.studycode = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_STUDYCODE));
         this.studyid = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_STUDYID));
-
+        this.dov = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_DOV));
 
         this.appVer = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_APPVER));
         this.istatus = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_ISTATUS));
@@ -327,6 +340,7 @@ public class FormsContract {
 
         json.put(singleForm.COLUMN_STUDYCODE, this.studycode == null ? JSONObject.NULL : this.studycode);
         json.put(singleForm.COLUMN_STUDYID, this.studyid == null ? JSONObject.NULL : this.studyid);
+        json.put(singleForm.COLUMN_DOV, this.dov == null ? JSONObject.NULL : this.dov);
 
         json.put(singleForm.COLUMN_APPVER, this.appVer == null ? JSONObject.NULL : this.appVer);
         json.put(singleForm.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
@@ -390,6 +404,7 @@ public class FormsContract {
 
         public static final String COLUMN_STUDYCODE = "studycode";
         public static final String COLUMN_STUDYID = "studyid";
+        public static final String COLUMN_DOV = "dov";
 
         public static final String COLUMN_SA = "sa";
         public static final String COLUMN_SB = "sb";

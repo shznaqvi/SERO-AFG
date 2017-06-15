@@ -59,6 +59,8 @@ public class SectionAActivity extends AppCompatActivity {
     @BindView(R.id.studycode)
     EditText studycode;
 
+    @BindView(R.id.dov)
+    DatePickerInputEditText dov;
 
     @BindView(R.id.mna1)
     EditText mna1;
@@ -194,6 +196,7 @@ public class SectionAActivity extends AppCompatActivity {
     String var_mnc4;
 
     String dateToday;
+    String var_dov;
     String minDate;
 
     Calendar now = Calendar.getInstance();
@@ -208,9 +211,15 @@ public class SectionAActivity extends AppCompatActivity {
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
 
+
         mna4.setManager(getSupportFragmentManager());
+        dov.setManager(getSupportFragmentManager());
+
 
         dateToday = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+        var_dov = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+
+        dov.setMaxDate(var_dov);
 
 
         studycode.addTextChangedListener(new TextWatcher() {
@@ -242,6 +251,7 @@ public class SectionAActivity extends AppCompatActivity {
 
 
         mna4.setMaxDate(dateToday);
+        dov.setMaxDate("15-06-2017");
 
         prov = new ArrayList<>();
         dist = new ArrayList<>();
@@ -308,6 +318,13 @@ public class SectionAActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mna4.onFocusChange(v, true);
+            }
+        });
+
+        dov.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dov.onFocusChange(v, true);
             }
         });
 
@@ -463,6 +480,7 @@ public class SectionAActivity extends AppCompatActivity {
         AppMain.fc.setDeviceID(AppMain.deviceId);
         AppMain.fc.setUserName(AppMain.username);
         AppMain.fc.setFormDate(dtToday);
+        AppMain.fc.setdov(dov.getText().toString());
         AppMain.fc.setstudycode(studycode.getText().toString());
         AppMain.fc.setstudyid(studyid.getText().toString());
 
@@ -598,6 +616,7 @@ public class SectionAActivity extends AppCompatActivity {
             studycode.setError(null);
         }
 
+
         if (studyid.getText().toString().isEmpty() || studyid.getText().toString() == null) {
             studyid.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): Study ID is required ", Toast.LENGTH_LONG).show();
@@ -607,6 +626,18 @@ public class SectionAActivity extends AppCompatActivity {
         } else {
             studyid.setError(null);
         }
+
+
+        if (dov.getText().toString().isEmpty() || dov.getText().toString() == null) {
+            dov.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "ERROR(empty): Date of visit is required ", Toast.LENGTH_LONG).show();
+            Log.i(TAG, "dov: Date of Visit is required");
+            dov.requestFocus();
+            return false;
+        } else {
+            dov.setError(null);
+        }
+
 
         if (mna1.getText().toString().isEmpty() || mna1.getText().toString() == null) {
             mna1.setError(getString(R.string.txterr));
@@ -639,7 +670,7 @@ public class SectionAActivity extends AppCompatActivity {
         }
 
         if (dcbdob.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.dcbg), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.txterr), Toast.LENGTH_SHORT).show();
             dcbAge02.setError("This data is Required!");    // Set Error on last radio button
             Log.i(TAG, "dcbdob: This data is Required!");
             return false;
