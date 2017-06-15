@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -25,6 +26,8 @@ import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
 
 public class SectionEActivity extends Activity {
+
+    private static final String TAG = SectionEActivity.class.getSimpleName();
 
     @BindView(R.id.mne1)
     RadioGroup mne1;
@@ -402,7 +405,8 @@ public class SectionEActivity extends Activity {
 
         if (rdo_mne1 == -1) {
             mne1a.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mne1), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mne1), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mne1a: This Data is Required!");
             mne1a.requestFocus();
             return false;
         } else {
@@ -426,7 +430,8 @@ public class SectionEActivity extends Activity {
 
         if (rdo_mne2 == -1) {
             mne2a.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mne2), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mne2), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mne2a: This Data is Required!");
             mne2a.requestFocus();
             return false;
         } else {
@@ -450,7 +455,8 @@ public class SectionEActivity extends Activity {
 
         if (rdo_mne3 == -1) {
             mne3a.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mne3), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mne3), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mne3a: This Data is Required!");
             mne3a.requestFocus();
             return false;
         } else {
@@ -474,7 +480,8 @@ public class SectionEActivity extends Activity {
 
         if (rdo_mne4 == -1) {
             mne4a.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mne4), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mne4), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mne4a: This Data is Required!");
             mne4a.requestFocus();
             return false;
         } else {
@@ -507,7 +514,8 @@ public class SectionEActivity extends Activity {
                 !mne599.isChecked()) {
 
             mne5a.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mne5), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mne5), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mne5a: This Data is Required!");
             mne5a.requestFocus();
             return false;
 
@@ -521,7 +529,8 @@ public class SectionEActivity extends Activity {
             if (mne5x.getText().toString().isEmpty() || mne5x.getText().toString() == null) {
 
                 mne5x.setError(getString(R.string.rdoerr));
-                Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.others), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.others), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mne5x: This Data is Required!");
                 mne5x.requestFocus();
                 return false;
 

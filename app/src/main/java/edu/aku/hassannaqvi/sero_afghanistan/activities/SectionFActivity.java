@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -26,6 +27,8 @@ import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
 
 public class SectionFActivity extends Activity {
+
+    private static final String TAG = SectionFActivity.class.getSimpleName();
 
     @BindView(R.id.mnf1a)
     CheckBox mnf1a;
@@ -301,6 +304,7 @@ public class SectionFActivity extends Activity {
                 !mnf188.isChecked()) {
             mnf1a.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnf1), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnf1a: This Data is Required!");
             mnf1a.requestFocus();
             return false;
         } else {
@@ -314,6 +318,7 @@ public class SectionFActivity extends Activity {
 
                 mnf1x.setError(getString(R.string.rdoerr));
                 Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.others), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mnf1x: This Data is Required!");
                 mnf1x.requestFocus();
                 return false;
 
@@ -328,6 +333,7 @@ public class SectionFActivity extends Activity {
         if (rdo_mnf2 == -1) {
             mnf2a.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnf2), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnf2a: This Data is Required!");
             mnf2a.requestFocus();
             return false;
         } else {
@@ -356,6 +362,7 @@ public class SectionFActivity extends Activity {
 
                 mnf2x.setError(getString(R.string.rdoerr));
                 Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.others), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mnf2x: This Data is Required!");
                 mnf2x.requestFocus();
                 return false;
 
@@ -368,6 +375,7 @@ public class SectionFActivity extends Activity {
         if (mnf3years.getText().toString().isEmpty() || mnf3years.getText().toString() == null) {
             mnf3years.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnf3), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnf3years: This Data is Required!");
             mnf3years.requestFocus();
             return false;
         } else {
@@ -377,6 +385,7 @@ public class SectionFActivity extends Activity {
         if (mnf3months.getText().toString().isEmpty() || mnf3months.getText().toString() == null) {
             mnf3months.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnf3), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnf3months: This Data is Required!");
             mnf3months.requestFocus();
             return false;
         } else {
@@ -385,7 +394,8 @@ public class SectionFActivity extends Activity {
 
         if (Integer.parseInt(mnf3months.getText().toString()) > 11) {
             mnf3months.setError("Range 0 - 11");
-            Toast.makeText(getApplicationContext(), "Invalid(data): " + getString(R.string.mnf3), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnf3), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnf3months: This Data is invalid!");
             mnf3months.requestFocus();
             return false;
         } else {
@@ -397,6 +407,7 @@ public class SectionFActivity extends Activity {
         if (rdo_mnf4 == -1) {
             mnf4a.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnf4), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnf4a: This Data is Required!");
             mnf4a.requestFocus();
             return false;
         } else {
@@ -413,11 +424,12 @@ public class SectionFActivity extends Activity {
         }*/
 
 
-        if (mnf4b.isChecked()) {
+        if (mnf4a.isChecked()) {
 
             if (mnf5.getText().toString().isEmpty() || mnf5.getText().toString() == null) {
                 mnf5.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnf5), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mnf5: This Data is Required!");
                 mnf5.requestFocus();
                 return false;
             } else {
@@ -429,7 +441,8 @@ public class SectionFActivity extends Activity {
 
         if (mnf3years.getText().toString() == "0" && mnf3months.getText().toString() == "0") {
             mnf3years.setError("Year and month both cannot be 0");
-            Toast.makeText(getApplicationContext(), "ERROR(empty): Year and month both cannot be 0 ", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(invalid): Year and month both cannot be 0 ", Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnf3years: This Data is invalid!");
             mnf3years.requestFocus();
             return false;
         } else {

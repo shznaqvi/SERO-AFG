@@ -595,6 +595,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (studycode.getText().toString().isEmpty() || studycode.getText().toString() == null) {
             studycode.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): Study code is required ", Toast.LENGTH_LONG).show();
+            Log.i(TAG, "studycode: Study code is required!");
             studycode.requestFocus();
             return false;
         } else {
@@ -604,6 +605,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (!studycode.getText().toString().equals("1") && !studycode.getText().toString().equals("2")) {
             studycode.setError("Study Code must be 1 - 2 ");
             Toast.makeText(getApplicationContext(), "ERROR(Invalid): Study Code must be 1 - 2 ", Toast.LENGTH_LONG).show();
+            Log.i(TAG, "studycode: Study Code must be 1 - 2!");
             studycode.requestFocus();
             return false;
         } else {
@@ -613,6 +615,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (studyid.getText().toString().isEmpty() || studyid.getText().toString() == null) {
             studyid.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): Study ID is required ", Toast.LENGTH_LONG).show();
+            Log.i(TAG, "studyid: Study ID is required");
             studyid.requestFocus();
             return false;
         } else {
@@ -622,6 +625,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (mna1.getText().toString().isEmpty() || mna1.getText().toString() == null) {
             mna1.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna1), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mna1: This Data is Required!");
             mna1.requestFocus();
             return false;
         } else {
@@ -631,6 +635,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (mna2.getText().toString().isEmpty() || mna2.getText().toString() == null) {
             mna2.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna2), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mna2: This Data is Required!");
             mna2.requestFocus();
             return false;
         } else {
@@ -640,6 +645,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (mna3.getText().toString().isEmpty() || mna3.getText().toString() == null) {
             mna3.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna3), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mna3: This Data is Required!");
             mna3.requestFocus();
             return false;
         } else {
@@ -649,6 +655,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (mna4.getText().toString().isEmpty() || mna4.getText().toString() == null) {
             mna4.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna4), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mna4: required "+getString(R.string.mna4));
             mna4.requestFocus();
             return false;
         } else {
@@ -659,6 +666,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (mna5months.getText().toString().isEmpty() || mna5months.getText().toString() == null) {
             mna5months.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna5months), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mna5months: required "+getString(R.string.mna5months));
             mna5months.requestFocus();
             return false;
         } else {
@@ -668,6 +676,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (mna5days.getText().toString().isEmpty() || mna5days.getText().toString() == null) {
             mna5days.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna5days), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mna5days: required "+getString(R.string.mna5days));
             mna5days.requestFocus();
             return false;
         } else {
@@ -679,6 +688,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (rdo_mna6 == -1) {
             mna6A.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna6), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mna6: required "+getString(R.string.mna6));
             mna6A.requestFocus();
             return false;
         } else {
@@ -717,6 +727,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (mnb1.getText().toString().isEmpty() || mnb1.getText().toString() == null) {
             mnb1.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb1), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnb1: This Data is Required!");
             mnb1.requestFocus();
             return false;
         } else {
@@ -733,6 +744,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (mnb4name.getText().toString().isEmpty() || mnb4name.getText().toString() == null) {
             mnb4name.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb4name), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnb4name: This Data is Required!");
             mnb4name.requestFocus();
             return false;
         } else {
@@ -742,6 +754,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (mnb4address.getText().toString().isEmpty() || mnb4address.getText().toString() == null) {
             mnb4address.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb4address), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnb4address: This Data is Required!");
             mnb4address.requestFocus();
             return false;
         } else {
@@ -752,6 +765,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (mnb5walk.getText().toString().isEmpty()) {
             mnb5walk.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb5walk), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnb5walk: This Data is Required!");
             mnb5walk.requestFocus();
             return false;
         } else {
@@ -770,6 +784,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (mnb5km.getText().toString().isEmpty() || mnb5km.getText().toString() == null) {
             mnb5km.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb5km), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnb5km: This Data is Required!");
             mnb5km.requestFocus();
             return false;
         } else {
@@ -799,6 +814,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (mnb7name.getText().toString().isEmpty() || mnb7name.getText().toString() == null) {
             mnb7name.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb7name), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnb7name: This Data is Required!");
             mnb7name.requestFocus();
             return false;
         } else {
@@ -808,6 +824,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (mnb7code.getText().toString().isEmpty() || mnb7code.getText().toString() == null) {
             mnb7code.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnb7code), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnb7code: This Data is Required!");
             mnb7code.requestFocus();
             return false;
         } else {
@@ -817,6 +834,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (mnc1.getText().toString().isEmpty() || mnc1.getText().toString() == null) {
             mnc1.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnc1), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnc1: This Data is Required!");
             mnc1.requestFocus();
             return false;
         } else {
@@ -828,6 +846,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (rdo_mnc2 == -1) {
             mnc2a.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnc2), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnc2: This Data is Required!");
             mnc2a.requestFocus();
             return false;
         } else {
@@ -861,6 +880,7 @@ public class SectionAActivity extends AppCompatActivity {
             if (mnc2x.getText().toString().isEmpty() || mnc2x.getText().toString() == null) {
                 mnc2x.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.others), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mnc2x: This Data is Required!");
                 mnc2x.requestFocus();
                 return false;
             } else {
@@ -872,6 +892,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (mnc3years.getText().toString().isEmpty() || mnc3years.getText().toString() == null) {
             mnc3years.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnc3), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnc3years: This Data is Required!");
             mnc3years.requestFocus();
             return false;
         } else {
@@ -883,6 +904,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (rdo_mnc4 == -1) {
             mnc4a.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnc4), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnc4a: This Data is Required!");
             mnc4a.requestFocus();
             return false;
         } else {
@@ -924,6 +946,7 @@ public class SectionAActivity extends AppCompatActivity {
             if (mnc4x.getText().toString().isEmpty() || mnc4x.getText().toString() == null) {
                 mnc4x.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.others), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mnc4x: This Data is Required!");
                 mnc4x.requestFocus();
                 return false;
             } else {
@@ -938,18 +961,22 @@ public class SectionAActivity extends AppCompatActivity {
                 (Integer.parseInt(mna5months.getText().toString()) < 36 || Integer.parseInt(mna5months.getText().toString()) > 48)) {
             mna5months.setError("Months must be between " + (
                     studycode.getText().toString().equals("1") ? "6 - 11" : "36 - 48"));
-            Toast.makeText(getApplicationContext(), "ERROR(empty): Months must be between " + (
+            Toast.makeText(getApplicationContext(), "ERROR(Invalid): Months must be between " + (
                     studycode.getText().toString().equals("1") ? "6 - 11" : "36 - 48"), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mna5months: This Data is Invalid!");
             mna5months.requestFocus();
             return false;
         } else {
             mna5months.setError(null);
+
+
         }
 
 
         if (Integer.parseInt(mna5days.getText().toString()) < 0 || Integer.parseInt(mna5days.getText().toString()) > 29) {
             mna5days.setError("Days must be between 0 - 29");
-            Toast.makeText(getApplicationContext(), "ERROR(empty): Days must be between 0 - 29 ", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(Invalid): Days must be between 0 - 29 ", Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mna5days: This Data is Invalid!");
             mna5days.requestFocus();
             return false;
         } else {
@@ -959,7 +986,8 @@ public class SectionAActivity extends AppCompatActivity {
 
         if (Integer.parseInt(mnc3years.getText().toString()) < 14) {
             mnc3years.setError("Respondent age cannot be less than 14 years");
-            Toast.makeText(getApplicationContext(), "ERROR(empty): Respondent age cannot be less than 14 years ", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(Invalid): Respondent age cannot be less than 14 years ", Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnc3years: This Data is Invalid!");
             mnc3years.requestFocus();
             return false;
         } else {
@@ -969,7 +997,8 @@ public class SectionAActivity extends AppCompatActivity {
 
         if (mnc4e.isChecked() && Integer.parseInt(mnc3years.getText().toString()) < 16) {
             mnc3years.setError("Age must be 16 years or greater if the education level is Graduation");
-            Toast.makeText(getApplicationContext(), "ERROR(empty): Age must be 16 years if the education level is Graduation ", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(Invalid): Age must be 16 years if the education level is Graduation ", Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnc3years: This Data is Invalid!");
             mnc3years.requestFocus();
             return false;
         } else {
@@ -979,7 +1008,8 @@ public class SectionAActivity extends AppCompatActivity {
 
         if (mnc4f.isChecked() && Integer.parseInt(mnc3years.getText().toString()) < 19) {
             mnc3years.setError("Age must be 19 years or greater if the education level is Masters");
-            Toast.makeText(getApplicationContext(), "ERROR(empty): Age must be 19 years if the education level is Masters ", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(Invalid): Age must be 19 years if the education level is Masters ", Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnc3years: This Data is Invalid!");
             mnc3years.requestFocus();
             return false;
         } else {
@@ -997,7 +1027,8 @@ public class SectionAActivity extends AppCompatActivity {
 
         if (count2 >= 2) {
             mnb5walk.setError("You cannot use two decimal points in distance by walk");
-            Toast.makeText(getApplicationContext(), "ERROR(empty): You cannot use two decimal points in distance by walk ", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(Invalid): You cannot use two decimal points in distance by walk ", Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnb5walk: This Data is Invalid!");
             mnb5walk.requestFocus();
             return false;
         } else {
@@ -1033,7 +1064,8 @@ public class SectionAActivity extends AppCompatActivity {
 
         if (count >= 2) {
             mnb5km.setError("You cannot use two decimal points in km");
-            Toast.makeText(getApplicationContext(), "ERROR(empty): You cannot use two decimal points in km ", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ERROR(Invalid): You cannot use two decimal points in km ", Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnb5km: This Data is Invalid!");
             mnb5km.requestFocus();
             return false;
         } else {
