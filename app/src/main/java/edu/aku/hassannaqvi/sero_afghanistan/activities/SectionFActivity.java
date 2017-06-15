@@ -14,7 +14,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,7 +21,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.sero_afghanistan.R;
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.FormsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
 
@@ -281,7 +279,7 @@ public class SectionFActivity extends Activity {
                 break;
         }
 
-        sF.put("mnf4", mnf4a.isChecked() ? "1" : mnf4b.isChecked() ? "1" : "0");
+        sF.put("mnf4", mnf4a.isChecked() ? "1" : mnf4b.isChecked() ? "2" : "0");
         sF.put("mnf5", mnf5.getText().toString());
 
         AppMain.fc.setsF(String.valueOf(sF));

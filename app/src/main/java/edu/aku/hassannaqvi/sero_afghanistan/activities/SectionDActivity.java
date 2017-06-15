@@ -15,12 +15,10 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import butterknife.ButterKnife;
 import butterknife.BindView;
-
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.sero_afghanistan.R;
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.FormsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
 
@@ -296,7 +294,8 @@ public class SectionDActivity extends Activity {
     RadioButton mnd6b;
     @BindView(R.id.mnd6c)
     RadioButton mnd6c;
-
+    @BindView(R.id.fldGrpMnd7)
+    LinearLayout fldGrpMnd7;
     @BindView(R.id.mnd7)
     RadioGroup mnd7;
     @BindView(R.id.mnd7a)
@@ -462,7 +461,102 @@ public class SectionDActivity extends Activity {
                 }
             }
         });*/
+        mnd3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (mnd2a.isChecked()) {
 
+                    fldGrpmnd3.setVisibility(View.VISIBLE);
+
+                    fldGrpBcgC.setVisibility(View.VISIBLE);
+                    fldGrpBcgM.setVisibility(View.VISIBLE);
+                    fldGrpopv0C.setVisibility(View.VISIBLE);
+                    fldGrpOpv0M.setVisibility(View.VISIBLE);
+                    fldGrpPenta1C.setVisibility(View.VISIBLE);
+                    fldGrpPenta1M.setVisibility(View.VISIBLE);
+                    fldGrppcv1C.setVisibility(View.VISIBLE);
+                    fldGrppcv1M.setVisibility(View.VISIBLE);
+                    fldGrpopv1C.setVisibility(View.VISIBLE);
+                    fldGrpopv1M.setVisibility(View.VISIBLE);
+                    fldGrppenta2C.setVisibility(View.VISIBLE);
+                    fldGrppenta2M.setVisibility(View.VISIBLE);
+                    fldGrppcv2C.setVisibility(View.VISIBLE);
+                    fldGrppcv2M.setVisibility(View.VISIBLE);
+                    fldGrpopv2C.setVisibility(View.VISIBLE);
+                    fldGrpopv2M.setVisibility(View.VISIBLE);
+                    fldGrpenta3C.setVisibility(View.VISIBLE);
+                    fldGrpPenta3M.setVisibility(View.VISIBLE);
+                    fldGrppcv3C.setVisibility(View.VISIBLE);
+                    fldGrppcv3M.setVisibility(View.VISIBLE);
+                    fldGrpopv3C.setVisibility(View.VISIBLE);
+                    fldGrpopv3M.setVisibility(View.VISIBLE);
+                    fldGrpipvC.setVisibility(View.VISIBLE);
+                    fldGrpipvM.setVisibility(View.VISIBLE);
+                    fldGrpmeasles1C.setVisibility(View.VISIBLE);
+                    fldGrpMeasles1M.setVisibility(View.VISIBLE);
+                    fldGrpmeasles2C.setVisibility(View.VISIBLE);
+                    fldGrpMeasles2M.setVisibility(View.VISIBLE);
+
+
+//                    MND4 GONE
+                    fldGrpmnd02.setVisibility(View.GONE);
+                    mnd4.clearCheck();
+
+
+                } else {
+
+                    mnd3.clearCheck();
+                    fldGrpmnd3.setVisibility(View.GONE);
+
+                    fldGrpBcgC.setVisibility(View.GONE);
+                    fldGrpBcgM.setVisibility(View.VISIBLE);
+                    bcgC.clearCheck();
+                    fldGrpopv0C.setVisibility(View.GONE);
+                    fldGrpOpv0M.setVisibility(View.VISIBLE);
+                    opv0C.clearCheck();
+                    fldGrpPenta1C.setVisibility(View.GONE);
+                    fldGrpPenta1M.setVisibility(View.VISIBLE);
+                    penta1C.clearCheck();
+                    fldGrppcv1C.setVisibility(View.GONE);
+                    fldGrppcv1M.setVisibility(View.VISIBLE);
+                    pcv1C.clearCheck();
+                    fldGrpopv1C.setVisibility(View.GONE);
+                    fldGrpopv1M.setVisibility(View.VISIBLE);
+                    opv1C.clearCheck();
+                    fldGrppenta2C.setVisibility(View.GONE);
+                    fldGrppenta2M.setVisibility(View.VISIBLE);
+                    penta2C.clearCheck();
+                    fldGrppcv2C.setVisibility(View.GONE);
+                    fldGrppcv2M.setVisibility(View.VISIBLE);
+                    pcv2C.clearCheck();
+                    fldGrpopv2C.setVisibility(View.GONE);
+                    fldGrpopv2M.setVisibility(View.VISIBLE);
+                    opv2C.clearCheck();
+                    fldGrpenta3C.setVisibility(View.GONE);
+                    fldGrpPenta3M.setVisibility(View.VISIBLE);
+                    penta3C.clearCheck();
+                    fldGrppcv3C.setVisibility(View.GONE);
+                    fldGrppcv3M.setVisibility(View.VISIBLE);
+                    pcv3C.clearCheck();
+                    fldGrpopv3C.setVisibility(View.GONE);
+                    fldGrpopv3M.setVisibility(View.VISIBLE);
+                    opv3C.clearCheck();
+                    fldGrpipvC.setVisibility(View.GONE);
+                    fldGrpipvM.setVisibility(View.VISIBLE);
+                    ipvC.clearCheck();
+                    fldGrpmeasles1C.setVisibility(View.GONE);
+                    fldGrpMeasles1M.setVisibility(View.VISIBLE);
+                    measles1C.clearCheck();
+                    fldGrpmeasles2C.setVisibility(View.GONE);
+                    fldGrpMeasles2M.setVisibility(View.VISIBLE);
+                    measles2C.clearCheck();
+
+//                  MND4 VISIBLE
+                    fldGrpmnd02.setVisibility(View.VISIBLE);
+
+                }
+            }
+        });
         mnd2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
@@ -573,7 +667,20 @@ public class SectionDActivity extends Activity {
                 }
             }
         });
+        mnd6.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (mnd6b.isChecked()) {
+                    fldGrpMnd7.setVisibility(View.GONE);
+                    mnd7.clearCheck();
+                    mnd8.setText(null);
 
+
+                } else {
+                    fldGrpMnd7.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
         mnd9.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -1304,18 +1411,18 @@ public class SectionDActivity extends Activity {
 //                break;
 //        }
 
+        if (!mnd6b.isChecked()) {
+            rdo_mnd7 = mnd7.getCheckedRadioButtonId();
 
-        rdo_mnd7 = mnd7.getCheckedRadioButtonId();
-
-        if (rdo_mnd7 == -1) {
-            mnd7a.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd7), Toast.LENGTH_LONG).show();
-            Log.i(TAG, "mnd7a: This Data is Required!");
-            mnd7a.requestFocus();
-            return false;
-        } else {
-            mnd7a.setError(null);
-        }
+            if (rdo_mnd7 == -1) {
+                mnd7a.setError(getString(R.string.rdoerr));
+                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd7), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mnd7a: This Data is Required!");
+                mnd7a.requestFocus();
+                return false;
+            } else {
+                mnd7a.setError(null);
+            }
 
 //        switch (rdo_mnd7) {
 //            case R.id.mnd7a:
@@ -1330,16 +1437,16 @@ public class SectionDActivity extends Activity {
 //        }
 
 
-        if (mnd8.getText().toString().isEmpty() || mnd8.getText().toString() == null) {
-            mnd8.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
-            Log.i(TAG, "mnd8: This Data is Required!");
-            mnd8.requestFocus();
-            return false;
-        } else {
-            mnd8.setError(null);
+            if (mnd8.getText().toString().isEmpty() || mnd8.getText().toString() == null) {
+                mnd8.setError(getString(R.string.txterr));
+                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mnd8: This Data is Required!");
+                mnd8.requestFocus();
+                return false;
+            } else {
+                mnd8.setError(null);
+            }
         }
-
         rdo_mnd9 = mnd9.getCheckedRadioButtonId();
 
         if (rdo_mnd9 == -1) {
@@ -1377,9 +1484,9 @@ public class SectionDActivity extends Activity {
             }
 
 
-            if (!mnd10years.getText().toString().equals("2016") && !mnd10years.getText().toString().equals("2017")) {
-                mnd10years.setError("Year must be 2016 or 2017");
-                Toast.makeText(getApplicationContext(), "ERROR(invalid): Year must be 2016 or 2017 ", Toast.LENGTH_LONG).show();
+            if (!mnd10years.getText().toString().equals("2015") && !mnd10years.getText().toString().equals("2017")) {
+                mnd10years.setError("Year must be 2015 or 2017");
+                Toast.makeText(getApplicationContext(), "ERROR(invalid): Year must be 2015 or 2017 ", Toast.LENGTH_LONG).show();
                 Log.i(TAG, "mnd10years: This Data is Invalid!");
                 mnd10years.requestFocus();
                 return false;
