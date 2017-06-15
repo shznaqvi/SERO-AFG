@@ -266,7 +266,7 @@ public class AndroidDatabaseManager extends Activity implements OnItemClickListe
                 v.setBackgroundColor(Color.WHITE);
                 TextView adap = (TextView) v;
                 adap.setTextSize(20);
-
+                adap.setTextColor(Color.BLACK);
                 return adap;
             }
 
@@ -275,7 +275,9 @@ public class AndroidDatabaseManager extends Activity implements OnItemClickListe
                 View v = super.getDropDownView(position, convertView, parent);
 
                 v.setBackgroundColor(Color.WHITE);
-
+                TextView adap = (TextView) v;
+                adap.setTextSize(20);
+                adap.setTextColor(Color.BLACK);
                 return v;
             }
         };
@@ -344,7 +346,7 @@ public class AndroidDatabaseManager extends Activity implements OnItemClickListe
                             v.setBackgroundColor(Color.WHITE);
                             TextView adap = (TextView) v;
                             adap.setTextSize(20);
-
+                            adap.setTextColor(Color.BLACK);
                             return adap;
                         }
 
@@ -352,6 +354,9 @@ public class AndroidDatabaseManager extends Activity implements OnItemClickListe
                             View v = super.getDropDownView(position, convertView, parent);
 
                             v.setBackgroundColor(Color.WHITE);
+                            TextView adap = (TextView) v;
+                            adap.setTextSize(20);
+                            adap.setTextColor(Color.BLACK);
 
                             return v;
                         }
