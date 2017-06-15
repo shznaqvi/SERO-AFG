@@ -806,7 +806,7 @@ public class SectionDActivity extends Activity {
         sD.put("opv3C", opv3C01.isChecked() ? "1" : opv3C02.isChecked() ? "2" : "0");
         // PCV 3 at 14 weeks
         sD.put("ipvM", ipvM01.isChecked() ? "1" : ipvM02.isChecked() ? "2" : "0");
-        sD.put("ipvC", ipvC02.isChecked() ? "1" : ipvC02.isChecked() ? "2" : "0");
+        sD.put("ipvC", ipvC01.isChecked() ? "1" : ipvC02.isChecked() ? "2" : "0");
         // OPV 3 at 14 weeks
         sD.put("measles1M", measles1M01.isChecked() ? "1" : measles1M02.isChecked() ? "2" : "0");
         sD.put("measles1C", measles1C01.isChecked() ? "1" : measles1C02.isChecked() ? "2" : "0");
@@ -1482,7 +1482,7 @@ public class SectionDActivity extends Activity {
             }
 
 
-            if (!mnd10years.getText().toString().equals("2015") && !mnd10years.getText().toString().equals("2017")) {
+            if (Integer.valueOf(mnd10years.getText().toString()) < 2015 || Integer.valueOf(mnd10years.getText().toString()) > 2017) {
                 mnd10years.setError("Year must be 2015 or 2017");
                 Toast.makeText(getApplicationContext(), "ERROR(invalid): Year must be 2015 or 2017 ", Toast.LENGTH_LONG).show();
                 Log.i(TAG, "mnd10years: This Data is Invalid!");
