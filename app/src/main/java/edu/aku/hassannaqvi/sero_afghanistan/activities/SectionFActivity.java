@@ -251,11 +251,18 @@ public class SectionFActivity extends Activity {
         }
 
 
+        sF.put("mnf1x", mnf1x.getText().toString());
+
+
         sF.put("mnf2", mnf2a.isChecked() ? "1"
                 : mnf2b.isChecked() ? "2"
                 : mnf2c.isChecked() ? "3"
                 : mnf288.isChecked() ? "88"
                 : "0");
+
+
+        sF.put("mnf2x", mnf2x.getText().toString());
+
 
         sF.put("mnf3years", mnf3years.getText().toString());
         sF.put("mnf3months", mnf3months.getText().toString());
