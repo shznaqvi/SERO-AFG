@@ -216,7 +216,6 @@ public class SectionAActivity extends AppCompatActivity {
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
 
-
         mna4.setManager(getSupportFragmentManager());
         dov.setManager(getSupportFragmentManager());
 
@@ -225,7 +224,7 @@ public class SectionAActivity extends AppCompatActivity {
         date6Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_6_MONTHS));
         date11Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_11_MONTHS));
         date36Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_36_MONTHS));
-         date48Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_48_MONTHS));
+        date48Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_48_MONTHS));
 
         dov.setMaxDate(dateToday);
 
@@ -237,10 +236,10 @@ public class SectionAActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(Integer.valueOf(studycode.getText().toString().isEmpty() ? "0" : studycode.getText().toString()) == 1) {
+                if (Integer.valueOf(studycode.getText().toString().isEmpty() ? "0" : studycode.getText().toString()) == 1) {
                     mna4.setMaxDate(date6Months);
                     mna4.setMinDate(date11Months);
-                }else{
+                } else {
                     mna4.setMaxDate(date36Months);
                     mna4.setMinDate(date48Months);
                 }
@@ -252,9 +251,6 @@ public class SectionAActivity extends AppCompatActivity {
 
             }
         });
-
-
-
 
 
         prov = new ArrayList<>();
@@ -318,7 +314,6 @@ public class SectionAActivity extends AppCompatActivity {
         });
 
 
-
         mnc2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
@@ -364,10 +359,6 @@ public class SectionAActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
     }
 
     @OnClick(R.id.btnNext)
@@ -377,29 +368,33 @@ public class SectionAActivity extends AppCompatActivity {
 
         if (ValidateForm()) {
 
-            if (!db.IsStudyid_Exists(studyid.getText().toString())) {
+            if (AppMain.flag) {
+                if (!db.IsStudyid_Exists(studyid.getText().toString())) {
 
-                try {
-                    SaveDraft();
-                    SaveDraftA();
-                    SaveDraftB();
-                    SaveDraftC();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                    try {
+                        SaveDraft();
+                        SaveDraftA();
+                        SaveDraftB();
+                        SaveDraftC();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 
-                if (UpdateDB()) {
-                    Toast.makeText(this, "Starting Section D", Toast.LENGTH_SHORT).show();
+                    if (UpdateDB()) {
+                        Toast.makeText(this, "Starting Section D", Toast.LENGTH_SHORT).show();
 
-                    Intent secD = new Intent(this, SectionDActivity.class);
-                    //AppMain.chTotal = Integer.valueOf(mna13.getText().toString()) - 1; // exclude index child
-                    startActivity(secD);
+                        Intent secD = new Intent(this, SectionDActivity.class);
+                        //AppMain.chTotal = Integer.valueOf(mna13.getText().toString()) - 1; // exclude index child
+                        startActivity(secD);
+                    } else {
+                        Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Study ID already exists ", Toast.LENGTH_SHORT).show();
+                    studyid.requestFocus();
                 }
             } else {
-                Toast.makeText(this, "Study ID already exists ", Toast.LENGTH_SHORT).show();
-                studyid.requestFocus();
+                startActivity(new Intent(this, MainActivity.class));
             }
         }
     }
@@ -968,16 +963,14 @@ public class SectionAActivity extends AppCompatActivity {
             mnc3years.setError(null);
         }
 
-        if(Integer.valueOf(mnc3years.getText().toString()) < 14 || Integer.valueOf(mnc3years.getText().toString()) > 99)
-        {
+        if (Integer.valueOf(mnc3years.getText().toString()) < 14 || Integer.valueOf(mnc3years.getText().toString()) > 99) {
             Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mnc3), Toast.LENGTH_SHORT).show();
             mnc3years.setError("Invalid: Range is 14 - 19 years");
             Log.i(TAG, "mnc3years: Range is 14 - 99 years ");
             return false;
-        }else{
+        } else {
             mnc3years.setError(null);
         }
-
 
 
         //rdo_mnc4 = mnc4.getCheckedRadioButtonId();

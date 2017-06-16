@@ -41,6 +41,11 @@ public class EndingActivity extends Activity {
         setContentView(R.layout.activity_ending);
         ButterKnife.bind(this);
 
+        if (!AppMain.flag){
+            startActivity(new Intent(this, MainActivity.class));
+        }
+
+
 //        mna7a.setEnabled(getIntent().getBooleanExtra("complete", true));
 
         Boolean check = getIntent().getBooleanExtra("complete", true);

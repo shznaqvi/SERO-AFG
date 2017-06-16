@@ -119,7 +119,7 @@ public class MainActivity extends Activity {
 
     }
 
-    public void recordSummary(){
+    public void recordSummary() {
 
         rSumText = "";
 
@@ -193,6 +193,8 @@ public class MainActivity extends Activity {
 
     public void openForm(View v) {
         if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null) {
+            /*Set Boolean for checking*/
+            AppMain.flag = true;
             startActivity(new Intent(MainActivity.this, SectionAActivity.class));
         } else {
 
@@ -211,6 +213,8 @@ public class MainActivity extends Activity {
                         editor.putString("tagName", m_Text);
                         editor.commit();
 
+                        /*Set Boolean for checking*/
+                        AppMain.flag = true;
                         startActivity(new Intent(MainActivity.this, SectionAActivity.class));
                     }
                 }
@@ -228,6 +232,9 @@ public class MainActivity extends Activity {
     }
 
     public void openA(View v) {
+        /*Set Boolean for checking*/
+        AppMain.flag = false;
+
         Intent iA = new Intent(this, SectionAActivity.class);
         startActivity(iA);
     }
@@ -243,16 +250,22 @@ public class MainActivity extends Activity {
     }*/
 
     public void openD(View v) {
+                /*Set Boolean for checking*/
+        AppMain.flag = false;
         Intent iD = new Intent(this, SectionDActivity.class);
         startActivity(iD);
     }
 
     public void openE(View v) {
+                /*Set Boolean for checking*/
+        AppMain.flag = false;
         Intent iE = new Intent(this, SectionEActivity.class);
         startActivity(iE);
     }
 
     public void openF(View v) {
+                /*Set Boolean for checking*/
+        AppMain.flag = false;
         Intent iF = new Intent(this, SectionFActivity.class);
         startActivity(iF);
     }
@@ -263,6 +276,8 @@ public class MainActivity extends Activity {
     }*/
 
     public void openG(View v) {
+                /*Set Boolean for checking*/
+        AppMain.flag = false;
         Intent iG = new Intent(this, SectionGActivity.class);
         startActivity(iG);
     }

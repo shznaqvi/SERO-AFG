@@ -155,21 +155,24 @@ public class SectionFActivity extends Activity {
     @OnClick(R.id.btnNext)
     void SaveData() {
         if (ValidateForm()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            if (AppMain.flag) {
+                try {
+                    SaveDraft();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
-            if (UpdateDB()) {
-                Toast.makeText(this, "Starting Section G", Toast.LENGTH_SHORT).show();
+                if (UpdateDB()) {
+                    Toast.makeText(this, "Starting Section G", Toast.LENGTH_SHORT).show();
 
-                Intent secG = new Intent(this, SectionGActivity.class);
-                startActivity(secG);
+                    Intent secG = new Intent(this, SectionGActivity.class);
+                    startActivity(secG);
+                } else {
+                    Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+                }
             } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, MainActivity.class));
             }
-
         }
     }
 
@@ -400,8 +403,8 @@ public class SectionFActivity extends Activity {
             mnf3months.setError(null);
         }
 
-        if ((Integer.valueOf(mnf3years.getText().toString()) == 0 )
-                && (Integer.valueOf(mnf3months.getText().toString()) == 0 )) {
+        if ((Integer.valueOf(mnf3years.getText().toString()) == 0)
+                && (Integer.valueOf(mnf3months.getText().toString()) == 0)) {
             Toast.makeText(this, "Invalid:" + getString(R.string.mnf3), Toast.LENGTH_SHORT).show();
             mnf3years.setError("Invalid: Years and months can not be zero");
             mnf3months.setError("Invalid: Years and months can not be zero");
