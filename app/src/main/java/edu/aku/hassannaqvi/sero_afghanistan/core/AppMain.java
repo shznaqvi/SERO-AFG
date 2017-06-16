@@ -101,7 +101,8 @@ public class AppMain extends Application {
                 LocationManager.GPS_PROVIDER,
                 MINIMUM_TIME_BETWEEN_UPDATES,
                 MINIMUM_DISTANCE_CHANGE_FOR_UPDATES,
-                new MyLocationListener() // Implement this class from code
+                new GPSLocationListener() // Implement this class from code
+
         );
 
         sharedPref = getSharedPreferences("PSUCodes", Context.MODE_PRIVATE);
@@ -197,7 +198,7 @@ public class AppMain extends Application {
         return provider1.equals(provider2);
     }
 
-    public class MyLocationListener implements LocationListener {
+    public class GPSLocationListener implements LocationListener {
         public void onLocationChanged(Location location) {
 
             SharedPreferences sharedPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
