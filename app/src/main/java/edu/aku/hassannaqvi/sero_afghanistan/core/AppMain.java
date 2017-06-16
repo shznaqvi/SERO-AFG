@@ -49,13 +49,13 @@ public class AppMain extends Application {
     public static final long MILLISECONDS_IN_DAY = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY;
     private static final long DAYS_IN_YEAR = 365;
     public static final long MILLISECONDS_IN_YEAR = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_YEAR;
-    private static final long DAYS_IN_6_MONTHS = 179;
+    private static final long DAYS_IN_6_MONTHS = 183;
     public static final long MILLISECONDS_IN_6_MONTHS = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_6_MONTHS;
-
-    private static final long DAYS_IN_11_MONTHS = 334;
+    private static final long DAYS_IN_11_MONTHS = 335 + 29;
     public static final long MILLISECONDS_IN_11_MONTHS = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_11_MONTHS;
-
-    private static final long DAYS_IN_48_MONTHS = 1460;
+    private static final long DAYS_IN_36_MONTHS = 1095;
+    public static final long MILLISECONDS_IN_36_MONTHS = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_36_MONTHS;
+    private static final long DAYS_IN_48_MONTHS = 1460 + 29;
     public static final long MILLISECONDS_IN_48_MONTHS = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_48_MONTHS;
 
     public static String deviceId;

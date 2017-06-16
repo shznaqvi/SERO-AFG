@@ -25,6 +25,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -197,6 +198,10 @@ public class SectionAActivity extends AppCompatActivity {
     String var_mnc4;
 
     String dateToday;
+    String date6Months;
+    String date11Months;
+    String date36Months;
+    String date48Months;
     String minDate;
 
     Calendar now = Calendar.getInstance();
@@ -217,39 +222,40 @@ public class SectionAActivity extends AppCompatActivity {
 
 
         dateToday = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+        date6Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_6_MONTHS));
+        date11Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_11_MONTHS));
+        date36Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_36_MONTHS));
+         date48Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_48_MONTHS));
 
         dov.setMaxDate(dateToday);
 
-
         studycode.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                if (!studycode.getText().toString().isEmpty() && studycode.getText().toString() != null) {
-
-                    if (studycode.getText().toString().equals("1")) {
-                        minDate = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_11_MONTHS));
-                    } else {
-                        minDate = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_48_MONTHS));
-                    }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(Integer.valueOf(studycode.getText().toString().isEmpty() ? "0" : studycode.getText().toString()) == 1) {
+                    mna4.setMaxDate(date6Months);
+                    mna4.setMinDate(date11Months);
+                }else{
+                    mna4.setMaxDate(date36Months);
+                    mna4.setMinDate(date48Months);
                 }
 
-                mna4.setMinDate(minDate);
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {
+            public void afterTextChanged(Editable s) {
 
             }
         });
 
 
-        mna4.setMaxDate(dateToday);
+
+
 
         prov = new ArrayList<>();
         dist = new ArrayList<>();
@@ -312,20 +318,6 @@ public class SectionAActivity extends AppCompatActivity {
         });
 
 
-        mna4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mna4.onFocusChange(v, true);
-            }
-        });
-
-        dov.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dov.onFocusChange(v, true);
-            }
-        });
-
 
         mnc2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -370,6 +362,10 @@ public class SectionAActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+
+
 
 
     }
@@ -718,6 +714,7 @@ public class SectionAActivity extends AppCompatActivity {
             } else {
                 mna5months.setError(null);
             }
+
 
             if (mna5days.getText().toString().isEmpty() || mna5days.getText().toString() == null) {
                 mna5days.setError(getString(R.string.txterr));
@@ -1130,4 +1127,31 @@ public class SectionAActivity extends AppCompatActivity {
 
         return true;
     }
+
+    public Calendar getCalendarDate(String value) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar calendar = Calendar.getInstance();
+        try {
+            Date date = sdf.parse(value);
+            calendar.setTime(date);
+            return calendar;
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return calendar;
+    }
+
+    public String convertDateFormat(String dateStr) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            Date d = sdf.parse(dateStr);
+            return new SimpleDateFormat("dd/MM/yyyy").format(d);
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        return "";
+    }
+
 }
