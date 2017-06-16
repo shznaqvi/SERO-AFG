@@ -222,7 +222,6 @@ public class SectionAActivity extends AppCompatActivity {
 
 
         dateToday = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
-        dateToday1 = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_16_DAYS));
 
 
         date6Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_6_MONTHS));
@@ -230,7 +229,7 @@ public class SectionAActivity extends AppCompatActivity {
         date36Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_36_MONTHS));
         date48Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_48_MONTHS));
 
-        dov.setMinDate(dateToday1);
+        dov.setMinDate("01/06/2017");
         dov.setMaxDate(dateToday);
 
         studycode.addTextChangedListener(new TextWatcher() {
