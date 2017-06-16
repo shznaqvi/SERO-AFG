@@ -387,6 +387,7 @@ public class SectionAActivity extends AppCompatActivity {
                     if (UpdateDB()) {
                         Toast.makeText(this, "Starting Section D", Toast.LENGTH_SHORT).show();
 
+                        finish();
                         Intent secD = new Intent(this, SectionDActivity.class);
                         //AppMain.chTotal = Integer.valueOf(mna13.getText().toString()) - 1; // exclude index child
                         startActivity(secD);
@@ -398,6 +399,7 @@ public class SectionAActivity extends AppCompatActivity {
                     studyid.requestFocus();
                 }
             } else {
+                finish();
                 startActivity(new Intent(this, MainActivity.class));
             }
         }
@@ -509,8 +511,8 @@ public class SectionAActivity extends AppCompatActivity {
         JSONObject sB = new JSONObject();
 
         sB.put("mnb1", mnb1.getText().toString());
-        sB.put("mnb2", mnb2.getSelectedItem().toString());
-        sB.put("mnb3", mnb3.getSelectedItem().toString());
+        sB.put("mnb2", dist_map.get(mnb2.getSelectedItem().toString()));
+        sB.put("mnb3", prov_map.get(mnb3.getSelectedItem().toString()));
 
 
         sB.put("mnb4name", mnb4name.getText().toString());
@@ -1151,4 +1153,8 @@ public class SectionAActivity extends AppCompatActivity {
         return "";
     }
 
+//    @Override
+//    public void onBackPressed() {
+//        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+//    }
 }

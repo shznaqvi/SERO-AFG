@@ -42,6 +42,7 @@ public class EndingActivity extends Activity {
         ButterKnife.bind(this);
 
         if (!AppMain.flag){
+            finish();
             startActivity(new Intent(this, MainActivity.class));
         }
 
@@ -135,5 +136,10 @@ public class EndingActivity extends Activity {
             mna7c.setError(null);
         }
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
 }

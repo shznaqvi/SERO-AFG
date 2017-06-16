@@ -707,13 +707,15 @@ public class SectionDActivity extends Activity {
 
                 if (UpdateDB()) {
                     Toast.makeText(this, "Starting Section E", Toast.LENGTH_SHORT).show();
-
+                    finish();
                     Intent secE = new Intent(this, SectionEActivity.class);
                     startActivity(secE);
                 } else {
                     Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
                 }
-            } else {
+            }
+            else {
+                finish();
                 startActivity(new Intent(this, MainActivity.class));
             }
         }
@@ -1222,6 +1224,7 @@ public class SectionDActivity extends Activity {
         if (mnd2b.isChecked() || mnd3b.isChecked()) {
 
 
+
             rdo_mnd4 = mnd4.getCheckedRadioButtonId();
 
             if (rdo_mnd4 == -1) {
@@ -1633,5 +1636,10 @@ public class SectionDActivity extends Activity {
 
 
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
 }

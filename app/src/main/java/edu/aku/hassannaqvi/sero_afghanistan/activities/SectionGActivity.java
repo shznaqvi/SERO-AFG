@@ -100,7 +100,7 @@ public class SectionGActivity extends Activity {
 
                 if (UpdateDB()) {
                     Toast.makeText(this, "Starting Main", Toast.LENGTH_SHORT).show();
-
+                    finish();
                     Intent main = new Intent(this, EndingActivity.class);
                     main.putExtra("complete", true);
                     startActivity(main);
@@ -108,6 +108,7 @@ public class SectionGActivity extends Activity {
                     Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
                 }
             }else {
+                finish();
                 startActivity(new Intent(this, MainActivity.class));
             }
         }
@@ -298,5 +299,9 @@ public class SectionGActivity extends Activity {
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
+    }
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
 }
