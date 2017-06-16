@@ -8,7 +8,6 @@
     <string name="digits">1234567890.,+=-qwertyuiopasdfghjklzxcvbnm ?%#@!&amp;QWERTYUIOPASDFGHJKLZXCVBNM</string>
 
 
-
     <string name="title_activity_login">Log in</string>
 
     <!-- Strings related to login -->
@@ -54,6 +53,10 @@
     <string name="mna6"> Sex of child </string>
     <string name="mna6a"> Male </string>
     <string name="mna6b"> Female </string>
+    <string name="mna7"> Visit Status </string>
+    <string name="mna7a"> Complete </string>
+    <string name="mna7b"> Incomplete </string>
+    <string name="mna7c"> Refused </string>
     <string name="mnbheading"> B-Identification and team information </string>
     <string name="mnb1"> Village Name </string>
     <string name="mnb2"> District Name </string>
