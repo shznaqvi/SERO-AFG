@@ -1450,16 +1450,18 @@ public class SectionDActivity extends Activity {
             }
 
 
-            if (Integer.parseInt(mnd8.getText().toString()) <= 0) {
-                mnd8.setError("Total doses must be greater than zero");
-                Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
-                Log.i(TAG, "mnd8: total doses must be greater than zero");
-                mnd8.requestFocus();
-                return false;
-            } else {
-                mnd8.setError(null);
-            }
+            if (mnd7a.isChecked()) {
 
+                if (Integer.parseInt(mnd8.getText().toString()) <= 0) {
+                    mnd8.setError("Total doses must be greater than zero");
+                    Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
+                    Log.i(TAG, "mnd8: total doses must be greater than zero");
+                    mnd8.requestFocus();
+                    return false;
+                } else {
+                    mnd8.setError(null);
+                }
+            }
         }
 
         rdo_mnd9 = mnd9.getCheckedRadioButtonId();

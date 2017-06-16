@@ -1726,62 +1726,64 @@
             android:layout_weight="50"
             android:orientation="vertical"
             android:visibility="visible">
-        <TextView
-            android:id="@+id/lbl_mnd7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mnd7" />
 
-
-        <RadioGroup
-            android:id="@+id/mnd7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:id="@+id/mnd7a"
+            <TextView
+                android:id="@+id/lbl_mnd7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/yes" />
+                android:text="@string/mnd7" />
 
-            <RadioButton
-                android:id="@+id/mnd7b"
+
+            <RadioGroup
+                android:id="@+id/mnd7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/mnd7a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/mnd7b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no" />
+
+                <RadioButton
+                    android:id="@+id/mnd7c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dnk" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/lbl_mnd8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/no" />
+                android:gravity="center"
+                android:text="@string/mnd8" />
 
-            <RadioButton
-                android:id="@+id/mnd7c"
+            <TextView
+                android:id="@+id/lbl_mnd8a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/dnk" />
-
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/lbl_mnd8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/mnd8" />
-
-        <TextView
-            android:id="@+id/lbl_mnd8a"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mnd8a" />
+                android:text="@string/mnd8a" />
 
 
-        <EditText
-            android:id="@+id/mnd8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:digits="0123456789"
-            android:ems="10"
-            android:inputType="number"
-            android:maxLength="4" />
+            <EditText
+                android:id="@+id/mnd8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:digits="0123456789"
+                android:ems="10"
+                android:inputType="number"
+                android:maxLength="4" />
         </LinearLayout>
+
         <TextView
             android:id="@+id/lbl_mnd9"
             android:layout_width="match_parent"
