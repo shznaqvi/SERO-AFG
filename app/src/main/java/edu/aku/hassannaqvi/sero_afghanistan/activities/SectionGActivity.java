@@ -43,7 +43,7 @@ public class SectionGActivity extends Activity {
     @BindView(R.id.mng2b)
     EditText mng2b;
     @BindView(R.id.mngsticker)
-    TextView mngsticker;
+    EditText mngsticker;
 
     @BindView(R.id.fldGrpmng1c)
     LinearLayout fldGrpmng1c;
@@ -289,7 +289,7 @@ public class SectionGActivity extends Activity {
             } else {
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
                 mngsticker.setText("§" + result.getContents());
-                mngsticker.setEnabled(false);
+                //mngsticker.setEnabled(false);
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
