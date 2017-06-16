@@ -400,6 +400,19 @@ public class SectionFActivity extends Activity {
             mnf3months.setError(null);
         }
 
+        if ((Integer.valueOf(mnf3years.getText().toString()) == 0 )
+                && (Integer.valueOf(mnf3months.getText().toString()) == 0 )) {
+            Toast.makeText(this, "Invalid:" + getString(R.string.mnf3), Toast.LENGTH_SHORT).show();
+            mnf3years.setError("Invalid: Years and months can not be zero");
+            mnf3months.setError("Invalid: Years and months can not be zero");
+
+            Log.i(TAG, "mnf3: Years and months can not be zero");
+            return false;
+        } else {
+            mnf3years.setError(null);
+            mnf3months.setError(null);
+        }
+
         rdo_mnf4 = mnf4.getCheckedRadioButtonId();
 
         if (rdo_mnf4 == -1) {
