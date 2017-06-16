@@ -1000,7 +1000,7 @@ public class SectionDActivity extends Activity {
         rdo_mnd1 = mnd1.getCheckedRadioButtonId();
 
         if (rdo_mnd1 == -1) {
-            mnd1a.setError(getString(R.string.rdoerr));
+            mnd1a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd1), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnd1a: This Data is Required!");
             mnd1a.requestFocus();
@@ -1025,7 +1025,7 @@ public class SectionDActivity extends Activity {
         rdo_mnd2 = mnd2.getCheckedRadioButtonId();
 
         if (rdo_mnd2 == -1) {
-            mnd2a.setError(getString(R.string.rdoerr));
+            mnd2a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd2), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnd2a: This Data is Required!");
             mnd2a.requestFocus();
@@ -1052,7 +1052,7 @@ public class SectionDActivity extends Activity {
             rdo_mnd3 = mnd3.getCheckedRadioButtonId();
 
             if (rdo_mnd3 == -1) {
-                mnd3a.setError(getString(R.string.rdoerr));
+                mnd3a.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd3), Toast.LENGTH_LONG).show();
                 Log.i(TAG, "mnd3a: This Data is Required!");
                 mnd3a.requestFocus();
@@ -1221,7 +1221,7 @@ public class SectionDActivity extends Activity {
             rdo_mnd4 = mnd4.getCheckedRadioButtonId();
 
             if (rdo_mnd4 == -1) {
-                mnd4a.setError(getString(R.string.rdoerr));
+                mnd4a.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd4), Toast.LENGTH_LONG).show();
                 Log.i(TAG, "mnd4a: This Data is Required!");
                 mnd4a.requestFocus();
@@ -1388,7 +1388,7 @@ public class SectionDActivity extends Activity {
         rdo_mnd6 = mnd6.getCheckedRadioButtonId();
 
         if (rdo_mnd6 == -1) {
-            mnd6a.setError(getString(R.string.rdoerr));
+            mnd6a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd6), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnd6a: This Data is Required!");
             mnd6a.requestFocus();
@@ -1413,7 +1413,7 @@ public class SectionDActivity extends Activity {
             rdo_mnd7 = mnd7.getCheckedRadioButtonId();
 
             if (rdo_mnd7 == -1) {
-                mnd7a.setError(getString(R.string.rdoerr));
+                mnd7a.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd7), Toast.LENGTH_LONG).show();
                 Log.i(TAG, "mnd7a: This Data is Required!");
                 mnd7a.requestFocus();
@@ -1448,7 +1448,7 @@ public class SectionDActivity extends Activity {
         rdo_mnd9 = mnd9.getCheckedRadioButtonId();
 
         if (rdo_mnd9 == -1) {
-            mnd9a.setError(getString(R.string.rdoerr));
+            mnd9a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd9), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnd9a: This Data is Required!");
             mnd9a.requestFocus();
@@ -1518,7 +1518,7 @@ public class SectionDActivity extends Activity {
             rdo_mnd11 = mnd11.getCheckedRadioButtonId();
 
             if (rdo_mnd11 == -1) {
-                mnd11a.setError(getString(R.string.rdoerr));
+                mnd11a.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd11), Toast.LENGTH_LONG).show();
                 Log.i(TAG, "mnd11a: This Data is Required!");
                 mnd11a.requestFocus();
@@ -1566,7 +1566,7 @@ public class SectionDActivity extends Activity {
         rdo_mnd12 = mnd12.getCheckedRadioButtonId();
 
         if (rdo_mnd12 == -1) {
-            mnd12a.setError(getString(R.string.rdoerr));
+            mnd12a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd12), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnd12a: This Data is Required!");
             mnd12a.requestFocus();
@@ -1588,7 +1588,7 @@ public class SectionDActivity extends Activity {
         rdo_mnd13 = mnd13.getCheckedRadioButtonId();
 
         if (rdo_mnd13 == -1) {
-            mnd13a.setError(getString(R.string.rdoerr));
+            mnd13a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd13), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnd13a: This Data is Required!");
             mnd13a.requestFocus();

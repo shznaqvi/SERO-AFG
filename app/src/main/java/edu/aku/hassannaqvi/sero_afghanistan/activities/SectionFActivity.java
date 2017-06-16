@@ -300,7 +300,7 @@ public class SectionFActivity extends Activity {
                 !mnf1g.isChecked() &&
                 !mnf1h.isChecked() &&
                 !mnf188.isChecked()) {
-            mnf1a.setError(getString(R.string.rdoerr));
+            mnf1a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnf1), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnf1a: This Data is Required!");
             mnf1a.requestFocus();
@@ -314,7 +314,7 @@ public class SectionFActivity extends Activity {
 
             if (mnf1x.getText().toString().isEmpty() || mnf1x.getText().toString() == null) {
 
-                mnf1x.setError(getString(R.string.rdoerr));
+                mnf1x.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.others), Toast.LENGTH_LONG).show();
                 Log.i(TAG, "mnf1x: This Data is Required!");
                 mnf1x.requestFocus();
@@ -329,7 +329,7 @@ public class SectionFActivity extends Activity {
         rdo_mnf2 = mnf2.getCheckedRadioButtonId();
 
         if (rdo_mnf2 == -1) {
-            mnf2a.setError(getString(R.string.rdoerr));
+            mnf2a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnf2), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnf2a: This Data is Required!");
             mnf2a.requestFocus();
@@ -358,7 +358,7 @@ public class SectionFActivity extends Activity {
 
             if (mnf2x.getText().toString().isEmpty() || mnf2x.getText().toString() == null) {
 
-                mnf2x.setError(getString(R.string.rdoerr));
+                mnf2x.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.others), Toast.LENGTH_LONG).show();
                 Log.i(TAG, "mnf2x: This Data is Required!");
                 mnf2x.requestFocus();
@@ -416,7 +416,7 @@ public class SectionFActivity extends Activity {
         rdo_mnf4 = mnf4.getCheckedRadioButtonId();
 
         if (rdo_mnf4 == -1) {
-            mnf4a.setError(getString(R.string.rdoerr));
+            mnf4a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnf4), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnf4a: This Data is Required!");
             mnf4a.requestFocus();

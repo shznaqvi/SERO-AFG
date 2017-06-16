@@ -758,7 +758,7 @@ public class SectionAActivity extends AppCompatActivity {
         //rdo_mna6 = mna6.getCheckedRadioButtonId();
 
         if (mna6.getCheckedRadioButtonId() == -1) {
-            mna6A.setError(getString(R.string.rdoerr));
+            mna6A.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna6), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mna6: required " + getString(R.string.mna6));
             mna6A.requestFocus();
@@ -916,7 +916,7 @@ public class SectionAActivity extends AppCompatActivity {
         //rdo_mnc2 = mnc2.getCheckedRadioButtonId();
 
         if (mnc2.getCheckedRadioButtonId() == -1) {
-            mnc2a.setError(getString(R.string.rdoerr));
+            mnc2a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnc2), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnc2: This Data is Required!");
             mnc2a.requestFocus();
@@ -986,7 +986,7 @@ public class SectionAActivity extends AppCompatActivity {
         //rdo_mnc4 = mnc4.getCheckedRadioButtonId();
 
         if (mnc4.getCheckedRadioButtonId() == -1) {
-            mnc4a.setError(getString(R.string.rdoerr));
+            mnc4a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnc4), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnc4a: This Data is Required!");
             mnc4a.requestFocus();

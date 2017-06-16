@@ -33,8 +33,7 @@ public class EndingActivity extends Activity {
     RadioButton mna7b;
     @BindView(R.id.mna7c)
     RadioButton mna7c;
-    @BindView(R.id.mna7d)
-    RadioButton mna7d;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +48,12 @@ public class EndingActivity extends Activity {
             mna7a.setEnabled(true);
             mna7b.setEnabled(false);
             mna7c.setEnabled(false);
-            mna7d.setEnabled(false);
+
         } else {
             mna7a.setEnabled(false);
             mna7b.setEnabled(true);
             mna7c.setEnabled(true);
-            mna7d.setEnabled(true);
+
         }
 
     }
@@ -114,7 +113,7 @@ public class EndingActivity extends Activity {
 //                AppMain.fc.setIstatus("default");
 //                break;
 
-        AppMain.fc.setIstatus(mna7a.isChecked() ? "1" : mna7b.isChecked() ? "2" : mna7c.isChecked() ? "3" : mna7d.isChecked() ? "4" : "0");
+        AppMain.fc.setIstatus(mna7a.isChecked() ? "1" : mna7b.isChecked() ? "2" : mna7c.isChecked() ? "3" : "0");
 //        }
 
     }
@@ -124,11 +123,11 @@ public class EndingActivity extends Activity {
 
         if (iStatus.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(not selected): " + getResources().getResourceTypeName(R.string.mna7), Toast.LENGTH_LONG).show();
-            mna7d.setError("This data is Required!");
+            mna7c.setError("This data is Required!");
             Log.i(TAG, "mna7d: This data is Required!");
             return false;
         } else {
-            mna7d.setError(null);
+            mna7c.setError(null);
         }
         return true;
     }
