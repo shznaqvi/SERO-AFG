@@ -1464,6 +1464,30 @@ public class SectionDActivity extends Activity {
                 } else {
                     mnd8.setError(null);
                 }
+
+                if (AppMain.studyCode.equals("1") && Integer.parseInt(mnd8.getText().toString()) > 15) {
+                    mnd8.setError("Total doses must be lesser than 16");
+                    Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
+                    Log.i(TAG, "mnd8: Total doses must be lesser than 16");
+                    mnd8.requestFocus();
+                    return false;
+                } else {
+                    mnd8.setError(null);
+                }
+
+                if (AppMain.studyCode.equals("2") && Integer.parseInt(mnd8.getText().toString()) > 50) {
+                    mnd8.setError("Total doses must be lesser than or equal to 50");
+                    Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
+                    Log.i(TAG, "mnd8: Total doses must be lesser than or equal to 50");
+                    mnd8.requestFocus();
+                    return false;
+                } else {
+                    mnd8.setError(null);
+                }
+
+
+
+
             }
         }
 

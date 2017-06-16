@@ -88,6 +88,7 @@ public class AppMain extends Application {
     Location location;
 
     public static boolean flag = false;
+    public static String studyCode = "";
 
 
     @Override

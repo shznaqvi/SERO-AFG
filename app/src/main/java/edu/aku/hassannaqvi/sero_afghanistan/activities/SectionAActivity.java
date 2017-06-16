@@ -387,6 +387,8 @@ public class SectionAActivity extends AppCompatActivity {
                     if (UpdateDB()) {
                         Toast.makeText(this, "Starting Section D", Toast.LENGTH_SHORT).show();
 
+                        AppMain.studyCode = studycode.getText().toString();
+
                         finish();
                         Intent secD = new Intent(this, SectionDActivity.class);
                         //AppMain.chTotal = Integer.valueOf(mna13.getText().toString()) - 1; // exclude index child
