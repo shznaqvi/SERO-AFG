@@ -45,6 +45,7 @@ import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
 import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 
+
 public class SectionAActivity extends AppCompatActivity {
 
     private static final String TAG = SectionAActivity.class.getSimpleName();
@@ -754,9 +755,9 @@ public class SectionAActivity extends AppCompatActivity {
             }
         }
 
-        rdo_mna6 = mna6.getCheckedRadioButtonId();
+        //rdo_mna6 = mna6.getCheckedRadioButtonId();
 
-        if (rdo_mna6 == -1) {
+        if (mna6.getCheckedRadioButtonId() == -1) {
             mna6A.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mna6), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mna6: required " + getString(R.string.mna6));
@@ -912,9 +913,9 @@ public class SectionAActivity extends AppCompatActivity {
             mnc1.setError(null);
         }
 
-        rdo_mnc2 = mnc2.getCheckedRadioButtonId();
+        //rdo_mnc2 = mnc2.getCheckedRadioButtonId();
 
-        if (rdo_mnc2 == -1) {
+        if (mnc2.getCheckedRadioButtonId() == -1) {
             mnc2a.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnc2), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnc2: This Data is Required!");
@@ -970,9 +971,21 @@ public class SectionAActivity extends AppCompatActivity {
             mnc3years.setError(null);
         }
 
-        rdo_mnc4 = mnc4.getCheckedRadioButtonId();
+        if(Integer.valueOf(mnc3years.getText().toString()) < 14 || Integer.valueOf(mnc3years.getText().toString()) > 99)
+        {
+            Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mnc3), Toast.LENGTH_SHORT).show();
+            mnc3years.setError("Invalid: Range is 14 - 19 years");
+            Log.i(TAG, "mnc3years: Range is 14 - 99 years ");
+            return false;
+        }else{
+            mnc3years.setError(null);
+        }
 
-        if (rdo_mnc4 == -1) {
+
+
+        //rdo_mnc4 = mnc4.getCheckedRadioButtonId();
+
+        if (mnc4.getCheckedRadioButtonId() == -1) {
             mnc4a.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnc4), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnc4a: This Data is Required!");
@@ -1026,7 +1039,7 @@ public class SectionAActivity extends AppCompatActivity {
 
         }
 
-        if (Integer.parseInt(mnc3years.getText().toString()) < 14) {
+        /*if (Integer.parseInt(mnc3years.getText().toString()) < 14) {
             mnc3years.setError("Respondent age cannot be less than 14 years");
             Toast.makeText(getApplicationContext(), "ERROR(Invalid): Respondent age cannot be less than 14 years ", Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnc3years: This Data is Invalid!");
@@ -1034,7 +1047,7 @@ public class SectionAActivity extends AppCompatActivity {
             return false;
         } else {
             mnc3years.setError(null);
-        }
+        }*/
 
 
         if (mnc4e.isChecked() && Integer.parseInt(mnc3years.getText().toString()) < 16) {
