@@ -198,6 +198,7 @@ public class SectionAActivity extends AppCompatActivity {
     String var_mnc4;
 
     String dateToday;
+    String dateToday1;
     String date6Months;
     String date11Months;
     String date36Months;
@@ -222,11 +223,15 @@ public class SectionAActivity extends AppCompatActivity {
 
 
         dateToday = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+        dateToday1 = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_16_DAYS));
+
+
         date6Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_6_MONTHS));
         date11Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_11_MONTHS));
         date36Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_36_MONTHS));
-         date48Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_48_MONTHS));
+        date48Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_48_MONTHS));
 
+        dov.setMinDate(dateToday1);
         dov.setMaxDate(dateToday);
 
         studycode.addTextChangedListener(new TextWatcher() {
@@ -237,10 +242,10 @@ public class SectionAActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(Integer.valueOf(studycode.getText().toString().isEmpty() ? "0" : studycode.getText().toString()) == 1) {
+                if (Integer.valueOf(studycode.getText().toString().isEmpty() ? "0" : studycode.getText().toString()) == 1) {
                     mna4.setMaxDate(date6Months);
                     mna4.setMinDate(date11Months);
-                }else{
+                } else {
                     mna4.setMaxDate(date36Months);
                     mna4.setMinDate(date48Months);
                 }
@@ -252,9 +257,6 @@ public class SectionAActivity extends AppCompatActivity {
 
             }
         });
-
-
-
 
 
         prov = new ArrayList<>();
@@ -318,7 +320,6 @@ public class SectionAActivity extends AppCompatActivity {
         });
 
 
-
         mnc2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
@@ -362,10 +363,6 @@ public class SectionAActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
 
 
     }
@@ -968,16 +965,14 @@ public class SectionAActivity extends AppCompatActivity {
             mnc3years.setError(null);
         }
 
-        if(Integer.valueOf(mnc3years.getText().toString()) < 14 || Integer.valueOf(mnc3years.getText().toString()) > 99)
-        {
+        if (Integer.valueOf(mnc3years.getText().toString()) < 14 || Integer.valueOf(mnc3years.getText().toString()) > 99) {
             Toast.makeText(this, "ERROR(invalid): " + getString(R.string.mnc3), Toast.LENGTH_SHORT).show();
             mnc3years.setError("Invalid: Range is 14 - 19 years");
             Log.i(TAG, "mnc3years: Range is 14 - 99 years ");
             return false;
-        }else{
+        } else {
             mnc3years.setError(null);
         }
-
 
 
         //rdo_mnc4 = mnc4.getCheckedRadioButtonId();
