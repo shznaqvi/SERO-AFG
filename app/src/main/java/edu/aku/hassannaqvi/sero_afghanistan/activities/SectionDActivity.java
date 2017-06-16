@@ -707,14 +707,14 @@ public class SectionDActivity extends Activity {
 
                 if (UpdateDB()) {
                     Toast.makeText(this, "Starting Section E", Toast.LENGTH_SHORT).show();
-
+                    finish();
                     Intent secE = new Intent(this, SectionEActivity.class);
                     startActivity(secE);
                 } else {
                     Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
                 }
-            }
-            else {
+            } else {
+                finish();
                 startActivity(new Intent(this, MainActivity.class));
             }
         }
@@ -1223,7 +1223,6 @@ public class SectionDActivity extends Activity {
         if (mnd2b.isChecked() || mnd3b.isChecked()) {
 
 
-
             rdo_mnd4 = mnd4.getCheckedRadioButtonId();
 
             if (rdo_mnd4 == -1) {
@@ -1415,18 +1414,18 @@ public class SectionDActivity extends Activity {
 //                break;
 //        }
 
-        if (!mnd6b.isChecked()) {
-            rdo_mnd7 = mnd7.getCheckedRadioButtonId();
+//        if (!mnd6b.isChecked()) {
+        rdo_mnd7 = mnd7.getCheckedRadioButtonId();
 
-            if (rdo_mnd7 == -1) {
-                mnd7a.setError(getString(R.string.txterr));
-                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd7), Toast.LENGTH_LONG).show();
-                Log.i(TAG, "mnd7a: This Data is Required!");
-                mnd7a.requestFocus();
-                return false;
-            } else {
-                mnd7a.setError(null);
-            }
+        if (rdo_mnd7 == -1) {
+            mnd7a.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd7), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnd7a: This Data is Required!");
+            mnd7a.requestFocus();
+            return false;
+        } else {
+            mnd7a.setError(null);
+        }
 
 //        switch (rdo_mnd7) {
 //            case R.id.mnd7a:
@@ -1440,17 +1439,49 @@ public class SectionDActivity extends Activity {
 //                break;
 //        }
 
-
-            if (mnd8.getText().toString().isEmpty() || mnd8.getText().toString() == null) {
-                mnd8.setError(getString(R.string.txterr));
-                Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
-                Log.i(TAG, "mnd8: This Data is Required!");
+        if (mnd7a.isChecked() || mnd6a.isChecked()) {
+            if (Integer.parseInt(mnd8.getText().toString()) < 1) {
+                mnd8.setError("Total doses must be greater than zero");
+                Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "mnd8: total doses must be greater than zero");
                 mnd8.requestFocus();
                 return false;
             } else {
                 mnd8.setError(null);
             }
         }
+
+        if (AppMain.studyCode.equals("1") && Integer.parseInt(mnd8.getText().toString()) > 15) {
+            mnd8.setError("Total doses must be lesser than 16");
+            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnd8: Total doses must be lesser than 16");
+            mnd8.requestFocus();
+            return false;
+        } else {
+            mnd8.setError(null);
+        }
+
+        if (AppMain.studyCode.equals("2") && Integer.parseInt(mnd8.getText().toString()) > 50) {
+            mnd8.setError("Total doses must be lesser than or equal to 50");
+            Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnd8: Total doses must be lesser than or equal to 50");
+            mnd8.requestFocus();
+            return false;
+        } else {
+            mnd8.setError(null);
+        }
+
+        if (mnd8.getText().toString().isEmpty() || mnd8.getText().toString() == null) {
+            mnd8.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnd8: This Data is Required!");
+            mnd8.requestFocus();
+            return false;
+        } else {
+            mnd8.setError(null);
+        }
+
+
         rdo_mnd9 = mnd9.getCheckedRadioButtonId();
 
         if (rdo_mnd9 == -1) {
@@ -1620,5 +1651,10 @@ public class SectionDActivity extends Activity {
 
 
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
 }

@@ -198,6 +198,7 @@ public class SectionAActivity extends AppCompatActivity {
     String var_mnc4;
 
     String dateToday;
+    String dateToday1;
     String date6Months;
     String date11Months;
     String date36Months;
@@ -221,11 +222,14 @@ public class SectionAActivity extends AppCompatActivity {
 
 
         dateToday = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+
+
         date6Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_6_MONTHS));
         date11Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_11_MONTHS));
         date36Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_36_MONTHS));
         date48Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_48_MONTHS));
 
+        dov.setMinDate("01/06/2017");
         dov.setMaxDate(dateToday);
 
         studycode.addTextChangedListener(new TextWatcher() {
@@ -383,6 +387,9 @@ public class SectionAActivity extends AppCompatActivity {
                     if (UpdateDB()) {
                         Toast.makeText(this, "Starting Section D", Toast.LENGTH_SHORT).show();
 
+                        AppMain.studyCode = studycode.getText().toString();
+
+                        finish();
                         Intent secD = new Intent(this, SectionDActivity.class);
                         //AppMain.chTotal = Integer.valueOf(mna13.getText().toString()) - 1; // exclude index child
                         startActivity(secD);
@@ -394,6 +401,7 @@ public class SectionAActivity extends AppCompatActivity {
                     studyid.requestFocus();
                 }
             } else {
+                finish();
                 startActivity(new Intent(this, MainActivity.class));
             }
         }
@@ -505,8 +513,8 @@ public class SectionAActivity extends AppCompatActivity {
         JSONObject sB = new JSONObject();
 
         sB.put("mnb1", mnb1.getText().toString());
-        sB.put("mnb2", mnb2.getSelectedItem().toString());
-        sB.put("mnb3", mnb3.getSelectedItem().toString());
+        sB.put("mnb2", dist_map.get(mnb2.getSelectedItem().toString()));
+        sB.put("mnb3", prov_map.get(mnb3.getSelectedItem().toString()));
 
 
         sB.put("mnb4name", mnb4name.getText().toString());
@@ -1147,4 +1155,8 @@ public class SectionAActivity extends AppCompatActivity {
         return "";
     }
 
+//    @Override
+//    public void onBackPressed() {
+//        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+//    }
 }
