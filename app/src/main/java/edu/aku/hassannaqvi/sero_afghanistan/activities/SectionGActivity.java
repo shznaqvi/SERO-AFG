@@ -159,7 +159,7 @@ public class SectionGActivity extends Activity {
         rdo_mng1 = mng1.getCheckedRadioButtonId();
 
         if (rdo_mng1 == -1) {
-            mng1a.setError(getString(R.string.rdoerr));
+            mng1a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mng1), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mng1a: This Data is Required!");
             mng1a.requestFocus();

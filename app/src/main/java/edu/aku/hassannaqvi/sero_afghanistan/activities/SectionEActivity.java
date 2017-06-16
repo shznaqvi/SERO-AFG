@@ -3,7 +3,6 @@ package edu.aku.hassannaqvi.sero_afghanistan.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -21,7 +20,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.sero_afghanistan.R;
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.FormsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
 
@@ -404,7 +402,7 @@ public class SectionEActivity extends Activity {
         rdo_mne1 = mne1.getCheckedRadioButtonId();
 
         if (rdo_mne1 == -1) {
-            mne1a.setError(getString(R.string.rdoerr));
+            mne1a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mne1), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mne1a: This Data is Required!");
             mne1a.requestFocus();
@@ -429,7 +427,7 @@ public class SectionEActivity extends Activity {
         rdo_mne2 = mne2.getCheckedRadioButtonId();
 
         if (rdo_mne2 == -1) {
-            mne2a.setError(getString(R.string.rdoerr));
+            mne2a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mne2), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mne2a: This Data is Required!");
             mne2a.requestFocus();
@@ -454,7 +452,7 @@ public class SectionEActivity extends Activity {
         rdo_mne3 = mne3.getCheckedRadioButtonId();
 
         if (rdo_mne3 == -1) {
-            mne3a.setError(getString(R.string.rdoerr));
+            mne3a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mne3), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mne3a: This Data is Required!");
             mne3a.requestFocus();
@@ -479,7 +477,7 @@ public class SectionEActivity extends Activity {
         rdo_mne4 = mne4.getCheckedRadioButtonId();
 
         if (rdo_mne4 == -1) {
-            mne4a.setError(getString(R.string.rdoerr));
+            mne4a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mne4), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mne4a: This Data is Required!");
             mne4a.requestFocus();
@@ -513,7 +511,7 @@ public class SectionEActivity extends Activity {
                 !mne588.isChecked() &&
                 !mne599.isChecked()) {
 
-            mne5a.setError(getString(R.string.rdoerr));
+            mne5a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mne5), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mne5a: This Data is Required!");
             mne5a.requestFocus();
@@ -528,7 +526,7 @@ public class SectionEActivity extends Activity {
 
             if (mne5x.getText().toString().isEmpty() || mne5x.getText().toString() == null) {
 
-                mne5x.setError(getString(R.string.rdoerr));
+                mne5x.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.others), Toast.LENGTH_LONG).show();
                 Log.i(TAG, "mne5x: This Data is Required!");
                 mne5x.requestFocus();
