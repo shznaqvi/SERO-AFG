@@ -697,19 +697,25 @@ public class SectionDActivity extends Activity {
     @OnClick(R.id.btnNext)
     void SaveData() {
         if (ValidateForm()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
+
+            if (AppMain.flag) {
+                try {
+                    SaveDraft();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                if (UpdateDB()) {
+                    Toast.makeText(this, "Starting Section E", Toast.LENGTH_SHORT).show();
+
+                    Intent secE = new Intent(this, SectionEActivity.class);
+                    startActivity(secE);
+                } else {
+                    Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+                }
             }
-
-            if (UpdateDB()) {
-                Toast.makeText(this, "Starting Section E", Toast.LENGTH_SHORT).show();
-
-                Intent secE = new Intent(this, SectionEActivity.class);
-                startActivity(secE);
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            else {
+                startActivity(new Intent(this, MainActivity.class));
             }
         }
     }

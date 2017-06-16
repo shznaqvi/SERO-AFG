@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Seropervalence Survey Afghanistan - 2016/17</string>
+
+    <string name="txterr">This data is required</string>
+
+    <string name="nextSection">Next Section</string>
+    <string name="digits">1234567890.,+=-qwertyuiopasdfghjklzxcvbnm ?%#@!&amp;QWERTYUIOPASDFGHJKLZXCVBNM</string>
+
+
+    <string name="title_activity_login">Log in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Login</string>
+    <string name="action_sign_in_short">Log in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="title_activity_splash_screen">Splash Screen Activity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <!--  strings english provided by hussain    -->
+
+    <string name="yes"> Yes </string>
+    <string name="no"> No </string>
+    <string name="dnk"> Dont know </string>
+    <string name="others"> Others </string>
+
+    <string name="studycode"> Study Code </string>
+    <string name="studyid"> Study ID </string>
+    <string name="dov"> Date of Visit </string>
+
+    <string name="mainhead"> Polio Seroprevalence Survey Afghanistan </string>
+    <string name="mnaheading"> A-Detail of index child </string>
+    <string name="mna1"> Name of Child </string>
+    <string name="mna2"> Father name </string>
+    <string name="mna3"> Mother name </string>
+    <string name="dcAge"> Date of birth / Age of child </string>
+    <string name="dcbg"> Date of birth </string>
+    <string name="mna4"> Date of birth of selected child </string>
+    <string name="dcbh"> Age </string>
+    <string name="mna5"> Age of child </string>
+    <string name="mna5months"> Months </string>
+    <string name="mna5days"> Days </string>
+    <string name="mna6"> Sex of child </string>
+    <string name="mna6a"> Male </string>
+    <string name="mna6b"> Female </string>
+    <string name="mna7"> Visit Status </string>
+    <string name="mna7a"> Complete </string>
+    <string name="mna7b"> Incomplete </string>
+    <string name="mna7c"> Refused </string>
+    <string name="mnbheading"> B-Identification and team information </string>
+    <string name="mnb1"> Village Name </string>
+    <string name="mnb2"> District Name </string>
+    <string name="mnb3"> Province Name </string>
+    <string name="mnb4"> Name of nearest Health Facility </string>
+    <string name="mnb4name"> Name </string>
+    <string name="mnb4address"> Address </string>
+    <string name="mnb5"> Distance to nearest health facility from you home </string>
+    <string name="mnb5walk"> By walk (in mints) </string>
+    <string name="mnb5mints"> in mints </string>
+    <string name="mnb5km"> KM </string>
+    <string name="mnb6"> Name of the Interviewer </string>
+    <string name="mnb6name"> Name </string>
+    <string name="mnb6code"> Code </string>
+    <string name="mnb7"> Name of Community Nurse /Phlebotomies </string>
+    <string name="mnb7name"> Name </string>
+    <string name="mnb7code"> Code </string>
+    <string name="mncheading"> C. Respondent and head of Household Information </string>
+    <string name="mnc1"> Name of the Respondent </string>
+    <string name="mnc2"> Relation of respondent with index/selected child </string>
+    <string name="mnc2a"> Mother </string>
+    <string name="mnc2b"> Father </string>
+    <string name="mnc2c"> Sister </string>
+    <string name="mnc2d"> Brother </string>
+    <string name="mnc2e"> Grandparents </string>
+    <string name="mnc2x"> Others </string>
+
+    <string name="mnc3"> Age of respondent (Years)</string>
+    <string name="mnc3years"> Years </string>
+    <string name="mnc4"> Education level of respondent </string>
+    <string name="mnc4a"> No formal schooling </string>
+    <string name="mnc4b"> Primary </string>
+    <string name="mnc4c"> SSC </string>
+    <string name="mnc4d"> HSC </string>
+    <string name="mnc4e"> Graduation </string>
+    <string name="mnc4f"> Masters </string>
+    <string name="mnc4g"> Religious Education </string>
+    <string name="mnc4h"> Illiterate </string>
+    <string name="mndheading"> D. IMMUNIZATION STATUS </string>
+    <string name="mndsub"> Routine Immunization </string>
+    <string name="mnd1"> Has [NAME OF CHILD] ever been vaccinated at a health clinic? </string>
+    <string name="mnd2"> Does [NAME OF CHILD] have a vaccination card where his/her vaccinations are recorded? </string>
+    <string name="mnd3"> If yes: “can I see it if available with you” </string>
+    <string name="mnd3a"> Available and shown </string>
+    <string name="mnd3b"> Available but not shown </string>
+    <string name="mnd4"> If no Has [NAME OF CHILD] ever had a vaccination card? </string>
+    <string name="mnd5"> If vaccinated fill the information. </string>
+    <string name="card"> Card </string>
+    <string name="recall"> Recall </string>
+    <string name="atBirth"> At birth </string>
+    <string name="bcg"> BCG </string>
+    <string name="opv0"> OPV 0 </string>
+    <string name="at6weeks"> 6 weeks </string>
+    <string name="penta1"> Penta 1 </string>
+    <string name="pcv1"> PCV 1 </string>
+    <string name="opv1"> OPV 1 </string>
+    <string name="at10weeks"> 10 weeks </string>
+    <string name="penta2"> Penta 2 </string>
+    <string name="pcv2"> PCV 2 </string>
+    <string name="opv2"> OPV 2 </string>
+    <string name="at14weeks"> 14 weeks </string>
+    <string name="penta3"> Penta 3 </string>
+    <string name="pcv3"> PCV 3 </string>
+    <string name="opv3"> OPV 3 </string>
+    <string name="ipv"> IPV </string>
+    <string name="at9month"> 9 months </string>
+    <string name="measles1"> Measles I </string>
+    <string name="at15month"> 15 months </string>
+    <string name="measles2"> Measles II </string>
+    <string name="mnd6sub"> Supplementary Immunization </string>
+    <string name="mnd6"> Has [NAME OF CHILD] ever received two drops in the mouth in order to protect him/her against polio, at the house? </string>
+    <string name="mnd7"> Did [NAME OF CHILD] receive two drops in the mouth in order to protect him/her against polio during the last campaign on [DATE]? </string>
+    <string name="mnd8"> In total, how many times has child received two drops in the mouth to protect [NAME OF CHILD] against polio at the house? [list campaign dates] </string>
+    <string name="mnd8a"> Total doses </string>
+    <string name="mnd9"> Has the child received an injectable vaccine called IPV in his thigh to protect [NAME OF CHILD] against polio?” (not through of routine immunization) </string>
+    <string name="mnd10"> If yes, when did your child received IPV? </string>
+    <string name="mnd10years"> Years </string>
+    <string name="mnd10months"> Months </string>
+    <string name="mnd11"> From where child received IPV? </string>
+    <string name="mnd11a"> Gov. Health Facility </string>
+    <string name="mnd11b"> Private Health Facility </string>
+    <string name="mnd11c"> EPI Health Centre </string>
+    <string name="mnd11d"> Home during campaign </string>
+    <string name="mnd12"> Have your child received vitamin A supplementation during last 6 months? </string>
+    <string name="mnd13sub"> Transit Point Vaccination </string>
+    <string name="mnd13"> Has [NAME OF CHILD] ever received two drops of polio at a checkpoint while traveling? </string>
+    <string name="mnd13c"> Hasn’t Traveled </string>
+    <string name="mneheading"> E: Health Status of Index Child </string>
+    <string name="mne1"> In the past two weeks did (name of child) have cough/flu? </string>
+    <string name="mne2"> In the past two weeks did (name of child) have fast breathing ? </string>
+    <string name="mne3"> Does (name of child) have chest in drawing during last two weeks ? </string>
+    <string name="mne4"> In the past two weeks did (name of child) have diarrhoea? Diarrhoea is determined as three or more watery stools per day? </string>
+    <string name="mne5"> Is (name of child) suffering from any of these symptoms currently? </string>
+    <string name="mne5a"> Cough/Flu </string>
+    <string name="mne5b"> Fever </string>
+    <string name="mne5c"> Fast breathing </string>
+    <string name="mne5d"> Chest in drawing </string>
+    <string name="mne5e"> Diarrhea </string>
+    <string name="mne5f"> Dysentery </string>
+    <string name="mne5g"> Vomiting </string>
+    <string name="mne5h"> Abdominal pain </string>
+    <string name="mne5i"> Crying at micturition </string>
+    <string name="mne5j"> None of the above </string>
+    <string name="mnfheading"> F: Socio Economic Status </string>
+    <string name="mnf1"> What languages do you usually speak in your household? </string>
+    <string name="mnf1a"> Pashtu </string>
+    <string name="mnf1b"> Dari </string>
+    <string name="mnf1c"> Hazarai </string>
+    <string name="mnf1d"> Uzbeki </string>
+    <string name="mnf1e"> Turkmeni </string>
+    <string name="mnf1f"> Nuristani </string>
+    <string name="mnf1g"> Balochi </string>
+    <string name="mnf1h"> Pashaee </string>
+    <string name="mnf2"> What is the ownership status of your house? (Read the responses) </string>
+    <string name="mnf2a"> Owned </string>
+    <string name="mnf2b"> Rented </string>
+    <string name="mnf2c"> Living without paying rent </string>
+    <string name="mnf3"> Since how long you are resident in this household </string>
+    <string name="mnf3years"> Year </string>
+    <string name="mnf3months"> Month </string>
+    <string name="mnf4"> Are you planning to move out from this area in next 2-3 months? </string>
+    <string name="mnf5"> If Yes why </string>
+    <string name="mngheading"> G-Samples collection status </string>
+    <string name="mng1"> Samples collection status </string>
+    <string name="mng1a"> Consented and collected sample successfully </string>
+    <string name="mng1b"> Consented but unsuccessfully </string>
+    <string name="mng1c"> Reason for not succession </string>
+    <string name="mng2"> Please mention volume if successfully collected blood </string>
+    <string name="mng2a"> Volume of the whole blood </string>
+    <string name="mng2b"> Volume of Serum </string>
+
+    <string name="mnadd"> Contact address or phone number of the child </string>
+    <string name="mngscan"> Scan Sticker </string>
+    <string name="mngsticker"> Sticker </string>
+    <string name="endinterview">End Interview</string>
+
+</resources>

@@ -1,5 +1,35 @@
 <resources>
 
+    <string name="app_name">Seropervalence Survey Afghanistan - 2016/17</string>
+
+    <string name="txterr">This data is required</string>
+
+
+    <string name="digits">1234567890.,+=-qwertyuiopasdfghjklzxcvbnm ?%#@!&amp;QWERTYUIOPASDFGHJKLZXCVBNM</string>
+
+
+    <string name="title_activity_login">Log in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Login</string>
+    <string name="action_sign_in_short">Log in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="title_activity_splash_screen">Splash Screen Activity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <!--  strings english provided by hussain    -->
+
+
     <string name="yes"> هو </string>
     <string name="no"> نه </string>
     <string name="dnk"> نپوهیږم </string>
@@ -170,5 +200,6 @@
     <string name="mngsticker">  </string>
 
     <string name="mnadd"> د ماشوم د تیلفئون نمبر </string>
+
 
 </resources>

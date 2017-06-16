@@ -91,20 +91,24 @@ public class SectionGActivity extends Activity {
     void SaveData() {
 
         if (ValidateForm()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            if (AppMain.flag) {
+                try {
+                    SaveDraft();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
-            if (UpdateDB()) {
-                Toast.makeText(this, "Starting Main", Toast.LENGTH_SHORT).show();
+                if (UpdateDB()) {
+                    Toast.makeText(this, "Starting Main", Toast.LENGTH_SHORT).show();
 
-                Intent main = new Intent(this, EndingActivity.class);
-                main.putExtra("complete", true);
-                startActivity(main);
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+                    Intent main = new Intent(this, EndingActivity.class);
+                    main.putExtra("complete", true);
+                    startActivity(main);
+                } else {
+                    Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+                }
+            }else {
+                startActivity(new Intent(this, MainActivity.class));
             }
         }
     }

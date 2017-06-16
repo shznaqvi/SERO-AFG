@@ -217,7 +217,6 @@ public class SectionAActivity extends AppCompatActivity {
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
 
-
         mna4.setManager(getSupportFragmentManager());
         dov.setManager(getSupportFragmentManager());
 
@@ -374,29 +373,33 @@ public class SectionAActivity extends AppCompatActivity {
 
         if (ValidateForm()) {
 
-            if (!db.IsStudyid_Exists(studyid.getText().toString())) {
+            if (AppMain.flag) {
+                if (!db.IsStudyid_Exists(studyid.getText().toString())) {
 
-                try {
-                    SaveDraft();
-                    SaveDraftA();
-                    SaveDraftB();
-                    SaveDraftC();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                    try {
+                        SaveDraft();
+                        SaveDraftA();
+                        SaveDraftB();
+                        SaveDraftC();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 
-                if (UpdateDB()) {
-                    Toast.makeText(this, "Starting Section D", Toast.LENGTH_SHORT).show();
+                    if (UpdateDB()) {
+                        Toast.makeText(this, "Starting Section D", Toast.LENGTH_SHORT).show();
 
-                    Intent secD = new Intent(this, SectionDActivity.class);
-                    //AppMain.chTotal = Integer.valueOf(mna13.getText().toString()) - 1; // exclude index child
-                    startActivity(secD);
+                        Intent secD = new Intent(this, SectionDActivity.class);
+                        //AppMain.chTotal = Integer.valueOf(mna13.getText().toString()) - 1; // exclude index child
+                        startActivity(secD);
+                    } else {
+                        Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Study ID already exists ", Toast.LENGTH_SHORT).show();
+                    studyid.requestFocus();
                 }
             } else {
-                Toast.makeText(this, "Study ID already exists ", Toast.LENGTH_SHORT).show();
-                studyid.requestFocus();
+                startActivity(new Intent(this, MainActivity.class));
             }
         }
     }

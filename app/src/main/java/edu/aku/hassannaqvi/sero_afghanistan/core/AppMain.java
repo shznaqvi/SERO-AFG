@@ -87,6 +87,8 @@ public class AppMain extends Application {
     protected LocationManager locationManager;
     Location location;
 
+    public static boolean flag = false;
+
 
     @Override
     public void onCreate() {
