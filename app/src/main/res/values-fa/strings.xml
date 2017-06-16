@@ -18,7 +18,10 @@
     <string name="mna1"> دانتخاب شوی ماشوم نوم </string>
     <string name="mna2"> د پلار نوم </string>
     <string name="mna3"> د مور نوم </string>
+    <string name="dcAge"> دماشوم د زیږیدنی نیته / د ماشوم عمر </string>
+    <string name="dcbg"> دماشوم د زیږیدنی نیته </string>
     <string name="mna4"> دماشوم د زیږیدنی نیته </string>
+    <string name="dcbh"> د ماشوم عمر </string>
     <string name="mna5"> د ماشوم عمر </string>
     <string name="mna5months"> میاشت </string>
     <string name="mna5days"> ورځ </string>

@@ -196,7 +196,6 @@ public class SectionAActivity extends AppCompatActivity {
     String var_mnc4;
 
     String dateToday;
-    String var_dov;
     String minDate;
 
     Calendar now = Calendar.getInstance();
