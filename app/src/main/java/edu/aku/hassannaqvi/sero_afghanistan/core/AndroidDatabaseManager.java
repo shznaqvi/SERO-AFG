@@ -282,7 +282,7 @@ public class AndroidDatabaseManager extends Activity implements OnItemClickListe
             }
         };
 
-        tablenamesadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        tablenamesadapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 
         if (tablenamesadapter != null) {
             //set the adpater to select_table spinner
@@ -333,7 +333,7 @@ public class AndroidDatabaseManager extends Activity implements OnItemClickListe
                     spinnertablevalues.add("Add row to this table");
                     spinnertablevalues.add("Delete this table");
                     spinnertablevalues.add("Drop this table");
-                    ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, spinnertablevalues);
+                    ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, spinnertablevalues);
                     spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
 
                     // a array adapter which add values to the spinner which helps in user making changes to the table
@@ -362,7 +362,7 @@ public class AndroidDatabaseManager extends Activity implements OnItemClickListe
                         }
                     };
 
-                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
                     spinnertable.setAdapter(adapter);
                     String Query2 = "select * from " + c.getString(0);
                     Log.d("", "" + Query2);
@@ -760,7 +760,7 @@ public class AndroidDatabaseManager extends Activity implements OnItemClickListe
         final Spinner crud_dropdown = new Spinner(getApplicationContext());
 
         ArrayAdapter<String> crudadapter = new ArrayAdapter<String>(AndroidDatabaseManager.this,
-                android.R.layout.simple_spinner_item, spinnerArray) {
+                android.R.layout.simple_dropdown_item_1line, spinnerArray) {
 
             public View getView(int position, View convertView, ViewGroup parent) {
                 View v = super.getView(position, convertView, parent);
@@ -768,7 +768,7 @@ public class AndroidDatabaseManager extends Activity implements OnItemClickListe
                 v.setBackgroundColor(Color.WHITE);
                 TextView adap = (TextView) v;
                 adap.setTextSize(20);
-
+                adap.setTextColor(Color.BLACK);
                 return adap;
             }
 
@@ -777,13 +777,15 @@ public class AndroidDatabaseManager extends Activity implements OnItemClickListe
                 View v = super.getDropDownView(position, convertView, parent);
 
                 v.setBackgroundColor(Color.WHITE);
-
+                TextView adap = (TextView) v;
+                adap.setTextSize(20);
+                adap.setTextColor(Color.BLACK);
                 return v;
             }
         };
 
 
-        crudadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        crudadapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 
         crud_dropdown.setAdapter(crudadapter);
         int my_var = 0;
