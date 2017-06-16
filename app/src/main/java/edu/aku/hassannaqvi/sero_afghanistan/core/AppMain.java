@@ -126,7 +126,7 @@ public class AppMain extends Application {
 
     protected void showCurrentLocation() {
 
-        location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
         if (location != null) {
             String message = String.format(
@@ -197,8 +197,7 @@ public class AppMain extends Application {
         return provider1.equals(provider2);
     }
 
-    private class MyLocationListener implements LocationListener {
-
+    public class MyLocationListener implements LocationListener {
         public void onLocationChanged(Location location) {
 
             SharedPreferences sharedPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
@@ -209,7 +208,6 @@ public class AppMain extends Application {
             Location bestLocation = new Location("storedProvider");
             bestLocation.setAccuracy(Float.parseFloat(sharedPref.getString("Accuracy", "0")));
             bestLocation.setTime(Long.parseLong(sharedPref.getString(dt, "0")));
-//                bestLocation.setTime(Long.parseLong(dt));
             bestLocation.setLatitude(Float.parseFloat(sharedPref.getString("Latitude", "0")));
             bestLocation.setLongitude(Float.parseFloat(sharedPref.getString("Longitude", "0")));
 
@@ -218,9 +216,7 @@ public class AppMain extends Application {
                 editor.putString("Latitude", String.valueOf(location.getLatitude()));
                 editor.putString("Accuracy", String.valueOf(location.getAccuracy()));
                 editor.putString("Time", String.valueOf(location.getTime()));
-//                    editor.putString("Time", DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(String.valueOf(location.getTime()))).toString());
-
-//                String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(String.valueOf(location.getTime()))).toString();
+                String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(String.valueOf(location.getTime()))).toString();
 //                Toast.makeText(getApplicationContext(),
 //                        "GPS Commit! LAT: " + String.valueOf(location.getLongitude()) +
 //                                " LNG: " + String.valueOf(location.getLatitude()) +
@@ -230,13 +226,9 @@ public class AppMain extends Application {
 
                 editor.apply();
             }
-
-
-            Map<String, ?> allEntries = sharedPref.getAll();
-            for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
-                Log.d("Map", entry.getKey() + ": " + entry.getValue().toString());
-            }
         }
+
+
 
         public void onStatusChanged(String s, int i, Bundle b) {
             showCurrentLocation();
@@ -249,6 +241,5 @@ public class AppMain extends Application {
         public void onProviderEnabled(String s) {
 
         }
-
     }
 }
