@@ -64,6 +64,23 @@
             android:inputType="number"
             android:maxLength="3" />
 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dov" />
+
+        <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
+            android:id="@+id/dov"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:focusable="false"
+            android:hint="@string/dov"
+            android:textColor="@android:color/black"
+            app:dateFormat="dd-MM-yyyy" />
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -151,8 +168,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/mna4"
-                 />
+                android:text="@string/mna4" />
 
             <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
                 android:id="@+id/mna4"
@@ -179,8 +195,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/mna5months"
-                 />
+                android:text="@string/mna5months" />
 
 
             <EditText
@@ -192,10 +207,10 @@
                 android:ems="10"
                 android:inputType="number" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mna5days" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mna5days" />
 
 
             <EditText

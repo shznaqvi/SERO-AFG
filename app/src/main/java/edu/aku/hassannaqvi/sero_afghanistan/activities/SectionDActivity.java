@@ -364,8 +364,8 @@ public class SectionDActivity extends Activity {
     @BindView(R.id.fldGrpmnd09)
     LinearLayout fldGrpmnd09;
 
-    @BindView(R.id.fldGrpmnd02)
-    LinearLayout fldGrpmnd02;
+    @BindView(R.id.fldGrpmnd04)
+    LinearLayout fldGrpmnd04;
 
     int rdo_mnd1;
     String var_mnd1;
@@ -464,9 +464,7 @@ public class SectionDActivity extends Activity {
         mnd3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                if (mnd2a.isChecked()) {
-
-                    fldGrpmnd3.setVisibility(View.VISIBLE);
+                if (mnd3a.isChecked()) {
 
                     fldGrpBcgC.setVisibility(View.VISIBLE);
                     fldGrpBcgM.setVisibility(View.VISIBLE);
@@ -499,14 +497,12 @@ public class SectionDActivity extends Activity {
 
 
 //                    MND4 GONE
-                    fldGrpmnd02.setVisibility(View.GONE);
+                    fldGrpmnd04.setVisibility(View.GONE);
                     mnd4.clearCheck();
 
 
                 } else {
 
-                    mnd3.clearCheck();
-                    fldGrpmnd3.setVisibility(View.GONE);
 
                     fldGrpBcgC.setVisibility(View.GONE);
                     fldGrpBcgM.setVisibility(View.VISIBLE);
@@ -552,7 +548,7 @@ public class SectionDActivity extends Activity {
                     measles2C.clearCheck();
 
 //                  MND4 VISIBLE
-                    fldGrpmnd02.setVisibility(View.VISIBLE);
+                    fldGrpmnd04.setVisibility(View.VISIBLE);
 
                 }
             }
@@ -595,7 +591,7 @@ public class SectionDActivity extends Activity {
 
 
 //                    MND4 GONE
-                    fldGrpmnd02.setVisibility(View.GONE);
+                    fldGrpmnd04.setVisibility(View.GONE);
                     mnd4.clearCheck();
 
                     mnd3a.requestFocus();
@@ -649,7 +645,7 @@ public class SectionDActivity extends Activity {
                     measles2C.clearCheck();
 
 //                  MND4 VISIBLE
-                    fldGrpmnd02.setVisibility(View.VISIBLE);
+                    fldGrpmnd04.setVisibility(View.VISIBLE);
 
                 }
             }
@@ -667,7 +663,7 @@ public class SectionDActivity extends Activity {
                 }
             }
         });
-        mnd6.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+       /* mnd6.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 if (mnd6b.isChecked()) {
@@ -680,7 +676,7 @@ public class SectionDActivity extends Activity {
                     fldGrpMnd7.setVisibility(View.VISIBLE);
                 }
             }
-        });
+        });*/
 
         mnd9.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -810,7 +806,7 @@ public class SectionDActivity extends Activity {
         sD.put("opv3C", opv3C01.isChecked() ? "1" : opv3C02.isChecked() ? "2" : "0");
         // PCV 3 at 14 weeks
         sD.put("ipvM", ipvM01.isChecked() ? "1" : ipvM02.isChecked() ? "2" : "0");
-        sD.put("ipvC", ipvC02.isChecked() ? "1" : ipvC02.isChecked() ? "2" : "0");
+        sD.put("ipvC", ipvC01.isChecked() ? "1" : ipvC02.isChecked() ? "2" : "0");
         // OPV 3 at 14 weeks
         sD.put("measles1M", measles1M01.isChecked() ? "1" : measles1M02.isChecked() ? "2" : "0");
         sD.put("measles1C", measles1C01.isChecked() ? "1" : measles1C02.isChecked() ? "2" : "0");
@@ -1218,7 +1214,9 @@ public class SectionDActivity extends Activity {
             }
         }
 
-        if (mnd2b.isChecked()) {
+        if (mnd2b.isChecked() || mnd3b.isChecked()) {
+
+
 
             rdo_mnd4 = mnd4.getCheckedRadioButtonId();
 
@@ -1484,7 +1482,7 @@ public class SectionDActivity extends Activity {
             }
 
 
-            if (!mnd10years.getText().toString().equals("2015") && !mnd10years.getText().toString().equals("2017")) {
+            if (Integer.valueOf(mnd10years.getText().toString()) < 2015 || Integer.valueOf(mnd10years.getText().toString()) > 2017) {
                 mnd10years.setError("Year must be 2015 or 2017");
                 Toast.makeText(getApplicationContext(), "ERROR(invalid): Year must be 2015 or 2017 ", Toast.LENGTH_LONG).show();
                 Log.i(TAG, "mnd10years: This Data is Invalid!");

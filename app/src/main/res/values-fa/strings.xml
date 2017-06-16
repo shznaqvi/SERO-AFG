@@ -11,12 +11,17 @@
 
     <string name="studycode"> Study Code </string>
     <string name="studyid">د پیږندنی شمیره </string>
+    <string name="dov"> د سفر د نېټې </string>
+
     <string name="mainhead"> دافغانستان د ګوزن سیروپریولانس سروی </string>
     <string name="mnaheading"> الف- دانتخاب شوی ماشوم تفصیلی معلومات </string>
     <string name="mna1"> دانتخاب شوی ماشوم نوم </string>
     <string name="mna2"> د پلار نوم </string>
     <string name="mna3"> د مور نوم </string>
+    <string name="dcAge"> دماشوم د زیږیدنی نیته / د ماشوم عمر </string>
+    <string name="dcbg"> دماشوم د زیږیدنی نیته </string>
     <string name="mna4"> دماشوم د زیږیدنی نیته </string>
+    <string name="dcbh"> د ماشوم عمر </string>
     <string name="mna5"> د ماشوم عمر </string>
     <string name="mna5months"> میاشت </string>
     <string name="mna5days"> ورځ </string>

@@ -415,6 +415,7 @@
 
     <string name="studycode"> Study Code </string>
     <string name="studyid"> Study ID </string>
+    <string name="dov"> Date of Visit </string>
 
     <string name="mainhead"> Polio Seroprevalence Survey Afghanistan </string>
     <string name="mnaheading"> A-Detail of index child </string>

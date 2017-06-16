@@ -80,6 +80,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             singleForm.COLUMN_HHDT + " TEXT," +
             singleForm.COLUMN_STUDYCODE + " TEXT," +
             singleForm.COLUMN_STUDYID + " TEXT," +
+            singleForm.COLUMN_DOV + " TEXT," +
             singleForm.COLUMN_NAME_USERNAME + " TEXT," +
             singleForm.COLUMN_DEVICETAGID + " TEXT," +
             singleForm.COLUMN_ISTATUS + " TEXT," +
@@ -139,6 +140,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(singleForm.COLUMN_HHDT, fc.getFormDate());
         values.put(singleForm.COLUMN_STUDYCODE, fc.getstudycode());
         values.put(singleForm.COLUMN_STUDYID, fc.getstudyid());
+        values.put(singleForm.COLUMN_DOV, fc.getdov());
         values.put(singleForm.COLUMN_APPVER, fc.getAppVer());
         values.put(singleForm.COLUMN_NAME_USERNAME, fc.getUserName());
         values.put(singleForm.COLUMN_DEVICETAGID, fc.getTagId());
@@ -376,6 +378,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleForm.COLUMN_APPVER,
                 singleForm.COLUMN_STUDYCODE,
                 singleForm.COLUMN_STUDYID,
+                singleForm.COLUMN_DOV,
                 singleForm.COLUMN_SA,
                 singleForm.COLUMN_SB,
                 singleForm.COLUMN_SC,
