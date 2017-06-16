@@ -6,7 +6,7 @@
     <string name="txterr">This data is required</string>
 
     <string name="nextSection">Next Section</string>
-    <string name="digits">1234567890.,+=-qwertyuiopasdfghjklzxcvbnm ?%#@!&amp;QWERTYUIOPASDFGHJKLZXCVBNM</string>
+    <string name="digits">1234567890.,+=-qwertyuiopasdfghjklzxcvbnm ?%#@!QWERTYUIOPASDFGHJKLZXCVBNM</string>
 
 
     <string name="title_activity_login">Log in</string>
@@ -177,7 +177,7 @@
     <string name="mnf3"> Since how long you are resident in this household </string>
     <string name="mnf3years"> Year </string>
     <string name="mnf3months"> Month </string>
-    <string name="mnf4"> Are you planning to move out from this area in next 2-3 months? </string>
+    <string name="mnf4"> Are you planning to move out from this area in next 2–3 months? </string>
     <string name="mnf5"> If Yes why </string>
     <string name="mngheading"> G-Samples collection status </string>
     <string name="mng1"> Samples collection status </string>
