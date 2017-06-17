@@ -183,6 +183,7 @@ public class SectionFActivity extends Activity {
         Intent endSec = new Intent(this, EndingActivity.class);
         endSec.putExtra("complete", false);
         startActivity(endSec);
+        finish();
     }
 
 
