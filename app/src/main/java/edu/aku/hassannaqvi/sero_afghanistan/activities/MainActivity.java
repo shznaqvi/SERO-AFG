@@ -233,6 +233,9 @@ public class MainActivity extends Activity {
 
     public void openA(View v) {
         /*Set Boolean for checking*/
+
+        finish();
+
         AppMain.flag = false;
 
         Intent iA = new Intent(this, SectionAActivity.class);
@@ -250,6 +253,7 @@ public class MainActivity extends Activity {
     }*/
 
     public void openD(View v) {
+        finish();
                 /*Set Boolean for checking*/
         AppMain.flag = false;
         Intent iD = new Intent(this, SectionDActivity.class);
@@ -257,6 +261,7 @@ public class MainActivity extends Activity {
     }
 
     public void openE(View v) {
+        finish();
                 /*Set Boolean for checking*/
         AppMain.flag = false;
         Intent iE = new Intent(this, SectionEActivity.class);
@@ -264,6 +269,7 @@ public class MainActivity extends Activity {
     }
 
     public void openF(View v) {
+        finish();
                 /*Set Boolean for checking*/
         AppMain.flag = false;
         Intent iF = new Intent(this, SectionFActivity.class);
@@ -276,6 +282,7 @@ public class MainActivity extends Activity {
     }*/
 
     public void openG(View v) {
+        finish();
                 /*Set Boolean for checking*/
         AppMain.flag = false;
         Intent iG = new Intent(this, SectionGActivity.class);
