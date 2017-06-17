@@ -172,7 +172,7 @@ public class SectionFActivity extends Activity {
                 }
             } else {
                 finish();
-                startActivity(new Intent(this, MainActivity.class));
+//                startActivity(new Intent(this, MainActivity.class));
             }
         }
     }

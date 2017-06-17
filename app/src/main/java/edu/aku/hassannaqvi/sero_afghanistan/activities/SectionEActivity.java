@@ -258,7 +258,7 @@ public class SectionEActivity extends Activity {
                 }
             }else {
                 finish();
-                startActivity(new Intent(this, MainActivity.class));
+//                startActivity(new Intent(this, MainActivity.class));
             }
         }
     }

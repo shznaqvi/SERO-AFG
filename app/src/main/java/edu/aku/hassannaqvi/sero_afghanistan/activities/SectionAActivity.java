@@ -402,7 +402,7 @@ public class SectionAActivity extends AppCompatActivity {
                 }
             } else {
                 finish();
-                startActivity(new Intent(this, MainActivity.class));
+//                startActivity(new Intent(this, MainActivity.class));
             }
         }
     }
