@@ -290,6 +290,9 @@ public class MainActivity extends Activity {
     }
 
     public void openEnd(View v) {
+
+        finish();
+
         Intent iEnd = new Intent(this, EndingActivity.class);
         startActivity(iEnd);
     }
