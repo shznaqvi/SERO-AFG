@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -22,9 +23,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -382,6 +388,8 @@ public class SectionAActivity extends AppCompatActivity {
                         SaveDraftC();
                     } catch (JSONException e) {
                         e.printStackTrace();
+                    } finally {
+
                     }
 
                     if (UpdateDB()) {
@@ -504,6 +512,7 @@ public class SectionAActivity extends AppCompatActivity {
         sA.put("mna6", mna6A.isChecked() ? "1" : mna6B.isChecked() ? "2" : "0");
 
         AppMain.fc.setsA(String.valueOf(sA));
+
 
         return true;
     }
@@ -1153,6 +1162,57 @@ public class SectionAActivity extends AppCompatActivity {
         }
 
         return "";
+    }
+
+
+    private void exportDB1(String db_name) throws JSONException {
+        final String inFileName = "/data/data/" + this.getPackageName() + "/databases/" + db_name;
+
+        try {
+
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            Date dt = new Date();
+
+            File sd = new File(Environment.getExternalStorageDirectory() + "/" + sdf.format(dt));
+
+            boolean success = true;
+            if (!sd.exists()) {
+                success = sd.mkdir();
+            }
+
+
+            if (success) {
+
+                File dbFile = new File(inFileName);
+
+                if (!dbFile.exists()) {
+                    dbFile.createNewFile();
+                }
+
+                FileInputStream fis = new FileInputStream(dbFile);
+
+                String outFileName = Environment.getExternalStorageDirectory() + "/" + sdf.format(dt) + "/" + db_name;
+
+                OutputStream output = new FileOutputStream(outFileName);
+
+                byte[] buffer = new byte[1024];
+
+
+                int length;
+
+                while ((length = fis.read(buffer)) > 0) {
+                    output.write(buffer, 0, length);
+                }
+
+
+                output.flush();
+                output.close();
+                fis.close();
+            }
+
+        } catch (Exception ex) {
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 
 //    @Override

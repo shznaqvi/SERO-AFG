@@ -1,6 +1,6 @@
 package edu.aku.hassannaqvi.sero_afghanistan.activities;
 
-import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -18,16 +18,20 @@ import com.google.zxing.integration.android.IntentResult;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.sero_afghanistan.R;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
+import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 
-public class SectionGActivity extends Activity {
+public class SectionGActivity extends AppCompatActivity {
 
-    private static final String TAG = SectionAActivity.class.getSimpleName();
+    private static final String TAG = SectionGActivity.class.getSimpleName();
 
     @BindView(R.id.mng1)
     RadioGroup mng1;
@@ -50,6 +54,54 @@ public class SectionGActivity extends Activity {
     @BindView(R.id.fldGrpmng2a)
     LinearLayout fldGrpmng2a;
 
+    @BindView(R.id.mnh1)
+    RadioGroup mnh1;
+    @BindView(R.id.mnh1a)
+    RadioButton mnh1a;
+    @BindView(R.id.mnh1b)
+    RadioButton mnh1b;
+
+    @BindView(R.id.mnh2)
+    EditText mnh2;
+
+    @BindView(R.id.mnh3a)
+    EditText mnh3a;
+
+    @BindView(R.id.mnh3b)
+    EditText mnh3b;
+
+
+    @BindView(R.id.mnh4)
+    RadioGroup mnh4;
+    @BindView(R.id.mnh4a)
+    RadioButton mnh4a;
+    @BindView(R.id.mnh4b)
+    RadioButton mnh4b;
+    @BindView(R.id.mnh4c)
+    RadioButton mnh4c;
+    @BindView(R.id.mnh4d)
+    RadioButton mnh4d;
+    @BindView(R.id.mnh4e)
+    RadioButton mnh4e;
+    @BindView(R.id.mnh488)
+    RadioButton mnh488;
+
+    @BindView(R.id.fldGrpmnh4c)
+    LinearLayout fldGrpmnh4c;
+
+    @BindView(R.id.fldGrpmnh488)
+    LinearLayout fldGrpmnh488;
+
+    @BindView(R.id.mnh4cdt)
+    DatePickerInputEditText mnh4cdt;
+
+    @BindView(R.id.mnh488x)
+    EditText mnh488x;
+
+    @BindView(R.id.fldGrpmnh2)
+    LinearLayout fldGrpmnh2;
+
+
     int rdo_mng1;
     String var_mng1;
 
@@ -59,6 +111,12 @@ public class SectionGActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_g);
         ButterKnife.bind(this);
+
+        mnh4cdt.setManager(getSupportFragmentManager());
+
+        String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
+
+        mnh4cdt.setMaxDate(dtToday);
 
         mng1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -84,6 +142,53 @@ public class SectionGActivity extends Activity {
                 }
             }
         });
+
+
+        mnh1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+                if (mnh1a.isChecked()) {
+
+                    mnh2.setText(null);
+                    mnh3a.setText(null);
+                    mnh3b.setText(null);
+                    mnh4.clearCheck();
+
+                    fldGrpmnh2.setVisibility(View.GONE);
+
+                } else {
+                    fldGrpmnh2.setVisibility(View.VISIBLE);
+                    mnh2.requestFocus();
+                }
+            }
+        });
+
+        mnh4.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+                if (mnh4c.isChecked()) {
+                    mnh488x.setText(null);
+                    fldGrpmnh488.setVisibility(View.GONE);
+
+                    fldGrpmnh4c.setVisibility(View.VISIBLE);
+                    mnh4cdt.requestFocus();
+
+                } else if (mnh488.isChecked()) {
+                    mnh4cdt.setText(null);
+                    fldGrpmnh4c.setVisibility(View.GONE);
+
+                    fldGrpmnh488.setVisibility(View.VISIBLE);
+                    mnh488x.requestFocus();
+                } else {
+                    mnh488x.setText(null);
+                    mnh4cdt.setText(null);
+                    fldGrpmnh4c.setVisibility(View.GONE);
+                    fldGrpmnh488.setVisibility(View.GONE);
+                }
+            }
+        });
+
+
     }
 
     @OnClick(R.id.btnNext)
@@ -106,7 +211,7 @@ public class SectionGActivity extends Activity {
                 } else {
                     Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
                 }
-            }else {
+            } else {
                 finish();
 //                startActivity(new Intent(this, MainActivity.class));
             }
@@ -231,6 +336,87 @@ public class SectionGActivity extends Activity {
         }
 
 
+        if (mnh1.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnh1), Toast.LENGTH_SHORT).show();
+            mnh1a.setError("This data is Required!");    // Set Error on last radio button
+            Log.i(TAG, "mnh1: This data is Required!");
+            return false;
+        } else {
+            mnh1a.setError(null);
+        }
+
+
+        if (mnh1b.isChecked()) {
+
+            if (mnh2.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnh2), Toast.LENGTH_SHORT).show();
+                mnh2.setError("This data is Required!");    // Set Error on last radio button
+                Log.i(TAG, "mnh2: This data is Required!");
+                return false;
+            } else {
+                mnh2.setError(null);
+            }
+
+
+            if (mnh3a.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnh3a), Toast.LENGTH_SHORT).show();
+                mnh3a.setError("This data is Required!");    // Set Error on last radio button
+                Log.i(TAG, "mnh3a: This data is Required!");
+                return false;
+            } else {
+                mnh3a.setError(null);
+            }
+
+
+            if (mnh3b.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnh3b), Toast.LENGTH_SHORT).show();
+                mnh3b.setError("This data is Required!");    // Set Error on last radio button
+                Log.i(TAG, "mnh3b: This data is Required!");
+                return false;
+            } else {
+                mnh3b.setError(null);
+            }
+
+
+            if (mnh4.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnh4), Toast.LENGTH_SHORT).show();
+                mnh4a.setError("This data is Required!");    // Set Error on last radio button
+                Log.i(TAG, "mnh4a: This data is Required!");
+                return false;
+            } else {
+                mnh4a.setError(null);
+            }
+
+
+            if (mnh4c.isChecked()) {
+
+                if (mnh4cdt.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnh4cdt), Toast.LENGTH_SHORT).show();
+                    mnh4cdt.setError("This data is Required!");    // Set Error on last radio button
+                    Log.i(TAG, "mnh4cdt: This data is Required!");
+                    return false;
+                } else {
+                    mnh4cdt.setError(null);
+                }
+
+            }
+
+
+            if (mnh488.isChecked()) {
+
+                if (mnh488x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.others), Toast.LENGTH_SHORT).show();
+                    mnh488x.setError("This data is Required!");    // Set Error on last radio button
+                    Log.i(TAG, "mnh488x: This data is Required!");
+                    return false;
+                } else {
+                    mnh488x.setError(null);
+                }
+
+            }
+
+        }
+
         return true;
     }
 
@@ -260,6 +446,22 @@ public class SectionGActivity extends Activity {
         } else {
             sG.put("mngsticker", mngsticker.getText().toString());
         }
+
+
+        sG.put("mnh1", mnh1a.isChecked() ? "1" : mnh1b.isChecked() ? "2" : "0");
+        sG.put("mnh2", mnh2.getText().toString());
+        sG.put("mnh3a", mnh3a.getText().toString());
+        sG.put("mnh3b", mnh3b.getText().toString());
+        sG.put("mnh4", mnh4a.isChecked() ? "1"
+                : mnh4b.isChecked() ? "2"
+                : mnh4c.isChecked() ? "3"
+                : mnh4d.isChecked() ? "4"
+                : mnh4e.isChecked() ? "5"
+                : mnh488.isChecked() ? "88"
+                : "0");
+
+        sG.put("mnh4cdt", mnh4cdt.getText().toString());
+        sG.put("mnh488x", mnh488x.getText().toString());
 
 
         AppMain.fc.setsG(String.valueOf(sG));
@@ -300,6 +502,7 @@ public class SectionGActivity extends Activity {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
+
     @Override
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();

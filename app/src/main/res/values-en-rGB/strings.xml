@@ -193,4 +193,18 @@
     <string name="mngsticker"> Sticker </string>
     <string name="endinterview">End Interview</string>
 
+    <string name="mnh1"> Do you live in your current residence 12 months out of the year </string>
+    <string name="mnh2"> If no, where else do you live/stay during the year </string>
+    <string name="mnh3a"> What months of the year do you live there? </string>
+    <string name="mnh3b"> What travel route do you take to get to your other residences and on what route do you return </string>
+    <string name="mnh4"> Which of the following groups do you belong to </string>
+    <string name="mnh4a"> Nomad/Choci </string>
+    <string name="mnh4b"> Seasonally displaced </string>
+    <string name="mnh4c"> Returnee/Refugee from Pakistan </string>
+    <string name="mnh4cdt"> When did you return from Pakistan </string>
+    <string name="mnh4d"> Migrant worker </string>
+    <string name="mnh4dt"> Date </string>
+    <string name="mnh4e"> Internal displaced </string>
+
+
 </resources>
