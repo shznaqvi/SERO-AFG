@@ -193,6 +193,7 @@
     <string name="mngsticker"> Sticker </string>
     <string name="endinterview">End Interview</string>
 
+    <string name="mnhheading"> H: Mobile Population Questions </string>
     <string name="mnh1"> Do you live in your current residence 12 months out of the year </string>
     <string name="mnh2"> If no, where else do you live/stay during the year </string>
     <string name="mnh3a"> What months of the year do you live there? </string>

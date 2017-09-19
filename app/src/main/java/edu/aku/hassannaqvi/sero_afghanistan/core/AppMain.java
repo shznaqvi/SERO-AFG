@@ -16,6 +16,7 @@ import android.view.View;
 import java.util.Map;
 
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.FormsContract;
+import edu.aku.hassannaqvi.sero_afghanistan.contracts.LocationContract;
 
 
 /**
@@ -70,6 +71,7 @@ public class AppMain extends Application {
     public static int chTotal = 0;
     public static boolean scanned = false;
     public static FormsContract fc;
+    public static LocationContract lc;
     public static SharedPreferences sharedPref;
     //    Ali
     public static String tehsilCode;
@@ -77,6 +79,8 @@ public class AppMain extends Application {
     public static String lhwCode;   //LHW code
     public static Boolean UCsCodeFlag = true;
     public static int UCsCode;
+    public static int NoOfLocations;
+    public static int locations = 1;
     public static Boolean VillageCodeFlag = true;
     public static String VillageName;
     public static String username = "";
@@ -234,7 +238,6 @@ public class AppMain extends Application {
                 editor.apply();
             }
         }
-
 
 
         public void onStatusChanged(String s, int i, Bundle b) {

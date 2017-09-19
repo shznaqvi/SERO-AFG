@@ -1,6 +1,6 @@
 package edu.aku.hassannaqvi.sero_afghanistan.activities;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -18,18 +18,14 @@ import com.google.zxing.integration.android.IntentResult;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.sero_afghanistan.R;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
-import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 
-public class SectionGActivity extends AppCompatActivity {
+public class SectionGActivity extends Activity {
 
     private static final String TAG = SectionGActivity.class.getSimpleName();
 
@@ -54,7 +50,7 @@ public class SectionGActivity extends AppCompatActivity {
     @BindView(R.id.fldGrpmng2a)
     LinearLayout fldGrpmng2a;
 
-    @BindView(R.id.mnh1)
+    /*@BindView(R.id.mnh1)
     RadioGroup mnh1;
     @BindView(R.id.mnh1a)
     RadioButton mnh1a;
@@ -99,7 +95,7 @@ public class SectionGActivity extends AppCompatActivity {
     EditText mnh488x;
 
     @BindView(R.id.fldGrpmnh2)
-    LinearLayout fldGrpmnh2;
+    LinearLayout fldGrpmnh2;*/
 
 
     int rdo_mng1;
@@ -112,11 +108,11 @@ public class SectionGActivity extends AppCompatActivity {
         setContentView(R.layout.activity_section_g);
         ButterKnife.bind(this);
 
-        mnh4cdt.setManager(getSupportFragmentManager());
+        /*mnh4cdt.setManager(getSupportFragmentManager());
 
         String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
 
-        mnh4cdt.setMaxDate(dtToday);
+        mnh4cdt.setMaxDate(dtToday);*/
 
         mng1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -144,7 +140,7 @@ public class SectionGActivity extends AppCompatActivity {
         });
 
 
-        mnh1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+       /* mnh1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
                 if (mnh1a.isChecked()) {
@@ -186,7 +182,7 @@ public class SectionGActivity extends AppCompatActivity {
                     fldGrpmnh488.setVisibility(View.GONE);
                 }
             }
-        });
+        });*/
 
 
     }
@@ -205,9 +201,13 @@ public class SectionGActivity extends AppCompatActivity {
                 if (UpdateDB()) {
                     Toast.makeText(this, "Starting Main", Toast.LENGTH_SHORT).show();
                     finish();
-                    Intent main = new Intent(this, EndingActivity.class);
+
+                    Intent secH = new Intent(this, SectionHActivity.class);
+                    startActivity(secH);
+
+                    /*Intent main = new Intent(this, EndingActivity.class);
                     main.putExtra("complete", true);
-                    startActivity(main);
+                    startActivity(main);*/
                 } else {
                     Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
                 }
@@ -336,7 +336,7 @@ public class SectionGActivity extends AppCompatActivity {
         }
 
 
-        if (mnh1.getCheckedRadioButtonId() == -1) {
+        /*if (mnh1.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnh1), Toast.LENGTH_SHORT).show();
             mnh1a.setError("This data is Required!");    // Set Error on last radio button
             Log.i(TAG, "mnh1: This data is Required!");
@@ -415,7 +415,7 @@ public class SectionGActivity extends AppCompatActivity {
 
             }
 
-        }
+        }*/
 
         return true;
     }
@@ -448,7 +448,7 @@ public class SectionGActivity extends AppCompatActivity {
         }
 
 
-        sG.put("mnh1", mnh1a.isChecked() ? "1" : mnh1b.isChecked() ? "2" : "0");
+        /*sG.put("mnh1", mnh1a.isChecked() ? "1" : mnh1b.isChecked() ? "2" : "0");
         sG.put("mnh2", mnh2.getText().toString());
         sG.put("mnh3a", mnh3a.getText().toString());
         sG.put("mnh3b", mnh3b.getText().toString());
@@ -461,7 +461,7 @@ public class SectionGActivity extends AppCompatActivity {
                 : "0");
 
         sG.put("mnh4cdt", mnh4cdt.getText().toString());
-        sG.put("mnh488x", mnh488x.getText().toString());
+        sG.put("mnh488x", mnh488x.getText().toString());*/
 
 
         AppMain.fc.setsG(String.valueOf(sG));

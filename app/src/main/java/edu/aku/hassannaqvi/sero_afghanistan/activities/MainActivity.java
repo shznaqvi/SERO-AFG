@@ -289,6 +289,14 @@ public class MainActivity extends Activity {
         startActivity(iG);
     }
 
+    public void openH(View v) {
+//        finish();
+                /*Set Boolean for checking*/
+        AppMain.flag = false;
+        Intent iH = new Intent(this, SectionHActivity.class);
+        startActivity(iH);
+    }
+
     public void openEnd(View v) {
         Intent iEnd = new Intent(this, EndingActivity.class);
         startActivity(iEnd);

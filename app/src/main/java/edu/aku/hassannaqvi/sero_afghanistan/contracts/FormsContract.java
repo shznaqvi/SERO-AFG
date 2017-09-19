@@ -35,6 +35,7 @@ public class FormsContract {
     private String sE = "";
     private String sF = "";
     private String sG = "";
+    private String sH = "";
     private String gpsLat = "";
     private String gpsLng = "";
     private String gpsTime = "";
@@ -68,6 +69,7 @@ public class FormsContract {
         this.sE = jsonObject.getString(singleForm.COLUMN_SE);
         this.sF = jsonObject.getString(singleForm.COLUMN_SF);
         this.sG = jsonObject.getString(singleForm.COLUMN_SG);
+        this.sH = jsonObject.getString(singleForm.COLUMN_SH);
 
         this.gpsLat = jsonObject.getString(singleForm.COLUMN_GPSLAT);
         this.gpsLng = jsonObject.getString(singleForm.COLUMN_GPSLNG);
@@ -233,6 +235,15 @@ public class FormsContract {
     }
 
 
+    public String getsH() {
+        return sH;
+    }
+
+    public void setsH(String sH) {
+        this.sH = sH;
+    }
+
+
     public String getGpsLat() {
         return gpsLat;
     }
@@ -310,6 +321,7 @@ public class FormsContract {
         this.sE = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SE));
         this.sF = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SF));
         this.sG = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SG));
+        this.sH = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_SH));
 
         this.gpsLat = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_GPSLAT));
         this.gpsLng = cursor.getString(cursor.getColumnIndex(singleForm.COLUMN_GPSLNG));
@@ -352,6 +364,7 @@ public class FormsContract {
         json.put(singleForm.COLUMN_SE, this.sE.equals("") ? JSONObject.NULL : new JSONObject(this.sE));
         json.put(singleForm.COLUMN_SF, this.sF.equals("") ? JSONObject.NULL : new JSONObject(this.sF));
         json.put(singleForm.COLUMN_SG, this.sG.equals("") ? JSONObject.NULL : new JSONObject(this.sG));
+        json.put(singleForm.COLUMN_SH, this.sH.equals("") ? JSONObject.NULL : new JSONObject(this.sH));
 
         json.put(singleForm.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
         json.put(singleForm.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
@@ -413,6 +426,7 @@ public class FormsContract {
         public static final String COLUMN_SE = "se";
         public static final String COLUMN_SF = "sf";
         public static final String COLUMN_SG = "sg";
+        public static final String COLUMN_SH = "sh";
 
         public static final String COLUMN_GPSLAT = "gpslat";
         public static final String COLUMN_GPSLNG = "gpslng";

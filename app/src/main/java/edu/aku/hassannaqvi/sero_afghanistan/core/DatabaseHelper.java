@@ -24,6 +24,7 @@ import edu.aku.hassannaqvi.sero_afghanistan.contracts.HFacilitiesContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.HFacilitiesContract.HFacilityTable;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.LHWsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.LHWsContract.LHWTable;
+import edu.aku.hassannaqvi.sero_afghanistan.contracts.LocationContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.PSUsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.PSUsContract.singleChild;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.ProvinceContract;
@@ -39,7 +40,7 @@ import edu.aku.hassannaqvi.sero_afghanistan.contracts.VillagesContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.VillagesContract.VillageTable;
 
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.ProvinceContract.ProvinceEntry;
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.ProvinceContract;
+import edu.aku.hassannaqvi.sero_afghanistan.contracts.LocationContract.LocationTable;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.DistrictContract.DistrictEntry;
 
 /**
@@ -92,6 +93,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             singleForm.COLUMN_SE + " TEXT," +
             singleForm.COLUMN_SF + " TEXT," +
             singleForm.COLUMN_SG + " TEXT," +
+            singleForm.COLUMN_SH + " TEXT," +
             singleForm.COLUMN_GPSLAT + " TEXT," +
             singleForm.COLUMN_GPSLNG + " TEXT," +
             singleForm.COLUMN_GPSTIME + " TEXT," +
@@ -100,6 +102,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             singleForm.COLUMN_SYNCED + " TEXT," +
             singleForm.COLUMN_SYNCED_DATE + " TEXT"
             + " );";
+
+
+    private static final String SQL_CREATE_LOCATION = "CREATE TABLE "
+            + LocationTable.TABLE_NAME + "("
+            + LocationTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            LocationTable.COLUMN_UID + " TEXT," +
+            LocationTable.COLUMN_DEVICEID + " TEXT," +
+            LocationTable.COLUMN_DEVICETAGID + " TEXT," +
+            LocationTable.COLUMN_FORMDATE + " TEXT," +
+            LocationTable.COLUMN_USER + " TEXT," +
+            LocationTable.COLUMN_SH + " TEXT," +
+            LocationTable.COLUMN_SYNCED + " TEXT," +
+            LocationTable.COLUMN_SYNCED_DATE + " TEXT"
+            + " );";
+
+
     private static final String SQL_DELETE_FORMS = "DROP TABLE IF EXISTS " + singleForm.TABLE_NAME;
     private static final String SQL_DELETE_USERS = "DROP TABLE IF EXISTS " + singleUser.TABLE_NAME;
 
@@ -117,6 +135,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_FORMS);
+        db.execSQL(SQL_CREATE_LOCATION);
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_PROV);
         db.execSQL(SQL_CREATE_DIST);
@@ -169,6 +188,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         DB_FORM_ID = String.valueOf(newRowId);
         return newRowId;
     }
+
+
+    public Long addLocation(LocationContract mc) {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+
+        values.put(LocationTable.COLUMN_UID, mc.getUID());
+        values.put(LocationTable.COLUMN_FORMDATE, mc.getFormDate());
+        values.put(LocationTable.COLUMN_USER, mc.getUser());
+        values.put(LocationTable.COLUMN_SH, mc.getsH());
+        values.put(LocationTable.COLUMN_DEVICETAGID, mc.getDevicetagID());
+
+        // SYNCED INFORMATION IS NEVER INSERTED WITH NEW RECORD.
+     /*   values.put(MWRATable.COLUMN_SYNCED, mc.getSynced());
+        values.put(MWRATable.COLUMN_SYNCED_DATE, mc.getSynced_date());*/
+
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                LocationTable.TABLE_NAME,
+                LocationTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
 
     public int updateFormID() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -286,6 +335,47 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public int updateSectionsH() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // New value for one column
+        ContentValues values = new ContentValues();
+        values.put(LocationTable.COLUMN_SH, AppMain.lc.getsH());
+        values.put(LocationTable.COLUMN_DEVICEID, AppMain.fc.getDeviceID());
+        values.put(LocationTable.COLUMN_UID, AppMain.lc.getUID());
+
+
+        // Which row to update, based on the ID
+        String selection = LocationTable._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
+
+        int count = db.update(LocationTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+
+    public int updateFormssH() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // New value for one column
+        ContentValues values = new ContentValues();
+        values.put(singleForm.COLUMN_SH, AppMain.fc.getsH());
+
+        // Which row to update, based on the ID
+        String selection = singleForm._ID + " = ?";
+        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
+
+        int count = db.update(singleForm.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+
     public void updateForms(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -323,6 +413,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleForm.COLUMN_SE,
                 singleForm.COLUMN_SF,
                 singleForm.COLUMN_SG,
+                singleForm.COLUMN_SH,
                 singleForm.COLUMN_GPSLAT,
                 singleForm.COLUMN_GPSLNG,
                 singleForm.COLUMN_GPSTIME,
@@ -386,6 +477,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleForm.COLUMN_SE,
                 singleForm.COLUMN_SF,
                 singleForm.COLUMN_SG,
+                singleForm.COLUMN_SH,
                 singleForm.COLUMN_GPSLAT,
                 singleForm.COLUMN_GPSLNG,
                 singleForm.COLUMN_GPSTIME,
