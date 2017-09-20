@@ -1,8 +1,8 @@
 package edu.aku.hassannaqvi.sero_afghanistan.syncclasses;
 
+import android.os.AsyncTask;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -19,20 +19,21 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collection;
 
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.FormsContract;
+import edu.aku.hassannaqvi.sero_afghanistan.contracts.LocationContract;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
 
 /**
- * Created by hassan.naqvi on 7/26/2016.
+ * Created by javed.khan on 9/20/2017.
  */
-public class SyncForms extends AsyncTask<Void, Void, String> {
 
-    private static final String TAG = "SyncForms";
+public class SyncLocation extends AsyncTask<Void, Void, String> {
+
+    private static final String TAG = "SyncLocation";
     private Context mContext;
     private ProgressDialog pd;
 
-    public SyncForms(Context context) {
+    public SyncLocation(Context context) {
         mContext = context;
     }
 
@@ -49,7 +50,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         pd = new ProgressDialog(mContext);
-        pd.setTitle("Please wait... Processing Forms");
+        pd.setTitle("Please wait... Processing Location");
         pd.show();
     }
 
@@ -58,7 +59,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
     protected String doInBackground(Void... params) {
         try {
 
-            String url = AppMain.PROJECT_URI + FormsContract.singleForm.URI;
+            String url = AppMain.PROJECT_URI + LocationContract.LocationTable._URL;
 
             Log.d(TAG, "doInBackground: URL " + url);
             return downloadUrl(url);
@@ -70,7 +71,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
     private String downloadUrl(String myurl) throws IOException {
         String line = "No Response";
         DatabaseHelper db = new DatabaseHelper(mContext);
-        Collection<FormsContract> Forms = db.getUnsyncedForms();
+        Collection<LocationContract> Forms = db.getUnsyncedLocation();
 
         if (Forms.size() > 0) {
             HttpURLConnection connection = null;
@@ -98,7 +99,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
                 Log.d(TAG, String.valueOf(Forms.size()));
 //            pd.setMessage("Total Forms: " );
 
-                for (FormsContract fc : Forms) {
+                for (LocationContract fc : Forms) {
                     //if (fc.getIstatus().equals("1")) {
                     jsonSync.put(fc.toJSONObject());
                     //}
@@ -166,7 +167,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
             Toast.makeText(mContext, sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError, Toast.LENGTH_SHORT).show();
 
             pd.setMessage(sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError);
-            pd.setTitle("Done uploading Forms data");
+            pd.setTitle("Done uploading Location data");
             pd.show();
         } catch (JSONException e) {
             e.printStackTrace();

@@ -48,6 +48,7 @@ import edu.aku.hassannaqvi.sero_afghanistan.getclasses.GetProvince;
 import edu.aku.hassannaqvi.sero_afghanistan.getclasses.GetUCs;
 import edu.aku.hassannaqvi.sero_afghanistan.getclasses.GetUsers;
 import edu.aku.hassannaqvi.sero_afghanistan.syncclasses.SyncForms;
+import edu.aku.hassannaqvi.sero_afghanistan.syncclasses.SyncLocation;
 
 public class MainActivity extends Activity {
 
@@ -324,6 +325,7 @@ public class MainActivity extends Activity {
             Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
             new SyncForms(this).execute();
 
+            new SyncLocation(this).execute();
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = syncPref.edit();

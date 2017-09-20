@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -85,8 +87,14 @@ public class LocationActivity extends AppCompatActivity {
     @BindView(R.id.btnNext)
     Button btnNext;
 
+    @BindView(R.id.activity_section_a)
+    ScrollView activity_section_a;
+
     /*@BindView(R.id.mnh2a)
     EditText mnh2a;*/
+
+    @BindView(R.id.lbl_count)
+    TextView lbl_count;
 
 
     @Override
@@ -95,6 +103,7 @@ public class LocationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_location);
         ButterKnife.bind(this);
 
+        lbl_count.setText("Location " + AppMain.locations + " of " + AppMain.NoOfLocations);
 
         mnh4cdt.setManager(getSupportFragmentManager());
 
@@ -159,30 +168,37 @@ public class LocationActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                AppMain.locations++;
+                if (UpdateDB()) {
 
-                if (AppMain.locations > AppMain.NoOfLocations) {
+                    if (AppMain.locations >= AppMain.NoOfLocations) {
 
-                    Toast.makeText(this, "Starting Ending", Toast.LENGTH_SHORT).show();
-                    finish();
-                    Intent main = new Intent(this, EndingActivity.class);
-                    main.putExtra("complete", true);
-                    startActivity(main);
+                        Toast.makeText(this, "Starting Ending", Toast.LENGTH_SHORT).show();
+                        finish();
+                        Intent main = new Intent(this, EndingActivity.class);
+                        main.putExtra("complete", true);
+                        startActivity(main);
+                    }
 
                 } else {
-                    if (UpdateDB()) {
-
-                        mnh2.setText(null);
-                        mnh3a.setText(null);
-                        mnh3b.setText(null);
-                        mnh4.clearCheck();
-                        mnh4cdt.setText(null);
-                        mnh488x.setText(null);
-
-                    } else {
-                        Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-                    }
+                    Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
                 }
+
+                AppMain.locations++;
+
+                lbl_count.setText("Location " + AppMain.locations + " of " + AppMain.NoOfLocations);
+
+                mnh2.setText(null);
+                mnh3a.setText(null);
+                mnh3b.setText(null);
+                mnh4.clearCheck();
+                mnh4cdt.setText(null);
+                mnh488x.setText(null);
+
+                mnh2.requestFocus();
+
+                activity_section_a.setScrollY(0);
+
+
             } else {
                 finish();
 //                startActivity(new Intent(this, MainActivity.class));
@@ -330,7 +346,7 @@ public class LocationActivity extends AppCompatActivity {
             } else {
                 mnh488x.setError(null);
             }
-            ;
+
         }
 
         //}

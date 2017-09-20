@@ -70,6 +70,11 @@
             android:ems="10"
             android:inputType="number" />-->
 
+        <TextView
+            android:id="@+id/lbl_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" />
 
         <TextView
             android:id="@+id/lbl_mnh2"

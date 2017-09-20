@@ -166,6 +166,17 @@ public class SectionHActivity extends Activity {
             } else {
                 mnh2a.setError(null);
             }
+
+
+            if (Integer.parseInt(mnh2a.getText().toString()) <= 0) {
+                Toast.makeText(this, "Number of location cannot be less than or equal to 0", Toast.LENGTH_SHORT).show();
+                mnh2a.setError("This data is Required!");    // Set Error on last radio button
+                Log.i(TAG, "mnh2a: This data is Required!");
+                return false;
+            } else {
+                mnh2a.setError(null);
+            }
+
         }
 
         return true;

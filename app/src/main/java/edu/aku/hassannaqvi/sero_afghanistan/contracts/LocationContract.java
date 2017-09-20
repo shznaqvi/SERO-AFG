@@ -144,10 +144,11 @@ public class LocationContract {
 
         json.put(LocationTable.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(LocationTable.COLUMN_UID, this.UID == null ? JSONObject.NULL : this.UID);
+        //json.put(LocationTable.COLUMN_PROJECT_NAME, this.projectName == null ? JSONObject.NULL : this.projectName);
         json.put(LocationTable.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
         json.put(LocationTable.COLUMN_DEVICEID, this.deviceId == null ? JSONObject.NULL : this.deviceId);
         json.put(LocationTable.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
-        json.put(LocationTable.COLUMN_SH, this.sH == null ? JSONObject.NULL : this.sH);
+        json.put(LocationTable.COLUMN_SH, this.sH == null ? JSONObject.NULL : new JSONObject(this.sH));
         json.put(LocationTable.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
 
         return json;
@@ -158,7 +159,7 @@ public class LocationContract {
         public static final String TABLE_NAME = "location";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
 
-        public static final String COLUMN_PROJECT_NAME = "project_name";
+        //public static final String COLUMN_PROJECT_NAME = "project_name";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "uid";
         public static final String COLUMN_FORMDATE = "formdate";
@@ -170,7 +171,7 @@ public class LocationContract {
         public static final String COLUMN_DEVICETAGID = "tagid";
 
 
-        public static String _URL = "location.php";
+        public static String _URL = "/location.php";
     }
 
 }

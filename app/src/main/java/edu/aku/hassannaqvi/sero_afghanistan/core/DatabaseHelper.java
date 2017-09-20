@@ -7,6 +7,7 @@ import android.database.MatrixCursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.location.Location;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -198,11 +199,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
 
-        values.put(LocationTable.COLUMN_UID, mc.getUID());
+//        values.put(LocationTable.COLUMN_UID, mc.getUID());
         values.put(LocationTable.COLUMN_FORMDATE, mc.getFormDate());
         values.put(LocationTable.COLUMN_USER, mc.getUser());
         values.put(LocationTable.COLUMN_SH, mc.getsH());
         values.put(LocationTable.COLUMN_DEVICETAGID, mc.getDevicetagID());
+        values.put(LocationTable.COLUMN_DEVICEID, AppMain.fc.getDeviceID());
+
 
         // SYNCED INFORMATION IS NEVER INSERTED WITH NEW RECORD.
      /*   values.put(MWRATable.COLUMN_SYNCED, mc.getSynced());
@@ -340,14 +343,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // New value for one column
         ContentValues values = new ContentValues();
-        values.put(LocationTable.COLUMN_SH, AppMain.lc.getsH());
-        values.put(LocationTable.COLUMN_DEVICEID, AppMain.fc.getDeviceID());
+        //values.put(LocationTable.COLUMN_SH, AppMain.lc.getsH());
+
         values.put(LocationTable.COLUMN_UID, AppMain.lc.getUID());
 
 
         // Which row to update, based on the ID
         String selection = LocationTable._ID + " = ?";
-        String[] selectionArgs = {String.valueOf(AppMain.fc.getID())};
+        String[] selectionArgs = {String.valueOf(AppMain.lc.get_ID())};
 
         int count = db.update(LocationTable.TABLE_NAME,
                 values,
@@ -520,6 +523,57 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return allFC;
     }
+
+
+    public Collection<LocationContract> getUnsyncedLocation() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                LocationTable.COLUMN_ID,
+                LocationTable.COLUMN_UID,
+                LocationTable.COLUMN_FORMDATE,
+                LocationTable.COLUMN_SH,
+                LocationTable.COLUMN_USER,
+                LocationTable.COLUMN_DEVICETAGID,
+                LocationTable.COLUMN_DEVICEID,
+                LocationTable.COLUMN_SYNCED,
+                LocationTable.COLUMN_SYNCED_DATE
+        };
+        String whereClause = LocationTable.COLUMN_SYNCED + " is null OR " + LocationTable.COLUMN_SYNCED + " = ''";
+//        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                LocationTable._ID + " ASC";
+
+        Collection<LocationContract> allFC = new ArrayList<LocationContract>();
+        try {
+            c = db.query(
+                    LocationTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                LocationContract fc = new LocationContract();
+                allFC.add(fc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allFC;
+    }
+
 
     public Collection<FormsContract> getTodayForms() {
         SQLiteDatabase db = this.getReadableDatabase();
