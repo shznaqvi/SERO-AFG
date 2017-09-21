@@ -1,7 +1,11 @@
 package edu.aku.hassannaqvi.sero_afghanistan.core;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Application;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -15,6 +19,7 @@ import android.view.View;
 
 import java.util.Map;
 
+import edu.aku.hassannaqvi.sero_afghanistan.activities.EndingActivity;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.FormsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.LocationContract;
 
@@ -94,6 +99,8 @@ public class AppMain extends Application {
     public static boolean flag = false;
     public static String studyCode = "";
 
+    public static boolean IsExit = false;
+
 
     @Override
     public void onCreate() {
@@ -135,6 +142,32 @@ public class AppMain extends Application {
         }
     }
 
+    public static void endActivity(final Context context, final Activity activity) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                context);
+        alertDialogBuilder
+                .setMessage("Do you want to Exit ?")
+                .setCancelable(false)
+                .setPositiveButton("Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int id) {
+                                activity.finish();
+                                Intent end_intent = new Intent(context, EndingActivity.class);
+                                end_intent.putExtra("complete", IsExit);
+                                context.startActivity(end_intent);
+                            }
+                        });
+        alertDialogBuilder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
+    }
+
     protected void showCurrentLocation() {
 
         Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
@@ -152,8 +185,6 @@ public class AppMain extends Application {
 
     public void showGPSCoordinates(View v) {
         showCurrentLocation();
-
-
     }
 
     protected boolean isBetterLocation(Location location, Location currentBestLocation) {

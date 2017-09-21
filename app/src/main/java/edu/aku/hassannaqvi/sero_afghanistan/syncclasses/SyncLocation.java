@@ -174,7 +174,7 @@ public class SyncLocation extends AsyncTask<Void, Void, String> {
             Toast.makeText(mContext, "Failed Sync " + result, Toast.LENGTH_SHORT).show();
 
             pd.setMessage(result);
-            pd.setTitle("Forms Sync Failed");
+            pd.setTitle("Location Sync Failed");
             pd.show();
         }
     }

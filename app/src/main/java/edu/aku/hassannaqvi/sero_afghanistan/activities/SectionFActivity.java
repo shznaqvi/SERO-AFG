@@ -180,10 +180,8 @@ public class SectionFActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void endInterview() {
-        Intent endSec = new Intent(this, EndingActivity.class);
-        endSec.putExtra("complete", false);
-        startActivity(endSec);
-        finish();
+        AppMain.IsExit = false;
+        AppMain.endActivity(this, this);
     }
 
 
@@ -468,6 +466,7 @@ public class SectionFActivity extends Activity {
 
         return true;
     }
+
     @Override
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();

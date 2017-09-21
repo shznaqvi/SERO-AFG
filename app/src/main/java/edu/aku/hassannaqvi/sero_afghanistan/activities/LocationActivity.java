@@ -172,7 +172,8 @@ public class LocationActivity extends AppCompatActivity {
 
                     if (AppMain.locations >= AppMain.NoOfLocations) {
 
-                        Toast.makeText(this, "Starting Ending", Toast.LENGTH_SHORT).show();
+                        AppMain.locations = 1;
+
                         finish();
                         Intent main = new Intent(this, EndingActivity.class);
                         main.putExtra("complete", true);
@@ -209,10 +210,9 @@ public class LocationActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_End)
     void endInterview() {
-        Intent endSec = new Intent(this, EndingActivity.class);
-        endSec.putExtra("complete", false);
-        startActivity(endSec);
-        finish();
+        AppMain.IsExit = false;
+        AppMain.locations = 1;
+        AppMain.endActivity(this, this);
     }
 
 

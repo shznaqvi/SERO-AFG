@@ -256,7 +256,7 @@ public class SectionEActivity extends Activity {
                 } else {
                     Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
                 }
-            }else {
+            } else {
                 finish();
 //                startActivity(new Intent(this, MainActivity.class));
             }
@@ -266,10 +266,8 @@ public class SectionEActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void endInterview() {
-        Intent endSec = new Intent(this, EndingActivity.class);
-        endSec.putExtra("complete", false);
-        startActivity(endSec);
-        finish();
+        AppMain.IsExit = false;
+        AppMain.endActivity(this, this);
     }
 
 
@@ -545,6 +543,7 @@ public class SectionEActivity extends Activity {
 
         return true;
     }
+
     @Override
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();

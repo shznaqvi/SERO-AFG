@@ -221,10 +221,8 @@ public class SectionGActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void endInterview() {
-        Intent endSec = new Intent(this, EndingActivity.class);
-        endSec.putExtra("complete", false);
-        startActivity(endSec);
-        finish();
+        AppMain.IsExit = false;
+        AppMain.endActivity(this, this);
     }
 
 

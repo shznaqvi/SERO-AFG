@@ -84,6 +84,7 @@ public class SectionHActivity extends Activity {
                         startActivity(main);
                     } else {
                         Toast.makeText(this, "Starting Location", Toast.LENGTH_SHORT).show();
+                        finish();
                         Intent main = new Intent(this, LocationActivity.class);
                         startActivity(main);
                     }
@@ -102,10 +103,8 @@ public class SectionHActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void endInterview() {
-        Intent endSec = new Intent(this, EndingActivity.class);
-        endSec.putExtra("complete", false);
-        startActivity(endSec);
-        finish();
+        AppMain.IsExit = false;
+        AppMain.endActivity(this, this);
     }
 
     private boolean UpdateDB() {
