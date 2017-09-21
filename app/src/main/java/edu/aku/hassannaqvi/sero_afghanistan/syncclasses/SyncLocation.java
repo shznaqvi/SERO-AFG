@@ -157,7 +157,7 @@ public class SyncLocation extends AsyncTask<Void, Void, String> {
 
                 JSONObject jsonObject = new JSONObject(json.getString(i));
                 if (jsonObject.getString("status").equals("1") && jsonObject.getString("error").equals("0")) {
-                    db.updateForms(jsonObject.getString("id"));
+                    db.updateLocation(jsonObject.getString("id"));
                     sSynced++;
                 } else {
                     sSyncedError += jsonObject.getString("message").toString() + "\n";

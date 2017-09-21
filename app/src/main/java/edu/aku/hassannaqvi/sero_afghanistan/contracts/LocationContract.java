@@ -167,7 +167,7 @@ public class LocationContract {
         public static final String COLUMN_USER = "user";
         public static final String COLUMN_SH = "sh";
         public static final String COLUMN_SYNCED = "synced";
-        public static final String COLUMN_SYNCED_DATE = "sync_date";
+        public static final String COLUMN_SYNCED_DATE = "synced_date";
         public static final String COLUMN_DEVICETAGID = "tagid";
 
 
