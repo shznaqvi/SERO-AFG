@@ -78,10 +78,10 @@ public class SectionHActivity extends Activity {
                 if (UpdateDB()) {
 
                     if (mnh1a.isChecked()) {
-                        Toast.makeText(this, "Starting Ending", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Starting Section G", Toast.LENGTH_SHORT).show();
                         finish();
-                        Intent main = new Intent(this, EndingActivity.class);
-                        main.putExtra("complete", true);
+                        Intent main = new Intent(this, SectionGActivity.class);
+                        //main.putExtra("complete", true);
                         startActivity(main);
                     } else {
                         Toast.makeText(this, "Starting Location", Toast.LENGTH_SHORT).show();
