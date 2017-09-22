@@ -165,7 +165,7 @@ public class SectionFActivity extends Activity {
                 if (UpdateDB()) {
                     Toast.makeText(this, "Starting Section G", Toast.LENGTH_SHORT).show();
                     finish();
-                    Intent secG = new Intent(this, SectionGActivity.class);
+                    Intent secG = new Intent(this, SectionHActivity.class);
                     startActivity(secG);
                 } else {
                     Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();

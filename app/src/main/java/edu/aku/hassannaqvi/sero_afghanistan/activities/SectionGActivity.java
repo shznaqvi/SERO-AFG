@@ -202,12 +202,9 @@ public class SectionGActivity extends Activity {
                     Toast.makeText(this, "Starting Main", Toast.LENGTH_SHORT).show();
                     finish();
 
-                    Intent secH = new Intent(this, SectionHActivity.class);
-                    startActivity(secH);
-
-                    /*Intent main = new Intent(this, EndingActivity.class);
+                    Intent main = new Intent(this, EndingActivity.class);
                     main.putExtra("complete", true);
-                    startActivity(main);*/
+                    startActivity(main);
                 } else {
                     Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
                 }

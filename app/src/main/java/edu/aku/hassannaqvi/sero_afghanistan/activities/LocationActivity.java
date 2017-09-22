@@ -175,9 +175,12 @@ public class LocationActivity extends AppCompatActivity {
                         AppMain.locations = 1;
 
                         finish();
-                        Intent main = new Intent(this, EndingActivity.class);
-                        main.putExtra("complete", true);
+                        Intent main = new Intent(this, SectionGActivity.class);
                         startActivity(main);
+
+                        /*Intent main = new Intent(this, EndingActivity.class);
+                        main.putExtra("complete", true);
+                        startActivity(main);*/
                     }
 
                 } else {

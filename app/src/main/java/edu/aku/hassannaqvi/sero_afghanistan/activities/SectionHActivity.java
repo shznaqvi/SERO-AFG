@@ -74,6 +74,7 @@ public class SectionHActivity extends Activity {
                     e.printStackTrace();
                 }
 
+
                 if (UpdateDB()) {
 
                     if (mnh1a.isChecked()) {
