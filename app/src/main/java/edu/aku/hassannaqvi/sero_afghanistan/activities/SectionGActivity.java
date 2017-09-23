@@ -41,6 +41,8 @@ public class SectionGActivity extends Activity {
     EditText mng2a;
     @BindView(R.id.mng2b)
     EditText mng2b;
+
+
     @BindView(R.id.mngsticker)
     EditText mngsticker;
 
