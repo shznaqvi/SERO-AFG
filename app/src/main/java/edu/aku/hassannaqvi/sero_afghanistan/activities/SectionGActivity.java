@@ -103,6 +103,7 @@ public class SectionGActivity extends Activity {
     int rdo_mng1;
     String var_mng1;
 
+    Boolean flagSticker = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -444,6 +445,7 @@ public class SectionGActivity extends Activity {
             sG.put("mngsticker", mngsticker.getText().toString());
         }
 
+        sG.put("mngFlagSticker",flagSticker);
 
         /*sG.put("mnh1", mnh1a.isChecked() ? "1" : mnh1b.isChecked() ? "2" : "0");
         sG.put("mnh2", mnh2.getText().toString());
@@ -490,10 +492,16 @@ public class SectionGActivity extends Activity {
         if (result != null) {
             if (result.getContents() == null) {
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+                mngsticker.setEnabled(true);
+                mngsticker.setText(null);
+                flagSticker = true;
+
             } else {
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
                 mngsticker.setText("§" + result.getContents());
-                //mngsticker.setEnabled(false);
+                mngsticker.setEnabled(false);
+
+                flagSticker = false;
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
