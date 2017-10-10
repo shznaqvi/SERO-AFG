@@ -7,12 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,13 +22,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.sero_afghanistan.R;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.LocationContract;
+import edu.aku.hassannaqvi.sero_afghanistan.contracts.MonthContract;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
 import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
@@ -74,8 +79,8 @@ public class LocationActivity extends AppCompatActivity {
     @BindView(R.id.fldGrpmnh488)
     LinearLayout fldGrpmnh488;
 
-    @BindView(R.id.mnh4cdt)
-    DatePickerInputEditText mnh4cdt;
+    /*@BindView(R.id.mnh4cdt)
+    DatePickerInputEditText mnh4cdt;*/
 
     @BindView(R.id.mnh488x)
     EditText mnh488x;
@@ -93,8 +98,17 @@ public class LocationActivity extends AppCompatActivity {
     /*@BindView(R.id.mnh2a)
     EditText mnh2a;*/
 
+    @BindView(R.id.mnh4cto)
+    Spinner mnh4cto;
+
+    @BindView(R.id.mnh4cfrom)
+    Spinner mnh4cfrom;
+
     @BindView(R.id.lbl_count)
     TextView lbl_count;
+
+    ArrayList<String> monthTo;
+    Map<String, String> monthMap;
 
 
     @Override
@@ -105,11 +119,31 @@ public class LocationActivity extends AppCompatActivity {
 
         lbl_count.setText("Location " + AppMain.locations + " of " + AppMain.NoOfLocations);
 
-        mnh4cdt.setManager(getSupportFragmentManager());
 
-        String dtToday = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
+        monthTo = new ArrayList<>();
 
-        mnh4cdt.setMaxDate(dtToday);
+        monthTo.add(0, "Select Month");
+        monthTo.add(1, "جنوري");
+        monthTo.add(2, "فبروري");
+        monthTo.add(3, "مارچ");
+        monthTo.add(4, "اپریل");
+        monthTo.add(5, "می");
+        monthTo.add(6, "جون");
+        monthTo.add(7, "جولای");
+        monthTo.add(8, "اګست");
+        monthTo.add(9, "سپتمبر");
+        monthTo.add(10, "اکتوبر");
+        monthTo.add(11, "نومبر");
+        monthTo.add(12, "دسمبر");
+
+        mnh4cto.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, monthTo));
+        mnh4cfrom.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, monthTo));
+
+        //mnh4cdt.setManager(getSupportFragmentManager());
+
+        //String dtToday = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
+
+        //mnh4cdt.setMaxDate(dtToday);
 
         /*mnh1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -141,14 +175,14 @@ public class LocationActivity extends AppCompatActivity {
                     fldGrpmnh4c.setVisibility(View.VISIBLE);
 
                 } else if (mnh488.isChecked()) {
-                    mnh4cdt.setText(null);
+                    //mnh4cdt.setText(null);
                     fldGrpmnh4c.setVisibility(View.GONE);
 
                     fldGrpmnh488.setVisibility(View.VISIBLE);
                     mnh488x.requestFocus();
                 } else {
                     mnh488x.setText(null);
-                    mnh4cdt.setText(null);
+                    //mnh4cdt.setText(null);
                     fldGrpmnh4c.setVisibility(View.GONE);
                     fldGrpmnh488.setVisibility(View.GONE);
                 }
@@ -195,7 +229,10 @@ public class LocationActivity extends AppCompatActivity {
                 mnh3a.setText(null);
                 mnh3b.setText(null);
                 mnh4.clearCheck();
-                mnh4cdt.setText(null);
+                //mnh4cdt.setText(null);
+                mnh4cto.setSelection(0);
+                mnh4cfrom.setSelection(0);
+
                 mnh488x.setText(null);
 
                 mnh2.requestFocus();
@@ -327,14 +364,27 @@ public class LocationActivity extends AppCompatActivity {
 
         if (mnh4c.isChecked()) {
 
-            if (mnh4cdt.getText().toString().isEmpty()) {
+
+            if (mnh4cto.getSelectedItemId() == 0) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnh4cdt), Toast.LENGTH_SHORT).show();
+                Log.i(TAG, "mnh4cto: This data is Required!");
+                return false;
+            }
+
+            if (mnh4cfrom.getSelectedItemId() == 0) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnh4cdt), Toast.LENGTH_SHORT).show();
+                Log.i(TAG, "mnh4cfrom: This data is Required!");
+                return false;
+            }
+
+            /*if (mnh4cdt.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnh4cdt), Toast.LENGTH_SHORT).show();
                 mnh4cdt.setError("This data is Required!");    // Set Error on last radio button
                 Log.i(TAG, "mnh4cdt: This data is Required!");
                 return false;
             } else {
                 mnh4cdt.setError(null);
-            }
+            }*/
 
         }
 
@@ -393,7 +443,14 @@ public class LocationActivity extends AppCompatActivity {
                 : mnh488.isChecked() ? "88"
                 : "0");
 
-        sH.put("mnh4cdt", mnh4cdt.getText().toString());
+        //sH.put("mnh4cdt", mnh4cdt.getText().toString());
+
+        sH.put("mnh4cto", mnh4cto.getSelectedItemId());
+        sH.put("mnh4cfrom", mnh4cfrom.getSelectedItemId());
+
+        Log.d(TAG, "SaveDraft: " + mnh4cto.getSelectedItemId() + " - " + mnh4cfrom.getSelectedItemId());
+
+
         sH.put("mnh488x", mnh488x.getText().toString());
 
 
