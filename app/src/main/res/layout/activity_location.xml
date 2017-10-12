@@ -97,14 +97,28 @@
             android:layout_height="wrap_content"
             android:text="@string/mnh3a" />
 
-        <EditText
+        <!--<EditText
             android:id="@+id/mnh3a"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
             android:ems="10"
-            android:inputType="text" />
+            android:inputType="text" />-->
+
+        <Spinner
+            android:id="@+id/mnh3ato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:spinnerMode="dropdown" />
+
+        <Spinner
+            android:id="@+id/mnh3afrom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:spinnerMode="dropdown" />
 
         <TextView
             android:id="@+id/lbl_mnh3b"
@@ -183,28 +197,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/mnh4cdt" />
 
-            <Spinner
-                android:id="@+id/mnh4cto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:spinnerMode="dropdown" />
-
-            <Spinner
-                android:id="@+id/mnh4cfrom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:spinnerMode="dropdown" />
-
-            <!--<io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
+            <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
                 android:id="@+id/mnh4cdt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
                 android:focusable="true"
                 android:textColor="@android:color/black"
-                app:dateFormat="dd-MM-yyyy" />-->
+                app:dateFormat="dd-MM-yyyy" />
 
         </LinearLayout>
 
