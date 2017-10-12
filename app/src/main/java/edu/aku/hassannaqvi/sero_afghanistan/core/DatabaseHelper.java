@@ -346,8 +346,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         //values.put(LocationTable.COLUMN_SH, AppMain.lc.getsH());
 
-        values.put(LocationTable.COLUMN_UID, AppMain.lc.getUID());
-        values.put(LocationTable.COLUMN_UUID, AppMain.fc.getDeviceID() + AppMain.lc.get_ID());
+        values.put(LocationTable.COLUMN_UID, AppMain.fc.getDeviceID() + AppMain.lc.get_ID());
+        values.put(LocationTable.COLUMN_UUID, AppMain.lc.getUID());
 
 
         // Which row to update, based on the ID
