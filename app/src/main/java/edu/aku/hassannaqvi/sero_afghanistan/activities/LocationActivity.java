@@ -235,6 +235,8 @@ public class LocationActivity extends AppCompatActivity {
                 mnh3ato.setSelection(0);
                 mnh3afrom.setSelection(0);
 
+
+
                 mnh488x.setText(null);
 
                 mnh2.requestFocus();
