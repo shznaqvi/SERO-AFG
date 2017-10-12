@@ -3,22 +3,21 @@ package edu.aku.hassannaqvi.sero_afghanistan.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.support.annotation.IdRes;
 import android.widget.Toast;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import edu.aku.hassannaqvi.sero_afghanistan.R;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
@@ -135,7 +134,7 @@ public class SectionHActivity extends Activity {
         sH.put("mnh2a", mnh2a.getText().toString());
 
         if (!mnh2a.getText().toString().isEmpty()) {
-            AppMain.NoOfLocations = Integer.parseInt(mnh2a.getText().toString());
+            AppMain.NoOfLocations = Integer.valueOf(mnh2a.getText().toString());
         }
 
         AppMain.fc.setsH(String.valueOf(sH));
@@ -168,7 +167,7 @@ public class SectionHActivity extends Activity {
             }
 
 
-            if (Integer.parseInt(mnh2a.getText().toString()) <= 0) {
+            if (Integer.valueOf(mnh2a.getText().toString()) <= 0) {
                 Toast.makeText(this, "Number of location cannot be less than or equal to 0", Toast.LENGTH_SHORT).show();
                 mnh2a.setError("This data is Required!");    // Set Error on last radio button
                 Log.i(TAG, "mnh2a: This data is Required!");

@@ -23,7 +23,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -739,8 +738,8 @@ public class SectionAActivity extends AppCompatActivity {
             }
 
             if (studycode.getText().toString().equals("1") ?
-                    (Integer.parseInt(mna5months.getText().toString()) < 6 || Integer.parseInt(mna5months.getText().toString()) > 11) :
-                    (Integer.parseInt(mna5months.getText().toString()) < 36 || Integer.parseInt(mna5months.getText().toString()) > 48)) {
+                    (Integer.valueOf(mna5months.getText().toString()) < 6 || Integer.valueOf(mna5months.getText().toString()) > 11) :
+                    (Integer.valueOf(mna5months.getText().toString()) < 36 || Integer.valueOf(mna5months.getText().toString()) > 48)) {
                 mna5months.setError("Months must be between " + (
                         studycode.getText().toString().equals("1") ? "6 - 11" : "36 - 48"));
                 Toast.makeText(getApplicationContext(), "ERROR(Invalid): Months must be between " + (
@@ -753,7 +752,7 @@ public class SectionAActivity extends AppCompatActivity {
             }
 
 
-            if (Integer.parseInt(mna5days.getText().toString()) < 0 || Integer.parseInt(mna5days.getText().toString()) > 29) {
+            if (Integer.valueOf(mna5days.getText().toString()) < 0 || Integer.valueOf(mna5days.getText().toString()) > 29) {
                 mna5days.setError("Days must be between 0 - 29");
                 Toast.makeText(getApplicationContext(), "ERROR(Invalid): Days must be between 0 - 29 ", Toast.LENGTH_LONG).show();
                 Log.i(TAG, "mna5days: This Data is Invalid!");
@@ -1057,7 +1056,7 @@ public class SectionAActivity extends AppCompatActivity {
         }*/
 
 
-        if (mnc4e.isChecked() && Integer.parseInt(mnc3years.getText().toString()) < 16) {
+        if (mnc4e.isChecked() && Integer.valueOf(mnc3years.getText().toString()) < 16) {
             mnc3years.setError("Age must be 16 years or greater if the education level is Graduation");
             Toast.makeText(getApplicationContext(), "ERROR(Invalid): Age must be 16 years if the education level is Graduation ", Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnc3years: This Data is Invalid!");
@@ -1068,7 +1067,7 @@ public class SectionAActivity extends AppCompatActivity {
         }
 
 
-        if (mnc4f.isChecked() && Integer.parseInt(mnc3years.getText().toString()) < 19) {
+        if (mnc4f.isChecked() && Integer.valueOf(mnc3years.getText().toString()) < 19) {
             mnc3years.setError("Age must be 19 years or greater if the education level is Masters");
             Toast.makeText(getApplicationContext(), "ERROR(Invalid): Age must be 19 years if the education level is Masters ", Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnc3years: This Data is Invalid!");
