@@ -90,6 +90,11 @@ public class AppMain extends Application {
     public static String VillageName;
     public static String username = "";
     public static String hfacility = "";
+    public static String studyid = "";
+    public static String provcode = "";
+    public static String villagecode = "";
+    public static String distcode = "";
+
 
     public static long installedOn;
     public static Integer versionCode;

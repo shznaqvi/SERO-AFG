@@ -439,6 +439,14 @@ public class LocationActivity extends AppCompatActivity {
 
         JSONObject sH = new JSONObject();
 
+
+        sH.put("studycode", AppMain.studyCode);
+        sH.put("studyid", AppMain.studyid);
+        sH.put("hfacility", AppMain.hfacility);
+        sH.put("provcode", AppMain.provcode);
+        sH.put("distcode", AppMain.distcode);
+
+
         sH.put("mnh2", mnh2.getText().toString());
 
         //sH.put("mnh3a", mnh3a.getText().toString());
