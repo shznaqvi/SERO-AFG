@@ -350,8 +350,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(LocationTable.COLUMN_UUID, AppMain.lc.getUID());
 
 
-
-
         // Which row to update, based on the ID
         String selection = LocationTable._ID + " = ?";
         String[] selectionArgs = {String.valueOf(AppMain.lc.get_ID())};

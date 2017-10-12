@@ -286,6 +286,8 @@ public class LocationActivity extends AppCompatActivity {
 
             AppMain.lc.setUID(AppMain.fc.getDeviceID() + AppMain.fc.getID());
             db.updateSectionsH();
+
+
             //db.updateFormssH();
 
             return true;
