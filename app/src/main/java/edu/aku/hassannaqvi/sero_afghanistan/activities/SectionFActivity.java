@@ -393,7 +393,7 @@ public class SectionFActivity extends Activity {
             mnf3months.setError(null);
         }
 
-        if (Integer.parseInt(mnf3months.getText().toString()) > 11) {
+        if (Integer.valueOf(mnf3months.getText().toString()) > 11) {
             mnf3months.setError("Range 0 - 11");
             Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnf3), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnf3months: This Data is invalid!");

@@ -1439,7 +1439,7 @@ public class SectionDActivity extends Activity {
 //        }
 
         if (mnd7a.isChecked() || mnd6a.isChecked()) {
-            if (Integer.parseInt(mnd8.getText().toString()) < 1) {
+            if (Integer.valueOf(mnd8.getText().toString().isEmpty() ? "0" : mnd8.getText().toString()) < 1) {
                 mnd8.setError("Total doses must be greater than zero");
                 Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
                 Log.i(TAG, "mnd8: total doses must be greater than zero");
@@ -1450,7 +1450,7 @@ public class SectionDActivity extends Activity {
             }
         }
 
-        if (AppMain.studyCode.equals("1") && Integer.parseInt(mnd8.getText().toString()) > 15) {
+        if (AppMain.studyCode.equals("1") && Integer.valueOf(mnd8.getText().toString()) > 15) {
             mnd8.setError("Total doses must be lesser than 16");
             Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnd8: Total doses must be lesser than 16");
@@ -1460,7 +1460,7 @@ public class SectionDActivity extends Activity {
             mnd8.setError(null);
         }
 
-        if (AppMain.studyCode.equals("2") && Integer.parseInt(mnd8.getText().toString()) > 50) {
+        if (AppMain.studyCode.equals("2") && Integer.valueOf(mnd8.getText().toString().isEmpty() ? "0" : mnd8.getText().toString()) > 50) {
             mnd8.setError("Total doses must be lesser than or equal to 50");
             Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnd8: Total doses must be lesser than or equal to 50");
@@ -1540,7 +1540,7 @@ public class SectionDActivity extends Activity {
             }
 
 
-            if (Integer.parseInt(mnd10months.getText().toString()) < 0 || Integer.parseInt(mnd10months.getText().toString()) > 12) {
+            if (Integer.valueOf(mnd10months.getText().toString()) < 0 || Integer.valueOf(mnd10months.getText().toString()) > 12) {
                 mnd10months.setError("Month must be 1 - 12");
                 Toast.makeText(getApplicationContext(), "ERROR(invalid): Month must be 1 - 12", Toast.LENGTH_LONG).show();
                 Log.i(TAG, "mnd10months: This Data is Invalid!");
