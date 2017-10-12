@@ -83,6 +83,19 @@
                 android:text=""
                 android:textAlignment="center" />
 
+            <TextView
+                android:id="@+id/lbl_hfacility"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hfacility" />
+
+            <Spinner
+                android:id="@+id/hfacility"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:spinnerMode="dropdown" />
+
 
             <!--<Spinner
                 android:id="@+id/spUC"

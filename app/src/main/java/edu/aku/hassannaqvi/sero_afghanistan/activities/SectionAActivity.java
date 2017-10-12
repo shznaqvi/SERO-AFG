@@ -499,6 +499,7 @@ public class SectionAActivity extends AppCompatActivity {
 
         JSONObject sA = new JSONObject();
 
+        sA.put("hfacility", AppMain.hfacility);
         sA.put("mna1", mna1.getText().toString());
         sA.put("mna2", mna2.getText().toString());
         sA.put("mna3", mna3.getText().toString());

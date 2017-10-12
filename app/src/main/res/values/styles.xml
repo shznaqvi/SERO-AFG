@@ -91,34 +91,34 @@
         <item name="android:paddingStart">8dp</item>
         <item name="android:paddingEnd">8dp</item>
         <item name="android:textColorHint">@color/colorPrimaryAlpha</item>
-
     </style>
+
 
     <style name="spinner" parent="android:Widget.Material.Light.Spinner">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginBottom">16dp</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:typeface">serif</item>
         <item name="android:textColor">#ff0000</item>
         <item name="android:background">#d6d6d6</item>
-        <item name="android:padding">16dp</item>
-
+        <item name="android:padding">8dp</item>
 
     </style>
 
+
     <style name="spinnerItemStyle" parent="android:Widget.Material.Light.TextView.SpinnerItem">
-        <item name="android:padding">10dp</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:typeface">serif</item>
-        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textColor">#000000</item>
     </style>
 
     <style name="spinnerDropDownItemStyle" parent="android:Widget.Material.Light.DropDownItem.Spinner">
-        <item name="android:padding">20dp</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:typeface">serif</item>
-        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textColor">#ff0000</item>
     </style>
 
     <style name="SpinnerItem" parent="android:Widget.Material.Light.TextView.SpinnerItem">>
@@ -126,7 +126,7 @@
     </style>
 
     <style name="SpinnerItemText" parent="android:Widget.Material.Light.TextView.SpinnerItem">
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:typeface">serif</item>
     </style>
 
@@ -136,11 +136,11 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">right</item>
         <item name="android:orientation">vertical</item>
-        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
         <item name="android:background">#d6d6d6</item>
         <item name="android:textSize">24sp</item>
         <item name="android:typeface">serif</item>
-        <item name="android:padding">16dp</item>
+        <item name="android:padding">8dp</item>
 
     </style>
 

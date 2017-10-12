@@ -31,7 +31,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.sero_afghanistan.R;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.LocationContract;
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.MonthContract;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
 import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
@@ -234,7 +233,6 @@ public class LocationActivity extends AppCompatActivity {
                 mnh4cdt.setText(null);
                 mnh3ato.setSelection(0);
                 mnh3afrom.setSelection(0);
-
 
 
                 mnh488x.setText(null);

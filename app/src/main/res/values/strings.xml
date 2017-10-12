@@ -9,6 +9,7 @@
 
 
     <string name="title_activity_login">Log in</string>
+    <string name="hfacility">روغتیایی مرکز</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -204,6 +205,9 @@
     <string name="mnh2"> که ځواب نه وي، په جریان د کال کی مو په کومو نورو ځایونو کی ژوند کړی دی او یا پاتی شوي یاست </string>
     <string name="mnh2a"> Number of locations </string>
     <string name="mnh3a"> د تیرو ذکر شوو ځایونو چی په تیر کال کی پکی پاتی شوي یاست </string>
+    <string name="mnh3ato"> ته </string>
+    <string name="mnh3afrom"> له </string>
+
     <string name="mnh3b"> په کومو ځایونو کی چی پاتی شوي یاست  تګ  او راتګ مو په کومو لیارو وو </string>
     <string name="mnh4"> کوم یو د لاندی ذکر شوو ګروپونو پوری تاسی تړاو لرۍ؟ </string>
     <string name="mnh4a"> کوچیان </string>

@@ -34,6 +34,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -70,6 +71,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "test1234:test1234", "testS12345:testS12345", "bar@example.com:world"
     };
+
+    private static final String TAG = "";
+
     // District Spinner
     public ArrayList<String> lables;
     public ArrayList<String> values;
@@ -91,6 +95,10 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     Spinner spUC;
     */
 
+
+    @BindView(R.id.hfacility)
+    Spinner hfacility;
+
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
 
@@ -100,12 +108,27 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private UserLoginTask mAuthTask = null;
+    ArrayList<String> arr_hfacility;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+
+        arr_hfacility = new ArrayList<>();
+        arr_hfacility.add(0, "Select Facility");
+        arr_hfacility.add(1, "د بلخ سیمه ییز روغتون");
+        arr_hfacility.add(2, "هرات سیمه ایز روغتون");
+        arr_hfacility.add(3, "د غازي ولایتی روغتون");
+        arr_hfacility.add(4, "د اندرا ګاندي روغتون او کوچی (کوډ) روغتون");
+        arr_hfacility.add(5, "د خوست والیتي روغتون");
+        arr_hfacility.add(6, "د ننګرهار سیمه ایز روغتون");
+        arr_hfacility.add(7, "د کندز سیمه ییز روغتون");
+        arr_hfacility.add(8, "د پکتیا والیتي روغتون");
+
+        hfacility.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, arr_hfacility));
+
 
         try {
             long installedOn = this
@@ -282,17 +305,26 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             cancel = true;
         }*/
 
-        if (cancel) {
-            // There was an error; don't attempt login and focus the first
-            // form field with an error.
-            focusView.requestFocus();
+
+        if (hfacility.getSelectedItemId() == 0) {
+            Toast.makeText(this, "Please select health facility", Toast.LENGTH_SHORT).show();
         } else {
-            // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+            if (cancel) {
+                // There was an error; don't attempt login and focus the first
+                // form field with an error.
+                focusView.requestFocus();
+            } else {
+                // Show a progress spinner, and kick off a background task to
+                // perform the user login attempt.
+
+
+                showProgress(true);
+                mAuthTask = new UserLoginTask(email, password);
+                mAuthTask.execute((Void) null);
+            }
         }
+
+
     }
 
     private boolean isEmailValid(String email) {
@@ -438,6 +470,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                         (mEmail.equals("test1234") && mPassword.equals("test1234"))) {
                     AppMain.username = mEmail;
                     AppMain.admin = mEmail.contains("@");
+                    AppMain.hfacility = String.valueOf(hfacility.getSelectedItemId());
 
                     Intent iLogin = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(iLogin);

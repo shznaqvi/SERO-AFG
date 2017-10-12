@@ -1438,16 +1438,34 @@ public class SectionDActivity extends Activity {
 //                break;
 //        }
 
+
+        if (mnd8.getText().toString().isEmpty() || mnd8.getText().toString() == null) {
+            mnd8.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
+            Log.i(TAG, "mnd8: This Data is Required!");
+            mnd8.requestFocus();
+            return false;
+        } else {
+            mnd8.setError(null);
+        }
+
+
         if (mnd7a.isChecked() || mnd6a.isChecked()) {
-            if (Integer.valueOf(mnd8.getText().toString().isEmpty() ? "0" : mnd8.getText().toString()) < 1) {
-                mnd8.setError("Total doses must be greater than zero");
-                Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
-                Log.i(TAG, "mnd8: total doses must be greater than zero");
-                mnd8.requestFocus();
-                return false;
-            } else {
-                mnd8.setError(null);
+
+            if (!mnd8.getText().toString().isEmpty()) {
+
+                if (Integer.valueOf(mnd8.getText().toString()) < 1) {
+                    mnd8.setError("Total doses must be greater than zero");
+                    Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
+                    Log.i(TAG, "mnd8: total doses must be greater than zero");
+                    mnd8.requestFocus();
+                    return false;
+                } else {
+                    mnd8.setError(null);
+                }
+
             }
+
         }
 
         if (AppMain.studyCode.equals("1") && Integer.valueOf(mnd8.getText().toString()) > 15) {
@@ -1464,16 +1482,6 @@ public class SectionDActivity extends Activity {
             mnd8.setError("Total doses must be lesser than or equal to 50");
             Toast.makeText(getApplicationContext(), "ERROR(invalid): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
             Log.i(TAG, "mnd8: Total doses must be lesser than or equal to 50");
-            mnd8.requestFocus();
-            return false;
-        } else {
-            mnd8.setError(null);
-        }
-
-        if (mnd8.getText().toString().isEmpty() || mnd8.getText().toString() == null) {
-            mnd8.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "ERROR(empty): " + getString(R.string.mnd8), Toast.LENGTH_LONG).show();
-            Log.i(TAG, "mnd8: This Data is Required!");
             mnd8.requestFocus();
             return false;
         } else {
