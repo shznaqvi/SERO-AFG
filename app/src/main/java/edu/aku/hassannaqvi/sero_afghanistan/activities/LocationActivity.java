@@ -343,16 +343,16 @@ public class LocationActivity extends AppCompatActivity {
             mnh3a.setError(null);
         }*/
 
+        if (mnh3afrom.getSelectedItemId() == 0) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnh3a), Toast.LENGTH_SHORT).show();
+            Log.i(TAG, "mnh3afrom: This data is Required!");
+            return false;
+        }
+
 
         if (mnh3ato.getSelectedItemId() == 0) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnh3a), Toast.LENGTH_SHORT).show();
             Log.i(TAG, "mnh3ato: This data is Required!");
-            return false;
-        }
-
-        if (mnh3afrom.getSelectedItemId() == 0) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnh3a), Toast.LENGTH_SHORT).show();
-            Log.i(TAG, "mnh3afrom: This data is Required!");
             return false;
         }
 
@@ -438,8 +438,9 @@ public class LocationActivity extends AppCompatActivity {
 
         //sH.put("mnh3a", mnh3a.getText().toString());
 
-        sH.put("mnh3ato", mnh3ato.getSelectedItemId());
         sH.put("mnh3afrom", mnh3afrom.getSelectedItemId());
+        sH.put("mnh3ato", mnh3ato.getSelectedItemId());
+
 
         Log.d(TAG, "SaveDraft: " + mnh3ato.getSelectedItemId() + " - " + mnh3afrom.getSelectedItemId());
 

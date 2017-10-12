@@ -107,19 +107,6 @@
             android:inputType="text" />-->
 
         <TextView
-            android:id="@+id/lbl_mnh3ato"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mnh3ato" />
-
-        <Spinner
-            android:id="@+id/mnh3ato"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:spinnerMode="dropdown" />
-
-        <TextView
             android:id="@+id/lbl_mnh3afrom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -127,6 +114,19 @@
 
         <Spinner
             android:id="@+id/mnh3afrom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:id="@+id/lbl_mnh3ato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mnh3ato" />
+
+        <Spinner
+            android:id="@+id/mnh3ato"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
