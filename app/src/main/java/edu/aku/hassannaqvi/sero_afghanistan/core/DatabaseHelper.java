@@ -109,6 +109,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + LocationTable.TABLE_NAME + "("
             + LocationTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             LocationTable.COLUMN_UID + " TEXT," +
+            LocationTable.COLUMN_UUID + " TEXT," +
             LocationTable.COLUMN_DEVICEID + " TEXT," +
             LocationTable.COLUMN_DEVICETAGID + " TEXT," +
             LocationTable.COLUMN_FORMDATE + " TEXT," +
@@ -346,6 +347,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //values.put(LocationTable.COLUMN_SH, AppMain.lc.getsH());
 
         values.put(LocationTable.COLUMN_UID, AppMain.lc.getUID());
+        values.put(LocationTable.COLUMN_UUID, AppMain.fc.getDeviceID() + AppMain.lc.get_ID());
 
 
         // Which row to update, based on the ID
@@ -550,6 +552,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 LocationTable.COLUMN_ID,
                 LocationTable.COLUMN_UID,
+                LocationTable.COLUMN_UUID,
                 LocationTable.COLUMN_FORMDATE,
                 LocationTable.COLUMN_SH,
                 LocationTable.COLUMN_USER,

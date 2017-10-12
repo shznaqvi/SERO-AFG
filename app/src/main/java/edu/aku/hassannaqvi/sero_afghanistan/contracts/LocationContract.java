@@ -15,6 +15,7 @@ public class LocationContract {
     private final String projectName = "SERO-AFG";
     private String _ID = "";
     private String UID = "";
+    private String UUID = "";
     private String deviceId = "";
     private String formDate = ""; // Date
     private String user = ""; // Interviewer
@@ -46,6 +47,15 @@ public class LocationContract {
 
     public void setUID(String UID) {
         this.UID = UID;
+    }
+
+
+    public String getUUID() {
+        return UUID;
+    }
+
+    public void setUUID(String UUID) {
+        this.UUID = UUID;
     }
 
 
@@ -111,6 +121,7 @@ public class LocationContract {
 
         this._ID = jsonObject.getString(LocationTable.COLUMN_ID);
         this.UID = jsonObject.getString(LocationTable.COLUMN_UID);
+        this.UUID = jsonObject.getString(LocationTable.COLUMN_UUID);
         this.formDate = jsonObject.getString(LocationTable.COLUMN_FORMDATE);
         this.deviceId = jsonObject.getString(LocationTable.COLUMN_DEVICEID);
         this.user = jsonObject.getString(LocationTable.COLUMN_USER);
@@ -127,6 +138,7 @@ public class LocationContract {
 
         this._ID = cursor.getString(cursor.getColumnIndex(LocationTable.COLUMN_ID));
         this.UID = cursor.getString(cursor.getColumnIndex(LocationTable.COLUMN_UID));
+        this.UUID = cursor.getString(cursor.getColumnIndex(LocationTable.COLUMN_UUID));
         this.formDate = cursor.getString(cursor.getColumnIndex(LocationTable.COLUMN_FORMDATE));
         this.deviceId = cursor.getString(cursor.getColumnIndex(LocationTable.COLUMN_DEVICEID));
         this.user = cursor.getString(cursor.getColumnIndex(LocationTable.COLUMN_USER));
@@ -144,6 +156,7 @@ public class LocationContract {
 
         json.put(LocationTable.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(LocationTable.COLUMN_UID, this.UID == null ? JSONObject.NULL : this.UID);
+        json.put(LocationTable.COLUMN_UUID, this.UID == null ? JSONObject.NULL : this.UUID);
         //json.put(LocationTable.COLUMN_PROJECT_NAME, this.projectName == null ? JSONObject.NULL : this.projectName);
         json.put(LocationTable.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
         json.put(LocationTable.COLUMN_DEVICEID, this.deviceId == null ? JSONObject.NULL : this.deviceId);
@@ -162,6 +175,7 @@ public class LocationContract {
         //public static final String COLUMN_PROJECT_NAME = "project_name";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "uid";
+        public static final String COLUMN_UUID = "uuid";
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_DEVICEID = "deviceid";
         public static final String COLUMN_USER = "user";

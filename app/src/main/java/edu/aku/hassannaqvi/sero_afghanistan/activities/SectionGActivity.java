@@ -117,6 +117,9 @@ public class SectionGActivity extends Activity {
 
         mnh4cdt.setMaxDate(dtToday);*/
 
+
+        AppMain.locations = 1;
+
         mng1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
@@ -445,7 +448,7 @@ public class SectionGActivity extends Activity {
             sG.put("mngsticker", mngsticker.getText().toString());
         }
 
-        sG.put("mngFlagSticker",flagSticker);
+        sG.put("mngFlagSticker", flagSticker);
 
         /*sG.put("mnh1", mnh1a.isChecked() ? "1" : mnh1b.isChecked() ? "2" : "0");
         sG.put("mnh2", mnh2.getText().toString());

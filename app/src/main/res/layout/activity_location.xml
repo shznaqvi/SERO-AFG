@@ -147,7 +147,7 @@
             android:ems="10"
             android:inputType="text" />
 
-        <TextView
+        <!--<TextView
             android:id="@+id/lbl_mnh4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -195,55 +195,55 @@
                 android:layout_height="wrap_content"
                 android:text="@string/others" />
 
-        </RadioGroup>
+        </RadioGroup>-->
 
-        <LinearLayout
-            android:id="@+id/fldGrpmnh4c"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone">
+        <!--<LinearLayout-->
+            <!--android:id="@+id/fldGrpmnh4c"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical"-->
+            <!--android:visibility="gone">-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/mnh4cdt" />
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/mnh4cdt" />-->
 
-            <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
-                android:id="@+id/mnh4cdt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
-                android:focusable="true"
-                android:textColor="@android:color/black"
-                app:dateFormat="dd-MM-yyyy" />
+            <!--<io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText-->
+                <!--android:id="@+id/mnh4cdt"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="1dp"-->
+                <!--android:focusable="true"-->
+                <!--android:textColor="@android:color/black"-->
+                <!--app:dateFormat="dd-MM-yyyy" />-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
-        <LinearLayout
-            android:id="@+id/fldGrpmnh488"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone">
+        <!--<LinearLayout-->
+            <!--android:id="@+id/fldGrpmnh488"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical"-->
+            <!--android:visibility="gone">-->
 
-            <TextView
-                android:id="@+id/lbl_mnh488"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/others" />
+            <!--<TextView-->
+                <!--android:id="@+id/lbl_mnh488"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/others" />-->
 
-            <EditText
-                android:id="@+id/mnh488x"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
-                android:ems="10"
-                android:hint="@string/others"
-                android:inputType="text" />
+            <!--<EditText-->
+                <!--android:id="@+id/mnh488x"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"-->
+                <!--android:ems="10"-->
+                <!--android:hint="@string/others"-->
+                <!--android:inputType="text" />-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
 
         <LinearLayout

@@ -70,6 +70,7 @@
         <activity
             android:name=".activities.SectionHActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme1"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".activities.LocationActivity"

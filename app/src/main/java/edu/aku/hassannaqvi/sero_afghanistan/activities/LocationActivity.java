@@ -57,7 +57,7 @@ public class LocationActivity extends AppCompatActivity {
     EditText mnh3b;
 
 
-    @BindView(R.id.mnh4)
+    /*@BindView(R.id.mnh4)
     RadioGroup mnh4;
     @BindView(R.id.mnh4a)
     RadioButton mnh4a;
@@ -82,7 +82,7 @@ public class LocationActivity extends AppCompatActivity {
     DatePickerInputEditText mnh4cdt;
 
     @BindView(R.id.mnh488x)
-    EditText mnh488x;
+    EditText mnh488x;*/
 
 
     @BindView(R.id.btn_End)
@@ -118,6 +118,7 @@ public class LocationActivity extends AppCompatActivity {
 
         lbl_count.setText("Location " + AppMain.locations + " of " + AppMain.NoOfLocations);
 
+        Log.d(TAG, "Location " + AppMain.locations + " of " + AppMain.NoOfLocations);
 
         monthTo = new ArrayList<>();
 
@@ -138,11 +139,11 @@ public class LocationActivity extends AppCompatActivity {
         mnh3ato.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, monthTo));
         mnh3afrom.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, monthTo));
 
-        mnh4cdt.setManager(getSupportFragmentManager());
+        /*mnh4cdt.setManager(getSupportFragmentManager());
 
         String dtToday = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
 
-        mnh4cdt.setMaxDate(dtToday);
+        mnh4cdt.setMaxDate(dtToday);*/
 
         /*mnh1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -164,7 +165,7 @@ public class LocationActivity extends AppCompatActivity {
             }
         });*/
 
-        mnh4.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        /*mnh4.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
                 if (mnh4c.isChecked()) {
@@ -186,7 +187,7 @@ public class LocationActivity extends AppCompatActivity {
                     fldGrpmnh488.setVisibility(View.GONE);
                 }
             }
-        });
+        });*/
     }
 
 
@@ -206,6 +207,8 @@ public class LocationActivity extends AppCompatActivity {
                     if (AppMain.locations >= AppMain.NoOfLocations) {
 
                         AppMain.locations = 1;
+
+                        Log.d(TAG, "Location " + AppMain.locations + " of " + AppMain.NoOfLocations);
 
                         finish();
                         Intent main = new Intent(this, SectionGActivity.class);
@@ -229,13 +232,13 @@ public class LocationActivity extends AppCompatActivity {
                 //mnh3a.setText(null);
 
                 mnh3b.setText(null);
-                mnh4.clearCheck();
-                mnh4cdt.setText(null);
+                /*mnh4.clearCheck();
+                mnh4cdt.setText(null);*/
                 mnh3ato.setSelection(0);
                 mnh3afrom.setSelection(0);
 
 
-                mnh488x.setText(null);
+                /*mnh488x.setText(null);*/
 
                 mnh2.requestFocus();
 
@@ -367,7 +370,7 @@ public class LocationActivity extends AppCompatActivity {
         }
 
 
-        if (mnh4.getCheckedRadioButtonId() == -1) {
+        /*if (mnh4.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnh4), Toast.LENGTH_SHORT).show();
             mnh4a.setError("This data is Required!");    // Set Error on last radio button
             Log.i(TAG, "mnh4a: This data is Required!");
@@ -402,7 +405,7 @@ public class LocationActivity extends AppCompatActivity {
                 mnh488x.setError(null);
             }
 
-        }
+        }*/
 
         //}
 
@@ -441,23 +444,20 @@ public class LocationActivity extends AppCompatActivity {
         sH.put("mnh3afrom", mnh3afrom.getSelectedItemId());
         sH.put("mnh3ato", mnh3ato.getSelectedItemId());
 
-
-        Log.d(TAG, "SaveDraft: " + mnh3ato.getSelectedItemId() + " - " + mnh3afrom.getSelectedItemId());
-
         sH.put("mnh3b", mnh3b.getText().toString());
 
-        sH.put("mnh4", mnh4a.isChecked() ? "1"
+        /*sH.put("mnh4", mnh4a.isChecked() ? "1"
                 : mnh4b.isChecked() ? "2"
                 : mnh4c.isChecked() ? "3"
                 : mnh4d.isChecked() ? "4"
                 : mnh4e.isChecked() ? "5"
                 : mnh488.isChecked() ? "88"
-                : "0");
+                : "0");*/
 
         //sH.put("mnh4cdt", mnh4cdt.getText().toString());
 
 
-        sH.put("mnh488x", mnh488x.getText().toString());
+        //sH.put("mnh488x", mnh488x.getText().toString());
 
 
         AppMain.lc.setsH(String.valueOf(sH));
