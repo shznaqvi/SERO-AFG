@@ -1,8 +1,8 @@
 package edu.aku.hassannaqvi.sero_afghanistan.syncclasses;
 
-import android.os.AsyncTask;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -164,9 +164,9 @@ public class SyncLocation extends AsyncTask<Void, Void, String> {
                 }
             }
 
-            Toast.makeText(mContext, sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError, Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, sSynced + " Locations synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError, Toast.LENGTH_SHORT).show();
 
-            pd.setMessage(sSynced + " Forms synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError);
+            pd.setMessage(sSynced + " Locations synced." + String.valueOf(json.length() - sSynced) + " Errors: " + sSyncedError);
             pd.setTitle("Done uploading Location data");
             pd.show();
         } catch (JSONException e) {
