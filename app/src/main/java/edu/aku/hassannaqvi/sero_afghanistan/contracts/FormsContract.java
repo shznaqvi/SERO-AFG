@@ -363,19 +363,21 @@ public class FormsContract {
         if (!this.sC.equals("")) {
 
             json.put(singleForm.COLUMN_SC, this.sC.equals("") ? JSONObject.NULL : new JSONObject(this.sC));
-        json.put(singleForm.COLUMN_SD, this.sD.equals("") ? JSONObject.NULL : new JSONObject(this.sD));
+        }
+        if (!this.sD.equals("")) {
+            json.put(singleForm.COLUMN_SD, this.sD.equals("") ? JSONObject.NULL : new JSONObject(this.sD));
         }
         if (!this.sE.equals("")) {
-            json.put(singleForm.COLUMN_SE, this.sE.equals("") ? JSONObject.NULL : new JSONObject(this.sE));
+            json.put(singleForm.COLUMN_SE, new JSONObject(this.sE));
         }
         if (!this.sF.equals("")) {
-            json.put(singleForm.COLUMN_SF, this.sF.equals("") ? JSONObject.NULL : new JSONObject(this.sF));
+            json.put(singleForm.COLUMN_SF, new JSONObject(this.sF));
         }
         if (!this.sG.equals("")) {
-            json.put(singleForm.COLUMN_SG, this.sG.equals("") ? JSONObject.NULL : new JSONObject(this.sG));
+            json.put(singleForm.COLUMN_SG, new JSONObject(this.sG));
         }
         if (!this.sH.equals("")) {
-            json.put(singleForm.COLUMN_SH, this.sH.equals("") ? JSONObject.NULL : new JSONObject(this.sH));
+            json.put(singleForm.COLUMN_SH, new JSONObject(this.sH));
         }
         json.put(singleForm.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
         json.put(singleForm.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
