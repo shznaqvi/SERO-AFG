@@ -172,6 +172,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(singleForm.COLUMN_SE, fc.getsE());
         values.put(singleForm.COLUMN_SF, fc.getsF());
         values.put(singleForm.COLUMN_SG, fc.getsG());
+        values.put(singleForm.COLUMN_SH, fc.getsH());
         values.put(singleForm.COLUMN_UID, fc.getUID());
         values.put(singleForm.COLUMN_GPSLAT, fc.getGpsLat());
         values.put(singleForm.COLUMN_GPSLNG, fc.getGpsLng());
