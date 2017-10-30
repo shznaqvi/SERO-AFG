@@ -110,14 +110,13 @@ public class FormsContract {
         this.tagId = tagId;
     }
 
-    public void setIstatus(String Istatus) {
-        this.istatus = Istatus;
-    }
-
     public String getIstatus() {
         return istatus;
     }
 
+    public void setIstatus(String Istatus) {
+        this.istatus = Istatus;
+    }
 
     public void setstudycode(String studycode) {
         this.studycode = studycode;
@@ -136,13 +135,12 @@ public class FormsContract {
         return studyid;
     }
 
+    public String getAppVer() {
+        return appVer;
+    }
 
     public void setAppVer(String appVer) {
         this.appVer = appVer;
-    }
-
-    public String getAppVer() {
-        return appVer;
     }
 
     public String getFormDate() {
@@ -356,16 +354,29 @@ public class FormsContract {
 
         json.put(singleForm.COLUMN_APPVER, this.appVer == null ? JSONObject.NULL : this.appVer);
         json.put(singleForm.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
-
-        json.put(singleForm.COLUMN_SA, this.sA.equals("") ? JSONObject.NULL : new JSONObject(this.sA));
+        if (!this.sA.equals("")) {
+            json.put(singleForm.COLUMN_SA, this.sA.equals("") ? JSONObject.NULL : new JSONObject(this.sA));
+        }
+        if (!this.sB.equals("")) {
         json.put(singleForm.COLUMN_SB, this.sB.equals("") ? JSONObject.NULL : new JSONObject(this.sB));
-        json.put(singleForm.COLUMN_SC, this.sC.equals("") ? JSONObject.NULL : new JSONObject(this.sC));
-        json.put(singleForm.COLUMN_SD, this.sD.equals("") ? JSONObject.NULL : new JSONObject(this.sD));
-        json.put(singleForm.COLUMN_SE, this.sE.equals("") ? JSONObject.NULL : new JSONObject(this.sE));
-        json.put(singleForm.COLUMN_SF, this.sF.equals("") ? JSONObject.NULL : new JSONObject(this.sF));
-        json.put(singleForm.COLUMN_SG, this.sG.equals("") ? JSONObject.NULL : new JSONObject(this.sG));
-        json.put(singleForm.COLUMN_SH, this.sH.equals("") ? JSONObject.NULL : new JSONObject(this.sH));
+        }
+        if (!this.sC.equals("")) {
 
+            json.put(singleForm.COLUMN_SC, this.sC.equals("") ? JSONObject.NULL : new JSONObject(this.sC));
+        json.put(singleForm.COLUMN_SD, this.sD.equals("") ? JSONObject.NULL : new JSONObject(this.sD));
+        }
+        if (!this.sE.equals("")) {
+            json.put(singleForm.COLUMN_SE, this.sE.equals("") ? JSONObject.NULL : new JSONObject(this.sE));
+        }
+        if (!this.sF.equals("")) {
+            json.put(singleForm.COLUMN_SF, this.sF.equals("") ? JSONObject.NULL : new JSONObject(this.sF));
+        }
+        if (!this.sG.equals("")) {
+            json.put(singleForm.COLUMN_SG, this.sG.equals("") ? JSONObject.NULL : new JSONObject(this.sG));
+        }
+        if (!this.sH.equals("")) {
+            json.put(singleForm.COLUMN_SH, this.sH.equals("") ? JSONObject.NULL : new JSONObject(this.sH));
+        }
         json.put(singleForm.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
         json.put(singleForm.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
         json.put(singleForm.COLUMN_GPSTIME, this.gpsTime == null ? JSONObject.NULL : this.gpsTime);
