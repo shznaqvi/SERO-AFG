@@ -363,6 +363,8 @@ public class FormsContract {
         if (!this.sC.equals("")) {
 
             json.put(singleForm.COLUMN_SC, this.sC.equals("") ? JSONObject.NULL : new JSONObject(this.sC));
+        }
+        if (!this.sD.equals("")) {
             json.put(singleForm.COLUMN_SD, this.sD.equals("") ? JSONObject.NULL : new JSONObject(this.sD));
         }
         if (!this.sE.equals("")) {
