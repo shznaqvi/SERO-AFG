@@ -7,7 +7,6 @@ import android.database.MatrixCursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.location.Location;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -19,6 +18,7 @@ import java.util.Collection;
 import java.util.Date;
 
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.DistrictContract;
+import edu.aku.hassannaqvi.sero_afghanistan.contracts.DistrictContract.DistrictEntry;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.FormsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.FormsContract.singleForm;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.HFacilitiesContract;
@@ -26,9 +26,11 @@ import edu.aku.hassannaqvi.sero_afghanistan.contracts.HFacilitiesContract.HFacil
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.LHWsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.LHWsContract.LHWTable;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.LocationContract;
+import edu.aku.hassannaqvi.sero_afghanistan.contracts.LocationContract.LocationTable;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.PSUsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.PSUsContract.singleChild;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.ProvinceContract;
+import edu.aku.hassannaqvi.sero_afghanistan.contracts.ProvinceContract.ProvinceEntry;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.SourceNGOContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.SourceNGOContract.SourceTable;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.TehsilsContract;
@@ -40,10 +42,6 @@ import edu.aku.hassannaqvi.sero_afghanistan.contracts.UsersContract.singleUser;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.VillagesContract;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.VillagesContract.VillageTable;
 
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.ProvinceContract.ProvinceEntry;
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.LocationContract.LocationTable;
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.DistrictContract.DistrictEntry;
-
 /**
  * Created by hassan.naqvi on 10/29/2016.
  */
@@ -52,29 +50,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "seroafg.db";
     public static final String DB_NAME = "seroafg_copy.db";
-    private static final int DATABASE_VERSION = 1;
-
     public static final String SQL_CREATE_PROV = "CREATE TABLE " + ProvinceEntry.TABLE_NAME + "("
             + ProvinceEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT ,"
             + ProvinceEntry.ROW_PROVCODE + " TEXT,"
             + ProvinceEntry.ROW_PROVINCE + " TEXT);";
-
-
     public static final String SQL_CREATE_DIST = "CREATE TABLE " + DistrictEntry.TABLE_NAME + "("
             + DistrictEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + DistrictEntry.ROW_PROVCODE + " TEXT,"
             + DistrictEntry.ROW_DISTCODE + " TEXT,"
             + DistrictEntry.ROW_DISTNME + " TEXT);";
-
-
     public static final String SQL_CREATE_USERS = "CREATE TABLE " + singleUser.TABLE_NAME + "("
             + singleUser._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + singleUser.ROW_USERNAME + " TEXT,"
             + singleUser.ROW_PASSWORD + " TEXT,"
             + singleUser.ROW_USERSTATUS + " TEXT,"
             + singleUser.ROW_ISADMIN + " TEXT);";
-
-
+    private static final int DATABASE_VERSION = 1;
     private static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + singleForm.TABLE_NAME + "("
             + singleForm.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -172,6 +163,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(singleForm.COLUMN_SE, fc.getsE());
         values.put(singleForm.COLUMN_SF, fc.getsF());
         values.put(singleForm.COLUMN_SG, fc.getsG());
+        values.put(singleForm.COLUMN_SH, fc.getsH());
         values.put(singleForm.COLUMN_UID, fc.getUID());
         values.put(singleForm.COLUMN_GPSLAT, fc.getGpsLat());
         values.put(singleForm.COLUMN_GPSLNG, fc.getGpsLng());
