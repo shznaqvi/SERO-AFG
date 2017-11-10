@@ -46,7 +46,6 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -475,9 +474,14 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 DatabaseHelper db = new DatabaseHelper(LoginActivity.this);
                 if ((mEmail.equals("dmu@aku") && mPassword.equals("aku?dmu")) || db.Login(mEmail, mPassword) ||
                         (mEmail.equals("test1234") && mPassword.equals("test1234"))) {
+
                     AppMain.username = mEmail;
                     AppMain.admin = mEmail.contains("@");
                     AppMain.hfacility = String.valueOf(hfacility.getSelectedItemId());
+
+
+                    Toast.makeText(getApplicationContext(), AppMain.hfacility, Toast.LENGTH_LONG).show();
+
 
                     Intent iLogin = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(iLogin);

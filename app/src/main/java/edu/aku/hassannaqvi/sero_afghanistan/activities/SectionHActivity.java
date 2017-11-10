@@ -1,6 +1,8 @@
 package edu.aku.hassannaqvi.sero_afghanistan.activities;
 
-import android.app.Activity;
+import android.app.KeyguardManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -18,6 +20,8 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +35,12 @@ import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 public class SectionHActivity extends AppCompatActivity {
 
     private static final String TAG = SectionHActivity.class.getSimpleName();
+
+    Timer timer;
+    MyTimerTask myTimerTask;
+
+    /*@BindView(R.id.username)
+    TextView username;*/
 
     @BindView(R.id.mnh1)
     RadioGroup mnh1;
@@ -80,6 +90,10 @@ public class SectionHActivity extends AppCompatActivity {
         setContentView(R.layout.activity_section_h);
         ButterKnife.bind(this);
 
+        AppMain.IsDataSave = false;
+
+        //username.setText("Welcome: " + AppMain.username + " - facility: " + AppMain.hfacility);
+
         mnh4cdt.setManager(getSupportFragmentManager());
         String dtToday = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
         mnh4cdt.setMaxDate(dtToday);
@@ -126,6 +140,9 @@ public class SectionHActivity extends AppCompatActivity {
 
     @OnClick(R.id.btnNext)
     void SaveData() {
+
+        super.onResume();
+        AppMain.IsDataSave = true;
 
         if (ValidateForm()) {
             if (AppMain.flag) {
@@ -293,8 +310,63 @@ public class SectionHActivity extends AppCompatActivity {
         return true;
     }
 
+
     @Override
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        if (timer == null) {
+            myTimerTask = new MyTimerTask();
+            timer = new Timer();
+            timer.schedule(myTimerTask, 100, 100);
+        }
+
+        super.onPause();
+    }
+
+    private void bringApplicationToFront() {
+        KeyguardManager myKeyManager = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
+        if (myKeyManager.inKeyguardRestrictedInputMode())
+            return;
+
+        Log.d("TAG", "====Bringging Application to Front====");
+
+        Intent notificationIntent = new Intent(this, SectionGActivity.class);
+        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+
+
+        try {
+            pendingIntent.send();
+        } catch (PendingIntent.CanceledException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    class MyTimerTask extends TimerTask {
+        @Override
+        public void run() {
+
+            if (AppMain.IsDataSave) {
+            } else {
+                bringApplicationToFront();
+            }
+        }
+    }
+
 }

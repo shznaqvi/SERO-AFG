@@ -1,6 +1,9 @@
 package edu.aku.hassannaqvi.sero_afghanistan.activities;
 
 import android.app.Activity;
+import android.app.KeyguardManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +13,9 @@ import android.widget.ScrollView;
 import android.widget.Toast;
 
 import org.json.JSONException;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,6 +27,9 @@ import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
 public class EndingActivity extends Activity {
 
     private static final String TAG = EndingActivity.class.getSimpleName();
+
+    Timer timer;
+    MyTimerTask myTimerTask;
 
     @BindView(R.id.activity_section_a)
     ScrollView activitySectionA;
@@ -41,7 +50,10 @@ public class EndingActivity extends Activity {
         setContentView(R.layout.activity_ending);
         ButterKnife.bind(this);
 
-        if (!AppMain.flag){
+        AppMain.IsDataSave = false;
+
+
+        if (!AppMain.flag) {
             finish();
             startActivity(new Intent(this, MainActivity.class));
         }
@@ -67,6 +79,11 @@ public class EndingActivity extends Activity {
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
         Toast.makeText(this, "Processing Closing Section", Toast.LENGTH_SHORT).show();
+
+        super.onResume();
+        AppMain.IsDataSave = true;
+
+
         if (formValidation()) {
             try {
                 SaveDraft();
@@ -142,4 +159,58 @@ public class EndingActivity extends Activity {
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        if (timer == null) {
+            myTimerTask = new MyTimerTask();
+            timer = new Timer();
+            timer.schedule(myTimerTask, 100, 100);
+        }
+
+        super.onPause();
+    }
+
+    private void bringApplicationToFront() {
+        KeyguardManager myKeyManager = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
+        if (myKeyManager.inKeyguardRestrictedInputMode())
+            return;
+
+        Log.d("TAG", "====Bringging Application to Front====");
+
+        Intent notificationIntent = new Intent(this, SectionGActivity.class);
+        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+
+
+        try {
+            pendingIntent.send();
+        } catch (PendingIntent.CanceledException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    class MyTimerTask extends TimerTask {
+        @Override
+        public void run() {
+
+            if (AppMain.IsDataSave) {
+            } else {
+                bringApplicationToFront();
+            }
+        }
+    }
+
 }

@@ -1,5 +1,7 @@
 package edu.aku.hassannaqvi.sero_afghanistan.activities;
 
+import android.app.KeyguardManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -39,6 +41,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -54,7 +58,11 @@ import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 
 public class SectionAActivity extends AppCompatActivity {
 
+
     private static final String TAG = SectionAActivity.class.getSimpleName();
+
+    Timer timer;
+    MyTimerTask myTimerTask;
 
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
 
@@ -62,6 +70,9 @@ public class SectionAActivity extends AppCompatActivity {
     ScrollView activitySectionA;
     @BindView(R.id.studyid)
     EditText studyid;
+
+    /*@BindView(R.id.username)
+    TextView username;*/
 
     @BindView(R.id.studycode)
     EditText studycode;
@@ -222,6 +233,9 @@ public class SectionAActivity extends AppCompatActivity {
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
 
+        AppMain.IsDataSave = false;
+
+
         mna4.setManager(getSupportFragmentManager());
         dov.setManager(getSupportFragmentManager());
 
@@ -234,8 +248,8 @@ public class SectionAActivity extends AppCompatActivity {
         date36Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_36_MONTHS));
         date48Months = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTimeInMillis() - (AppMain.MILLISECONDS_IN_48_MONTHS));
 
-        dov.setMinDate("01/06/2017");
-        dov.setMaxDate(dateToday);
+        //dov.setMinDate("01/06/2017");
+        //dov.setMaxDate(dateToday);
 
         studycode.addTextChangedListener(new TextWatcher() {
             @Override
@@ -370,10 +384,14 @@ public class SectionAActivity extends AppCompatActivity {
 
     }
 
+
     @OnClick(R.id.btnNext)
     void SaveData() {
 
         DatabaseHelper db = new DatabaseHelper(this);
+
+        super.onResume();
+        AppMain.IsDataSave = true;
 
         if (ValidateForm()) {
 
@@ -414,6 +432,8 @@ public class SectionAActivity extends AppCompatActivity {
 //                startActivity(new Intent(this, MainActivity.class));
             }
         }
+
+
     }
 
 
@@ -1220,8 +1240,110 @@ public class SectionAActivity extends AppCompatActivity {
         }
     }
 
+
+    /*@Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString(HFACILITY, AppMain.hfacility);
+        savedInstanceState.putString(USERNAME, AppMain.username);
+
+        Toast.makeText(this, "i m onSaveInstanceState", Toast.LENGTH_LONG).show();
+
+        super.onSaveInstanceState(savedInstanceState);
+    }*/
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        // Always call the superclass so it can restore the view hierarchy
+        super.onRestoreInstanceState(savedInstanceState);
+
+        finish();
+
+        Toast.makeText(this, "onRestoreInstanceState: i m null", Toast.LENGTH_LONG).show();
+
+        Intent login = new Intent(this, LoginActivity.class);
+        startActivity(login);
+
+
+        // Restore state members from saved instance
+
+        /*if (savedInstanceState != null) {
+            *//*AppMain.hfacility = savedInstanceState.getString(HFACILITY);
+            AppMain.username = savedInstanceState.getString(USERNAME);*//*
+
+            finish();
+
+            Intent sD = new Intent(this, SectionDActivity.class);
+            startActivity(sD);
+
+            //AppMain.hfacility = COUNTER;
+
+            username.setText("Welcome: " + AppMain.username + " - facility: " + AppMain.hfacility);
+
+            Toast.makeText(this, "onRestoreInstanceState: i m null", Toast.LENGTH_LONG).show();
+
+        } else {
+            Toast.makeText(this, "onRestoreInstanceState: i m null", Toast.LENGTH_LONG).show();
+        }*/
+
+    }
+
+
 //    @Override
 //    public void onBackPressed() {
 //        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
 //    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        if (timer == null) {
+            myTimerTask = new MyTimerTask();
+            timer = new Timer();
+            timer.schedule(myTimerTask, 100, 100);
+        }
+
+        super.onPause();
+    }
+
+    private void bringApplicationToFront() {
+        KeyguardManager myKeyManager = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
+        if (myKeyManager.inKeyguardRestrictedInputMode())
+            return;
+
+        Log.d("TAG", "====Bringging Application to Front====");
+
+        Intent notificationIntent = new Intent(this, SectionDActivity.class);
+        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+
+
+        try {
+            pendingIntent.send();
+        } catch (PendingIntent.CanceledException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    class MyTimerTask extends TimerTask {
+        @Override
+        public void run() {
+
+            if (AppMain.IsDataSave) {
+            } else {
+                bringApplicationToFront();
+            }
+        }
+    }
+
 }

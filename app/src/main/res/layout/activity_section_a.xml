@@ -20,6 +20,12 @@
             android:layout_height="2dp"
             android:background="@color/colorPrimaryDark" />
 
+        <!--<TextView
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />-->
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,7 +37,6 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/mnaheading" />
-
 
         <TextView
             android:layout_width="match_parent"

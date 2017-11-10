@@ -10,12 +10,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -23,10 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,18 +29,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import edu.aku.hassannaqvi.sero_afghanistan.R;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.FormsContract;
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.HFacilitiesContract;
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.LHWsContract;
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.ProvinceContract;
-import edu.aku.hassannaqvi.sero_afghanistan.contracts.TehsilsContract;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
 import edu.aku.hassannaqvi.sero_afghanistan.getclasses.GetDistricts;
-import edu.aku.hassannaqvi.sero_afghanistan.getclasses.GetHFacilities;
-import edu.aku.hassannaqvi.sero_afghanistan.getclasses.GetLHWs;
 import edu.aku.hassannaqvi.sero_afghanistan.getclasses.GetProvince;
-import edu.aku.hassannaqvi.sero_afghanistan.getclasses.GetUCs;
 import edu.aku.hassannaqvi.sero_afghanistan.getclasses.GetUsers;
 import edu.aku.hassannaqvi.sero_afghanistan.syncclasses.SyncForms;
 import edu.aku.hassannaqvi.sero_afghanistan.syncclasses.SyncLocation;
@@ -193,43 +181,51 @@ public class MainActivity extends Activity {
     }
 
     public void openForm(View v) {
-        if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null) {
+
+        if (AppMain.username != null && AppMain.hfacility != null && AppMain.username != "" && AppMain.hfacility != "") {
+
+            if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null) {
             /*Set Boolean for checking*/
-            AppMain.flag = true;
-            startActivity(new Intent(MainActivity.this, SectionAActivity.class));
-        } else {
+                AppMain.flag = true;
+                startActivity(new Intent(MainActivity.this, SectionAActivity.class));
+            } else {
 
-            builder = new AlertDialog.Builder(MainActivity.this);
-            builder.setTitle("Tag Name");
+                builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Tag Name");
 
-            final EditText input = new EditText(MainActivity.this);
-            input.setInputType(InputType.TYPE_CLASS_TEXT);
-            builder.setView(input);
+                final EditText input = new EditText(MainActivity.this);
+                input.setInputType(InputType.TYPE_CLASS_TEXT);
+                builder.setView(input);
 
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    m_Text = input.getText().toString();
-                    if (!m_Text.equals("")) {
-                        editor.putString("tagName", m_Text);
-                        editor.commit();
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        m_Text = input.getText().toString();
+                        if (!m_Text.equals("")) {
+                            editor.putString("tagName", m_Text);
+                            editor.commit();
 
                         /*Set Boolean for checking*/
-                        AppMain.flag = true;
-                        startActivity(new Intent(MainActivity.this, SectionAActivity.class));
+                            AppMain.flag = true;
+                            startActivity(new Intent(MainActivity.this, SectionAActivity.class));
+                        }
                     }
-                }
-            });
-            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.cancel();
-                }
-            });
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
 
-            builder.show();
+                builder.show();
+            }
+
+        } else {
+
+            Intent login = new Intent(this, LoginActivity.class);
+            startActivity(login);
         }
-
     }
 
     public void openA(View v) {

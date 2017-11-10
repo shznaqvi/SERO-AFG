@@ -1,6 +1,9 @@
 package edu.aku.hassannaqvi.sero_afghanistan.activities;
 
 import android.app.Activity;
+import android.app.KeyguardManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +19,9 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -26,6 +32,12 @@ import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
 public class SectionEActivity extends Activity {
 
     private static final String TAG = SectionEActivity.class.getSimpleName();
+
+    Timer timer;
+    MyTimerTask myTimerTask;
+
+    /*@BindView(R.id.username)
+    TextView username;*/
 
     @BindView(R.id.mne1)
     RadioGroup mne1;
@@ -114,6 +126,10 @@ public class SectionEActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_e);
         ButterKnife.bind(this);
+
+        AppMain.IsDataSave = false;
+
+        //username.setText("Welcome: " + AppMain.username + " - facility: " + AppMain.hfacility);
 
         mne588.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -240,6 +256,10 @@ public class SectionEActivity extends Activity {
 
     @OnClick(R.id.btnNext)
     void SaveData() {
+
+        super.onResume();
+        AppMain.IsDataSave = true;
+
         if (ValidateForm()) {
             if (AppMain.flag) {
                 try {
@@ -261,6 +281,8 @@ public class SectionEActivity extends Activity {
 //                startActivity(new Intent(this, MainActivity.class));
             }
         }
+
+
     }
 
 
@@ -544,8 +566,63 @@ public class SectionEActivity extends Activity {
         return true;
     }
 
+
     @Override
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        if (timer == null) {
+            myTimerTask = new MyTimerTask();
+            timer = new Timer();
+            timer.schedule(myTimerTask, 100, 100);
+        }
+
+        super.onPause();
+    }
+
+    private void bringApplicationToFront() {
+        KeyguardManager myKeyManager = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
+        if (myKeyManager.inKeyguardRestrictedInputMode())
+            return;
+
+        Log.d("TAG", "====Bringging Application to Front====");
+
+        Intent notificationIntent = new Intent(this, SectionFActivity.class);
+        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+
+
+        try {
+            pendingIntent.send();
+        } catch (PendingIntent.CanceledException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    class MyTimerTask extends TimerTask {
+        @Override
+        public void run() {
+
+            if (AppMain.IsDataSave) {
+            } else {
+                bringApplicationToFront();
+            }
+        }
+    }
+
 }

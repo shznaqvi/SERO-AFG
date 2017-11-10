@@ -14,10 +14,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.View;
-
-import java.util.Map;
 
 import edu.aku.hassannaqvi.sero_afghanistan.activities.EndingActivity;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.FormsContract;
@@ -69,6 +66,9 @@ public class AppMain extends Application {
 
     public static String deviceId;
 
+
+    public static boolean IsDataSave;
+
     public static Boolean admin = false;
     public static int mna3 = -1;
     public static String mnb1 = "TEST";
@@ -94,6 +94,8 @@ public class AppMain extends Application {
     public static String provcode = "";
     public static String villagecode = "";
     public static String distcode = "";
+
+    public static String SCORE_TEXT = "";
 
 
     public static long installedOn;
@@ -148,6 +150,7 @@ public class AppMain extends Application {
         }
     }
 
+
     public static void endActivity(final Context context, final Activity activity) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 context);
@@ -173,6 +176,7 @@ public class AppMain extends Application {
         AlertDialog alert = alertDialogBuilder.create();
         alert.show();
     }
+
 
     protected void showCurrentLocation() {
 
@@ -289,4 +293,5 @@ public class AppMain extends Application {
 
         }
     }
+
 }

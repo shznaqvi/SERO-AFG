@@ -1,18 +1,16 @@
 package edu.aku.hassannaqvi.sero_afghanistan.activities;
 
+import android.app.KeyguardManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.annotation.IdRes;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -21,10 +19,10 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,12 +31,17 @@ import edu.aku.hassannaqvi.sero_afghanistan.R;
 import edu.aku.hassannaqvi.sero_afghanistan.contracts.LocationContract;
 import edu.aku.hassannaqvi.sero_afghanistan.core.AppMain;
 import edu.aku.hassannaqvi.sero_afghanistan.core.DatabaseHelper;
-import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 
 
 public class LocationActivity extends AppCompatActivity {
 
     private static final String TAG = LocationActivity.class.getSimpleName();
+
+    Timer timer;
+    MyTimerTask myTimerTask;
+
+    /*@BindView(R.id.username)
+    TextView username;*/
 
     /*@BindView(R.id.mnh1)
     RadioGroup mnh1;
@@ -115,6 +118,10 @@ public class LocationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
         ButterKnife.bind(this);
+
+        AppMain.IsDataSave = false;
+
+        //username.setText("Welcome: " + AppMain.username + " - facility: " + AppMain.hfacility);
 
         lbl_count.setText("Location " + AppMain.locations + " of " + AppMain.NoOfLocations);
 
@@ -193,6 +200,9 @@ public class LocationActivity extends AppCompatActivity {
 
     @OnClick(R.id.btnNext)
     void SaveData() {
+
+        super.onResume();
+        AppMain.IsDataSave = true;
 
         if (ValidateForm()) {
             if (AppMain.flag) {
@@ -481,4 +491,58 @@ public class LocationActivity extends AppCompatActivity {
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        if (timer == null) {
+            myTimerTask = new MyTimerTask();
+            timer = new Timer();
+            timer.schedule(myTimerTask, 100, 100);
+        }
+
+        super.onPause();
+    }
+
+    private void bringApplicationToFront() {
+        KeyguardManager myKeyManager = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
+        if (myKeyManager.inKeyguardRestrictedInputMode())
+            return;
+
+        Log.d("TAG", "====Bringging Application to Front====");
+
+        Intent notificationIntent = new Intent(this, SectionGActivity.class);
+        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+
+
+        try {
+            pendingIntent.send();
+        } catch (PendingIntent.CanceledException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    class MyTimerTask extends TimerTask {
+        @Override
+        public void run() {
+
+            if (AppMain.IsDataSave) {
+            } else {
+                bringApplicationToFront();
+            }
+        }
+    }
+
 }
