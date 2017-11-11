@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SERO-AFG.iml" filepath="$PROJECT_DIR$/SERO-AFG.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SERO-Afghanistan.iml" filepath="$PROJECT_DIR$/SERO-Afghanistan.iml" />
+      <module fileurl="file://F:\SERO-AFG\SERO-Afghanistan.iml" filepath="F:\SERO-AFG\SERO-Afghanistan.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

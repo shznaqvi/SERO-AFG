@@ -222,6 +222,15 @@ public class SectionAActivity extends AppCompatActivity {
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
 
+
+        if (AppMain.username == "" || AppMain.username == null || AppMain.hfacility == "" || AppMain.hfacility == null) {
+            Toast.makeText(this, "Please login again", Toast.LENGTH_SHORT).show();
+            finish();
+            Intent login = new Intent(this, LoginActivity.class);
+            startActivity(login);
+        }
+
+
         mna4.setManager(getSupportFragmentManager());
         dov.setManager(getSupportFragmentManager());
 
@@ -372,6 +381,13 @@ public class SectionAActivity extends AppCompatActivity {
 
     @OnClick(R.id.btnNext)
     void SaveData() {
+
+        if (AppMain.username == "" || AppMain.username == null || AppMain.hfacility == "" || AppMain.hfacility == null) {
+            Toast.makeText(this, "Please login again", Toast.LENGTH_SHORT).show();
+            finish();
+            Intent login = new Intent(this, LoginActivity.class);
+            startActivity(login);
+        }
 
         DatabaseHelper db = new DatabaseHelper(this);
 
