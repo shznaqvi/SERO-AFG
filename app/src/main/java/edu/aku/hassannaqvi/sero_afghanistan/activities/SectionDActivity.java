@@ -463,9 +463,6 @@ public class SectionDActivity extends Activity {
         setContentView(R.layout.activity_section_d);
         ButterKnife.bind(this);
 
-        AppMain.IsDataSave = false;
-
-
         /*mHomeKeyLocker = new HomeKeyLocker();
         mHomeKeyLocker.lock(this);*/
 
@@ -722,6 +719,7 @@ public class SectionDActivity extends Activity {
 
     @OnClick(R.id.btnNext)
     void SaveData() {
+
         if (ValidateForm()) {
 
             if (AppMain.flag) {
@@ -732,7 +730,12 @@ public class SectionDActivity extends Activity {
                 }
 
                 if (UpdateDB()) {
+
                     Toast.makeText(this, "Starting Section E", Toast.LENGTH_SHORT).show();
+
+                    onResume();
+                    AppMain.IsDataSaveD = true;
+
                     finish();
                     Intent secE = new Intent(this, SectionEActivity.class);
                     startActivity(secE);
@@ -744,6 +747,8 @@ public class SectionDActivity extends Activity {
 //                startActivity(new Intent(this, MainActivity.class));
             }
         }
+
+
     }
 
 
@@ -1708,7 +1713,7 @@ public class SectionDActivity extends Activity {
         if (timer == null) {
             myTimerTask = new MyTimerTask();
             timer = new Timer();
-            timer.schedule(myTimerTask, 100, 100);
+            timer.schedule(myTimerTask, 500, 500);
         }
 
         super.onPause();
@@ -1721,7 +1726,7 @@ public class SectionDActivity extends Activity {
 
         Log.d("TAG", "====Bringging Application to Front====");
 
-        Intent notificationIntent = new Intent(this, SectionEActivity.class);
+        Intent notificationIntent = new Intent(this, SectionDActivity.class);
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 
@@ -1737,9 +1742,7 @@ public class SectionDActivity extends Activity {
     class MyTimerTask extends TimerTask {
         @Override
         public void run() {
-
-            if (AppMain.IsDataSave) {
-            } else {
+            if (!AppMain.IsDataSaveD) {
                 bringApplicationToFront();
             }
         }

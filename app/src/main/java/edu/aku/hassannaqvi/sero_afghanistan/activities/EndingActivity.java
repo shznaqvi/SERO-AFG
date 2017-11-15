@@ -50,8 +50,6 @@ public class EndingActivity extends Activity {
         setContentView(R.layout.activity_ending);
         ButterKnife.bind(this);
 
-        AppMain.IsDataSave = false;
-
 
         if (!AppMain.flag) {
             finish();
@@ -80,8 +78,6 @@ public class EndingActivity extends Activity {
     void onBtnEndClick() {
         Toast.makeText(this, "Processing Closing Section", Toast.LENGTH_SHORT).show();
 
-        super.onResume();
-        AppMain.IsDataSave = true;
 
 
         if (formValidation()) {
@@ -91,6 +87,11 @@ public class EndingActivity extends Activity {
                 e.printStackTrace();
             }
             if (UpdateDB()) {
+
+                onResume();
+                AppMain.IsDataSaveend = true;
+                AppMain.IsDataSaveMainActivity = false;
+
                 finish();
                 Toast.makeText(this, "Closing Form!", Toast.LENGTH_SHORT).show();
                 Intent endSec = new Intent(this, MainActivity.class);
@@ -176,7 +177,7 @@ public class EndingActivity extends Activity {
         if (timer == null) {
             myTimerTask = new MyTimerTask();
             timer = new Timer();
-            timer.schedule(myTimerTask, 100, 100);
+            timer.schedule(myTimerTask, 500, 500);
         }
 
         super.onPause();
@@ -189,7 +190,7 @@ public class EndingActivity extends Activity {
 
         Log.d("TAG", "====Bringging Application to Front====");
 
-        Intent notificationIntent = new Intent(this, SectionGActivity.class);
+        Intent notificationIntent = new Intent(this, EndingActivity.class);
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 
@@ -205,9 +206,7 @@ public class EndingActivity extends Activity {
     class MyTimerTask extends TimerTask {
         @Override
         public void run() {
-
-            if (AppMain.IsDataSave) {
-            } else {
+            if (!AppMain.IsDataSaveend) {
                 bringApplicationToFront();
             }
         }

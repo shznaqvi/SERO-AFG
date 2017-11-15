@@ -67,7 +67,16 @@ public class AppMain extends Application {
     public static String deviceId;
 
 
-    public static boolean IsDataSave;
+    public static boolean IsDataSaveMainActivity = false;
+    public static boolean IsDataSaveA = false;
+    public static boolean IsDataSaveD = false;
+    public static boolean IsDataSaveE = false;
+    public static boolean IsDataSaveF = false;
+    public static boolean IsDataSaveG = false;
+    public static boolean IsDataSaveH = false;
+    public static boolean IsDataSaveloc = false;
+    public static boolean IsDataSaveend = false;
+
 
     public static Boolean admin = false;
     public static int mna3 = -1;

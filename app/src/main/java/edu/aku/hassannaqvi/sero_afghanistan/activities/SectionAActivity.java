@@ -233,8 +233,6 @@ public class SectionAActivity extends AppCompatActivity {
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
 
-        AppMain.IsDataSave = false;
-
 
         mna4.setManager(getSupportFragmentManager());
         dov.setManager(getSupportFragmentManager());
@@ -390,8 +388,6 @@ public class SectionAActivity extends AppCompatActivity {
 
         DatabaseHelper db = new DatabaseHelper(this);
 
-        super.onResume();
-        AppMain.IsDataSave = true;
 
         if (ValidateForm()) {
 
@@ -411,6 +407,9 @@ public class SectionAActivity extends AppCompatActivity {
 
                     if (UpdateDB()) {
                         Toast.makeText(this, "Starting Section D", Toast.LENGTH_SHORT).show();
+
+                        onResume();
+                        AppMain.IsDataSaveA = true;
 
                         AppMain.studyCode = studycode.getText().toString();
                         AppMain.studyid = studyid.getText().toString();
@@ -1309,7 +1308,7 @@ public class SectionAActivity extends AppCompatActivity {
         if (timer == null) {
             myTimerTask = new MyTimerTask();
             timer = new Timer();
-            timer.schedule(myTimerTask, 100, 100);
+            timer.schedule(myTimerTask, 500, 500);
         }
 
         super.onPause();
@@ -1322,7 +1321,7 @@ public class SectionAActivity extends AppCompatActivity {
 
         Log.d("TAG", "====Bringging Application to Front====");
 
-        Intent notificationIntent = new Intent(this, SectionDActivity.class);
+        Intent notificationIntent = new Intent(this, SectionAActivity.class);
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 
@@ -1338,9 +1337,7 @@ public class SectionAActivity extends AppCompatActivity {
     class MyTimerTask extends TimerTask {
         @Override
         public void run() {
-
-            if (AppMain.IsDataSave) {
-            } else {
+            if (!AppMain.IsDataSaveA) {
                 bringApplicationToFront();
             }
         }

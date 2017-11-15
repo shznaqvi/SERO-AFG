@@ -2,6 +2,8 @@ package edu.aku.hassannaqvi.sero_afghanistan.activities;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.KeyguardManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,6 +26,8 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,6 +43,9 @@ import edu.aku.hassannaqvi.sero_afghanistan.syncclasses.SyncForms;
 import edu.aku.hassannaqvi.sero_afghanistan.syncclasses.SyncLocation;
 
 public class MainActivity extends Activity {
+
+    Timer timer;
+    MyTimerTask myTimerTask;
 
     public static String TAG = MainActivity.class.getSimpleName();
     public List<String> lhwName;
@@ -187,6 +194,9 @@ public class MainActivity extends Activity {
             if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null) {
             /*Set Boolean for checking*/
                 AppMain.flag = true;
+                AppMain.IsDataSaveMainActivity = true;
+                AppMain.IsDataSaveA = false;
+
                 startActivity(new Intent(MainActivity.this, SectionAActivity.class));
             } else {
 
@@ -207,6 +217,9 @@ public class MainActivity extends Activity {
 
                         /*Set Boolean for checking*/
                             AppMain.flag = true;
+                            AppMain.IsDataSaveMainActivity = true;
+                            AppMain.IsDataSaveA = false;
+
                             startActivity(new Intent(MainActivity.this, SectionAActivity.class));
                         }
                     }
@@ -234,6 +247,8 @@ public class MainActivity extends Activity {
 //        finish();
 
         AppMain.flag = false;
+
+        AppMain.IsDataSaveMainActivity = true;
 
         Intent iA = new Intent(this, SectionAActivity.class);
         startActivity(iA);
@@ -341,6 +356,9 @@ public class MainActivity extends Activity {
     public void syncDevice(View view) {
         if (isNetworkAvailable()) {
 
+            onResume();
+            AppMain.IsDataSaveMainActivity = true;
+
             syncData sync = new syncData(this);
             sync.execute();
         }
@@ -351,6 +369,57 @@ public class MainActivity extends Activity {
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        if (timer == null) {
+            myTimerTask = new MyTimerTask();
+            timer = new Timer();
+            timer.schedule(myTimerTask, 500, 500);
+        }
+
+        super.onPause();
+    }
+
+    private void bringApplicationToFront() {
+        KeyguardManager myKeyManager = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
+        if (myKeyManager.inKeyguardRestrictedInputMode())
+            return;
+
+        Log.d("TAG", "====Bringging Application to Front====");
+
+        Intent notificationIntent = new Intent(this, MainActivity.class);
+        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+
+
+        try {
+            pendingIntent.send();
+        } catch (PendingIntent.CanceledException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    class MyTimerTask extends TimerTask {
+        @Override
+        public void run() {
+            if (!AppMain.IsDataSaveMainActivity) {
+                bringApplicationToFront();
+            }
+        }
     }
 
 

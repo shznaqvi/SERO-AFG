@@ -123,8 +123,6 @@ public class SectionFActivity extends Activity {
         setContentView(R.layout.activity_section_f);
         ButterKnife.bind(this);
 
-        AppMain.IsDataSave = false;
-
         //username.setText("Welcome: " + AppMain.username + " - facility: " + AppMain.hfacility);
 
         mnf188.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -171,8 +169,7 @@ public class SectionFActivity extends Activity {
     @OnClick(R.id.btnNext)
     void SaveData() {
 
-        super.onResume();
-        AppMain.IsDataSave = true;
+
 
         if (ValidateForm()) {
             if (AppMain.flag) {
@@ -184,6 +181,10 @@ public class SectionFActivity extends Activity {
 
                 if (UpdateDB()) {
                     Toast.makeText(this, "Starting Section G", Toast.LENGTH_SHORT).show();
+
+                    onResume();
+                    AppMain.IsDataSaveF = true;
+
                     finish();
                     Intent secG = new Intent(this, SectionHActivity.class);
                     startActivity(secG);
@@ -509,7 +510,7 @@ public class SectionFActivity extends Activity {
         if (timer == null) {
             myTimerTask = new MyTimerTask();
             timer = new Timer();
-            timer.schedule(myTimerTask, 100, 100);
+            timer.schedule(myTimerTask, 500, 500);
         }
 
         super.onPause();
@@ -522,7 +523,7 @@ public class SectionFActivity extends Activity {
 
         Log.d("TAG", "====Bringging Application to Front====");
 
-        Intent notificationIntent = new Intent(this, SectionHActivity.class);
+        Intent notificationIntent = new Intent(this, SectionFActivity.class);
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 
@@ -538,9 +539,7 @@ public class SectionFActivity extends Activity {
     class MyTimerTask extends TimerTask {
         @Override
         public void run() {
-
-            if (AppMain.IsDataSave) {
-            } else {
+            if (!AppMain.IsDataSaveF) {
                 bringApplicationToFront();
             }
         }
