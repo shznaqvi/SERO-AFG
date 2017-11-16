@@ -755,6 +755,9 @@ public class SectionDActivity extends Activity {
     @OnClick(R.id.btn_End)
     void endInterview() {
         AppMain.IsExit = false;
+        onResume();
+        AppMain.IsDataSaveD = true;
+
         AppMain.endActivity(this, this);
     }
 
@@ -1710,7 +1713,7 @@ public class SectionDActivity extends Activity {
 
     @Override
     protected void onPause() {
-        if (timer == null) {
+        if (timer == null && !AppMain.IsDataSaveD) {
             myTimerTask = new MyTimerTask();
             timer = new Timer();
             timer.schedule(myTimerTask, 500, 500);

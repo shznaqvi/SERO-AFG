@@ -108,8 +108,6 @@ public class GetUsers extends AsyncTask<String, String, String> {
                 pd.setTitle("Error... Syncing Users");
             }
 
-            AppMain.IsDataSaveMainActivity = false;
-
             db.getAllUsers();
             pd.show();
         }

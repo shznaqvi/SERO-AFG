@@ -233,6 +233,7 @@ public class SectionAActivity extends AppCompatActivity {
         setContentView(R.layout.activity_section_a);
         ButterKnife.bind(this);
 
+        //AppMain.IsDataSaveMainActivity = false;
 
         mna4.setManager(getSupportFragmentManager());
         dov.setManager(getSupportFragmentManager());
@@ -448,6 +449,9 @@ public class SectionAActivity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+
+                onResume();
+                AppMain.IsDataSaveA = true;
 
                 finish();
 
@@ -1287,10 +1291,14 @@ public class SectionAActivity extends AppCompatActivity {
     }
 
 
-//    @Override
-//    public void onBackPressed() {
-//        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
-//    }
+    @Override
+    public void onBackPressed() {
+        AppMain.IsDataSaveMainActivity = false;
+        AppMain.IsDataSaveA = true;
+
+        Intent main = new Intent(this, MainActivity.class);
+        startActivity(main);
+    }
 
 
     @Override
@@ -1305,7 +1313,7 @@ public class SectionAActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        if (timer == null) {
+        if (timer == null && !AppMain.IsDataSaveA) {
             myTimerTask = new MyTimerTask();
             timer = new Timer();
             timer.schedule(myTimerTask, 500, 500);

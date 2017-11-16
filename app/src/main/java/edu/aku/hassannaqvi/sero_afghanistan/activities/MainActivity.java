@@ -194,10 +194,15 @@ public class MainActivity extends Activity {
             if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null) {
             /*Set Boolean for checking*/
                 AppMain.flag = true;
+
+                onResume();
                 AppMain.IsDataSaveMainActivity = true;
-                AppMain.IsDataSaveA = false;
+                AppMain.IsDataSaveend = false;
+
+                finish();
 
                 startActivity(new Intent(MainActivity.this, SectionAActivity.class));
+
             } else {
 
                 builder = new AlertDialog.Builder(MainActivity.this);
@@ -217,8 +222,10 @@ public class MainActivity extends Activity {
 
                         /*Set Boolean for checking*/
                             AppMain.flag = true;
+
+                            onResume();
                             AppMain.IsDataSaveMainActivity = true;
-                            AppMain.IsDataSaveA = false;
+                            AppMain.IsDataSaveend = false;
 
                             startActivity(new Intent(MainActivity.this, SectionAActivity.class));
                         }
@@ -247,8 +254,6 @@ public class MainActivity extends Activity {
 //        finish();
 
         AppMain.flag = false;
-
-        AppMain.IsDataSaveMainActivity = true;
 
         Intent iA = new Intent(this, SectionAActivity.class);
         startActivity(iA);
@@ -356,9 +361,6 @@ public class MainActivity extends Activity {
     public void syncDevice(View view) {
         if (isNetworkAvailable()) {
 
-            onResume();
-            AppMain.IsDataSaveMainActivity = true;
-
             syncData sync = new syncData(this);
             sync.execute();
         }
@@ -384,7 +386,7 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onPause() {
-        if (timer == null) {
+        if (timer == null && !AppMain.IsDataSaveMainActivity) {
             myTimerTask = new MyTimerTask();
             timer = new Timer();
             timer.schedule(myTimerTask, 500, 500);

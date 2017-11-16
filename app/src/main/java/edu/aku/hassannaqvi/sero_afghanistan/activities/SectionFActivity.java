@@ -202,6 +202,9 @@ public class SectionFActivity extends Activity {
     @OnClick(R.id.btn_End)
     void endInterview() {
         AppMain.IsExit = false;
+        onResume();
+        AppMain.IsDataSaveF = true;
+
         AppMain.endActivity(this, this);
     }
 
@@ -507,7 +510,7 @@ public class SectionFActivity extends Activity {
 
     @Override
     protected void onPause() {
-        if (timer == null) {
+        if (timer == null && !AppMain.IsDataSaveF) {
             myTimerTask = new MyTimerTask();
             timer = new Timer();
             timer.schedule(myTimerTask, 500, 500);

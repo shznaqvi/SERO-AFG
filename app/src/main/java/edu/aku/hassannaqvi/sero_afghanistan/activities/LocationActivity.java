@@ -267,6 +267,9 @@ public class LocationActivity extends AppCompatActivity {
     void endInterview() {
         AppMain.IsExit = false;
         AppMain.locations = 1;
+        onResume();
+        AppMain.IsDataSaveloc = true;
+
         AppMain.endActivity(this, this);
     }
 
@@ -505,7 +508,7 @@ public class LocationActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        if (timer == null) {
+        if (timer == null && !AppMain.IsDataSaveloc) {
             myTimerTask = new MyTimerTask();
             timer = new Timer();
             timer.schedule(myTimerTask, 500, 500);

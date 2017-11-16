@@ -79,7 +79,6 @@ public class EndingActivity extends Activity {
         Toast.makeText(this, "Processing Closing Section", Toast.LENGTH_SHORT).show();
 
 
-
         if (formValidation()) {
             try {
                 SaveDraft();
@@ -91,6 +90,13 @@ public class EndingActivity extends Activity {
                 onResume();
                 AppMain.IsDataSaveend = true;
                 AppMain.IsDataSaveMainActivity = false;
+                AppMain.IsDataSaveA = false;
+                AppMain.IsDataSaveD = false;
+                AppMain.IsDataSaveE = false;
+                AppMain.IsDataSaveF = false;
+                AppMain.IsDataSaveG = false;
+                AppMain.IsDataSaveH = false;
+                AppMain.IsDataSaveloc = false;
 
                 finish();
                 Toast.makeText(this, "Closing Form!", Toast.LENGTH_SHORT).show();
@@ -174,7 +180,7 @@ public class EndingActivity extends Activity {
 
     @Override
     protected void onPause() {
-        if (timer == null) {
+        if (timer == null && !AppMain.IsDataSaveend) {
             myTimerTask = new MyTimerTask();
             timer = new Timer();
             timer.schedule(myTimerTask, 500, 500);

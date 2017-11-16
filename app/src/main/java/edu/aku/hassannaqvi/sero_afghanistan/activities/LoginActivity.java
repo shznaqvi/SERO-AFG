@@ -115,6 +115,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
+
         arr_hfacility = new ArrayList<>();
         arr_hfacility.add(0, "Select Facility");
         arr_hfacility.add(1, "د بلخ سیمه ییز روغتون، بلخ");
